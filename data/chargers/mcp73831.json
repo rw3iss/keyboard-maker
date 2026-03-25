@@ -1,0 +1,99 @@
+{
+  "id": "mcp73831",
+  "name": "MCP73831T-2ACI/OT",
+  "manufacturer": "Microchip Technology",
+  "type": "linear-lipo-charger",
+  "package": "SOT-23-5",
+  "maxChargeCurrent": 500,
+  "chargeCurrentUnit": "mA",
+  "programmableChargeCurrent": true,
+  "chargeCurrentFormula": "I_REG = 1000V / R_PROG (in kohms)",
+  "commonResistorValues": {
+    "2k": "500mA",
+    "5k": "200mA",
+    "10k": "100mA",
+    "20k": "50mA"
+  },
+  "inputVoltage": {
+    "min": 3.75,
+    "max": 6.0,
+    "unit": "V"
+  },
+  "regulationVoltage": 4.2,
+  "features": [
+    "Single-cell Li-Ion/Li-Polymer charge management",
+    "Programmable charge current via single resistor",
+    "Automatic recharge on voltage drop",
+    "Charge status output pin (open-drain)",
+    "Preconditioning of deeply depleted cells",
+    "Thermal regulation"
+  ],
+  "pinout": {
+    "STAT": "pin 1 - charge status output (open-drain)",
+    "VSS": "pin 2 - ground",
+    "VBAT": "pin 3 - battery connection",
+    "VDD": "pin 4 - input supply",
+    "PROG": "pin 5 - charge current programming"
+  },
+  "dimensions": {
+    "width": 1.6,
+    "length": 2.9,
+    "height": 1.45,
+    "unit": "mm"
+  },
+  "footprintFile": "SOT-23-5.kicad_mod",
+  "symbolRef": "Battery_Management:MCP73831-2-OT",
+  "summary": "Simple, cheap, widely used — single-cell LiPo charger",
+  "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP73831-Family-Data-Sheet-DS20001984H.pdf",
+  "suppliers": [
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/Battery-Management_Microchip-Tech-MCP73831T-2ACI-OT_C424093.html",
+      "priceUsd": 0.45
+    },
+    {
+      "name": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/microchip-technology/MCP73831T-2ACI-OT/1979802",
+      "priceUsd": 0.73
+    },
+    {
+      "name": "Mouser",
+      "url": "https://www.mouser.com/ProductDetail/Microchip-Technology/MCP73831T-2ACI-OT",
+      "priceUsd": 0.69
+    }
+  ],
+  "designNotes": [
+    "Simplest LiPo charger option -- only needs a programming resistor and input cap",
+    "Use 10k PROG resistor for 100mA charge rate (safe for 300mAh+ batteries)",
+    "STAT pin can drive an LED through a 1k resistor to indicate charging status",
+    "Place 4.7uF ceramic caps on both VDD (input) and VBAT (output)",
+    "No reverse polarity protection -- add a Schottky diode on VBUS if needed",
+    "Thermal regulation limits charge current if IC gets too hot -- good for small PCBs",
+    "Suitable for keyboards when MCU does not have built-in charger (e.g., Holyiot 18010)"
+  ],
+  "concerns": [
+    "No power path management — system loses power during USB disconnect",
+    "Maximum 500mA charge current — slow for batteries >1000mAh",
+    "No reverse polarity protection — add external Schottky diode",
+    "No battery detection — will try to charge even without battery",
+    "Single-cell only — cannot charge multi-cell packs"
+  ],
+  "externalLinks": [
+    {
+      "label": "Microchip Product Page",
+      "url": "https://www.microchip.com/en-us/product/MCP73831"
+    },
+    {
+      "label": "Microchip App Note AN1149",
+      "url": "https://www.microchip.com/en-us/application-notes/an1149"
+    },
+    {
+      "label": "SparkFun Charger Breakout",
+      "url": "https://www.sparkfun.com/products/12711"
+    },
+    {
+      "label": "Adafruit Charger Guide",
+      "url": "https://learn.adafruit.com/adafruit-mcp73831-lipo-charger"
+    }
+  ]
+}

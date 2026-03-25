@@ -1,0 +1,392 @@
+{
+  "id": "custom-nrf52840-qiaa",
+  "name": "Nordic nRF52840-QIAA (Bare Chip)",
+  "chip": "nRF52840",
+  "formFactor": "qfn-73",
+  "hasUsb": true,
+  "usbType": "requires-external-connector",
+  "hasBle": true,
+  "bleVersion": "5.0",
+  "hasLipoCharger": false,
+  "chargerMaxMa": null,
+  "operatingVoltage": 3.3,
+  "inputVoltageRange": {
+    "min": 1.7,
+    "max": 5.5
+  },
+  "flashSize": "1 MB",
+  "ramSize": "256 KB",
+  "clockSpeed": "64 MHz",
+  "gpioCount": 48,
+  "gpioPins": [
+    {
+      "pin": "P0.00",
+      "label": "XL1",
+      "analog": false
+    },
+    {
+      "pin": "P0.01",
+      "label": "XL2",
+      "analog": false
+    },
+    {
+      "pin": "P0.02",
+      "label": "AIN0",
+      "analog": true
+    },
+    {
+      "pin": "P0.03",
+      "label": "AIN1",
+      "analog": true
+    },
+    {
+      "pin": "P0.04",
+      "label": "AIN2",
+      "analog": true
+    },
+    {
+      "pin": "P0.05",
+      "label": "AIN3",
+      "analog": true
+    },
+    {
+      "pin": "P0.06",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.07",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.08",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.09",
+      "label": "NFC1",
+      "analog": false
+    },
+    {
+      "pin": "P0.10",
+      "label": "NFC2",
+      "analog": false
+    },
+    {
+      "pin": "P0.11",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.12",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.13",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.14",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.15",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.16",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.17",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.18",
+      "label": "RESET",
+      "analog": false
+    },
+    {
+      "pin": "P0.19",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.20",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.21",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.22",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.23",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.24",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.25",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.26",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.27",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.28",
+      "label": "AIN4",
+      "analog": true
+    },
+    {
+      "pin": "P0.29",
+      "label": "AIN5",
+      "analog": true
+    },
+    {
+      "pin": "P0.30",
+      "label": "AIN6",
+      "analog": true
+    },
+    {
+      "pin": "P0.31",
+      "label": "AIN7",
+      "analog": true
+    },
+    {
+      "pin": "P1.00",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.01",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.02",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.03",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.04",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.05",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.06",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.07",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.08",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.09",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.10",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.11",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.12",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.13",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.14",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P1.15",
+      "label": "GPIO",
+      "analog": false
+    }
+  ],
+  "package": {
+    "type": "aQFN73",
+    "dimensions": {
+      "width": 7.0,
+      "height": 7.0,
+      "unit": "mm"
+    },
+    "pitch": 0.4,
+    "padCount": 73,
+    "thermalPad": true
+  },
+  "externalComponents": {
+    "crystal32MHz": {
+      "required": true,
+      "value": "32 MHz",
+      "loadCapacitance": "12 pF",
+      "note": "Required for USB operation"
+    },
+    "crystal32kHz": {
+      "required": true,
+      "value": "32.768 kHz",
+      "note": "Required for BLE timing and low-power sleep"
+    },
+    "antenna": {
+      "required": true,
+      "options": [
+        "chip-antenna",
+        "pcb-trace-antenna",
+        "u.fl-connector"
+      ],
+      "matchingNetwork": "Pi network: series inductor + two shunt capacitors"
+    },
+    "decouplingCaps": {
+      "required": true,
+      "values": [
+        "100nF x6",
+        "4.7uF x1",
+        "1uF x1"
+      ]
+    },
+    "regulatorBypass": {
+      "required": true,
+      "note": "DCC and DCCH pins need LC filter: 10uH inductor + 4.7uF cap"
+    }
+  },
+  "dimensions": {
+    "width": 7.0,
+    "length": 7.0,
+    "unit": "mm"
+  },
+  "footprintFile": "Nordic_nRF52840_QIAA_QFN73.kicad_mod",
+  "zmkBoard": null,
+  "firmware": [
+    "zmk",
+    "qmk",
+    "zephyr"
+  ],
+  "summary": "Maximum flexibility — 48 GPIOs, requires antenna design",
+  "bootloader": "Must flash via SWD (J-Link, CMSIS-DAP)",
+  "suppliers": [
+    {
+      "name": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/nordic-semiconductor-asa/NRF52840-QIAA-R7/9491124",
+      "priceUsd": 5.2
+    },
+    {
+      "name": "Mouser",
+      "url": "https://www.mouser.com/ProductDetail/Nordic-Semiconductor/nRF52840-QIAA-R7",
+      "priceUsd": 5.2
+    },
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/Nordic_Nordic-Semicon_nRF52840-QIAA-R7_C190794.html",
+      "priceUsd": 3.8
+    }
+  ],
+  "designNotes": [
+    "ADVANCED -- requires significant PCB design experience",
+    "QFN-73 package with 0.4mm pitch -- needs 4-layer PCB minimum",
+    "48 GPIOs available -- maximum flexibility for matrix, LEDs, and peripherals",
+    "Requires external 32MHz crystal for USB, 32.768kHz crystal for BLE",
+    "Antenna design is critical -- PCB trace antenna requires careful impedance matching",
+    "DCC/DCCH inductor/capacitor values are critical for power supply stability",
+    "Reference design available in Nordic nRF52840-DK schematics",
+    "USB D+/D- need series 27 ohm resistors",
+    "Needs custom ZMK/Zephyr board definition",
+    "Most cost-effective per-unit at scale, but highest NRE cost",
+    "Consider Holyiot 18010 module for simpler integration with similar capability"
+  ],
+  "features": [
+    "48 GPIOs — maximum flexibility for any keyboard layout",
+    "Full nRF52840 with USB, BLE 5.0, NFC",
+    "1MB flash, 256KB RAM, 64MHz ARM Cortex-M4F",
+    "Lowest per-unit cost at scale",
+    "8 analog inputs (ADC channels)",
+    "Direct hardware access to all peripherals"
+  ],
+  "concerns": [
+    "Requires significant PCB design experience",
+    "QFN-73 with 0.4mm pitch — needs 4-layer PCB minimum",
+    "Must design antenna matching network",
+    "Requires external 32MHz and 32.768kHz crystals",
+    "Many decoupling capacitors and power supply components needed",
+    "Needs SWD programmer (J-Link) for initial bootloader flash",
+    "Highest NRE cost despite lowest per-unit cost"
+  ],
+  "datasheet": "https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.7.pdf",
+  "externalLinks": [
+    {
+      "label": "Nordic nRF52840 Product Page",
+      "url": "https://www.nordicsemi.com/Products/nRF52840"
+    },
+    {
+      "label": "nRF52840 Product Specification",
+      "url": "https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.7.pdf"
+    },
+    {
+      "label": "Nordic Reference Designs",
+      "url": "https://infocenter.nordicsemi.com/topic/ug_nrf52840_dk/UG/dk/hw_description.html"
+    },
+    {
+      "label": "Antenna Design Guide (AN-043)",
+      "url": "https://infocenter.nordicsemi.com/pdf/nwp_043.pdf"
+    },
+    {
+      "label": "ZMK New Board Guide",
+      "url": "https://zmk.dev/docs/development/new-board"
+    }
+  ]
+}

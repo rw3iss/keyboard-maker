@@ -1,0 +1,80 @@
+{
+  "id": "jst-ph-2pin",
+  "name": "JST PH 2-Pin (S2B-PH-K-S)",
+  "manufacturer": "JST",
+  "type": "battery-connector",
+  "series": "PH",
+  "mounting": "through-hole",
+  "pinout": {
+    "pin1": "positive (BAT+)",
+    "pin2": "negative (GND)"
+  },
+  "pinCount": 2,
+  "pinPitch": 2.0,
+  "ratedCurrent": "2.0A",
+  "ratedVoltage": "100V",
+  "package": "THT",
+  "matingConnector": "JST PHR-2",
+  "dimensions": {
+    "width": 5.8,
+    "depth": 4.5,
+    "height": 6.0,
+    "unit": "mm"
+  },
+  "footprintFile": "JST_PH_S2B-PH-K-S.kicad_mod",
+  "datasheet": "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
+  "suppliers": [
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/Wire-To-Board-Connector_JST-S2B-PH-K-S-LF-SN_C173752.html",
+      "priceUsd": 0.05
+    },
+    {
+      "name": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/jst-sales-america-inc/S2B-PH-K-S-LF-SN/926626",
+      "priceUsd": 0.17
+    },
+    {
+      "name": "Mouser",
+      "url": "https://www.mouser.com/ProductDetail/JST/S2B-PH-K-S-LF-SN",
+      "priceUsd": 0.14
+    }
+  ],
+  "designNotes": [
+    "Standard LiPo battery connector for keyboard builds",
+    "Polarity VARIES between battery vendors -- always verify before connecting",
+    "nice!nano expects positive on left pin when USB port faces up",
+    "Through-hole mounting provides strong mechanical connection for battery cable",
+    "SMD variant (S2B-PH-SM4-TB) also available for space-constrained designs",
+    "2.0mm pitch -- do not confuse with JST SH (1.0mm) or JST XH (2.5mm)"
+  ],
+  "summary": "Standard LiPo battery connector for keyboard builds — 2mm pitch through-hole",
+  "features": [
+    "Industry standard for small LiPo batteries",
+    "Through-hole mounting for strong mechanical connection",
+    "2.0mm pitch — compact footprint",
+    "Rated for 2.0A — more than sufficient for keyboard batteries",
+    "Mating connector (PHR-2) pre-crimped on most LiPo batteries",
+    "Very low cost ($0.05-0.17)"
+  ],
+  "concerns": [
+    "Polarity VARIES between battery vendors — always verify with multimeter",
+    "Through-hole only in standard variant — takes up board space",
+    "Easy to confuse with JST SH (1.0mm) or JST XH (2.5mm)",
+    "Connector is not keyed strongly enough to prevent forceful reverse insertion"
+  ],
+  "externalLinks": [
+    {
+      "label": "JST PH Series Catalog",
+      "url": "http://www.jst-mfg.com/product/detail_e.php?series=199"
+    },
+    {
+      "label": "Polarity Guide for LiPo Batteries",
+      "url": "https://learn.adafruit.com/li-ion-and-lipoly-batteries/polarity"
+    },
+    {
+      "label": "SMD Variant (S2B-PH-SM4-TB)",
+      "url": "https://www.digikey.com/en/products/detail/jst-sales-america-inc/S2B-PH-SM4-TB-LF-SN/926655"
+    }
+  ]
+}

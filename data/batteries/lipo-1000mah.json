@@ -1,0 +1,88 @@
+{
+  "id": "lipo-1000mah",
+  "name": "LiPo Battery 1000mAh (603040 / 503450)",
+  "type": "lithium-polymer",
+  "voltage": {
+    "nominal": 3.7,
+    "fullCharge": 4.2,
+    "cutoff": 3.0,
+    "unit": "V"
+  },
+  "capacityMah": 1000,
+  "dischargeCurrent": {
+    "continuous": "0.5C (500mA)",
+    "peak": "1C (1000mA)"
+  },
+  "connector": "JST PH 2-pin",
+  "dimensions": {
+    "width": 34,
+    "length": 50,
+    "thickness": 6.0,
+    "unit": "mm",
+    "note": "Dimensions vary significantly by manufacturer -- verify before PCB design"
+  },
+  "weight": {
+    "value": 20,
+    "unit": "g"
+  },
+  "estimatedKeyboardLife": {
+    "withoutLeds": "3-6 weeks typical for BLE keyboard",
+    "withLeds": "3-7 days depending on LED brightness",
+    "assumptions": "Based on ~1mA average BLE keyboard idle draw, 4-6 hours active use per day"
+  },
+  "summary": "Balanced size and capacity — ~1 month BLE life",
+  "suppliers": [
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/1005003262068498.html",
+      "priceUsd": 4.5
+    },
+    {
+      "name": "Adafruit",
+      "url": "https://www.adafruit.com/product/258",
+      "priceUsd": 9.95
+    },
+    {
+      "name": "Amazon",
+      "url": "https://www.amazon.com/s?k=lipo+1000mah+jst+ph",
+      "priceUsd": 7.0
+    }
+  ],
+  "designNotes": [
+    "Good capacity for keyboards with occasional LED use",
+    "May be too large for very slim split keyboard cases -- measure clearance carefully",
+    "Charge at 0.5C max (500mA) -- exceeds nice!nano's 100mA charger, will charge slower",
+    "At 100mA charge rate, full charge takes ~12-14 hours from empty",
+    "Consider BQ24075 or external charger with higher current for faster charging",
+    "JST PH polarity varies by manufacturer -- ALWAYS verify before connecting",
+    "Battery may need to be mounted under the MCU or in a separate compartment"
+  ],
+  "features": [
+    "Balanced capacity for most keyboard builds",
+    "3-6 weeks BLE battery life without LEDs",
+    "Supports occasional LED use (3-7 days)",
+    "JST PH 2-pin connector standard",
+    "Widely available from multiple vendors"
+  ],
+  "concerns": [
+    "May be too large for slim split keyboard cases",
+    "Exceeds nice!nano's 100mA charge rate — full charge takes 12-14 hours",
+    "Requires external charger IC for reasonable charge times with larger cells",
+    "JST PH polarity varies by manufacturer — always verify"
+  ],
+  "datasheet": "https://www.batteryjunction.com/lipo-battery-datasheet-1000mah",
+  "externalLinks": [
+    {
+      "label": "Adafruit LiPo Battery Guide",
+      "url": "https://learn.adafruit.com/li-ion-and-lipoly-batteries"
+    },
+    {
+      "label": "Battery University - Charging",
+      "url": "https://batteryuniversity.com/article/bu-409-charging-lithium-ion"
+    },
+    {
+      "label": "ZMK Power Profiler",
+      "url": "https://zmk.dev/power-profiler"
+    }
+  ]
+}

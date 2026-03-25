@@ -1,0 +1,111 @@
+{
+  "id": "gct-usb4085",
+  "name": "GCT USB4085-GF-A",
+  "manufacturer": "GCT (Global Connector Technology)",
+  "type": "usb-c-receptacle",
+  "usbSpec": "USB 2.0",
+  "mounting": "smd-mid-mount",
+  "midMountDepth": 0.8,
+  "pinout": {
+    "VBUS": [
+      "A4",
+      "B4"
+    ],
+    "CC1": [
+      "A5"
+    ],
+    "CC2": [
+      "B5"
+    ],
+    "DP": [
+      "A6",
+      "B6"
+    ],
+    "DN": [
+      "A7",
+      "B7"
+    ],
+    "GND": [
+      "A1",
+      "B1",
+      "A12",
+      "B12"
+    ],
+    "SHIELD": [
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ]
+  },
+  "pinCount": 16,
+  "ratedCurrent": "1.5A",
+  "ratedVoltage": "20V",
+  "package": "SMD mid-mount, through-board",
+  "dimensions": {
+    "width": 8.94,
+    "depth": 7.3,
+    "height": 3.26,
+    "unit": "mm"
+  },
+  "footprintFile": "GCT_USB4085_USB_C.kicad_mod",
+  "datasheet": "https://gct.co/files/drawings/usb4085.pdf",
+  "suppliers": [
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/USB-Connectors_G-Switch-GT-USB-7010ASV_C2988369.html",
+      "priceUsd": 0.5
+    },
+    {
+      "name": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/gct/USB4085-GF-A/9859733",
+      "priceUsd": 1.46
+    },
+    {
+      "name": "Mouser",
+      "url": "https://www.mouser.com/ProductDetail/GCT/USB4085-GF-A",
+      "priceUsd": 1.28
+    }
+  ],
+  "designNotes": [
+    "Mid-mount design sits flush with PCB edge -- reduces overall board thickness",
+    "USB 2.0 only -- no SuperSpeed pins connected",
+    "Requires 5.1k pull-down resistors on CC1 and CC2 for device mode",
+    "Shield pins should connect to ground through 1M resistor + 4.7nF cap for EMI",
+    "Popular in custom keyboard designs due to small footprint and mid-mount option",
+    "Through-board tabs provide mechanical strength"
+  ],
+  "summary": "Mid-mount USB-C receptacle — sits flush with PCB edge for minimal thickness",
+  "features": [
+    "Mid-mount design reduces overall board thickness",
+    "Through-board tabs provide strong mechanical retention",
+    "USB 2.0 with all necessary pins for keyboard use",
+    "16-pin full USB-C pinout with shield connections",
+    "Rated for 1.5A — sufficient for charging and operation",
+    "Popular choice in custom keyboard community"
+  ],
+  "concerns": [
+    "Mid-mount requires PCB cutout — more complex board layout",
+    "More expensive than HRO alternative",
+    "Requires 5.1k pull-down resistors on CC1/CC2",
+    "Shield connections need EMI filtering components"
+  ],
+  "externalLinks": [
+    {
+      "label": "GCT Product Page",
+      "url": "https://gct.co/connector/usb4085"
+    },
+    {
+      "label": "GCT Drawing",
+      "url": "https://gct.co/files/drawings/usb4085.pdf"
+    },
+    {
+      "label": "KiCad Footprint Library",
+      "url": "https://github.com/ai03-2725/Type-C.pretty"
+    },
+    {
+      "label": "USB-C Keyboard Design Guide",
+      "url": "https://wiki.ai03.com/books/pcb-design/page/usb-c-guide"
+    }
+  ]
+}

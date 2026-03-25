@@ -1,0 +1,90 @@
+{
+  "id": "lipo-2000mah",
+  "name": "LiPo Battery 2000mAh (804050 / 103450)",
+  "type": "lithium-polymer",
+  "voltage": {
+    "nominal": 3.7,
+    "fullCharge": 4.2,
+    "cutoff": 3.0,
+    "unit": "V"
+  },
+  "capacityMah": 2000,
+  "dischargeCurrent": {
+    "continuous": "0.5C (1000mA)",
+    "peak": "1C (2000mA)"
+  },
+  "connector": "JST PH 2-pin",
+  "dimensions": {
+    "width": 50,
+    "length": 60,
+    "thickness": 8.0,
+    "unit": "mm",
+    "note": "Dimensions vary significantly by manufacturer -- verify before PCB design"
+  },
+  "weight": {
+    "value": 38,
+    "unit": "g"
+  },
+  "estimatedKeyboardLife": {
+    "withoutLeds": "6-12 weeks typical for BLE keyboard",
+    "withLeds": "1-2 weeks depending on LED brightness",
+    "assumptions": "Based on ~1mA average BLE keyboard idle draw, 4-6 hours active use per day"
+  },
+  "summary": "Maximum life (~3 months BLE) — may not fit thin cases",
+  "suppliers": [
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/1005003262068498.html",
+      "priceUsd": 6.0
+    },
+    {
+      "name": "Adafruit",
+      "url": "https://www.adafruit.com/product/2011",
+      "priceUsd": 12.5
+    },
+    {
+      "name": "Amazon",
+      "url": "https://www.amazon.com/s?k=lipo+2000mah+jst+ph",
+      "priceUsd": 9.0
+    }
+  ],
+  "designNotes": [
+    "Large capacity -- best for non-split or unibody keyboards with LEDs",
+    "Too large for most slim split keyboard halves -- measure case dimensions",
+    "Charge at 0.5C max (1000mA) -- requires dedicated charger IC, not nice!nano's 100mA",
+    "At 100mA charge rate from nice!nano, full charge takes ~24+ hours -- impractical",
+    "Use BQ24075 or TP4056 with appropriate PROG resistor for reasonable charge times",
+    "Significant weight -- will make keyboard noticeably heavier",
+    "Best suited for unibody designs or travel keyboards that need long battery life",
+    "JST PH polarity varies by manufacturer -- ALWAYS verify before connecting"
+  ],
+  "features": [
+    "Maximum capacity for extended battery life",
+    "6-12 weeks BLE life without LEDs",
+    "1-2 weeks with LEDs active",
+    "Best for unibody or non-split keyboards",
+    "Sufficient for heavy LED usage"
+  ],
+  "concerns": [
+    "Too large for most slim split keyboard halves",
+    "Impractical to charge via nice!nano (24+ hours from empty)",
+    "Requires dedicated charger IC (BQ24075 or TP4056)",
+    "Adds significant weight (~38g)",
+    "JST PH polarity varies by manufacturer"
+  ],
+  "datasheet": "https://www.batteryjunction.com/lipo-battery-datasheet-2000mah",
+  "externalLinks": [
+    {
+      "label": "Adafruit LiPo Battery Guide",
+      "url": "https://learn.adafruit.com/li-ion-and-lipoly-batteries"
+    },
+    {
+      "label": "Battery University - Sizing",
+      "url": "https://batteryuniversity.com/article/bu-402-what-is-c-rate"
+    },
+    {
+      "label": "ZMK Power Profiler",
+      "url": "https://zmk.dev/power-profiler"
+    }
+  ]
+}

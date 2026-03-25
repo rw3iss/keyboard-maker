@@ -1,0 +1,150 @@
+{
+  "id": "kailh-choc-v1",
+  "name": "Kailh Choc v1 (PG1350)",
+  "manufacturer": "Kailh",
+  "type": "low-profile-mechanical",
+  "mounting": "through-hole",
+  "hotswapCompatible": true,
+  "hotswapSocket": "kailh-cpg135001s30",
+  "pinSpacing": 5.5,
+  "switchSpacing": {
+    "x": 18,
+    "y": 17
+  },
+  "travelDistance": 3.0,
+  "actuationForce": null,
+  "keycapMount": "choc",
+  "footprintFile": "Kailh_Choc_v1.kicad_mod",
+  "hotswapFootprintFile": "Kailh_Choc_v1_Hotswap.kicad_mod",
+  "symbolRef": "Switch:SW_Push",
+  "datasheet": "https://cdn-shop.adafruit.com/product-files/5113/CHOC+Low-profile+switch+3pin+specification.pdf",
+  "dimensions": {
+    "width": 13.8,
+    "depth": 13.8,
+    "height": 8.0,
+    "unit": "mm"
+  },
+  "variants": [
+    {
+      "id": "kailh-choc-brown",
+      "name": "Kailh Choc Brown (Tactile)",
+      "actuationForce": 60,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/4000907409650.html",
+          "priceUsd": 0.35
+        },
+        {
+          "name": "MKUltra",
+          "url": "https://mkultra.click/choc-switches",
+          "priceUsd": 0.55
+        },
+        {
+          "name": "splitkb.com",
+          "url": "https://splitkb.com/collections/switches-and-keycaps",
+          "priceUsd": 0.5
+        }
+      ]
+    },
+    {
+      "id": "kailh-choc-red",
+      "name": "Kailh Choc Red (Linear)",
+      "actuationForce": 50,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/4000907409650.html",
+          "priceUsd": 0.3
+        },
+        {
+          "name": "MKUltra",
+          "url": "https://mkultra.click/choc-switches",
+          "priceUsd": 0.55
+        }
+      ]
+    },
+    {
+      "id": "kailh-choc-white",
+      "name": "Kailh Choc White (Clicky)",
+      "actuationForce": 50,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/4000907409650.html",
+          "priceUsd": 0.35
+        },
+        {
+          "name": "MKUltra",
+          "url": "https://mkultra.click/choc-switches",
+          "priceUsd": 0.55
+        }
+      ]
+    },
+    {
+      "id": "kailh-choc-pink",
+      "name": "Kailh Choc Pink (Linear Light)",
+      "actuationForce": 20,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/4000907409650.html",
+          "priceUsd": 0.4
+        },
+        {
+          "name": "splitkb.com",
+          "url": "https://splitkb.com/collections/switches-and-keycaps",
+          "priceUsd": 0.55
+        }
+      ]
+    }
+  ],
+  "designNotes": [
+    "Standard Choc spacing (18x17mm) is tighter than MX (19.05mm)",
+    "Ensure keycap compatibility -- Choc keycaps are NOT interchangeable with MX",
+    "Hot-swap sockets available (CPG135001S30)",
+    "3-pin design (no PCB-mount stabilizer pins)",
+    "LED slot faces south by convention"
+  ],
+  "summary": "The most popular low-profile mechanical switch — best keycap ecosystem in the LP category",
+  "features": [
+    "Most popular low-profile switch for custom keyboards",
+    "Best keycap selection in the low-profile category",
+    "Hot-swap socket available (CPG135001S30)",
+    "Compact 18x17mm spacing enables tighter layouts",
+    "3.0mm key travel with tactile, linear, and clicky options",
+    "Widely supported in open-source keyboard designs"
+  ],
+  "concerns": [
+    "Choc keycaps NOT interchangeable with MX keycaps",
+    "3-pin design only — no PCB mount stabilizer pins",
+    "Tighter spacing (18x17mm) requires Choc-specific PCB designs",
+    "Some variants (Pink/linear light) have inconsistent spring weights"
+  ],
+  "externalLinks": [
+    {
+      "label": "Kailh Choc Specification",
+      "url": "https://www.kailhswitch.com/mechanical-keyboard-switches/low-profile-key-switches/burnt-orange-switch.html"
+    },
+    {
+      "label": "splitkb.com Choc Switches",
+      "url": "https://splitkb.com/collections/switches-and-keycaps"
+    },
+    {
+      "label": "MKUltra Choc Switches",
+      "url": "https://mkultra.click/choc-switches"
+    },
+    {
+      "label": "Choc Keycap Options Guide",
+      "url": "https://lowprokb.ca/collections/keycaps"
+    }
+  ]
+}

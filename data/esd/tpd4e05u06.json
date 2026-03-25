@@ -1,0 +1,89 @@
+{
+  "id": "tpd4e05u06",
+  "name": "TPD4E05U06DQAR",
+  "manufacturer": "Texas Instruments",
+  "type": "esd-protection",
+  "application": "USB 2.0 / general I/O ESD protection",
+  "package": "X2SON-4 (1.0x1.0mm)",
+  "channels": 4,
+  "clampingVoltage": 9.0,
+  "workingVoltage": 5.5,
+  "triggerVoltage": 6.0,
+  "esdRating": {
+    "iecContact": "8 kV",
+    "iecAir": "15 kV",
+    "hbm": "15 kV"
+  },
+  "lineCapacitance": "0.5 pF",
+  "leakageCurrent": "0.01 uA",
+  "pinout": {
+    "pin1": "I/O 1",
+    "pin2": "I/O 2",
+    "pin3": "I/O 3",
+    "pin4": "I/O 4",
+    "pad": "GND"
+  },
+  "dimensions": {
+    "width": 1.0,
+    "length": 1.0,
+    "height": 0.4,
+    "unit": "mm"
+  },
+  "footprintFile": "TI_X2SON-4_1x1mm.kicad_mod",
+  "symbolRef": "Power_Protection:TPD4E05U06",
+  "datasheet": "https://www.ti.com/lit/ds/symlink/tpd4e05u06.pdf",
+  "suppliers": [
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/ESD-Protection-Devices_Texas-Instruments-TPD4E05U06DQAR_C130498.html",
+      "priceUsd": 0.25
+    },
+    {
+      "name": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/texas-instruments/TPD4E05U06DQAR/3997218",
+      "priceUsd": 0.56
+    },
+    {
+      "name": "Mouser",
+      "url": "https://www.mouser.com/ProductDetail/Texas-Instruments/TPD4E05U06DQAR",
+      "priceUsd": 0.49
+    }
+  ],
+  "designNotes": [
+    "4-channel device -- can protect D+, D-, CC1, CC2 in a single IC",
+    "Ultra-low capacitance (0.5pF) -- better than USBLC6-2SC6 for signal integrity",
+    "Very tiny package (1x1mm) -- requires reflow soldering",
+    "Place immediately adjacent to USB connector pads",
+    "No VBUS connection needed -- ground-referenced design",
+    "Good choice when board space is at a premium"
+  ],
+  "summary": "4-channel ESD protection for USB 2.0 — ultra-low capacitance, tiny footprint",
+  "features": [
+    "4-channel protection covers D+, D-, CC1, CC2 in one IC",
+    "Ultra-low 0.5pF line capacitance preserves signal integrity",
+    "8kV IEC contact / 15kV air discharge protection",
+    "Tiny 1.0x1.0mm X2SON package saves board space",
+    "Ground-referenced — no VBUS connection needed",
+    "Very low leakage current (0.01uA)"
+  ],
+  "concerns": [
+    "1x1mm package requires reflow soldering — impossible to hand-solder",
+    "Thermal pad on bottom needs solder paste stencil",
+    "More expensive than USBLC6-2SC6",
+    "May be overkill for hobby keyboard builds"
+  ],
+  "externalLinks": [
+    {
+      "label": "TI Product Page",
+      "url": "https://www.ti.com/product/TPD4E05U06"
+    },
+    {
+      "label": "TI ESD Protection Selection Guide",
+      "url": "https://www.ti.com/lit/sg/sszb130i/sszb130i.pdf"
+    },
+    {
+      "label": "LCSC Product Page",
+      "url": "https://www.lcsc.com/product-detail/ESD-Protection-Devices_Texas-Instruments-TPD4E05U06DQAR_C130498.html"
+    }
+  ]
+}

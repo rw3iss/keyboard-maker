@@ -1,0 +1,105 @@
+{
+  "id": "bq24075",
+  "name": "BQ24075RGTR",
+  "manufacturer": "Texas Instruments",
+  "type": "linear-lipo-charger-with-power-path",
+  "package": "QFN-16 (VQFN, 3.5x3.5mm)",
+  "maxChargeCurrent": 1500,
+  "chargeCurrentUnit": "mA",
+  "programmableChargeCurrent": true,
+  "chargeCurrentFormula": "I_CHG = K_ISET / R_ISET (K_ISET = 890 A*ohm)",
+  "inputVoltage": {
+    "min": 4.35,
+    "max": 6.4,
+    "unit": "V"
+  },
+  "regulationVoltage": 4.2,
+  "features": [
+    "Integrated power path management (SYS output)",
+    "Dynamic power management (DPM) limits USB input current",
+    "Programmable USB input current limit: 100mA/500mA/external",
+    "Programmable charge current up to 1.5A",
+    "Battery supplement mode -- system can draw more than USB current limit",
+    "Power good and charge status outputs",
+    "Thermal regulation and protection",
+    "Battery detection via ISET2/EN2 pin"
+  ],
+  "pinout": {
+    "IN": "USB/adapter input",
+    "OUT/SYS": "System power output (load always powered)",
+    "BAT": "Battery connection",
+    "ISET1": "Charge current programming",
+    "ISET2": "USB input current limit / enable",
+    "CE": "Charge enable",
+    "EN1": "Input source enable",
+    "EN2": "System enable",
+    "PG": "Power good output (open-drain)",
+    "CHG": "Charge status (open-drain)",
+    "TMR": "Timer programming",
+    "TS": "Temperature sense input",
+    "VSS": "Ground",
+    "PAD": "Thermal pad (ground)"
+  },
+  "dimensions": {
+    "width": 3.5,
+    "length": 3.5,
+    "height": 0.9,
+    "unit": "mm"
+  },
+  "footprintFile": "QFN-16_3.5x3.5mm_P0.5mm.kicad_mod",
+  "symbolRef": "Battery_Management:BQ24075",
+  "summary": "Advanced power path management — seamless USB/battery switching",
+  "datasheet": "https://www.ti.com/lit/ds/symlink/bq24075.pdf",
+  "suppliers": [
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/Battery-Management_Texas-Instruments-BQ24075RGTR_C80584.html",
+      "priceUsd": 1.5
+    },
+    {
+      "name": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/texas-instruments/BQ24075RGTR/2064789",
+      "priceUsd": 2.85
+    },
+    {
+      "name": "Mouser",
+      "url": "https://www.mouser.com/ProductDetail/Texas-Instruments/BQ24075RGTR",
+      "priceUsd": 2.65
+    }
+  ],
+  "designNotes": [
+    "Premium option -- power path management allows USB and battery simultaneously",
+    "SYS output stays powered from USB when battery is absent -- good for development",
+    "DPM prevents overloading USB port when charging and operating keyboard at same time",
+    "QFN-16 package requires reflow soldering -- not hand-solderable",
+    "Most complex charger option but best power management",
+    "Recommended when using Holyiot 18010 or bare nRF52840 in designs needing robust power",
+    "Requires more external components than MCP73831 or TP4056",
+    "TS pin needs 10k NTC or 10k/68.1k voltage divider to disable temperature monitoring"
+  ],
+  "concerns": [
+    "QFN-16 package requires reflow soldering — not hand-solderable",
+    "Most complex charger option with many external components",
+    "Higher cost than MCP73831 or TP4056",
+    "TS pin needs NTC thermistor or resistor divider to disable temp monitoring",
+    "Overkill for simple keyboard builds with small batteries"
+  ],
+  "externalLinks": [
+    {
+      "label": "TI Product Page",
+      "url": "https://www.ti.com/product/BQ24075"
+    },
+    {
+      "label": "TI Reference Design",
+      "url": "https://www.ti.com/tool/TIDA-00599"
+    },
+    {
+      "label": "Application Note - Power Path",
+      "url": "https://www.ti.com/lit/an/slua510/slua510.pdf"
+    },
+    {
+      "label": "EEVBlog Discussion",
+      "url": "https://www.eevblog.com/forum/projects/bq24075-design-review/"
+    }
+  ]
+}

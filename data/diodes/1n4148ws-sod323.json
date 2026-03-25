@@ -1,0 +1,73 @@
+{
+  "id": "1n4148ws-sod323",
+  "name": "1N4148WS (SOD-323)",
+  "manufacturer": "Various",
+  "type": "switching-diode",
+  "package": "SOD-323",
+  "forwardVoltage": 0.72,
+  "forwardVoltageMax": 1.0,
+  "reverseVoltage": 75,
+  "forwardCurrentMax": 0.15,
+  "reverseRecoveryTime": "4 ns",
+  "dimensions": {
+    "width": 1.25,
+    "length": 1.7,
+    "height": 0.95,
+    "unit": "mm"
+  },
+  "footprintFile": "Diode_SMD_SOD-323.kicad_mod",
+  "symbolRef": "Device:D",
+  "datasheet": "https://www.diodes.com/assets/Datasheets/1N4148WS.pdf",
+  "suppliers": [
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/Switching-Diode_Changjiang-Electronics-Tech-CJ-1N4148WS_C2128.html",
+      "priceUsd": 0.008
+    },
+    {
+      "name": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/nexperia/1N4148WS-215/1154089",
+      "priceUsd": 0.02
+    },
+    {
+      "name": "Mouser",
+      "url": "https://www.mouser.com/ProductDetail/Nexperia/1N4148WS",
+      "priceUsd": 0.02
+    }
+  ],
+  "designNotes": [
+    "Smaller than SOD-123 -- better for compact low-profile keyboard PCBs",
+    "Fits under Choc switch bodies when placed between pins",
+    "Harder to hand-solder than SOD-123 due to smaller pad size",
+    "75V reverse voltage (vs 100V on SOD-123) -- irrelevant for keyboard use",
+    "Preferred for JLCPCB assembly due to LCSC availability and low cost"
+  ],
+  "summary": "Compact keyboard matrix diode in SOD-323 package — fits under Choc switches",
+  "features": [
+    "Ultra-compact SOD-323 package saves board space",
+    "Fits under Kailh Choc switch bodies",
+    "75V reverse voltage — ample for keyboard use",
+    "Same electrical specs as SOD-123 variant",
+    "Preferred for JLCPCB assembly due to LCSC availability",
+    "Extremely low cost ($0.008-0.02)"
+  ],
+  "concerns": [
+    "Harder to hand-solder than SOD-123 due to smaller pads",
+    "Requires magnification for manual placement and inspection",
+    "Slightly lower reverse voltage (75V vs 100V) — irrelevant for keyboards"
+  ],
+  "externalLinks": [
+    {
+      "label": "Diodes Inc Datasheet",
+      "url": "https://www.diodes.com/assets/Datasheets/1N4148WS.pdf"
+    },
+    {
+      "label": "Keyboard Matrix Guide",
+      "url": "https://wiki.ai03.com/books/pcb-design/page/key-matrix"
+    },
+    {
+      "label": "LCSC Product Page",
+      "url": "https://www.lcsc.com/product-detail/Switching-Diode_Changjiang-Electronics-Tech-CJ-1N4148WS_C2128.html"
+    }
+  ]
+}

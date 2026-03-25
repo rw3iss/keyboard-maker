@@ -1,0 +1,7 @@
+CLAUDE.md
+.claude/
+
+node_modules
+
+docs/
+_*.md

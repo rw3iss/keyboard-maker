@@ -1,0 +1,101 @@
+{
+  "id": "hro-type-c-31-m-12",
+  "name": "HRO TYPE-C-31-M-12",
+  "manufacturer": "Korean Hroparts Elec (HRO)",
+  "type": "usb-c-receptacle",
+  "usbSpec": "USB 2.0",
+  "mounting": "smd-top-mount",
+  "pinout": {
+    "VBUS": [
+      "A4",
+      "B4"
+    ],
+    "CC1": [
+      "A5"
+    ],
+    "CC2": [
+      "B5"
+    ],
+    "DP": [
+      "A6",
+      "B6"
+    ],
+    "DN": [
+      "A7",
+      "B7"
+    ],
+    "GND": [
+      "A1",
+      "B1",
+      "A12",
+      "B12"
+    ],
+    "SHIELD": [
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ]
+  },
+  "pinCount": 12,
+  "ratedCurrent": "1.0A",
+  "ratedVoltage": "20V",
+  "package": "SMD top-mount",
+  "dimensions": {
+    "width": 9.0,
+    "depth": 6.5,
+    "height": 3.16,
+    "unit": "mm"
+  },
+  "footprintFile": "HRO_TYPE_C_31_M_12.kicad_mod",
+  "datasheet": "https://www.lcsc.com/datasheet/lcsc_datasheet_2108131730_HRO-TYPE-C-31-M-12_C165948.pdf",
+  "suppliers": [
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/USB-Connectors_HRO-TYPE-C-31-M-12_C165948.html",
+      "priceUsd": 0.28
+    },
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/1005003608919098.html",
+      "priceUsd": 0.2
+    }
+  ],
+  "designNotes": [
+    "Very affordable USB-C connector -- widely used in budget keyboard PCBs",
+    "12-pin simplified version -- USB 2.0 only",
+    "Top-mount design -- sits on top of PCB surface, adds ~3.2mm height",
+    "Requires 5.1k pull-down resistors on CC1 and CC2 for device mode",
+    "Pads are relatively fine-pitch -- use solder paste and reflow or hot air",
+    "Available at LCSC for easy inclusion in JLCPCB assembly orders"
+  ],
+  "summary": "Budget USB-C receptacle — widely used in keyboard PCBs, JLCPCB-friendly",
+  "features": [
+    "Extremely affordable ($0.20-0.28)",
+    "12-pin simplified USB 2.0 design",
+    "Widely available at LCSC for JLCPCB assembly",
+    "Proven in hundreds of keyboard designs",
+    "Top-mount SMD — straightforward PCB layout"
+  ],
+  "concerns": [
+    "Top-mount adds ~3.2mm height above PCB",
+    "Fine-pitch pads require reflow or hot air soldering",
+    "Only rated for 1.0A — marginal for high-current charging",
+    "12-pin simplified version may not match all USB-C cables",
+    "Requires 5.1k pull-down resistors on CC1/CC2"
+  ],
+  "externalLinks": [
+    {
+      "label": "LCSC Product Page",
+      "url": "https://www.lcsc.com/product-detail/USB-Connectors_HRO-TYPE-C-31-M-12_C165948.html"
+    },
+    {
+      "label": "KiCad Footprint Library",
+      "url": "https://github.com/ai03-2725/Type-C.pretty"
+    },
+    {
+      "label": "ai03 USB-C Guide",
+      "url": "https://wiki.ai03.com/books/pcb-design/page/usb-c-guide"
+    }
+  ]
+}

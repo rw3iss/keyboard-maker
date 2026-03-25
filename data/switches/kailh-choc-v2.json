@@ -1,0 +1,127 @@
+{
+  "id": "kailh-choc-v2",
+  "name": "Kailh Choc v2 (PG1353)",
+  "manufacturer": "Kailh",
+  "type": "low-profile-mechanical",
+  "mounting": "through-hole",
+  "hotswapCompatible": true,
+  "hotswapSocket": "kailh-cpg135301d02",
+  "pinSpacing": 5.5,
+  "switchSpacing": {
+    "x": 19.05,
+    "y": 19.05
+  },
+  "travelDistance": 3.2,
+  "actuationForce": null,
+  "keycapMount": "mx-compatible",
+  "footprintFile": "Kailh_Choc_v2.kicad_mod",
+  "hotswapFootprintFile": "Kailh_Choc_v2_Hotswap.kicad_mod",
+  "symbolRef": "Switch:SW_Push",
+  "datasheet": "https://www.kailhswitch.com/mechanical-keyboard-switches/low-profile-key-switches/low-profile-key-switch-pg1353.html",
+  "dimensions": {
+    "width": 14.5,
+    "depth": 14.5,
+    "height": 11.0,
+    "unit": "mm"
+  },
+  "variants": [
+    {
+      "id": "kailh-choc-v2-brown",
+      "name": "Kailh Choc v2 Brown (Tactile)",
+      "actuationForce": 55,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/1005003460762892.html",
+          "priceUsd": 0.4
+        },
+        {
+          "name": "MKUltra",
+          "url": "https://mkultra.click/choc-v2-switches",
+          "priceUsd": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kailh-choc-v2-red",
+      "name": "Kailh Choc v2 Red (Linear)",
+      "actuationForce": 50,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/1005003460762892.html",
+          "priceUsd": 0.38
+        }
+      ]
+    },
+    {
+      "id": "kailh-choc-v2-white",
+      "name": "Kailh Choc v2 White (Clicky)",
+      "actuationForce": 50,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/1005003460762892.html",
+          "priceUsd": 0.4
+        }
+      ]
+    },
+    {
+      "id": "kailh-choc-v2-blue",
+      "name": "Kailh Choc v2 Blue (Clicky)",
+      "actuationForce": 60,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/1005003460762892.html",
+          "priceUsd": 0.42
+        }
+      ]
+    }
+  ],
+  "designNotes": [
+    "Uses standard MX-compatible keycap mount (cross stem)",
+    "Taller than Choc v1 (11mm vs 8mm) -- defeats some low-profile benefit",
+    "Uses MX-standard 19.05mm spacing unlike Choc v1's 18x17mm",
+    "5-pin variant available for PCB mount stability",
+    "Hot-swap socket is different from Choc v1 -- not interchangeable"
+  ],
+  "summary": "Low-profile switch with MX-compatible keycap stem — best of both worlds compromise",
+  "features": [
+    "MX-compatible cross stem — use any MX keycap",
+    "Low-profile at 11mm (taller than v1 but shorter than MX)",
+    "Standard MX 19.05mm spacing — works with MX PCB layouts",
+    "5-pin variant available for PCB mount stability",
+    "Hot-swap socket available",
+    "3.2mm key travel"
+  ],
+  "concerns": [
+    "Taller than Choc v1 (11mm vs 8mm) — reduces low-profile advantage",
+    "Hot-swap socket differs from Choc v1 — not interchangeable",
+    "Less popular than v1 in custom keyboard community",
+    "MX spacing means no benefit of tighter Choc v1 layouts",
+    "Limited variant selection compared to Choc v1"
+  ],
+  "externalLinks": [
+    {
+      "label": "Kailh Choc v2 Product Page",
+      "url": "https://www.kailhswitch.com/mechanical-keyboard-switches/low-profile-key-switches/low-profile-key-switch-pg1353.html"
+    },
+    {
+      "label": "MKUltra Choc v2 Switches",
+      "url": "https://mkultra.click/choc-v2-switches"
+    },
+    {
+      "label": "Switch Comparison Guide",
+      "url": "https://www.theremingoat.com/"
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "id": "nice-nano-v2",
+  "name": "nice!nano v2",
+  "chip": "nRF52840",
+  "formFactor": "pro-micro",
+  "hasUsb": true,
+  "usbType": "USB-C",
+  "hasBle": true,
+  "bleVersion": "5.0",
+  "hasLipoCharger": true,
+  "chargerMaxMa": 100,
+  "operatingVoltage": 3.3,
+  "flashSize": "1 MB",
+  "ramSize": "256 KB",
+  "clockSpeed": "64 MHz",
+  "gpioCount": 21,
+  "gpioPins": [
+    {
+      "pin": "P0.06",
+      "label": "D0",
+      "analog": false
+    },
+    {
+      "pin": "P0.08",
+      "label": "D1",
+      "analog": false
+    },
+    {
+      "pin": "P0.17",
+      "label": "D2",
+      "analog": false
+    },
+    {
+      "pin": "P0.20",
+      "label": "D3",
+      "analog": false
+    },
+    {
+      "pin": "P0.22",
+      "label": "D4",
+      "analog": false
+    },
+    {
+      "pin": "P0.24",
+      "label": "D5",
+      "analog": false
+    },
+    {
+      "pin": "P1.00",
+      "label": "D6",
+      "analog": false
+    },
+    {
+      "pin": "P0.11",
+      "label": "D7",
+      "analog": false
+    },
+    {
+      "pin": "P1.04",
+      "label": "D8",
+      "analog": false
+    },
+    {
+      "pin": "P1.06",
+      "label": "D9",
+      "analog": false
+    },
+    {
+      "pin": "P0.09",
+      "label": "D10",
+      "analog": false
+    },
+    {
+      "pin": "P0.10",
+      "label": "D16",
+      "analog": false
+    },
+    {
+      "pin": "P1.11",
+      "label": "D14",
+      "analog": false
+    },
+    {
+      "pin": "P1.13",
+      "label": "D15",
+      "analog": false
+    },
+    {
+      "pin": "P0.02",
+      "label": "D18/A0",
+      "analog": true
+    },
+    {
+      "pin": "P0.03",
+      "label": "D19/A1",
+      "analog": true
+    },
+    {
+      "pin": "P0.28",
+      "label": "D20/A2",
+      "analog": true
+    },
+    {
+      "pin": "P0.29",
+      "label": "D21/A3",
+      "analog": true
+    },
+    {
+      "pin": "P0.30",
+      "label": "D22/A4",
+      "analog": true
+    },
+    {
+      "pin": "P0.31",
+      "label": "D23/A5",
+      "analog": true
+    },
+    {
+      "pin": "P0.13",
+      "label": "D24",
+      "analog": false
+    }
+  ],
+  "dimensions": {
+    "width": 18.0,
+    "length": 33.3,
+    "unit": "mm"
+  },
+  "footprintFile": "nRF52840_Module_NiceNano.kicad_mod",
+  "zmkBoard": "nice_nano_v2",
+  "firmware": [
+    "zmk",
+    "qmk"
+  ],
+  "summary": "Drop-in Pro Micro replacement with built-in BLE and LiPo charging",
+  "bootloader": "Adafruit nRF52 UF2",
+  "suppliers": [
+    {
+      "name": "nice!keyboards",
+      "url": "https://nicekeyboards.com/nice-nano",
+      "priceUsd": 25.0
+    },
+    {
+      "name": "Typeractive",
+      "url": "https://typeractive.xyz/products/nice-nano",
+      "priceUsd": 25.0
+    },
+    {
+      "name": "splitkb.com",
+      "url": "https://splitkb.com/products/nice-nano",
+      "priceUsd": 25.0
+    },
+    {
+      "name": "42. Keebs",
+      "url": "https://42keebs.eu/shop/parts/controllers/nice-nano-v2-wireless-controller/",
+      "priceUsd": 27.0
+    }
+  ],
+  "designNotes": [
+    "Built-in LiPo charger at 100mA -- suitable for <1000mAh batteries",
+    "Pro Micro footprint -- drop-in replacement for Pro Micro-based designs",
+    "No external crystal needed -- on-module",
+    "RAW pin provides battery voltage for voltage divider reading",
+    "Battery positive connects to B+ pad on back, ground to B- (GND)",
+    "ZMK is the recommended firmware -- full wireless support including BLE profiles"
+  ],
+  "features": [
+    "Drop-in Pro Micro replacement",
+    "Built-in LiPo charging (100mA)",
+    "Native USB-C + BLE 5.0 on single chip",
+    "256KB RAM, 1MB flash",
+    "21 usable GPIO pins",
+    "First-class ZMK firmware support",
+    "UF2 bootloader — drag-and-drop firmware flashing"
+  ],
+  "concerns": [
+    "Charging limited to 100mA — slow for batteries >500mAh",
+    "No onboard antenna — uses PCB trace antenna",
+    "Premium price ($25) compared to clones",
+    "21 GPIOs limits matrix size for larger keyboards",
+    "Occasionally out of stock"
+  ],
+  "datasheet": "https://nicekeyboards.com/docs/nice-nano/",
+  "externalLinks": [
+    {
+      "label": "nice!keyboards Store",
+      "url": "https://nicekeyboards.com/nice-nano"
+    },
+    {
+      "label": "ZMK nice!nano v2 Board",
+      "url": "https://zmk.dev/docs/hardware#nicenano"
+    },
+    {
+      "label": "Pinout Diagram",
+      "url": "https://nicekeyboards.com/docs/nice-nano/pinout-schematic"
+    },
+    {
+      "label": "ZMK Firmware Documentation",
+      "url": "https://zmk.dev/docs"
+    }
+  ]
+}

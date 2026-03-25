@@ -1,0 +1,72 @@
+{
+  "id": "1n4148w-sod123",
+  "name": "1N4148W (SOD-123)",
+  "manufacturer": "Various",
+  "type": "switching-diode",
+  "package": "SOD-123",
+  "forwardVoltage": 0.72,
+  "forwardVoltageMax": 1.0,
+  "reverseVoltage": 100,
+  "forwardCurrentMax": 0.15,
+  "reverseRecoveryTime": "4 ns",
+  "dimensions": {
+    "width": 1.6,
+    "length": 2.7,
+    "height": 1.2,
+    "unit": "mm"
+  },
+  "footprintFile": "Diode_SMD_SOD-123.kicad_mod",
+  "symbolRef": "Device:D",
+  "datasheet": "https://www.vishay.com/docs/85748/1n4148w.pdf",
+  "suppliers": [
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/Switching-Diode_Changjiang-Electronics-Tech-CJ-1N4148W_C81598.html",
+      "priceUsd": 0.01
+    },
+    {
+      "name": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/onsemi/1N4148WTP/1140875",
+      "priceUsd": 0.03
+    },
+    {
+      "name": "Mouser",
+      "url": "https://www.mouser.com/ProductDetail/Nexperia/1N4148W",
+      "priceUsd": 0.02
+    }
+  ],
+  "designNotes": [
+    "Standard keyboard matrix diode -- one per key switch",
+    "SOD-123 is larger and easier to hand-solder than SOD-323",
+    "Cathode (band) side orientation must be consistent across the entire matrix",
+    "Place as close to switch pad as possible to minimize trace length"
+  ],
+  "summary": "Standard keyboard matrix diode in SOD-123 package — easy to hand-solder",
+  "features": [
+    "Industry standard switching diode for keyboard matrices",
+    "SOD-123 package easy to hand-solder",
+    "100V reverse voltage — massive margin for keyboard use",
+    "150mA forward current — sufficient for key switch scanning",
+    "Fast 4ns reverse recovery time",
+    "Extremely low cost ($0.01-0.03)"
+  ],
+  "concerns": [
+    "Larger than SOD-323 alternative — takes more board space",
+    "Cathode orientation must be consistent across entire matrix",
+    "Ensure proper diode direction in schematic matches PCB layout"
+  ],
+  "externalLinks": [
+    {
+      "label": "Vishay 1N4148W Datasheet",
+      "url": "https://www.vishay.com/docs/85748/1n4148w.pdf"
+    },
+    {
+      "label": "Keyboard Matrix Guide",
+      "url": "https://wiki.ai03.com/books/pcb-design/page/key-matrix"
+    },
+    {
+      "label": "LCSC Product Page",
+      "url": "https://www.lcsc.com/product-detail/Switching-Diode_Changjiang-Electronics-Tech-CJ-1N4148W_C81598.html"
+    }
+  ]
+}

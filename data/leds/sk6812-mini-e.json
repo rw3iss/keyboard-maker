@@ -1,0 +1,88 @@
+{
+  "id": "sk6812-mini-e",
+  "name": "SK6812 MINI-E",
+  "manufacturer": "Normand LED / Opsco Optoelectronics",
+  "type": "addressable-rgb",
+  "package": "reverse-mount (3.2x2.8mm)",
+  "ledType": "RGB",
+  "voltage": {
+    "min": 3.7,
+    "max": 5.3,
+    "typical": 5.0,
+    "unit": "V"
+  },
+  "currentPerColor": 5,
+  "currentTotal": 15,
+  "currentUnit": "mA",
+  "protocol": "single-wire (NZR / WS2812-compatible)",
+  "dataRate": "800 kbps",
+  "colorDepth": "8-bit per channel (24-bit total)",
+  "mountingStyle": "reverse-mount (LED shines through PCB cutout)",
+  "dimensions": {
+    "width": 2.8,
+    "length": 3.2,
+    "height": 1.45,
+    "unit": "mm"
+  },
+  "padLayout": "4 pads: VDD, DOUT, GND, DIN",
+  "footprintFile": "SK6812_MINI_E_ReverseMounted.kicad_mod",
+  "symbolRef": "LED:SK6812MINI-E",
+  "datasheet": "https://cdn-shop.adafruit.com/product-files/4960/4960_SK6812MINI-E_REV02_EN.pdf",
+  "suppliers": [
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/1005003636607308.html",
+      "priceUsd": 0.08
+    },
+    {
+      "name": "splitkb.com",
+      "url": "https://splitkb.com/products/sk6812-mini-e-rgb-leds",
+      "priceUsd": 0.25
+    },
+    {
+      "name": "42. Keebs",
+      "url": "https://42keebs.eu/shop/parts/sk6812-mini-e-rgb-leds/",
+      "priceUsd": 0.22
+    }
+  ],
+  "designNotes": [
+    "Reverse-mount design -- LED faces down through hole in PCB for underglow or per-key lighting",
+    "Requires a cutout or window in the PCB for each LED",
+    "Preferred LED for Choc low-profile keyboards -- does not add height above PCB",
+    "Daisy-chain data: DOUT of one LED connects to DIN of the next",
+    "Add 100nF decoupling cap per LED (or at least every 3-4 LEDs)",
+    "3.3V logic from nRF52840 may need level shifter -- SK6812 expects 5V logic",
+    "At full white (all channels max), each LED draws ~15mA -- budget power accordingly",
+    "For 36-key split keyboard: 36 LEDs * 15mA = 540mA peak at full brightness"
+  ],
+  "summary": "Reverse-mount addressable RGB LED — shines through PCB for per-key and underglow lighting",
+  "features": [
+    "Reverse-mount design shines through PCB cutout",
+    "Does not add height above PCB — ideal for low-profile builds",
+    "WS2812-compatible single-wire protocol",
+    "Low 15mA max current draw (vs 36mA for WS2812B)",
+    "24-bit color depth (16.7M colors)",
+    "Preferred LED for Choc low-profile keyboards"
+  ],
+  "concerns": [
+    "Requires PCB cutout/window for each LED",
+    "3.3V logic from nRF52840 may need level shifter for reliable data",
+    "36 LEDs at full brightness = 540mA peak — significant battery drain",
+    "Not suitable for top-mount per-key backlighting through keycaps",
+    "100nF decoupling cap recommended per LED"
+  ],
+  "externalLinks": [
+    {
+      "label": "Adafruit SK6812 Guide",
+      "url": "https://learn.adafruit.com/adafruit-neopixel-uberguide"
+    },
+    {
+      "label": "splitkb.com LED Guide",
+      "url": "https://docs.splitkb.com/hid/aurora/rgb"
+    },
+    {
+      "label": "LED Level Shifting Guide",
+      "url": "https://hackaday.com/2017/01/20/cheating-at-5v-ws2812-control-to-use-a-3-3v-data-line/"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "cherry-mx",
+  "name": "Cherry MX",
+  "manufacturer": "Cherry",
+  "type": "mechanical",
+  "mounting": "through-hole",
+  "hotswapCompatible": true,
+  "hotswapSocket": "kailh-cpg151101s11",
+  "pinSpacing": 6.25,
+  "switchSpacing": {
+    "x": 19.05,
+    "y": 19.05
+  },
+  "travelDistance": 4.0,
+  "actuationForce": null,
+  "keycapMount": "mx",
+  "footprintFile": "Cherry_MX.kicad_mod",
+  "hotswapFootprintFile": "Cherry_MX_Hotswap.kicad_mod",
+  "symbolRef": "Switch:SW_Push",
+  "datasheet": "https://www.cherrymx.de/en/dev.html",
+  "dimensions": {
+    "width": 15.6,
+    "depth": 15.6,
+    "height": 18.5,
+    "unit": "mm"
+  },
+  "variants": [
+    {
+      "id": "cherry-mx-brown",
+      "name": "Cherry MX Brown (Tactile)",
+      "actuationForce": 55,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/32835273175.html",
+          "priceUsd": 0.3
+        },
+        {
+          "name": "Mouser",
+          "url": "https://www.mouser.com/ProductDetail/Cherry/MX1A-G1NN",
+          "priceUsd": 0.78
+        },
+        {
+          "name": "DigiKey",
+          "url": "https://www.digikey.com/en/products/filter/switches/201",
+          "priceUsd": 0.8
+        }
+      ]
+    },
+    {
+      "id": "cherry-mx-red",
+      "name": "Cherry MX Red (Linear)",
+      "actuationForce": 45,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/32835273175.html",
+          "priceUsd": 0.28
+        },
+        {
+          "name": "Mouser",
+          "url": "https://www.mouser.com/ProductDetail/Cherry/MX1A-L1NN",
+          "priceUsd": 0.78
+        }
+      ]
+    },
+    {
+      "id": "cherry-mx-blue",
+      "name": "Cherry MX Blue (Clicky)",
+      "actuationForce": 50,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/32835273175.html",
+          "priceUsd": 0.3
+        },
+        {
+          "name": "Mouser",
+          "url": "https://www.mouser.com/ProductDetail/Cherry/MX1A-E1NN",
+          "priceUsd": 0.78
+        }
+      ]
+    },
+    {
+      "id": "cherry-mx-black",
+      "name": "Cherry MX Black (Linear Heavy)",
+      "actuationForce": 60,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/32835273175.html",
+          "priceUsd": 0.3
+        },
+        {
+          "name": "Mouser",
+          "url": "https://www.mouser.com/ProductDetail/Cherry/MX1A-11NN",
+          "priceUsd": 0.78
+        }
+      ]
+    },
+    {
+      "id": "cherry-mx-clear",
+      "name": "Cherry MX Clear (Tactile Heavy)",
+      "actuationForce": 65,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "Mouser",
+          "url": "https://www.mouser.com/ProductDetail/Cherry/MX1A-C1NN",
+          "priceUsd": 0.85
+        }
+      ]
+    }
+  ],
+  "designNotes": [
+    "Standard MX spacing is 19.05mm (0.75 inch) in both axes",
+    "5-pin (PCB mount) variant recommended for plateless builds",
+    "MX keycap ecosystem is the largest -- widest keycap selection available",
+    "Hot-swap sockets (Kailh CPG151101S11) widely available",
+    "Not a low-profile switch -- total height with keycap is ~20mm above PCB",
+    "Consider Gateron or other MX-compatible clones for budget builds"
+  ],
+  "summary": "The original mechanical keyboard switch — gold standard with the largest keycap ecosystem",
+  "features": [
+    "Largest keycap ecosystem available",
+    "Hot-swap socket support (Kailh CPG151101S11)",
+    "Multiple variants: linear, tactile, clicky",
+    "5-pin PCB mount variant available",
+    "Proven reliability — 100M+ cycle rating",
+    "Compatible with virtually all MX-mount keyboards"
+  ],
+  "concerns": [
+    "Not low-profile — 18.5mm total height before keycap",
+    "19.05mm spacing limits compact layouts",
+    "Genuine Cherry switches are more expensive than clones",
+    "Through-hole mounting — not compatible with SMD-only PCBs"
+  ],
+  "externalLinks": [
+    {
+      "label": "Cherry MX Developer Portal",
+      "url": "https://www.cherrymx.de/en/dev.html"
+    },
+    {
+      "label": "Switch Comparison Tool",
+      "url": "https://www.theremingoat.com/"
+    },
+    {
+      "label": "Kailh Hot-swap Sockets",
+      "url": "https://www.kailhswitch.com/mechanical-keyboard-switches/hot-swap-socket.html"
+    },
+    {
+      "label": "MX Keycap Compatibility",
+      "url": "https://wiki.ai03.com/books/pcb-design/page/switch-plate-specs"
+    }
+  ]
+}

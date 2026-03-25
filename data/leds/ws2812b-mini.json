@@ -1,0 +1,87 @@
+{
+  "id": "ws2812b-mini",
+  "name": "WS2812B-Mini (3535)",
+  "manufacturer": "Worldsemi",
+  "type": "addressable-rgb",
+  "package": "3535 (3.5x3.5mm)",
+  "ledType": "RGB",
+  "voltage": {
+    "min": 3.7,
+    "max": 5.3,
+    "typical": 5.0,
+    "unit": "V"
+  },
+  "currentPerColor": 12,
+  "currentTotal": 36,
+  "currentUnit": "mA",
+  "protocol": "single-wire (NZR / WS2812-compatible)",
+  "dataRate": "800 kbps",
+  "colorDepth": "8-bit per channel (24-bit total)",
+  "mountingStyle": "top-mount SMD",
+  "dimensions": {
+    "width": 3.5,
+    "length": 3.5,
+    "height": 1.5,
+    "unit": "mm"
+  },
+  "padLayout": "4 pads: VDD, DOUT, GND, DIN",
+  "footprintFile": "WS2812B_Mini_3535.kicad_mod",
+  "symbolRef": "LED:WS2812B",
+  "datasheet": "https://www.lcsc.com/datasheet/lcsc_datasheet_2402181504_Worldsemi-WS2812B-Mini_C527089.pdf",
+  "suppliers": [
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/Light-Emitting-Diodes-LED_Worldsemi-WS2812B-Mini_C527089.html",
+      "priceUsd": 0.06
+    },
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/1005003584825999.html",
+      "priceUsd": 0.05
+    },
+    {
+      "name": "DigiKey",
+      "url": "https://www.digikey.com/en/products/filter/led-lighting/120",
+      "priceUsd": 0.35
+    }
+  ],
+  "designNotes": [
+    "Top-mount LED -- shines upward, suitable for per-key backlighting with transparent keycaps",
+    "Higher current draw than SK6812-MINI-E (36mA vs 15mA per LED at full brightness)",
+    "Significant battery drain impact -- not ideal for wireless keyboards unless dimmed",
+    "3535 package is smaller than standard WS2812B (5050) but still top-mount",
+    "Requires 100nF decoupling cap per LED close to VDD/GND pins",
+    "3.3V logic from nRF52840 may not reliably drive data line -- use level shifter or 74HCT245",
+    "For underglow-only use, SK6812-MINI-E reverse-mount is generally preferred"
+  ],
+  "summary": "Top-mount addressable RGB LED in compact 3535 package — for per-key backlighting",
+  "features": [
+    "Top-mount for per-key backlighting through transparent keycaps",
+    "Compact 3535 package (smaller than standard 5050 WS2812B)",
+    "WS2812-compatible single-wire protocol",
+    "24-bit color depth (16.7M colors)",
+    "Widely available and well-documented",
+    "Available at LCSC for JLCPCB assembly"
+  ],
+  "concerns": [
+    "High current draw at 36mA per LED — drains batteries quickly",
+    "Not recommended for wireless keyboards unless heavily dimmed",
+    "3.3V logic may not reliably drive data line — level shifter recommended",
+    "100nF decoupling cap required per LED near VDD/GND",
+    "Top-mount adds height — not ideal for ultra-low-profile builds"
+  ],
+  "externalLinks": [
+    {
+      "label": "Worldsemi WS2812B Datasheet",
+      "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_2402181504_Worldsemi-WS2812B-Mini_C527089.pdf"
+    },
+    {
+      "label": "Adafruit NeoPixel Guide",
+      "url": "https://learn.adafruit.com/adafruit-neopixel-uberguide"
+    },
+    {
+      "label": "LCSC Product Page",
+      "url": "https://www.lcsc.com/product-detail/Light-Emitting-Diodes-LED_Worldsemi-WS2812B-Mini_C527089.html"
+    }
+  ]
+}

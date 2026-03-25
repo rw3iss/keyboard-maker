@@ -1,0 +1,471 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://keyboard-toolchain.dev/schemas/build-config.schema.json",
+  "title": "Keyboard Build Configuration",
+  "description": "Schema for defining a complete keyboard build configuration, including layout, components, and firmware settings.",
+  "type": "object",
+  "required": ["id", "name", "layout", "mcu", "switch", "diode", "pcb"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique identifier for this build configuration"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for this build"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of this build config"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the keyboard build"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author or creator of this build config"
+    },
+    "layout": {
+      "type": "object",
+      "required": ["id", "totalKeys"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Reference to a layout definition file"
+        },
+        "source": {
+          "type": "string",
+          "enum": ["file", "url", "template"],
+          "description": "How the layout is sourced"
+        },
+        "path": {
+          "type": ["string", "null"],
+          "description": "Path to layout file (if source is 'file')"
+        },
+        "kleUrl": {
+          "type": ["string", "null"],
+          "description": "KLE URL (if source is 'url')"
+        },
+        "totalKeys": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 200,
+          "description": "Total number of keys in the layout"
+        },
+        "split": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this is a split keyboard"
+        },
+        "splitConnector": {
+          "type": "string",
+          "enum": ["trrs", "usb-c", "ble-only", "none"],
+          "description": "Connection method between split halves"
+        },
+        "keysPerHalf": {
+          "type": "object",
+          "properties": {
+            "left": { "type": "integer", "minimum": 1 },
+            "right": { "type": "integer", "minimum": 1 }
+          },
+          "description": "Number of keys on each half (for split keyboards)"
+        },
+        "columns": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of columns per half"
+        },
+        "rows": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of rows"
+        },
+        "thumbKeys": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of thumb cluster keys per half"
+        },
+        "stagger": {
+          "type": "string",
+          "enum": ["columnar", "row-stagger", "ortholinear", "none"],
+          "description": "Key stagger type"
+        },
+        "columnSpread": {
+          "type": "number",
+          "description": "Column-to-column horizontal spacing in mm"
+        },
+        "rowSpread": {
+          "type": "number",
+          "description": "Row-to-row vertical spacing in mm"
+        }
+      }
+    },
+    "mcu": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": ["nice-nano-v2", "xiao-ble-nrf52840", "supermini-nrf52840", "holyiot-18010", "custom-nrf52840-qiaa"],
+          "description": "Reference to an MCU component definition"
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1,
+          "description": "Number of MCUs (2 for split keyboards)"
+        },
+        "matrixPins": {
+          "type": "object",
+          "properties": {
+            "rows": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "GPIO pins assigned to matrix rows"
+            },
+            "cols": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "GPIO pins assigned to matrix columns"
+            }
+          },
+          "description": "Pin assignments for the key matrix"
+        },
+        "directPins": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "GPIO pins for direct-wired keys (no matrix)"
+        }
+      }
+    },
+    "switch": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": ["kailh-choc-v1", "kailh-choc-v2", "cherry-mx-ulp", "gateron-low-profile", "cherry-mx"],
+          "description": "Reference to a switch type definition"
+        },
+        "variant": {
+          "type": "string",
+          "description": "Specific switch variant (e.g., 'kailh-choc-brown')"
+        },
+        "hotswap": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to use hot-swap sockets"
+        },
+        "spacing": {
+          "type": "string",
+          "enum": ["choc", "mx", "custom"],
+          "description": "Switch spacing standard"
+        },
+        "customSpacing": {
+          "type": "object",
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" }
+          },
+          "description": "Custom spacing in mm (only if spacing is 'custom')"
+        }
+      }
+    },
+    "diode": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": ["1n4148w-sod123", "1n4148ws-sod323"],
+          "description": "Reference to a diode component definition"
+        },
+        "placement": {
+          "type": "string",
+          "enum": ["per-key", "per-row", "per-column"],
+          "default": "per-key",
+          "description": "Diode placement strategy"
+        },
+        "orientation": {
+          "type": "string",
+          "enum": ["col-to-row", "row-to-col"],
+          "default": "col-to-row",
+          "description": "Diode orientation in the matrix"
+        }
+      }
+    },
+    "pcb": {
+      "type": "object",
+      "required": ["layers", "thickness"],
+      "properties": {
+        "layers": {
+          "type": "integer",
+          "enum": [1, 2, 4, 6],
+          "default": 2,
+          "description": "Number of PCB copper layers"
+        },
+        "thickness": {
+          "type": "number",
+          "enum": [0.8, 1.0, 1.2, 1.6],
+          "default": 1.6,
+          "description": "PCB thickness in mm"
+        },
+        "dimensions": {
+          "type": "object",
+          "properties": {
+            "width": { "type": "number" },
+            "height": { "type": "number" },
+            "unit": { "type": "string", "enum": ["mm", "in"], "default": "mm" }
+          },
+          "description": "PCB outline dimensions"
+        },
+        "routing": {
+          "type": "string",
+          "enum": ["auto", "manual", "hybrid"],
+          "default": "auto",
+          "description": "Routing strategy"
+        },
+        "traceWidth": {
+          "type": "object",
+          "properties": {
+            "signal": { "type": "number", "default": 0.25 },
+            "power": { "type": "number", "default": 0.5 },
+            "unit": { "type": "string", "enum": ["mm"], "default": "mm" }
+          },
+          "description": "Trace width defaults in mm"
+        },
+        "viaSize": {
+          "type": "object",
+          "properties": {
+            "drill": { "type": "number", "default": 0.3 },
+            "annular": { "type": "number", "default": 0.6 }
+          },
+          "description": "Via drill and annular ring size in mm"
+        },
+        "manufacturer": {
+          "type": "string",
+          "enum": ["jlcpcb", "pcbway", "oshpark", "other"],
+          "description": "Target PCB manufacturer for DRC rules"
+        }
+      }
+    },
+    "connector": {
+      "type": "object",
+      "properties": {
+        "usb": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "enum": ["gct-usb4085", "hro-type-c-31-m-12"],
+              "description": "USB connector component reference"
+            },
+            "placement": {
+              "type": "string",
+              "enum": ["top", "left", "right", "bottom"],
+              "description": "Edge of PCB where USB connector is placed"
+            }
+          },
+          "description": "USB connector selection"
+        },
+        "battery": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "enum": ["jst-ph-2pin"],
+              "description": "Battery connector component reference"
+            }
+          },
+          "description": "Battery connector selection"
+        }
+      }
+    },
+    "power": {
+      "type": "object",
+      "properties": {
+        "battery": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "enum": ["lipo-500mah", "lipo-1000mah", "lipo-2000mah"],
+              "description": "Battery component reference"
+            },
+            "charger": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "enum": ["mcp73831", "tp4056", "bq24075", "built-in"],
+                  "description": "Battery charger IC (or 'built-in' if MCU has one)"
+                },
+                "chargeCurrent": {
+                  "type": "integer",
+                  "minimum": 50,
+                  "maximum": 1500,
+                  "description": "Desired charge current in mA"
+                }
+              },
+              "description": "Battery charger configuration"
+            }
+          },
+          "description": "Battery configuration"
+        },
+        "esd": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "enum": ["usblc6-2sc6", "tpd4e05u06"],
+              "description": "ESD protection IC reference"
+            }
+          },
+          "description": "ESD protection IC selection"
+        },
+        "powerSwitch": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include a physical power switch"
+        }
+      }
+    },
+    "leds": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to include LEDs"
+        },
+        "id": {
+          "type": "string",
+          "enum": ["sk6812-mini-e", "ws2812b-mini"],
+          "description": "Reference to an LED component definition"
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["per-key", "underglow", "both", "indicators-only"],
+          "description": "LED usage mode"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of LEDs"
+        },
+        "dataPin": {
+          "type": "string",
+          "description": "GPIO pin for LED data line"
+        },
+        "maxBrightness": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255,
+          "default": 128,
+          "description": "Maximum brightness level (0-255) to limit power draw"
+        }
+      }
+    },
+    "firmware": {
+      "type": "object",
+      "properties": {
+        "framework": {
+          "type": "string",
+          "enum": ["zmk", "qmk", "kmk", "custom"],
+          "description": "Firmware framework to use"
+        },
+        "keymap": {
+          "type": "string",
+          "description": "Path to keymap definition file"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "bluetooth",
+              "usb",
+              "rgb-underglow",
+              "per-key-rgb",
+              "oled-display",
+              "encoder",
+              "haptic",
+              "audio",
+              "pointing-device",
+              "split-communication"
+            ]
+          },
+          "description": "Firmware features to enable"
+        }
+      }
+    },
+    "case": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["3d-printed", "cnc-aluminum", "acrylic-layered", "pcb-sandwich", "none"],
+          "description": "Case manufacturing method"
+        },
+        "material": {
+          "type": "string",
+          "description": "Case material"
+        },
+        "plateIntegrated": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether the switch plate is part of the PCB (integrated plate)"
+        },
+        "tenting": {
+          "type": "object",
+          "properties": {
+            "enabled": { "type": "boolean", "default": false },
+            "angle": { "type": "number", "description": "Tenting angle in degrees" },
+            "method": {
+              "type": "string",
+              "enum": ["built-in", "magnetic", "legs", "stand"],
+              "description": "Method for achieving tent angle"
+            }
+          }
+        }
+      }
+    },
+    "bom": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "default": "USD",
+          "description": "Currency for cost estimates"
+        },
+        "includeShipping": {
+          "type": "boolean",
+          "default": false
+        },
+        "preferredSuppliers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Preferred suppliers in order of preference"
+        }
+      },
+      "description": "Bill of materials configuration"
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "schematic": { "type": "boolean", "default": true },
+        "pcb": { "type": "boolean", "default": true },
+        "gerbers": { "type": "boolean", "default": true },
+        "plate": { "type": "boolean", "default": false },
+        "bom": { "type": "boolean", "default": true },
+        "firmware": { "type": "boolean", "default": true },
+        "notes": { "type": "boolean", "default": true }
+      },
+      "description": "Which output artifacts to generate"
+    }
+  },
+  "additionalProperties": false
+}

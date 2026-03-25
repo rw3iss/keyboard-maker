@@ -1,0 +1,15 @@
+[2026-03-25T06:57:07.246Z] Build started for blue-dream-space
+[2026-03-25T06:57:07.247Z] Parsed layout: 86 keys
+[2026-03-25T06:57:07.248Z] Matrix: 11x10 (21 GPIOs)
+[2026-03-25T06:57:07.284Z] Schematic: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space.kicad_sch
+[2026-03-25T06:57:07.303Z] PCB: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space.kicad_pcb
+[2026-03-25T06:57:07.304Z] Routing guide generated, PCB unrouted (mode: guided)
+[2026-03-25T06:57:08.152Z] Gerbers: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/gerbers
+[2026-03-25T06:57:08.167Z] Plate: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-plate.dxf
+[2026-03-25T06:57:14.511Z] Case SCAD: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-plate.scad, /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-case.scad
+[2026-03-25T06:57:14.511Z] Plate STL: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-plate.stl
+[2026-03-25T06:57:14.511Z] Case STL: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-case.stl
+[2026-03-25T06:57:14.513Z] Firmware: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/firmware
+[2026-03-25T06:57:14.515Z] BOM: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/bom.md
+[2026-03-25T06:57:14.516Z] Overview: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/overview.html
+[2026-03-25T06:57:14.516Z] Build complete

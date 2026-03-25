@@ -1,0 +1,93 @@
+{
+  "id": "tp4056",
+  "name": "TP4056",
+  "manufacturer": "Nanjing Top Power",
+  "type": "linear-lipo-charger",
+  "package": "SOP-8",
+  "maxChargeCurrent": 1000,
+  "chargeCurrentUnit": "mA",
+  "programmableChargeCurrent": true,
+  "chargeCurrentFormula": "I_REG = 1200V / R_PROG (in kohms)",
+  "commonResistorValues": {
+    "1.2k": "1000mA",
+    "2k": "600mA",
+    "5k": "240mA",
+    "10k": "120mA"
+  },
+  "inputVoltage": {
+    "min": 4.0,
+    "max": 8.0,
+    "unit": "V"
+  },
+  "regulationVoltage": 4.2,
+  "features": [
+    "Single-cell Li-Ion/Li-Polymer charge management",
+    "Programmable charge current up to 1A",
+    "Automatic recharge",
+    "Two status output pins (CHRG and STDBY)",
+    "Soft-start limits inrush current",
+    "8-pin SOP package -- easy to hand-solder"
+  ],
+  "pinout": {
+    "TEMP": "pin 1 - temperature sense (10k NTC or tie to VSS to disable)",
+    "PROG": "pin 2 - charge current programming",
+    "GND": "pin 3 - ground",
+    "VCC": "pin 4 - input supply",
+    "BAT": "pin 5 - battery connection",
+    "STDBY": "pin 6 - standby indicator (charge complete)",
+    "CHRG": "pin 7 - charging indicator",
+    "CE": "pin 8 - chip enable (active high)"
+  },
+  "dimensions": {
+    "width": 4.0,
+    "length": 5.0,
+    "height": 1.5,
+    "unit": "mm"
+  },
+  "footprintFile": "SOIC-8_3.9x4.9mm_P1.27mm.kicad_mod",
+  "symbolRef": "Battery_Management:TP4056",
+  "summary": "Budget option with higher charge current — no power path",
+  "datasheet": "https://dlnmh9ip6v2uc.cloudfront.net/datasheets/Prototyping/TP4056.pdf",
+  "suppliers": [
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/Battery-Management_TECH-PUBLIC-TP4056_C16581.html",
+      "priceUsd": 0.08
+    },
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/32649780468.html",
+      "priceUsd": 0.05
+    }
+  ],
+  "designNotes": [
+    "Extremely cheap -- the budget option for LiPo charging",
+    "SOP-8 package is larger than MCP73831's SOT-23-5 but easier to solder",
+    "TEMP pin must be connected: either to 10k NTC thermistor or to GND to disable",
+    "Supports up to 1A charge current -- use appropriate PROG resistor for battery size",
+    "No built-in battery protection -- pair with DW01A + FS8205A for over-discharge protection",
+    "Place 4.7uF-10uF ceramic caps on both VCC and BAT pins",
+    "Available as pre-built modules with USB Micro-B for prototyping"
+  ],
+  "concerns": [
+    "No power path management — cannot power load while charging safely",
+    "SOP-8 package is larger than alternatives",
+    "No built-in battery protection — needs external DW01A + FS8205A",
+    "Thermal dissipation at high charge currents on small PCBs",
+    "Quality varies significantly between manufacturers"
+  ],
+  "externalLinks": [
+    {
+      "label": "TP4056 Module Schematic",
+      "url": "https://dlnmh9ip6v2uc.cloudfront.net/datasheets/Prototyping/TP4056.pdf"
+    },
+    {
+      "label": "Battery Protection Circuit Guide",
+      "url": "https://www.best-microcontroller-projects.com/tp4056.html"
+    },
+    {
+      "label": "TP4056 vs MCP73831 Comparison",
+      "url": "https://www.instructables.com/Li-Ion-Battery-Charging-Guide/"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+# Bill of Materials - blue-dream-space
+
+**Version:** 1.0.0  
+**Author:**   
+**Switch Type:** choc_v2  
+**MCU:** nice_nano_v2  
+
+| Ref | Component | Qty | Unit Price | Total | Supplier |
+|-----|-----------|-----|-----------|-------|----------|
+| SW1-SW86 | Kailh Choc v2 (PG1353) | 86 | $0.45 | $38.70 | Various |
+| D1-D86 | 1N4148W (SOD-123) | 86 | $0.01 | $0.86 | [LCSC](https://www.lcsc.com/product-detail/Switching-Diode_Changjiang-Electronics-Tech-CJ-1N4148W_C81598.html) |
+| HS1-HS86 | Hot-swap Socket | 86 | $0.15 | $12.90 | Various |
+| U1 | nice!nano v2 | 1 | $25.00 | $25.00 | [nice!keyboards](https://nicekeyboards.com/nice-nano) |
+| J1 | GCT USB4085-GF-A | 1 | $0.50 | $0.50 | [LCSC](https://www.lcsc.com/product-detail/USB-Connectors_G-Switch-GT-USB-7010ASV_C2988369.html) |
+| U2 | USBLC6-2SC6 | 1 | $0.15 | $0.15 | [LCSC](https://www.lcsc.com/product-detail/ESD-Protection-Devices_STMicroelectronics-USBLC6-2SC6_C7519.html) |
+| BT1 | LiPo Battery 1000mAh (603040 / 503450) | 1 | $4.50 | $4.50 | [AliExpress](https://www.aliexpress.com/item/1005003262068498.html) |
+
+**Estimated Total: $82.61**
+
+_Note: Prices are estimates and may vary. PCB fabrication costs not included._

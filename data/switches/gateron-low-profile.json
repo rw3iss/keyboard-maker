@@ -1,0 +1,118 @@
+{
+  "id": "gateron-low-profile",
+  "name": "Gateron Low Profile KS-33",
+  "manufacturer": "Gateron",
+  "type": "low-profile-mechanical",
+  "mounting": "through-hole",
+  "hotswapCompatible": true,
+  "hotswapSocket": "gateron-lp-hotswap",
+  "pinSpacing": 5.0,
+  "switchSpacing": {
+    "x": 18.0,
+    "y": 17.0
+  },
+  "travelDistance": 3.0,
+  "actuationForce": null,
+  "keycapMount": "gateron-lp",
+  "footprintFile": "Gateron_LP_KS33.kicad_mod",
+  "hotswapFootprintFile": "Gateron_LP_KS33_Hotswap.kicad_mod",
+  "symbolRef": "Switch:SW_Push",
+  "datasheet": "https://www.gateron.com/pages/low-profile-switch-mechanical-specification",
+  "dimensions": {
+    "width": 14.0,
+    "depth": 14.0,
+    "height": 9.0,
+    "unit": "mm"
+  },
+  "variants": [
+    {
+      "id": "gateron-lp-brown",
+      "name": "Gateron Low Profile Brown (Tactile)",
+      "actuationForce": 55,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/1005004374775498.html",
+          "priceUsd": 0.3
+        },
+        {
+          "name": "Gateron Official",
+          "url": "https://www.gateron.com/collections/low-profile-switch",
+          "priceUsd": 0.45
+        }
+      ]
+    },
+    {
+      "id": "gateron-lp-red",
+      "name": "Gateron Low Profile Red (Linear)",
+      "actuationForce": 45,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/1005004374775498.html",
+          "priceUsd": 0.28
+        },
+        {
+          "name": "Gateron Official",
+          "url": "https://www.gateron.com/collections/low-profile-switch",
+          "priceUsd": 0.45
+        }
+      ]
+    },
+    {
+      "id": "gateron-lp-blue",
+      "name": "Gateron Low Profile Blue (Clicky)",
+      "actuationForce": 50,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/1005004374775498.html",
+          "priceUsd": 0.3
+        }
+      ]
+    }
+  ],
+  "designNotes": [
+    "NOT compatible with Kailh Choc keycaps -- uses proprietary Gateron LP mount",
+    "Similar spacing to Choc v1 (18x17mm) but different pin layout",
+    "Hot-swap sockets are Gateron-specific, not interchangeable with Choc",
+    "Keycap availability is more limited than Choc ecosystem",
+    "Used in Nuphy Air series keyboards"
+  ],
+  "summary": "Low-profile mechanical switch with proprietary mount — used in Nuphy keyboards",
+  "features": [
+    "Low-profile design (9mm height)",
+    "Hot-swap socket available",
+    "3.0mm key travel — more than Choc v1",
+    "Multiple variants: linear, tactile, clicky",
+    "Through-hole mounting with hot-swap option",
+    "Used in popular Nuphy Air series"
+  ],
+  "concerns": [
+    "Proprietary Gateron LP keycap mount — limited keycap selection",
+    "NOT compatible with Kailh Choc keycaps",
+    "Hot-swap sockets are Gateron-specific, not interchangeable",
+    "Smaller keycap ecosystem than Choc or MX",
+    "Similar spacing to Choc v1 but different pin layout"
+  ],
+  "externalLinks": [
+    {
+      "label": "Gateron Low Profile Switches",
+      "url": "https://www.gateron.com/pages/low-profile-switch-mechanical-specification"
+    },
+    {
+      "label": "Gateron Official Store",
+      "url": "https://www.gateron.com/collections/low-profile-switch"
+    },
+    {
+      "label": "Nuphy Air Keyboard (uses these switches)",
+      "url": "https://nuphy.com/collections/keyboards"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "usblc6-2sc6",
+  "name": "USBLC6-2SC6",
+  "manufacturer": "STMicroelectronics",
+  "type": "esd-protection",
+  "application": "USB 2.0 ESD protection",
+  "package": "SOT-23-6",
+  "channels": 2,
+  "clampingVoltage": 8.0,
+  "workingVoltage": 5.0,
+  "triggerVoltage": 6.0,
+  "esdRating": {
+    "iecContact": "8 kV",
+    "iecAir": "15 kV",
+    "hbm": "15 kV"
+  },
+  "lineCapacitance": "1.5 pF",
+  "leakageCurrent": "0.2 uA",
+  "pinout": {
+    "pin1": "I/O 1 (D- line)",
+    "pin2": "GND",
+    "pin3": "I/O 2 (D+ line)",
+    "pin4": "I/O 2 (D+ line)",
+    "pin5": "VBUS",
+    "pin6": "I/O 1 (D- line)"
+  },
+  "dimensions": {
+    "width": 1.6,
+    "length": 2.9,
+    "height": 1.45,
+    "unit": "mm"
+  },
+  "footprintFile": "SOT-23-6.kicad_mod",
+  "symbolRef": "Power_Protection:USBLC6-2SC6",
+  "datasheet": "https://www.st.com/resource/en/datasheet/usblc6-2sc6.pdf",
+  "suppliers": [
+    {
+      "name": "LCSC",
+      "url": "https://www.lcsc.com/product-detail/ESD-Protection-Devices_STMicroelectronics-USBLC6-2SC6_C7519.html",
+      "priceUsd": 0.15
+    },
+    {
+      "name": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/stmicroelectronics/USBLC6-2SC6/1629342",
+      "priceUsd": 0.46
+    },
+    {
+      "name": "Mouser",
+      "url": "https://www.mouser.com/ProductDetail/STMicroelectronics/USBLC6-2SC6",
+      "priceUsd": 0.4
+    }
+  ],
+  "designNotes": [
+    "Place as close to USB connector as possible for best protection",
+    "Protects D+ and D- lines from ESD events",
+    "Very low capacitance (1.5pF) -- does not affect USB 2.0 signal integrity",
+    "VBUS pin connects to USB 5V rail",
+    "Standard ESD protection for keyboard USB-C connections",
+    "Available at LCSC for JLCPCB assembly"
+  ],
+  "summary": "2-channel USB ESD protection in SOT-23-6 — easy to solder, widely available",
+  "features": [
+    "Protects USB D+ and D- lines from ESD events",
+    "SOT-23-6 package — hand-solderable",
+    "8kV IEC contact / 15kV air discharge protection",
+    "Low 1.5pF line capacitance suitable for USB 2.0",
+    "Very affordable ($0.15-0.46)",
+    "Available at LCSC for JLCPCB assembly"
+  ],
+  "concerns": [
+    "Only 2 channels — separate protection needed for CC lines",
+    "Higher capacitance than TPD4E05U06 (1.5pF vs 0.5pF)",
+    "Requires VBUS connection for proper operation",
+    "Higher leakage current (0.2uA) than alternatives"
+  ],
+  "externalLinks": [
+    {
+      "label": "ST Product Page",
+      "url": "https://www.st.com/en/protection-devices/usblc6-2sc6.html"
+    },
+    {
+      "label": "ST Application Note",
+      "url": "https://www.st.com/resource/en/application_note/an4625.pdf"
+    },
+    {
+      "label": "LCSC Product Page",
+      "url": "https://www.lcsc.com/product-detail/ESD-Protection-Devices_STMicroelectronics-USBLC6-2SC6_C7519.html"
+    }
+  ]
+}

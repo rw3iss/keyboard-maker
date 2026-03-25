@@ -1,0 +1,148 @@
+{
+  "id": "xiao-ble-nrf52840",
+  "name": "Seeed XIAO BLE nRF52840",
+  "chip": "nRF52840",
+  "formFactor": "xiao",
+  "hasUsb": true,
+  "usbType": "USB-C",
+  "hasBle": true,
+  "bleVersion": "5.0",
+  "hasLipoCharger": true,
+  "chargerMaxMa": 50,
+  "operatingVoltage": 3.3,
+  "flashSize": "1 MB",
+  "ramSize": "256 KB",
+  "clockSpeed": "64 MHz",
+  "gpioCount": 11,
+  "gpioPins": [
+    {
+      "pin": "P0.02",
+      "label": "D0/A0",
+      "analog": true
+    },
+    {
+      "pin": "P0.03",
+      "label": "D1/A1",
+      "analog": true
+    },
+    {
+      "pin": "P0.28",
+      "label": "D2/A2",
+      "analog": true
+    },
+    {
+      "pin": "P0.29",
+      "label": "D3/A3",
+      "analog": true
+    },
+    {
+      "pin": "P0.04",
+      "label": "D4/A4/SDA",
+      "analog": true
+    },
+    {
+      "pin": "P0.05",
+      "label": "D5/A5/SCL",
+      "analog": true
+    },
+    {
+      "pin": "P1.11",
+      "label": "D6/TX",
+      "analog": false
+    },
+    {
+      "pin": "P1.12",
+      "label": "D7/RX",
+      "analog": false
+    },
+    {
+      "pin": "P1.13",
+      "label": "D8/SCK",
+      "analog": false
+    },
+    {
+      "pin": "P1.14",
+      "label": "D9/MISO",
+      "analog": false
+    },
+    {
+      "pin": "P1.15",
+      "label": "D10/MOSI",
+      "analog": false
+    }
+  ],
+  "dimensions": {
+    "width": 17.5,
+    "length": 21.0,
+    "unit": "mm"
+  },
+  "footprintFile": "Seeed_XIAO_BLE.kicad_mod",
+  "zmkBoard": "seeeduino_xiao_ble",
+  "firmware": [
+    "zmk",
+    "qmk",
+    "circuitpython"
+  ],
+  "summary": "Ultra-compact module, only 11 GPIOs — best for small splits",
+  "bootloader": "Adafruit nRF52 UF2",
+  "suppliers": [
+    {
+      "name": "Seeed Studio",
+      "url": "https://www.seeedstudio.com/Seeed-XIAO-BLE-nRF52840-p-5201.html",
+      "priceUsd": 9.9
+    },
+    {
+      "name": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/seeed-technology-co-ltd/102010448/16652880",
+      "priceUsd": 9.9
+    },
+    {
+      "name": "Mouser",
+      "url": "https://www.mouser.com/ProductDetail/Seeed-Studio/102010448",
+      "priceUsd": 9.9
+    }
+  ],
+  "designNotes": [
+    "Only 11 GPIOs -- limits matrix size without shift registers or I/O expanders",
+    "Smallest nRF52840 module available -- ideal for compact builds",
+    "Built-in LiPo charger at 50mA -- slow charging, suitable for small batteries",
+    "Battery pads on bottom of board (BAT+ and BAT-)",
+    "Also available as 'Sense' variant with IMU (not needed for keyboards)",
+    "XIAO form factor -- NOT Pro Micro compatible, needs custom PCB or adapter",
+    "For split keyboards with 5x3 + thumb cluster, 11 GPIOs is barely enough"
+  ],
+  "features": [
+    "Smallest nRF52840 module available (17.5x21mm)",
+    "Built-in USB-C and LiPo charging (50mA)",
+    "6 analog input pins",
+    "Official ZMK board support",
+    "Well-documented by Seeed Studio",
+    "Also supports CircuitPython"
+  ],
+  "concerns": [
+    "Only 11 GPIOs — severely limits matrix size",
+    "50mA charging is very slow for most batteries",
+    "XIAO form factor — NOT Pro Micro compatible",
+    "Requires custom PCB or adapter board",
+    "Battery pads on bottom of board — awkward to solder"
+  ],
+  "datasheet": "https://wiki.seeedstudio.com/XIAO_BLE/",
+  "externalLinks": [
+    {
+      "label": "Seeed Studio Wiki",
+      "url": "https://wiki.seeedstudio.com/XIAO_BLE/"
+    },
+    {
+      "label": "Seeed Studio Store",
+      "url": "https://www.seeedstudio.com/Seeed-XIAO-BLE-nRF52840-p-5201.html"
+    },
+    {
+      "label": "ZMK Board Definition",
+      "url": "https://zmk.dev/docs/hardware"
+    },
+    {
+      "label": "XIAO BLE Pinout",
+      "url": "https://wiki.seeedstudio.com/XIAO_BLE/#hardware-overview"
+    }
+  ]
+}

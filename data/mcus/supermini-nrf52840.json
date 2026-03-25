@@ -1,0 +1,192 @@
+{
+  "id": "supermini-nrf52840",
+  "name": "SuperMini nRF52840",
+  "chip": "nRF52840",
+  "formFactor": "pro-micro",
+  "hasUsb": true,
+  "usbType": "USB-C",
+  "hasBle": true,
+  "bleVersion": "5.0",
+  "hasLipoCharger": true,
+  "chargerMaxMa": 100,
+  "operatingVoltage": 3.3,
+  "flashSize": "1 MB",
+  "ramSize": "256 KB",
+  "clockSpeed": "64 MHz",
+  "gpioCount": 21,
+  "gpioPins": [
+    {
+      "pin": "P0.06",
+      "label": "D0",
+      "analog": false
+    },
+    {
+      "pin": "P0.08",
+      "label": "D1",
+      "analog": false
+    },
+    {
+      "pin": "P0.17",
+      "label": "D2",
+      "analog": false
+    },
+    {
+      "pin": "P0.20",
+      "label": "D3",
+      "analog": false
+    },
+    {
+      "pin": "P0.22",
+      "label": "D4",
+      "analog": false
+    },
+    {
+      "pin": "P0.24",
+      "label": "D5",
+      "analog": false
+    },
+    {
+      "pin": "P1.00",
+      "label": "D6",
+      "analog": false
+    },
+    {
+      "pin": "P0.11",
+      "label": "D7",
+      "analog": false
+    },
+    {
+      "pin": "P1.04",
+      "label": "D8",
+      "analog": false
+    },
+    {
+      "pin": "P1.06",
+      "label": "D9",
+      "analog": false
+    },
+    {
+      "pin": "P0.09",
+      "label": "D10",
+      "analog": false
+    },
+    {
+      "pin": "P0.10",
+      "label": "D16",
+      "analog": false
+    },
+    {
+      "pin": "P1.11",
+      "label": "D14",
+      "analog": false
+    },
+    {
+      "pin": "P1.13",
+      "label": "D15",
+      "analog": false
+    },
+    {
+      "pin": "P0.02",
+      "label": "D18/A0",
+      "analog": true
+    },
+    {
+      "pin": "P0.03",
+      "label": "D19/A1",
+      "analog": true
+    },
+    {
+      "pin": "P0.28",
+      "label": "D20/A2",
+      "analog": true
+    },
+    {
+      "pin": "P0.29",
+      "label": "D21/A3",
+      "analog": true
+    },
+    {
+      "pin": "P0.30",
+      "label": "D22/A4",
+      "analog": true
+    },
+    {
+      "pin": "P0.31",
+      "label": "D23/A5",
+      "analog": true
+    },
+    {
+      "pin": "P0.13",
+      "label": "D24",
+      "analog": false
+    }
+  ],
+  "dimensions": {
+    "width": 18.0,
+    "length": 33.3,
+    "unit": "mm"
+  },
+  "footprintFile": "nRF52840_Module_NiceNano.kicad_mod",
+  "zmkBoard": "nice_nano_v2",
+  "firmware": [
+    "zmk",
+    "qmk"
+  ],
+  "summary": "Budget nice!nano alternative with same Pro Micro pinout",
+  "bootloader": "Adafruit nRF52 UF2",
+  "suppliers": [
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/1005006035267231.html",
+      "priceUsd": 7.5
+    },
+    {
+      "name": "AliExpress (alt)",
+      "url": "https://www.aliexpress.com/item/1005006094003750.html",
+      "priceUsd": 8.0
+    }
+  ],
+  "designNotes": [
+    "Budget nice!nano alternative -- same Pro Micro pinout at ~1/3 the price",
+    "Uses nice_nano_v2 ZMK board definition -- pin-compatible",
+    "Built-in LiPo charger -- similar to nice!nano",
+    "Quality control can vary between AliExpress sellers",
+    "Some units ship without bootloader -- may need J-Link to flash initially",
+    "Recommended to buy from sellers with high ratings and reviews",
+    "Blue LED on board can drain battery -- consider desoldering for wireless builds"
+  ],
+  "features": [
+    "Budget nice!nano alternative at ~1/3 the price",
+    "Same Pro Micro pinout — compatible with nice!nano PCBs",
+    "Built-in USB-C and LiPo charging",
+    "256KB RAM, 1MB flash (same as nice!nano)",
+    "21 usable GPIO pins",
+    "Uses nice_nano_v2 ZMK board definition"
+  ],
+  "concerns": [
+    "Quality control varies between AliExpress sellers",
+    "Some units ship without bootloader — may need J-Link",
+    "Blue onboard LED drains battery in wireless mode",
+    "No official documentation or support",
+    "Charging circuit may differ from nice!nano specs"
+  ],
+  "datasheet": "https://github.com/joric/nrfmicro/wiki/Alternatives#supermini-nrf52840",
+  "externalLinks": [
+    {
+      "label": "AliExpress Listings",
+      "url": "https://www.aliexpress.com/item/1005006035267231.html"
+    },
+    {
+      "label": "Reddit Reviews",
+      "url": "https://www.reddit.com/r/ErgoMechKeyboards/comments/16ouy02/supermini_nrf52840/"
+    },
+    {
+      "label": "ZMK Firmware Documentation",
+      "url": "https://zmk.dev/docs"
+    },
+    {
+      "label": "joric nrfmicro Wiki",
+      "url": "https://github.com/joric/nrfmicro/wiki"
+    }
+  ]
+}

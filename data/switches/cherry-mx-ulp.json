@@ -1,0 +1,90 @@
+{
+  "id": "cherry-mx-ulp",
+  "name": "Cherry MX Ultra Low Profile",
+  "manufacturer": "Cherry",
+  "type": "ultra-low-profile-mechanical",
+  "mounting": "smd",
+  "hotswapCompatible": false,
+  "hotswapSocket": null,
+  "pinSpacing": null,
+  "switchSpacing": {
+    "x": 18.0,
+    "y": 18.0
+  },
+  "travelDistance": 1.8,
+  "actuationForce": null,
+  "keycapMount": "cherry-ulp",
+  "footprintFile": "Cherry_MX_ULP.kicad_mod",
+  "hotswapFootprintFile": null,
+  "symbolRef": "Switch:SW_Push",
+  "datasheet": "https://www.cherrymx.de/en/cherry-mx/mx-ultra-low-profile/mx-ulp-click.html",
+  "dimensions": {
+    "width": 14.5,
+    "depth": 14.5,
+    "height": 3.5,
+    "unit": "mm"
+  },
+  "variants": [
+    {
+      "id": "cherry-mx-ulp-tactile",
+      "name": "Cherry MX ULP Tactile",
+      "actuationForce": 65,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "Cherry (OEM only)",
+          "url": "https://www.cherrymx.de/en/cherry-mx/mx-ultra-low-profile.html",
+          "priceUsd": null
+        }
+      ]
+    },
+    {
+      "id": "cherry-mx-ulp-click",
+      "name": "Cherry MX ULP Click",
+      "actuationForce": 70,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        {
+          "name": "Cherry (OEM only)",
+          "url": "https://www.cherrymx.de/en/cherry-mx/mx-ultra-low-profile.html",
+          "priceUsd": null
+        }
+      ]
+    }
+  ],
+  "designNotes": [
+    "Extremely low profile -- 3.5mm total height is thinnest mechanical switch available",
+    "Currently only available as OEM -- not sold individually to consumers",
+    "Proprietary keycap mount -- no aftermarket keycaps available",
+    "SMD mounting only -- no through-hole variant",
+    "Used in Cherry KW 9200 Mini keyboard",
+    "Not recommended for hobby builds due to limited availability"
+  ],
+  "summary": "Ultra-low-profile mechanical switch at 3.5mm height — OEM-only, not for hobby builds",
+  "features": [
+    "Thinnest mechanical switch available at 3.5mm",
+    "1.8mm key travel — laptop-like feel",
+    "True mechanical switch mechanism",
+    "SMD mounting for thin PCB assemblies",
+    "Used in Cherry KW 9200 Mini keyboard"
+  ],
+  "concerns": [
+    "OEM-only — not sold individually to consumers",
+    "Proprietary keycap mount — no aftermarket keycaps",
+    "No hot-swap option",
+    "Not recommended for hobby/DIY keyboard builds",
+    "Very limited availability and documentation"
+  ],
+  "externalLinks": [
+    {
+      "label": "Cherry MX ULP Product Page",
+      "url": "https://www.cherrymx.de/en/cherry-mx/mx-ultra-low-profile.html"
+    },
+    {
+      "label": "Cherry KW 9200 Mini",
+      "url": "https://www.cherry.de/en-gb/kw-9200-mini.html"
+    }
+  ]
+}

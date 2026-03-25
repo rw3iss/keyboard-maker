@@ -1,0 +1,88 @@
+{
+  "id": "lipo-500mah",
+  "name": "LiPo Battery 500mAh (301230 / 501230)",
+  "type": "lithium-polymer",
+  "voltage": {
+    "nominal": 3.7,
+    "fullCharge": 4.2,
+    "cutoff": 3.0,
+    "unit": "V"
+  },
+  "capacityMah": 500,
+  "dischargeCurrent": {
+    "continuous": "0.5C (250mA)",
+    "peak": "1C (500mA)"
+  },
+  "connector": "JST PH 2-pin",
+  "dimensions": {
+    "width": 30,
+    "length": 36,
+    "thickness": 5.0,
+    "unit": "mm",
+    "note": "Dimensions vary significantly by manufacturer -- verify before PCB design"
+  },
+  "weight": {
+    "value": 10,
+    "unit": "g"
+  },
+  "estimatedKeyboardLife": {
+    "withoutLeds": "1-3 weeks typical for BLE keyboard",
+    "withLeds": "1-3 days depending on LED brightness",
+    "assumptions": "Based on ~1mA average BLE keyboard idle draw, 4-6 hours active use per day"
+  },
+  "summary": "Compact — fits small keyboards, ~2 weeks BLE life",
+  "suppliers": [
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/1005003262068498.html",
+      "priceUsd": 3.5
+    },
+    {
+      "name": "Adafruit",
+      "url": "https://www.adafruit.com/product/1578",
+      "priceUsd": 7.95
+    },
+    {
+      "name": "Amazon",
+      "url": "https://www.amazon.com/s?k=lipo+500mah+jst+ph",
+      "priceUsd": 5.0
+    }
+  ],
+  "designNotes": [
+    "Good balance of size and capacity for single-half split keyboards",
+    "Fits in most split keyboard cases between PCB and bottom plate",
+    "Charge at 0.5C max (250mA) -- safe with nice!nano's 100mA charger",
+    "JST PH polarity varies by manufacturer -- ALWAYS verify with multimeter before connecting",
+    "Adafruit batteries use red=positive convention; many AliExpress batteries are reversed",
+    "Include battery protection circuit or use battery with built-in protection PCB",
+    "Store at ~3.8V (40-60% charge) for long-term storage"
+  ],
+  "features": [
+    "Compact form factor fits most split keyboard halves",
+    "JST PH 2-pin connector standard in keyboard builds",
+    "Safe charging rate within nice!nano's 100mA limit",
+    "1-3 weeks BLE keyboard life without LEDs",
+    "Lightweight at ~10g"
+  ],
+  "concerns": [
+    "Limited capacity — only 1-3 days with LEDs enabled",
+    "Dimensions vary significantly between manufacturers",
+    "JST PH polarity is NOT standardized — verify before connecting",
+    "No built-in protection on cheapest cells — confirm protection PCB included"
+  ],
+  "datasheet": "https://www.batteryjunction.com/lipo-battery-datasheet-500mah",
+  "externalLinks": [
+    {
+      "label": "Adafruit LiPo Battery Guide",
+      "url": "https://learn.adafruit.com/li-ion-and-lipoly-batteries"
+    },
+    {
+      "label": "Battery Safety Guide",
+      "url": "https://www.sparkfun.com/tutorials/241"
+    },
+    {
+      "label": "JST PH Polarity Warning",
+      "url": "https://learn.adafruit.com/li-ion-and-lipoly-batteries/polarity"
+    }
+  ]
+}

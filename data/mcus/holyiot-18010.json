@@ -1,0 +1,260 @@
+{
+  "id": "holyiot-18010",
+  "name": "Holyiot 18010 nRF52840 Module",
+  "chip": "nRF52840",
+  "formFactor": "castellated-module",
+  "hasUsb": false,
+  "usbType": null,
+  "hasBle": true,
+  "bleVersion": "5.0",
+  "hasLipoCharger": false,
+  "chargerMaxMa": null,
+  "operatingVoltage": 3.3,
+  "flashSize": "1 MB",
+  "ramSize": "256 KB",
+  "clockSpeed": "64 MHz",
+  "gpioCount": 32,
+  "gpioPins": [
+    {
+      "pin": "P0.00",
+      "label": "XL1",
+      "analog": false,
+      "note": "32.768kHz crystal"
+    },
+    {
+      "pin": "P0.01",
+      "label": "XL2",
+      "analog": false,
+      "note": "32.768kHz crystal"
+    },
+    {
+      "pin": "P0.02",
+      "label": "AIN0",
+      "analog": true
+    },
+    {
+      "pin": "P0.03",
+      "label": "AIN1",
+      "analog": true
+    },
+    {
+      "pin": "P0.04",
+      "label": "AIN2",
+      "analog": true
+    },
+    {
+      "pin": "P0.05",
+      "label": "AIN3",
+      "analog": true
+    },
+    {
+      "pin": "P0.06",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.07",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.08",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.09",
+      "label": "NFC1",
+      "analog": false
+    },
+    {
+      "pin": "P0.10",
+      "label": "NFC2",
+      "analog": false
+    },
+    {
+      "pin": "P0.11",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.12",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.13",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.14",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.15",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.16",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.17",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.18",
+      "label": "GPIO/RESET",
+      "analog": false
+    },
+    {
+      "pin": "P0.19",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.20",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.21",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.22",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.23",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.24",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.25",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.26",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.27",
+      "label": "GPIO",
+      "analog": false
+    },
+    {
+      "pin": "P0.28",
+      "label": "AIN4",
+      "analog": true
+    },
+    {
+      "pin": "P0.29",
+      "label": "AIN5",
+      "analog": true
+    },
+    {
+      "pin": "P0.30",
+      "label": "AIN6",
+      "analog": true
+    },
+    {
+      "pin": "P0.31",
+      "label": "AIN7",
+      "analog": true
+    }
+  ],
+  "dimensions": {
+    "width": 15.5,
+    "length": 19.5,
+    "unit": "mm"
+  },
+  "antennaType": "on-module-pcb",
+  "hasExternalCrystal": true,
+  "footprintFile": "Holyiot_18010_nRF52840.kicad_mod",
+  "zmkBoard": null,
+  "firmware": [
+    "zmk",
+    "qmk",
+    "zephyr"
+  ],
+  "summary": "32 GPIOs with pre-certified BLE — ideal for large custom PCBs",
+  "bootloader": "Adafruit nRF52 UF2 (must flash via SWD)",
+  "suppliers": [
+    {
+      "name": "Holyiot Official",
+      "url": "https://www.holyiot.com/eacp_view.asp?id=278",
+      "priceUsd": 5.5
+    },
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/4001058498498.html",
+      "priceUsd": 4.8
+    },
+    {
+      "name": "Tindie",
+      "url": "https://www.tindie.com/products/onehorse/holyiot-nrf52840-module/",
+      "priceUsd": 8.0
+    }
+  ],
+  "designNotes": [
+    "No USB connector on module -- must add external USB-C connector and D+/D- routing",
+    "Castellated pads allow direct soldering to carrier PCB",
+    "32 usable GPIOs -- excellent for large matrices or direct-pin wiring",
+    "Requires external LiPo charger IC (MCP73831 or TP4056) for battery support",
+    "On-module PCB antenna -- keep ground plane clear under antenna area",
+    "Must flash bootloader via SWD (J-Link or similar) before USB bootloader works",
+    "P0.09 and P0.10 are NFC pins by default -- must disable NFC in firmware config to use as GPIO",
+    "Needs custom ZMK board definition -- not a standard ZMK board",
+    "Most cost-effective option for custom PCB designs"
+  ],
+  "features": [
+    "32 usable GPIOs — most of any keyboard module",
+    "Pre-certified BLE antenna on module",
+    "Castellated pads for direct PCB soldering",
+    "On-module 32.768kHz and 32MHz crystals",
+    "Cost-effective for custom PCB designs ($4.80-8.00)",
+    "Full nRF52840 capabilities (1MB flash, 256KB RAM)"
+  ],
+  "concerns": [
+    "No USB connector — must add external USB-C and routing",
+    "Requires external LiPo charger IC",
+    "Must flash bootloader via SWD before USB works",
+    "Needs custom ZMK board definition",
+    "NFC pins (P0.09/P0.10) need firmware config to use as GPIO",
+    "Keep ground plane clear under antenna area"
+  ],
+  "datasheet": "https://www.holyiot.com/eacp_view.asp?id=278",
+  "externalLinks": [
+    {
+      "label": "Holyiot Official Page",
+      "url": "https://www.holyiot.com/eacp_view.asp?id=278"
+    },
+    {
+      "label": "nRF52840 Product Specification",
+      "url": "https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.7.pdf"
+    },
+    {
+      "label": "joric nrfmicro Wiki",
+      "url": "https://github.com/joric/nrfmicro/wiki"
+    },
+    {
+      "label": "ZMK New Board Guide",
+      "url": "https://zmk.dev/docs/development/new-board"
+    }
+  ]
+}
