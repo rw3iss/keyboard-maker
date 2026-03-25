@@ -1,29 +1,69 @@
-import { signal } from '@preact/signals';
+import { signal, computed } from '@preact/signals';
+
+// ── Types ──────────────────────────────────────────────────────────────────
+
+export type ComponentType =
+  | 'switch'
+  | 'screw'
+  | 'usb'
+  | 'mcu'
+  | 'battery'
+  | 'power_button'
+  | 'wifi_button'
+  | 'lcd'
+  | 'outline';
 
 export interface LayoutComponent {
   id: string;
-  type: 'switch' | 'screw' | 'usb' | 'mcu' | 'battery';
-  x: number;  // mm
-  y: number;  // mm
-  width: number;  // mm
-  height: number; // mm
+  type: ComponentType;
+  layer: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  rotation: number;
   label: string;
-  draggable: boolean;  // switches are NOT draggable, screws/usb/mcu ARE
+  draggable: boolean;
   selected: boolean;
+  collision: boolean;
 }
 
-export const layoutComponents = signal<LayoutComponent[]>([]);
-export const selectedId = signal<string | null>(null);
-export const zoom = signal(1);
-export const panX = signal(0);
-export const panY = signal(0);
-export const showLayers = signal({
-  switches: true,
-  screws: true,
-  connectors: true,
-  mcu: true,
-  outline: true,
-});
+export interface LayerConfig {
+  id: string;
+  label: string;
+  visible: boolean;
+  opacity: number;
+  locked: boolean;
+  color: string;
+}
+
+export interface BoardBounds {
+  minX: number;
+  minY: number;
+  maxX: number;
+  maxY: number;
+}
+
+export interface LayoutOverride {
+  id: string;
+  type: ComponentType;
+  x: number;
+  y: number;
+}
+
+// ── Layer definitions ──────────────────────────────────────────────────────
+
+export const DEFAULT_LAYERS: LayerConfig[] = [
+  { id: 'outline', label: 'Board Outline', visible: true, opacity: 1, locked: true, color: '#64748b' },
+  { id: 'switches', label: 'Switches', visible: true, opacity: 0.9, locked: true, color: '#4a5568' },
+  { id: 'screws', label: 'Screw Holes', visible: true, opacity: 1, locked: false, color: '#d4a574' },
+  { id: 'connectors', label: 'Connectors', visible: true, opacity: 1, locked: false, color: '#6ecbf5' },
+  { id: 'mcu', label: 'MCU', visible: true, opacity: 1, locked: false, color: '#22c55e' },
+  { id: 'power', label: 'Power/Battery', visible: true, opacity: 1, locked: false, color: '#ef4444' },
+  { id: 'extras', label: 'LCD/Buttons', visible: true, opacity: 1, locked: false, color: '#eab308' },
+];
+
+// ── Switch spacing by type (mm) ────────────────────────────────────────────
 
 const SPACING: Record<string, { x: number; y: number }> = {
   choc_v1: { x: 18, y: 17 },
@@ -33,91 +73,395 @@ const SPACING: Record<string, { x: number; y: number }> = {
   gateron_lp: { x: 18, y: 17 },
 };
 
-/** Initialize layout from a build config and KLE-parsed keys */
-export function initLayout(config: any, keys: any[]) {
-  const sp = SPACING[config.switches?.type] || SPACING.choc_v1;
-  const components: LayoutComponent[] = [];
+// ── Signals ────────────────────────────────────────────────────────────────
 
-  // Add switches (not draggable — positions come from KLE)
-  keys.forEach((key, i) => {
+export const layoutComponents = signal<LayoutComponent[]>([]);
+export const layers = signal<LayerConfig[]>(DEFAULT_LAYERS.map((l) => ({ ...l })));
+export const selectedId = signal<string | null>(null);
+export const boardBounds = signal<BoardBounds>({ minX: 0, minY: 0, maxX: 200, maxY: 100 });
+
+/** Default positions for all draggable components, used by reset */
+let defaultPositions: Record<string, { x: number; y: number }> = {};
+
+// ── Computed ───────────────────────────────────────────────────────────────
+
+export const selectedComponent = computed(() => {
+  const id = selectedId.value;
+  if (!id) return null;
+  return layoutComponents.value.find((c) => c.id === id) ?? null;
+});
+
+export const hasCollisions = computed(() => {
+  return layoutComponents.value.some((c) => c.collision);
+});
+
+// ── Grid snap ──────────────────────────────────────────────────────────────
+
+function snapToGrid(v: number, gridSize = 0.5): number {
+  return Math.round(v / gridSize) * gridSize;
+}
+
+// ── Init ───────────────────────────────────────────────────────────────────
+
+export interface SimpleKey {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  label: string;
+}
+
+export function initLayout(config: any, kleKeys: SimpleKey[]) {
+  const sp = SPACING[config?.switches?.type] || SPACING.choc_v1;
+  const components: LayoutComponent[] = [];
+  const margin = 8; // mm margin around switches for the board
+
+  // ── Switches ───────────────────────────────────────────────────────────
+  kleKeys.forEach((key, i) => {
     const kw = key.w ?? 1;
     const kh = key.h ?? 1;
     components.push({
       id: `sw_${i}`,
       type: 'switch',
+      layer: 'switches',
       x: (key.x + kw / 2) * sp.x,
       y: (key.y + kh / 2) * sp.y,
       width: kw * sp.x * 0.9,
       height: kh * sp.y * 0.9,
+      rotation: 0,
       label: key.label || `SW${i + 1}`,
       draggable: false,
       selected: false,
+      collision: false,
     });
   });
 
-  // Compute board extents from switch positions
-  const xs = components.map(c => c.x);
-  const ys = components.map(c => c.y);
-  const ws = components.map(c => c.width);
-  const hs = components.map(c => c.height);
+  // ── Board bounds from switches ─────────────────────────────────────────
+  const switches = components.filter((c) => c.type === 'switch');
+  let minX = 0, minY = 0, maxX = 200, maxY = 100;
+  if (switches.length > 0) {
+    minX = Math.min(...switches.map((c) => c.x - c.width / 2)) - margin;
+    maxX = Math.max(...switches.map((c) => c.x + c.width / 2)) + margin;
+    minY = Math.min(...switches.map((c) => c.y - c.height / 2)) - margin;
+    maxY = Math.max(...switches.map((c) => c.y + c.height / 2)) + margin;
+  }
 
-  const minX = xs.length ? Math.min(...xs.map((x, i) => x - ws[i] / 2)) : 0;
-  const maxX = xs.length ? Math.max(...xs.map((x, i) => x + ws[i] / 2)) : 200;
-  const minY = ys.length ? Math.min(...ys.map((y, i) => y - hs[i] / 2)) : 0;
-  const maxY = ys.length ? Math.max(...ys.map((y, i) => y + hs[i] / 2)) : 100;
-
-  const boardW = maxX - minX || 200;
-  const boardH = maxY - minY || 100;
+  const boardW = maxX - minX;
+  const boardH = maxY - minY;
   const midX = (minX + maxX) / 2;
 
-  // Add draggable components (USB, MCU, screws)
+  boardBounds.value = { minX, minY, maxX, maxY };
+
+  // ── Board outline ──────────────────────────────────────────────────────
   components.push({
-    id: 'usb', type: 'usb', x: midX, y: minY - 10, width: 12, height: 8,
-    label: 'USB-C', draggable: true, selected: false,
+    id: 'outline',
+    type: 'outline',
+    layer: 'outline',
+    x: midX,
+    y: (minY + maxY) / 2,
+    width: boardW,
+    height: boardH,
+    rotation: 0,
+    label: 'PCB Outline',
+    draggable: false,
+    selected: false,
+    collision: false,
   });
 
+  // ── USB connector ──────────────────────────────────────────────────────
   components.push({
-    id: 'mcu', type: 'mcu', x: midX, y: maxY + 15, width: 10, height: 10,
-    label: 'MCU', draggable: true, selected: false,
+    id: 'usb',
+    type: 'usb',
+    layer: 'connectors',
+    x: midX,
+    y: minY + 4,
+    width: 12,
+    height: 8,
+    rotation: 0,
+    label: 'USB-C',
+    draggable: true,
+    selected: false,
+    collision: false,
   });
 
-  // Screws — positioned relative to board extents
+  // ── MCU ────────────────────────────────────────────────────────────────
+  components.push({
+    id: 'mcu',
+    type: 'mcu',
+    layer: 'mcu',
+    x: midX,
+    y: maxY - 12,
+    width: 18,
+    height: 22,
+    rotation: 0,
+    label: config?.mcu?.module || 'MCU',
+    draggable: true,
+    selected: false,
+    collision: false,
+  });
+
+  // ── Screws ─────────────────────────────────────────────────────────────
   const screwPositions = [
-    { id: 'screw_tl', x: minX + 15, y: minY + 15 },
-    { id: 'screw_tr', x: maxX - 15, y: minY + 15 },
-    { id: 'screw_bl', x: minX + 15, y: maxY - 15 },
-    { id: 'screw_br', x: maxX - 15, y: maxY - 15 },
+    { id: 'screw_tl', x: minX + 10, y: minY + 10 },
+    { id: 'screw_tr', x: maxX - 10, y: minY + 10 },
+    { id: 'screw_bl', x: minX + 10, y: maxY - 10 },
+    { id: 'screw_br', x: maxX - 10, y: maxY - 10 },
     { id: 'screw_ml', x: minX + boardW * 0.35, y: minY + boardH / 2 },
     { id: 'screw_mr', x: minX + boardW * 0.65, y: minY + boardH / 2 },
   ];
   for (const s of screwPositions) {
     components.push({
-      id: s.id, type: 'screw', x: s.x, y: s.y, width: 5.5, height: 5.5,
-      label: s.id.replace('screw_', '').toUpperCase(), draggable: true, selected: false,
+      id: s.id,
+      type: 'screw',
+      layer: 'screws',
+      x: s.x,
+      y: s.y,
+      width: 5.5,
+      height: 5.5,
+      rotation: 0,
+      label: s.id.replace('screw_', '').toUpperCase(),
+      draggable: true,
+      selected: false,
+      collision: false,
     });
   }
 
+  // ── Battery (if enabled) ───────────────────────────────────────────────
+  if (config?.power?.battery) {
+    components.push({
+      id: 'battery',
+      type: 'battery',
+      layer: 'power',
+      x: midX,
+      y: maxY - 35,
+      width: 30,
+      height: 15,
+      rotation: 0,
+      label: 'Battery',
+      draggable: true,
+      selected: false,
+      collision: false,
+    });
+  }
+
+  // ── Power button ───────────────────────────────────────────────────────
+  const phys = config?.physical;
+  if (phys?.powerButton !== false) {
+    components.push({
+      id: 'power_btn',
+      type: 'power_button',
+      layer: 'extras',
+      x: midX + 10,
+      y: minY + 4,
+      width: 4,
+      height: 4,
+      rotation: 0,
+      label: 'PWR',
+      draggable: true,
+      selected: false,
+      collision: false,
+    });
+  }
+
+  // ── Wifi toggle button ─────────────────────────────────────────────────
+  if (phys?.wifiToggleButton) {
+    components.push({
+      id: 'wifi_btn',
+      type: 'wifi_button',
+      layer: 'extras',
+      x: midX + 18,
+      y: minY + 4,
+      width: 4,
+      height: 4,
+      rotation: 0,
+      label: 'WiFi',
+      draggable: true,
+      selected: false,
+      collision: false,
+    });
+  }
+
+  // ── LCD (if oled display enabled) ──────────────────────────────────────
+  if (config?.features?.oledDisplay) {
+    components.push({
+      id: 'lcd',
+      type: 'lcd',
+      layer: 'extras',
+      x: midX - 30,
+      y: maxY - 18,
+      width: 27,
+      height: 12,
+      rotation: 0,
+      label: 'OLED',
+      draggable: true,
+      selected: false,
+      collision: false,
+    });
+  }
+
+  // ── Save default positions ─────────────────────────────────────────────
+  defaultPositions = {};
+  for (const c of components) {
+    if (c.draggable) {
+      defaultPositions[c.id] = { x: c.x, y: c.y };
+    }
+  }
+
+  // ── Apply saved layout overrides ───────────────────────────────────────
+  const rawOverrides = config?.layoutOverrides;
+  let overrideList: LayoutOverride[] = [];
+  if (Array.isArray(rawOverrides)) {
+    overrideList = rawOverrides;
+  } else if (rawOverrides && typeof rawOverrides === 'object') {
+    // layoutOverrides is an object with { components, screws, usb, mcu, battery }
+    if (Array.isArray(rawOverrides.components)) {
+      overrideList = rawOverrides.components;
+    }
+    // Also apply individual overrides
+    if (rawOverrides.usb) overrideList.push({ id: 'usb', type: 'usb', x: rawOverrides.usb.x, y: rawOverrides.usb.y });
+    if (rawOverrides.mcu) overrideList.push({ id: 'mcu', type: 'mcu', x: rawOverrides.mcu.x, y: rawOverrides.mcu.y });
+    if (rawOverrides.battery) overrideList.push({ id: 'battery', type: 'battery', x: rawOverrides.battery.x, y: rawOverrides.battery.y });
+    if (Array.isArray(rawOverrides.screws)) {
+      for (const s of rawOverrides.screws) {
+        overrideList.push({ id: s.id, type: 'screw', x: s.x, y: s.y });
+      }
+    }
+  }
+  for (const ov of overrideList) {
+    const comp = components.find((c) => c.id === ov.id);
+    if (comp && comp.draggable) {
+      comp.x = ov.x;
+      comp.y = ov.y;
+    }
+  }
+
   layoutComponents.value = components;
+
+  // Reset layers to defaults
+  layers.value = DEFAULT_LAYERS.map((l) => ({ ...l }));
+  selectedId.value = null;
+
+  checkCollisions();
 }
 
-/** Move a draggable component by (dx, dy) in mm */
+// ── Movement ───────────────────────────────────────────────────────────────
+
 export function moveComponent(id: string, dx: number, dy: number) {
-  layoutComponents.value = layoutComponents.value.map(c =>
+  layoutComponents.value = layoutComponents.value.map((c) =>
     c.id === id && c.draggable
       ? { ...c, x: snapToGrid(c.x + dx), y: snapToGrid(c.y + dy) }
-      : c
+      : c,
   );
+  checkCollisions();
 }
 
-/** Select a component by id (null to deselect) */
+export function moveComponentTo(id: string, x: number, y: number) {
+  layoutComponents.value = layoutComponents.value.map((c) =>
+    c.id === id && c.draggable
+      ? { ...c, x: snapToGrid(x), y: snapToGrid(y) }
+      : c,
+  );
+  checkCollisions();
+}
+
+// ── Selection ──────────────────────────────────────────────────────────────
+
 export function selectComponent(id: string | null) {
   selectedId.value = id;
-  layoutComponents.value = layoutComponents.value.map(c => ({
-    ...c, selected: c.id === id,
+  layoutComponents.value = layoutComponents.value.map((c) => ({
+    ...c,
+    selected: c.id === id,
   }));
 }
 
-/** Snap a value to the nearest 0.5mm */
-function snapToGrid(v: number): number {
-  return Math.round(v * 2) / 2;
+// ── Nudge ──────────────────────────────────────────────────────────────────
+
+export function nudgeSelected(dx: number, dy: number) {
+  const id = selectedId.value;
+  if (!id) return;
+  const comp = layoutComponents.value.find((c) => c.id === id);
+  if (!comp || !comp.draggable) return;
+  moveComponent(id, dx, dy);
+}
+
+// ── Reset position ─────────────────────────────────────────────────────────
+
+export function resetComponentPosition(id: string) {
+  const def = defaultPositions[id];
+  if (!def) return;
+  moveComponentTo(id, def.x, def.y);
+}
+
+// ── Collision detection ────────────────────────────────────────────────────
+
+function rectsOverlap(
+  ax: number, ay: number, aw: number, ah: number,
+  bx: number, by: number, bw: number, bh: number,
+): boolean {
+  return (
+    Math.abs(ax - bx) < (aw + bw) / 2 &&
+    Math.abs(ay - by) < (ah + bh) / 2
+  );
+}
+
+export function checkCollisions() {
+  const comps = layoutComponents.value;
+  const draggable = comps.filter((c) => c.draggable);
+  const switches = comps.filter((c) => c.type === 'switch');
+
+  const collisionSet = new Set<string>();
+
+  // Check draggable vs draggable
+  for (let i = 0; i < draggable.length; i++) {
+    for (let j = i + 1; j < draggable.length; j++) {
+      const a = draggable[i];
+      const b = draggable[j];
+      if (rectsOverlap(a.x, a.y, a.width, a.height, b.x, b.y, b.width, b.height)) {
+        collisionSet.add(a.id);
+        collisionSet.add(b.id);
+      }
+    }
+  }
+
+  // Check draggable vs switches
+  for (const d of draggable) {
+    for (const s of switches) {
+      if (rectsOverlap(d.x, d.y, d.width, d.height, s.x, s.y, s.width, s.height)) {
+        collisionSet.add(d.id);
+        break;
+      }
+    }
+  }
+
+  layoutComponents.value = comps.map((c) => ({
+    ...c,
+    collision: collisionSet.has(c.id),
+  }));
+}
+
+// ── Layout overrides (for saving) ──────────────────────────────────────────
+
+export function getLayoutOverrides(): LayoutOverride[] {
+  return layoutComponents.value
+    .filter((c) => c.draggable)
+    .map((c) => ({
+      id: c.id,
+      type: c.type,
+      x: c.x,
+      y: c.y,
+    }));
+}
+
+// ── Layer visibility / opacity ─────────────────────────────────────────────
+
+export function setLayerVisibility(layerId: string, visible: boolean) {
+  layers.value = layers.value.map((l) =>
+    l.id === layerId ? { ...l, visible } : l,
+  );
+}
+
+export function setLayerOpacity(layerId: string, opacity: number) {
+  layers.value = layers.value.map((l) =>
+    l.id === layerId ? { ...l, opacity: Math.max(0, Math.min(1, opacity)) } : l,
+  );
 }

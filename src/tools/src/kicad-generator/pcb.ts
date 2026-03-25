@@ -238,8 +238,10 @@ export function generatePCBWithScrews(
   w(`  (gr_rect (start ${n(olMinX)} ${n(olMinY)}) (end ${n(olMaxX)} ${n(olMaxY)}) (stroke (width 0.1) (type default)) (fill none) (layer "Edge.Cuts") (uuid "${uuid()}"))`);
 
   // ── MCU footprint with GPIO pads assigned to ROW/COL nets ──
-  const mcuX = (minX + maxX) / 2;
-  const mcuY2 = maxY + margin + 5;
+  // Apply layout overrides if configured
+  const overrides = config.layoutOverrides;
+  let mcuX = overrides?.mcu?.x ?? (minX + maxX) / 2;
+  let mcuY2 = overrides?.mcu?.y ?? (maxY + margin + 5);
 
   // Assign MCU GPIO pins: first rows, then cols
   const mcuPadCount = matrix.rows + matrix.cols;
@@ -318,7 +320,8 @@ export function generatePCBWithScrews(
   const connectorSide = config.physical?.connectorSide ?? 'back';
   const connectorPosition = config.physical?.connectorPosition ?? 'center';
   const boardBounds = { minX, minY, maxX, maxY };
-  const usbPos = getConnectorXY(connectorSide, connectorPosition, boardBounds);
+  const defaultUsbPos = getConnectorXY(connectorSide, connectorPosition, boardBounds);
+  const usbPos = overrides?.usb ?? defaultUsbPos;
   const usbRotation = connectorSide === 'left' ? 90 : connectorSide === 'right' ? -90 : 0;
 
   w(`  (footprint "Connector_USB:USB_C_Receptacle_GCT_USB4085"`);
@@ -343,7 +346,10 @@ export function generatePCBWithScrews(
     // Battery connector position: near MCU, side depends on connector config
     let batX: number;
     let batY: number;
-    if (connectorSide === 'left') {
+    if (overrides?.battery) {
+      batX = overrides.battery.x;
+      batY = overrides.battery.y;
+    } else if (connectorSide === 'left') {
       batX = olMinX + 10;
       batY = mcuY2;
     } else if (connectorSide === 'right') {
@@ -365,14 +371,19 @@ export function generatePCBWithScrews(
     w(`  )`);
   }
 
-  // ── Mounting holes using smart screw placement ──
-  const componentPositions = collectComponentPositions(config, boardBounds);
-  const screwPositions = calculateScrewPositions(
-    layout,
-    config,
-    { minX: olMinX, minY: olMinY, maxX: olMaxX, maxY: olMaxY },
-    componentPositions,
-  );
+  // ── Mounting holes — use layout overrides if available, otherwise auto-calculate ──
+  let screwPositions: ScrewPosition[];
+  if (overrides?.screws && overrides.screws.length > 0) {
+    screwPositions = overrides.screws.map(s => ({ x: s.x, y: s.y, label: s.id }));
+  } else {
+    const componentPositions = collectComponentPositions(config, boardBounds);
+    screwPositions = calculateScrewPositions(
+      layout,
+      config,
+      { minX: olMinX, minY: olMinY, maxX: olMaxX, maxY: olMaxY },
+      componentPositions,
+    );
+  }
 
   for (const screw of screwPositions) {
     w(`  (footprint "MountingHole:MountingHole_2.7mm_M2.5_Pad_Via"`);

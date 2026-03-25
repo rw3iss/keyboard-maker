@@ -543,13 +543,9 @@ export function Config({ step }: ConfigProps) {
 	};
 
 	const renderLayoutEditor = () => {
-		return (
-			<div style="text-align:center;padding:40px;color:var(--text-muted)">
-				<div style="font-size:32px;margin-bottom:12px">&#9999;&#65039;</div>
-				<p>Layout editor will allow fine-tuning of component positions on the PCB.</p>
-				<p style="font-size:13px">This feature is coming soon.</p>
-			</div>
-		);
+		// Navigate to the full-page layout editor
+		route('/layout');
+		return null;
 	};
 
 	const renderPower = () => {

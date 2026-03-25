@@ -117,4 +117,78 @@ export async function projectRoutes(app: FastifyInstance): Promise<void> {
       }
     },
   );
+
+  // GET /api/projects/:name/kle-keys — parse KLE layout and return simplified key array
+  app.get<{ Params: { name: string } }>(
+    '/api/projects/:name/kle-keys',
+    async (request, reply) => {
+      const { name } = request.params;
+      const projectDir = join(serverConfig.projectsDir, name);
+      if (!existsSync(projectDir)) {
+        return reply.status(404).send({ error: true, message: `Project "${name}" not found` });
+      }
+
+      // Find the KLE layout file
+      const configPath = join(projectDir, 'build-config.json');
+      let klePath = join(projectDir, 'kle.json');
+
+      if (existsSync(configPath)) {
+        try {
+          const buildConfig = JSON.parse(readFileSync(configPath, 'utf-8'));
+          const cfgPath = buildConfig.layout?.path;
+          if (cfgPath) {
+            const fromProject = resolve(projectDir, cfgPath);
+            const fromTools = resolve(serverConfig.toolsDir, cfgPath);
+            const fromRoot = resolve(serverConfig.projectRoot, cfgPath);
+            if (existsSync(fromProject)) klePath = fromProject;
+            else if (existsSync(fromTools)) klePath = fromTools;
+            else if (existsSync(fromRoot)) klePath = fromRoot;
+          }
+        } catch { /* use default kle.json */ }
+      }
+
+      if (!existsSync(klePath)) {
+        return reply.status(404).send({ error: true, message: 'No KLE layout file found' });
+      }
+
+      try {
+        const raw = JSON.parse(readFileSync(klePath, 'utf-8'));
+
+        // Simple KLE parser — extract key positions
+        const keys: Array<{ x: number; y: number; w: number; h: number; label: string }> = [];
+        let startIdx = 0;
+        let layoutName = 'Untitled';
+        if (raw.length > 0 && !Array.isArray(raw[0])) {
+          layoutName = raw[0].name || 'Untitled';
+          startIdx = 1;
+        }
+
+        let curY = 0;
+        for (let i = startIdx; i < raw.length; i++) {
+          const row = raw[i];
+          if (!Array.isArray(row)) continue;
+          let curX = 0, nw = 1, nh = 1, nx = 0, ny = 0;
+          for (const item of row) {
+            if (typeof item === 'object' && item !== null) {
+              if (item.x !== undefined) nx = item.x;
+              if (item.y !== undefined) ny = item.y;
+              if (item.w !== undefined) nw = item.w;
+              if (item.h !== undefined) nh = item.h;
+              continue;
+            }
+            curX += nx;
+            curY += ny;
+            keys.push({ x: curX, y: curY, w: nw, h: nh, label: String(item).split('\n')[0] });
+            curX += nw;
+            nx = 0; ny = 0; nw = 1; nh = 1;
+          }
+          curY += 1;
+        }
+
+        return { keys, name: layoutName, keyCount: keys.length };
+      } catch (err: any) {
+        return reply.status(500).send({ error: true, message: `Failed to parse KLE: ${err.message}` });
+      }
+    },
+  );
 }

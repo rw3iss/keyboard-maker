@@ -14,8 +14,7 @@ function formatSize(bytes: number): string {
 export function FileLink({ name, path, size, onClick }: FileLinkProps) {
   return (
     <div class="file-link" onClick={onClick}>
-      <span class="file-link-icon">\uD83D\uDCC4</span>
-      <span class="file-link-name">{name}</span>
+      <a href={path} target="_blank" rel="noopener" class="file-link-name" style="color:var(--accent);text-decoration:none">{name}</a>
       {size !== undefined && (
         <span class="file-link-size">{formatSize(size)}</span>
       )}

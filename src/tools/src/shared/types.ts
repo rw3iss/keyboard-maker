@@ -203,6 +203,19 @@ export interface BuildConfig {
     /** Target rear height in mm (allows tilt angle) */
     rearHeight: number | null;
   };
+  /** Custom layout overrides from the visual layout editor */
+  layoutOverrides?: {
+    /** Custom component positions (id → {x, y} in mm) */
+    components?: Array<{ id: string; type: string; x: number; y: number }>;
+    /** Custom screw positions override the auto-calculated ones */
+    screws?: Array<{ id: string; x: number; y: number }>;
+    /** Custom USB connector position */
+    usb?: { x: number; y: number };
+    /** Custom MCU position */
+    mcu?: { x: number; y: number };
+    /** Custom battery position */
+    battery?: { x: number; y: number };
+  };
   /** Switch plate settings */
   plate: {
     /** Whether to generate a plate */
