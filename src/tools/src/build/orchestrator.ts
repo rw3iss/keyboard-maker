@@ -19,7 +19,7 @@ import { generatePlate } from '../plate-generator/index.js';
 import { generateFirmware } from '../firmware-generator/index.js';
 import { generateBOM } from '../bom-generator/index.js';
 import { flagDesignConcerns } from '../config/validator.js';
-import { routePCB } from '../routing/index.js';
+import { routePCB, buildRoutingHelperMessage } from '../routing/index.js';
 import { generateCase } from '../case-generator/index.js';
 import { generateOverview } from '../overview-generator/index.js';
 import { renderLayoutImage } from '../kle-renderer/index.js';
@@ -73,7 +73,8 @@ export async function runBuild(config: BuildConfig, outputBase: string, overwrit
   let kleData: unknown[];
   try {
     if (config.layout.path) {
-      const raw = readFileSync(resolve(config.layout.path), 'utf-8');
+      const layoutPath = resolve(projectDir, config.layout.path);
+      const raw = readFileSync(layoutPath, 'utf-8');
       kleData = JSON.parse(raw);
     } else {
       throw new Error(
@@ -175,29 +176,35 @@ export async function runBuild(config: BuildConfig, outputBase: string, overwrit
   }
 
   // Step 6: Route PCB
-  if (pcbPath && config.pcb.routing !== 'manual') {
-    const s = ora(`Routing PCB (mode: ${config.pcb.routing})...`).start();
-    try {
-      const routedPath = await routePCB(pcbPath, outputDir, config, matrix);
-      if (routedPath !== pcbPath) {
-        pcbPath = routedPath;
-        s.succeed(`PCB routed: ${routedPath.split('/').pop()}`);
-        logMsg(`Routed PCB: ${routedPath}`);
-      } else {
-        s.succeed(`Routing guide generated (mode: ${config.pcb.routing})`);
-        logMsg(`Routing guide generated, PCB unrouted (mode: ${config.pcb.routing})`);
+  let routingIncomplete = false;
+  if (pcbPath) {
+    if (config.pcb.routing !== 'manual') {
+      const s = ora(`Routing PCB (mode: ${config.pcb.routing})...`).start();
+      try {
+        const result = await routePCB(pcbPath, outputDir, config, matrix);
+        routingIncomplete = result.incomplete;
+        if (result.pcbPath !== pcbPath) {
+          pcbPath = result.pcbPath;
+          s.succeed(`PCB routed: ${result.pcbPath.split('/').pop()}`);
+          logMsg(`Routed PCB: ${result.pcbPath}`);
+        } else {
+          s.succeed(`Routing guide generated (mode: ${config.pcb.routing})`);
+          logMsg(`Routing guide generated, PCB unrouted (mode: ${config.pcb.routing})`);
+        }
+      } catch (err) {
+        routingIncomplete = true;
+        const msg = err instanceof Error ? err.message : String(err);
+        s.warn(`Routing skipped: ${msg}`);
+        logMsg(`WARN: Routing skipped: ${msg}`);
       }
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : String(err);
-      s.warn(`Routing skipped: ${msg}`);
-      logMsg(`WARN: Routing skipped: ${msg}`);
+    } else {
+      // Manual mode — still generate the routing guide
+      routingIncomplete = true;
+      try {
+        await routePCB(pcbPath, outputDir, config, matrix);
+        logMsg('Routing guide generated (manual mode)');
+      } catch { /* non-critical */ }
     }
-  } else if (pcbPath && config.pcb.routing === 'manual') {
-    // Still generate the routing guide for manual mode
-    try {
-      await routePCB(pcbPath, outputDir, config, matrix);
-      logMsg('Routing guide generated (manual mode)');
-    } catch { /* non-critical */ }
   }
 
   // Step 7: Export gerbers
@@ -341,6 +348,15 @@ export async function runBuild(config: BuildConfig, outputBase: string, overwrit
     } catch (err) {
       s.fail('Overview generation failed');
       logMsg(`ERROR generating overview: ${err}`);
+    }
+  }
+
+  // Show routing helper message if routing was incomplete
+  if (routingIncomplete && pcbPath) {
+    const helperLines = buildRoutingHelperMessage(outputDir, config);
+    for (const line of helperLines) {
+      console.log(chalk.yellow(line));
+      logMsg(line);
     }
   }
 

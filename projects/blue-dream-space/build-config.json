@@ -61,8 +61,8 @@
     "thickness": 1.6,
     "signalLayer": 1,
     "routing": "manual",
-    "fabricator": null,
-    "mcuFanout": true
+    "mcuFanout": true,
+    "fabricator": null
   },
   "physical": {
     "connectorSide": "back",
@@ -154,6 +154,60 @@
         "type": "power_button",
         "x": 305.5,
         "y": -2
+      },
+      {
+        "id": "usb",
+        "type": "usb",
+        "x": 277,
+        "y": -2
+      },
+      {
+        "id": "mcu",
+        "type": "mcu",
+        "x": 157.5,
+        "y": 111.5
+      },
+      {
+        "id": "battery",
+        "type": "battery",
+        "x": 306,
+        "y": 13
+      },
+      {
+        "id": "screw_tl",
+        "type": "screw",
+        "x": -2.5,
+        "y": -2.5
+      },
+      {
+        "id": "screw_tr",
+        "type": "screw",
+        "x": 332,
+        "y": -2
+      },
+      {
+        "id": "screw_bl",
+        "type": "screw",
+        "x": -2.5,
+        "y": 121.5
+      },
+      {
+        "id": "screw_br",
+        "type": "screw",
+        "x": 332,
+        "y": 121.5
+      },
+      {
+        "id": "screw_ml",
+        "type": "screw",
+        "x": 102.5,
+        "y": 20.5
+      },
+      {
+        "id": "screw_mr",
+        "type": "screw",
+        "x": 256.5,
+        "y": 71
       }
     ],
     "screws": [

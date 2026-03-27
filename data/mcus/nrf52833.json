@@ -95,6 +95,14 @@
     "Needs custom ZMK board definition",
     "QFN40 package is easier to route than nRF52840's QFN73"
   ],
+  "package": {
+    "type": "aQFN73",
+    "dimensions": { "width": 7.0, "height": 7.0 },
+    "pitch": 0.4,
+    "padCount": 73,
+    "thermalPad": true,
+    "footprintRef": "Package_DFN_QFN:Nordic_AQFN-73_EP"
+  },
   "datasheet": "https://infocenter.nordicsemi.com/pdf/nRF52833_PS_v1.5.pdf",
   "externalLinks": [
     { "label": "Nordic nRF52833 Product Page", "url": "https://www.nordicsemi.com/Products/nRF52833" },

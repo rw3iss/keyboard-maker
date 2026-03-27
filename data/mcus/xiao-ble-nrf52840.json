@@ -125,6 +125,30 @@
     "Battery pads on bottom of board — awkward to solder"
   ],
   "datasheet": "https://wiki.seeedstudio.com/XIAO_BLE/",
+  "boardPins": {
+    "rows": 2,
+    "pitch": 2.54,
+    "pinCount": 14,
+    "rowSpacing": 12.7,
+    "padDrill": 1.0,
+    "padSize": 1.7,
+    "pins": [
+      { "number": 1,  "row": 0, "position": 0, "function": "gpio", "net": "D0/A0" },
+      { "number": 2,  "row": 0, "position": 1, "function": "gpio", "net": "D1/A1" },
+      { "number": 3,  "row": 0, "position": 2, "function": "gpio", "net": "D2/A2" },
+      { "number": 4,  "row": 0, "position": 3, "function": "gpio", "net": "D3/A3" },
+      { "number": 5,  "row": 0, "position": 4, "function": "gpio", "net": "D4/SDA" },
+      { "number": 6,  "row": 0, "position": 5, "function": "gpio", "net": "D5/SCL" },
+      { "number": 7,  "row": 0, "position": 6, "function": "gpio", "net": "D6/TX" },
+      { "number": 8,  "row": 1, "position": 0, "function": "gpio", "net": "D7/RX" },
+      { "number": 9,  "row": 1, "position": 1, "function": "gpio", "net": "D8/SCK" },
+      { "number": 10, "row": 1, "position": 2, "function": "gpio", "net": "D9/MISO" },
+      { "number": 11, "row": 1, "position": 3, "function": "gpio", "net": "D10/MOSI" },
+      { "number": 12, "row": 1, "position": 4, "function": "vcc",  "net": "3V3" },
+      { "number": 13, "row": 1, "position": 5, "function": "gnd",  "net": "GND" },
+      { "number": 14, "row": 1, "position": 6, "function": "vbus", "net": "5V" }
+    ]
+  },
   "externalLinks": [
     {
       "label": "Seeed Studio Wiki",

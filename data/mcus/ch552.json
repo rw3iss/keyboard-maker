@@ -70,6 +70,23 @@
     "TSSOP-20 package is beginner-friendly for hand soldering",
     "Not recommended for keyboards over ~30 keys due to RAM/GPIO limits"
   ],
+  "package": {
+    "type": "TSSOP-20",
+    "dimensions": { "width": 6.5, "height": 4.4 },
+    "pitch": 0.65,
+    "padCount": 20,
+    "padsPerSide": 10,
+    "padSize": { "width": 0.4, "height": 1.2 },
+    "thermalPad": false,
+    "footprintRef": "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm"
+  },
+  "pinMap": {
+    "vcc": [19],
+    "gnd": [18],
+    "usbDm": [14],
+    "usbDp": [15],
+    "reset": [6]
+  },
   "datasheet": "https://www.wch-ic.com/products/CH552.html",
   "externalLinks": [
     { "label": "WCH CH552 Product Page", "url": "https://www.wch-ic.com/products/CH552.html" },

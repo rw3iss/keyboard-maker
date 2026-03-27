@@ -79,6 +79,23 @@
     "QFN48 package requires reflow soldering",
     "Not recommended for production keyboards due to immature ecosystem"
   ],
+  "package": {
+    "type": "QFN-48",
+    "dimensions": { "width": 7.0, "height": 7.0 },
+    "pitch": 0.5,
+    "padCount": 48,
+    "padsPerSide": 12,
+    "padSize": { "width": 0.3, "height": 0.75 },
+    "thermalPad": true,
+    "exposedPadSize": { "width": 5.6, "height": 5.6 },
+    "footprintRef": "Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm"
+  },
+  "pinMap": {
+    "vcc": [3, 11],
+    "gnd": [10, 25, 33, 36, 37, 43, "EP"],
+    "usbDp": [15],
+    "usbDm": [16]
+  },
   "datasheet": "https://www.wch-ic.com/products/CH582.html",
   "externalLinks": [
     { "label": "WCH CH582 Product Page", "url": "https://www.wch-ic.com/products/CH582.html" },

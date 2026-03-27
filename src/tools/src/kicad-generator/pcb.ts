@@ -12,7 +12,9 @@
  *  - Board outline, net definitions, DRC-friendly clearance rules
  */
 
-import type { KeyboardLayout, SwitchMatrix, BuildConfig } from '../shared/types.js';
+import type { KeyboardLayout, SwitchMatrix, BuildConfig, McuData } from '../shared/types.js';
+import { classifyMcu, generateBareChipFootprint, generateModuleFootprint, generateFanoutVias } from './mcu-footprint.js';
+import { loadComponent } from '../cli/data-loader.js';
 import { SWITCH_SPACING } from '../shared/constants.js';
 import { kleToPcbPosition } from './footprints.js';
 import {
@@ -36,6 +38,7 @@ function resetUUIDs(): void { uuidSeq = 0; }
 export interface PCBResult {
   pcb: string;
   screwPositions: ScrewPosition[];
+  warnings: string[];
 }
 
 export function generatePCB(
@@ -100,10 +103,8 @@ export function generatePCBWithScrews(
   const allCopperLayers = is4Layer
     ? '"F.Cu" "In1.Cu" "In2.Cu" "B.Cu" "*.Mask"'
     : '"F.Cu" "B.Cu" "*.Mask"';
-  // Vias only span copper layers (no mask — KiCad 9 rejects *.Mask on vias)
-  const viaCopperLayers = is4Layer
-    ? '"F.Cu" "In1.Cu" "In2.Cu" "B.Cu"'
-    : '"F.Cu" "B.Cu"';
+  // Vias specify only start/end layers — KiCad 9 rejects intermediate layers and *.Mask on vias
+  const viaCopperLayers = '"F.Cu" "B.Cu"';
 
   // Setup — increased clearances to reduce DRC violations
   w(`  (setup`);
@@ -253,145 +254,70 @@ export function generatePCBWithScrews(
   }
   w(`  (gr_rect (start ${n(olMinX)} ${n(olMinY)}) (end ${n(olMaxX)} ${n(olMaxY)}) (stroke (width 0.1) (type default)) (fill none) (layer "Edge.Cuts") (uuid "${uuid()}"))`);
 
-  // ── MCU footprint with GPIO pads assigned to ROW/COL nets ──
-  // Apply layout overrides if configured
+  // ── MCU footprint — data-driven from component database ──
   const overrides = config.layoutOverrides;
-  // Layout overrides are relative to the key area origin — add PCB_ORIGIN to convert
   let mcuX = overrides?.mcu ? PCB_ORIGIN_X + overrides.mcu.x : (minX + maxX) / 2;
   let mcuY2 = overrides?.mcu ? PCB_ORIGIN_Y + overrides.mcu.y : (maxY + margin + 5);
 
-  // Assign MCU GPIO pins: first rows, then cols
-  const mcuPadCount = matrix.rows + matrix.cols;
-  const mcuPadPitch = 0.5; // QFN pad pitch
-  const mcuBodySize = 7; // 7mm QFN body
+  const pcbWarnings: string[] = [];
 
-  w(`  (footprint "Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm"`);
-  w(`    (layer "F.Cu")`);
-  w(`    (uuid "${uuid()}")`);
-  w(`    (at ${n(mcuX)} ${n(mcuY2)})`);
-  w(`    (property "Reference" "U1" (at 0 -5) (layer "F.SilkS") (effects (font (size 1 1) (thickness 0.15))))`);
-  w(`    (property "Value" "nRF52840" (at 0 5) (layer "F.Fab") (effects (font (size 1 1) (thickness 0.15))))`);
-
-  // Generate pads around the QFN perimeter — assign ROW/COL nets to the first N pads
-  const padsPerSide = 12; // 48-pin QFN = 12 per side
-  let gpioIdx = 0;
-
-  // Bottom side (pads 1-12, left to right)
-  for (let i = 0; i < padsPerSide; i++) {
-    const padNum = i + 1;
-    const px = -((padsPerSide - 1) * mcuPadPitch) / 2 + i * mcuPadPitch;
-    const py = mcuBodySize / 2;
-    const netAssign = gpioIdx < mcuPadCount
-      ? `(net ${gpioIdx < matrix.rows ? gpioIdx + 1 : matrix.rows + (gpioIdx - matrix.rows) + 1} "${netNames[gpioIdx < matrix.rows ? gpioIdx + 1 : matrix.rows + (gpioIdx - matrix.rows) + 1]}")`
-      : `(net 0 "")`;
-    w(`    (pad "${padNum}" smd roundrect (at ${n(px)} ${n(py)}) (size 0.3 0.75) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) ${netAssign} (uuid "${uuid()}"))`);
-    gpioIdx++;
+  // Load MCU data from component database
+  const mcuId = config.mcu?.module;
+  let mcuData: McuData | null = null;
+  if (mcuId) {
+    try {
+      const raw = loadComponent('mcus', mcuId);
+      if (raw) mcuData = raw as unknown as McuData;
+    } catch { /* data not available */ }
   }
 
-  // Right side (pads 13-24, top to bottom)
-  for (let i = 0; i < padsPerSide; i++) {
-    const padNum = padsPerSide + i + 1;
-    const px = mcuBodySize / 2;
-    const py = -((padsPerSide - 1) * mcuPadPitch) / 2 + i * mcuPadPitch;
-    const netAssign = gpioIdx < mcuPadCount
-      ? `(net ${gpioIdx < matrix.rows ? gpioIdx + 1 : matrix.rows + (gpioIdx - matrix.rows) + 1} "${netNames[gpioIdx < matrix.rows ? gpioIdx + 1 : matrix.rows + (gpioIdx - matrix.rows) + 1]}")`
-      : `(net 0 "")`;
-    w(`    (pad "${padNum}" smd roundrect (at ${n(px)} ${n(py)}) (size 0.75 0.3) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) ${netAssign} (uuid "${uuid()}"))`);
-    gpioIdx++;
+  // Fallback: if no MCU data loaded, use a hardcoded QFN-48 nRF52840 default
+  if (!mcuData) {
+    if (mcuId) pcbWarnings.push(`MCU data not found for "${mcuId}" — using default QFN-48 nRF52840`);
+    mcuData = {
+      id: 'default-nrf52840',
+      name: 'nRF52840',
+      chip: 'nRF52840',
+      formFactor: 'qfn-48',
+      gpioCount: 48,
+      package: {
+        type: 'QFN-48',
+        dimensions: { width: 7, height: 7 },
+        pitch: 0.5,
+        padCount: 48,
+        padsPerSide: 12,
+        padSize: { width: 0.3, height: 0.75 },
+        thermalPad: true,
+        exposedPadSize: { width: 5.6, height: 5.6 },
+        footprintRef: 'Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm',
+      },
+      pinMap: {
+        vcc: [35, 36],
+        gnd: [48, 'EP'],
+        usbDp: [37],
+        usbDm: [38],
+        vbus: [39],
+      },
+    };
   }
 
-  // Top side (pads 25-36, right to left)
-  for (let i = 0; i < padsPerSide; i++) {
-    const padNum = 2 * padsPerSide + i + 1;
-    const px = ((padsPerSide - 1) * mcuPadPitch) / 2 - i * mcuPadPitch;
-    const py = -mcuBodySize / 2;
-    const netAssign = gpioIdx < mcuPadCount
-      ? `(net ${gpioIdx < matrix.rows ? gpioIdx + 1 : matrix.rows + (gpioIdx - matrix.rows) + 1} "${netNames[gpioIdx < matrix.rows ? gpioIdx + 1 : matrix.rows + (gpioIdx - matrix.rows) + 1]}")`
-      : (padNum >= 35 ? `(net ${netIndex('VCC')} "VCC")` : `(net 0 "")`);
-    w(`    (pad "${padNum}" smd roundrect (at ${n(px)} ${n(py)}) (size 0.3 0.75) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) ${netAssign} (uuid "${uuid()}"))`);
-    gpioIdx++;
+  const mcuCtx = {
+    mcuX, mcuY: mcuY2, matrix, netNames, netIndex, config, is4Layer,
+    allCopperLayers, viaCopperLayers, w, uuid, n,
+  };
+
+  const mcuForm = classifyMcu(mcuData);
+  if (mcuForm === 'bare-chip') {
+    const result = generateBareChipFootprint(mcuData, mcuCtx);
+    pcbWarnings.push(...result.warnings);
+  } else {
+    const result = generateModuleFootprint(mcuData, mcuCtx);
+    pcbWarnings.push(...result.warnings);
   }
 
-  // Left side (pads 37-48, bottom to top)
-  for (let i = 0; i < padsPerSide; i++) {
-    const padNum = 3 * padsPerSide + i + 1;
-    const px = -mcuBodySize / 2;
-    const py = ((padsPerSide - 1) * mcuPadPitch) / 2 - i * mcuPadPitch;
-    let netAssign: string;
-    if (i === 0) netAssign = `(net ${netIndex('USB_DP')} "USB_DP")`;
-    else if (i === 1) netAssign = `(net ${netIndex('USB_DM')} "USB_DM")`;
-    else if (i === 2) netAssign = `(net ${netIndex('VBUS')} "VBUS")`;
-    else if (i === padsPerSide - 1) netAssign = `(net ${netIndex('GND')} "GND")`;
-    else netAssign = `(net 0 "")`;
-    w(`    (pad "${padNum}" smd roundrect (at ${n(px)} ${n(py)}) (size 0.75 0.3) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) ${netAssign} (uuid "${uuid()}"))`);
-  }
-
-  // Exposed pad (GND)
-  w(`    (pad "49" smd rect (at 0 0) (size 5.6 5.6) (layers "F.Cu" "F.Paste" "F.Mask") (net ${netIndex('GND')} "GND") (uuid "${uuid()}"))`);
-
-  // Courtyard
-  w(`    (fp_rect (start -4 -4) (end 4 4) (stroke (width 0.05) (type default)) (fill none) (layer "F.CrtYd") (uuid "${uuid()}"))`);
-  w(`  )`);
-
-  // ── MCU Fanout vias — route QFN pad signals to inner layer immediately ──
-  // Places a via 1mm outside each GPIO pad, connected to the same net,
-  // on the inner signal layer. This clears congestion around the QFN.
-  if (config.pcb.mcuFanout && is4Layer) {
-    const fanoutOffset = 1.2; // mm from pad center to via center
-    const fanoutVia = { dia: 0.6, drill: 0.3 };
-    let gpioFanIdx = 0;
-
-    // Fanout for each side of the QFN
-    const sides = [
-      { startPad: 1, count: padsPerSide, dx: 0, dy: 1 },    // bottom: vias go down
-      { startPad: padsPerSide + 1, count: padsPerSide, dx: 1, dy: 0 },    // right: vias go right
-      { startPad: 2 * padsPerSide + 1, count: padsPerSide, dx: 0, dy: -1 }, // top: vias go up
-      { startPad: 3 * padsPerSide + 1, count: padsPerSide, dx: -1, dy: 0 }, // left: vias go left
-    ];
-
-    for (const side of sides) {
-      for (let i = 0; i < side.count; i++) {
-        const padNum = side.startPad + i;
-        if (padNum > 48) break; // skip exposed pad
-
-        // Calculate pad position relative to MCU center
-        let px: number, py: number;
-        if (side.dy === 1) { // bottom
-          px = -((padsPerSide - 1) * mcuPadPitch) / 2 + i * mcuPadPitch;
-          py = mcuBodySize / 2;
-        } else if (side.dx === 1) { // right
-          px = mcuBodySize / 2;
-          py = -((padsPerSide - 1) * mcuPadPitch) / 2 + i * mcuPadPitch;
-        } else if (side.dy === -1) { // top
-          px = ((padsPerSide - 1) * mcuPadPitch) / 2 - i * mcuPadPitch;
-          py = -mcuBodySize / 2;
-        } else { // left
-          px = -mcuBodySize / 2;
-          py = ((padsPerSide - 1) * mcuPadPitch) / 2 - i * mcuPadPitch;
-        }
-
-        // Get the net assigned to this pad (look up from netNames)
-        const padNetIdx = gpioFanIdx < mcuPadCount
-          ? (gpioFanIdx < matrix.rows ? gpioFanIdx + 1 : matrix.rows + (gpioFanIdx - matrix.rows) + 1)
-          : 0;
-        gpioFanIdx++;
-
-        if (padNetIdx === 0) continue; // skip unassigned pads
-
-        // Via position: offset outward from the pad
-        const vx = mcuX + px + side.dx * fanoutOffset;
-        const vy = mcuY2 + py + side.dy * fanoutOffset;
-
-        // Place the fanout via
-        w(`  (via (at ${n(vx)} ${n(vy)}) (size ${fanoutVia.dia}) (drill ${fanoutVia.drill}) (layers ${viaCopperLayers}) (net ${padNetIdx}) (uuid "${uuid()}"))`);
-
-        // Short trace from pad to via on F.Cu
-        const padAbsX = mcuX + px;
-        const padAbsY = mcuY2 + py;
-        w(`  (segment (start ${n(padAbsX)} ${n(padAbsY)}) (end ${n(vx)} ${n(vy)}) (width 0.2) (layer "F.Cu") (net ${padNetIdx}) (uuid "${uuid()}"))`);
-      }
-    }
-  }
+  // Fanout vias (only for bare-chip QFN/QFP on 4-layer boards)
+  const fanoutResult = generateFanoutVias(mcuData, mcuCtx);
+  pcbWarnings.push(...fanoutResult.warnings);
 
   // ── USB-C connector with power/data nets — configurable side ──
   const connectorSide = config.physical?.connectorSide ?? 'back';
@@ -634,7 +560,7 @@ export function generatePCBWithScrews(
   }
 
   w(`)`);
-  return { pcb: lines.join('\n'), screwPositions };
+  return { pcb: lines.join('\n'), screwPositions, warnings: pcbWarnings };
 }
 
 function n(v: number): string {

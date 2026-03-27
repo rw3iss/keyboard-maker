@@ -1,0 +1,1 @@
+[WARNING] Per-key RGB LEDs draw significant power (~20mA each at full brightness). Battery life will be greatly reduced. Consider disabling LEDs in wireless mode. (features.rgbPerKey)

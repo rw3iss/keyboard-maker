@@ -56,7 +56,7 @@ async function importGeneratorsImpl() {
   const { generateFirmware } = await import(toolsBase + '/firmware-generator/index.js');
   const { generateBOM } = await import(toolsBase + '/bom-generator/index.js');
   const { generateOverview } = await import(toolsBase + '/overview-generator/index.js');
-  const { routePCB } = await import(toolsBase + '/routing/index.js');
+  const { routePCB, buildRoutingHelperMessage } = await import(toolsBase + '/routing/index.js');
 
   return {
     parseKLE,
@@ -71,6 +71,7 @@ async function importGeneratorsImpl() {
     generateBOM,
     generateOverview,
     routePCB,
+    buildRoutingHelperMessage,
   };
 }
 
@@ -262,6 +263,7 @@ export async function executeBuild(
     }
 
     // ---- Stage: routing ----
+    let routingIncomplete = false;
     if (outputs.pcb !== false && pcbPath) {
       await emitEvent(emitter, {
         type: 'stage:start',
@@ -273,13 +275,16 @@ export async function executeBuild(
         const routingLog = (msg: string) => {
           emitEvent(emitter, { type: 'log', message: msg.trim() });
         };
-        pcbPath = await generators.routePCB(pcbPath, buildDir, cfg, matrix, routingLog, routingTimeoutMinutes, maxPasses);
+        const routingResult = await generators.routePCB(pcbPath, buildDir, cfg, matrix, routingLog, routingTimeoutMinutes, maxPasses);
+        pcbPath = routingResult.pcbPath;
+        routingIncomplete = routingResult.incomplete;
         await emitEvent(emitter, {
           type: 'stage:complete',
           stage: 'routing',
           message: 'Routing complete',
         });
       } catch (err) {
+        routingIncomplete = true;
         await emitEvent(emitter, {
           type: 'stage:error',
           stage: 'routing',
@@ -491,6 +496,14 @@ export async function executeBuild(
           message: `Overview generation failed: ${err}`,
         });
         throw err;
+      }
+    }
+
+    // Emit routing helper message if routing was incomplete
+    if (routingIncomplete && pcbPath) {
+      const helperLines = generators.buildRoutingHelperMessage(buildDir, cfg);
+      for (const line of helperLines) {
+        await emitEvent(emitter, { type: 'log', message: line });
       }
     }
 

@@ -14,7 +14,7 @@
   "flashKB": 1024,
   "ramKB": 256,
   "clockMhz": 64,
-  "gpioCount": 48,
+  "gpioCount": 42,
   "gpioPins": [
     { "pin": "PA0", "label": "A0" },
     { "pin": "PA1", "label": "A1" },
@@ -94,6 +94,24 @@
     "Not recommended for most keyboard builds — nRF52840 has much better firmware ecosystem",
     "Consider this only if you have specific STM32 expertise and need BLE"
   ],
+  "package": {
+    "type": "UFQFPN-48",
+    "dimensions": { "width": 7.0, "height": 7.0 },
+    "pitch": 0.5,
+    "padCount": 48,
+    "padsPerSide": 12,
+    "padSize": { "width": 0.3, "height": 0.75 },
+    "thermalPad": true,
+    "exposedPadSize": { "width": 5.6, "height": 5.6 },
+    "footprintRef": "Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm"
+  },
+  "pinMap": {
+    "vcc": [15, 38],
+    "gnd": [14, 37, "EP"],
+    "usbDp": [10],
+    "usbDm": [11],
+    "reset": [30]
+  },
   "datasheet": "https://www.st.com/resource/en/datasheet/stm32wb55cg.pdf",
   "externalLinks": [
     { "label": "STM32WB55 Product Page", "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32wb55cg.html" },

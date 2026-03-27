@@ -2,8 +2,15 @@ import { exportDSN } from './dsn-exporter.js';
 import { runFreerouting } from './freerouter.js';
 import { importSES } from './ses-importer.js';
 import { join } from 'path';
-import { writeFileSync, mkdirSync } from 'fs';
+import { writeFileSync } from 'fs';
+import { cpus as osCpus } from 'os';
 import type { BuildConfig, SwitchMatrix } from '../shared/types.js';
+
+export interface RoutingResult {
+  pcbPath: string;
+  /** True if routing was not attempted or did not fully complete */
+  incomplete: boolean;
+}
 
 /**
  * Route a PCB based on the config's routing mode.
@@ -11,8 +18,6 @@ import type { BuildConfig, SwitchMatrix } from '../shared/types.js';
  * - "auto": Full Freerouting pipeline (DSN export → route → SES import)
  * - "guided": Generate routing guide document + partial automation
  * - "manual": Skip routing, just output the guide
- *
- * @returns Path to the (possibly routed) PCB file
  */
 export async function routePCB(
   pcbPath: string,
@@ -22,37 +27,101 @@ export async function routePCB(
   onLog?: (msg: string) => void,
   timeoutMinutes?: number,
   maxPasses?: number,
-): Promise<string> {
+): Promise<RoutingResult> {
   const mode = config.pcb.routing;
 
   // Always generate the routing guide
   writeRoutingGuide(outputDir, config, matrix);
 
-  if (mode === 'manual') {
-    return pcbPath;
-  }
+  // Always export DSN so the user can run Freerouting manually later
+  const dsnPath = join(outputDir, 'keyboard.dsn');
+  try {
+    exportDSN(pcbPath, dsnPath);
+  } catch { /* non-critical for manual/guided */ }
 
-  if (mode === 'guided') {
-    return pcbPath;
+  if (mode === 'manual' || mode === 'guided') {
+    return { pcbPath, incomplete: true };
   }
 
   // Auto mode: Freerouting pipeline
-  const dsnPath = join(outputDir, 'keyboard.dsn');
   const sesPath = join(outputDir, 'keyboard.ses');
   const routedPcbPath = join(outputDir, 'keyboard-routed.kicad_pcb');
 
   try {
-    exportDSN(pcbPath, dsnPath);
-    await runFreerouting(dsnPath, sesPath, onLog, timeoutMinutes, maxPasses);
+    const allRouted = await runFreerouting(dsnPath, sesPath, onLog, timeoutMinutes, maxPasses);
     importSES(pcbPath, sesPath, routedPcbPath);
-    return routedPcbPath;
+    return { pcbPath: routedPcbPath, incomplete: !allRouted };
   } catch (err: any) {
     const msg = `Auto-routing failed: ${err.message}`;
     console.log(`  ${msg}`);
     onLog?.(`  ${msg}`);
     console.log('  Falling back to unrouted PCB. See routing-guide.md for manual instructions.');
-    return pcbPath;
+    return { pcbPath, incomplete: true };
   }
+}
+
+/**
+ * Build a helper message explaining how to manually finish routing
+ * and regenerate gerbers from the result.
+ */
+export function buildRoutingHelperMessage(outputDir: string, config: BuildConfig): string[] {
+  const projectName = config.project.name;
+  const pcbFile = `${projectName}.kicad_pcb`;
+  const dsnFile = 'keyboard.dsn';
+  const sesFile = 'keyboard.ses';
+  const mode = config.pcb.routing;
+
+  // Use paths relative to project dir (parent of build/)
+  const projRelBuild = `projects/${projectName}/build`;
+
+  const lines: string[] = [];
+  lines.push('');
+  lines.push('--- Manual Routing Instructions ---');
+  lines.push('');
+
+  if (mode === 'auto') {
+    lines.push('Auto-routing did not fully complete. You can finish routing manually:');
+  } else {
+    lines.push('Routing was skipped. To route your PCB:');
+  }
+
+  lines.push('');
+  const cpuCount = Math.max(1, osCpus().length);
+  lines.push('Option 1: Route with Freerouting (auto)');
+  lines.push(`  The DSN file was exported during the build.`);
+  lines.push(`  From the repo root, run Freerouting:`);
+  lines.push(`    java -jar ~/.local/bin/freerouting-2.1.0.jar \\`);
+  lines.push(`      -de ${projRelBuild}/${dsnFile} \\`);
+  lines.push(`      -do ${projRelBuild}/${sesFile} -mp 50 -mt ${cpuCount}`);
+  lines.push(`  -mp  Max routing passes (default 50). Increase for complex boards,`);
+  lines.push(`        decrease to limit run time. There is no time-based timeout.`);
+  lines.push(`  -mt  Thread count for post-route optimization (your system: ${cpuCount} cores).`);
+  lines.push(`        Note: the autoroute phase itself is always single-threaded.`);
+  lines.push('');
+  lines.push(`  Freerouting reads a freerouting.json config from its working directory.`);
+  lines.push(`  The build generates one at ${projRelBuild}/freerouting.json with`);
+  lines.push(`  headless mode, via costs, and other router settings. To use it:`);
+  lines.push(`    cd ${projRelBuild} && java -jar ~/.local/bin/freerouting-2.1.0.jar \\`);
+  lines.push(`      -de keyboard.dsn -do keyboard.ses -mp 50 -mt ${cpuCount}`);
+  lines.push('');
+  lines.push('Option 2: Route manually in KiCad');
+  lines.push(`  Open ${projRelBuild}/${pcbFile} in KiCad and route traces by hand.`);
+  lines.push(`  See ${projRelBuild}/routing-guide.md for routing priority and trace widths.`);
+  lines.push('');
+  lines.push('After routing, import the session and re-export Gerbers:');
+  lines.push(`  1. Import the .ses into KiCad: File > Import > Specctra Session`);
+  lines.push(`     Select: ${projRelBuild}/${sesFile}`);
+  lines.push(`  2. Review the routing, fix any remaining unrouted nets, then save`);
+  lines.push(`  3. Re-export Gerbers:`);
+  lines.push(`       kicad-cli pcb export gerbers --board-plot-params \\`);
+  lines.push(`         --output ${projRelBuild}/gerbers/ ${projRelBuild}/${pcbFile}`);
+  lines.push(`       kicad-cli pcb export drill \\`);
+  lines.push(`         --output ${projRelBuild}/gerbers/ ${projRelBuild}/${pcbFile}`);
+  lines.push('');
+  lines.push(`See ${projRelBuild}/routing-guide.md for trace widths, layer assignments, and routing tips.`);
+  lines.push('');
+
+  return lines;
 }
 
 function writeRoutingGuide(outputDir: string, config: BuildConfig, matrix: SwitchMatrix): void {

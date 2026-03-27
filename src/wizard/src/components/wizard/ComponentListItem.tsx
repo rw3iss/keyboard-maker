@@ -66,15 +66,23 @@ const SKIP_FIELDS = new Set([
 	'id', 'name', 'summary', 'description', 'variants', 'suppliers', 'designNotes',
 	'features', 'concerns', 'externalLinks', 'gpioPins', 'footprintFile',
 	'hotswapFootprintFile', 'symbolRef', 'datasheet', 'zmkBoard', 'qmkBoard',
-	'manufacturer',
+	'manufacturer', 'boardPins', 'pinMap', 'externalComponents',
 ]);
 
 function formatSpecValue(val: any): string {
 	if (val == null) return '--';
 	if (typeof val === 'boolean') return val ? 'Yes' : 'No';
-	if (Array.isArray(val)) return val.join(', ');
+	if (Array.isArray(val)) {
+		if (val.length > 0 && typeof val[0] === 'object') return `${val.length} items`;
+		return val.join(', ');
+	}
 	if (typeof val === 'object') {
-		return Object.entries(val).map(([k, v]) => `${k}: ${v}`).join(', ');
+		return Object.entries(val)
+			.map(([k, v]) => {
+				if (typeof v === 'object' && v != null) return `${k}: (...)`;
+				return `${k}: ${v}`;
+			})
+			.join(', ');
 	}
 	return String(val);
 }

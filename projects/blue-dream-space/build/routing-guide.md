@@ -37,10 +37,10 @@ Matrix: 11 rows x 10 columns
 
 | Layer | Purpose |
 |-------|---------|
-| F.Cu (top) | Switch pads, MCU, USB-C, main components |
+| F.Cu (top) | Switch pads, per-key LEDs, MCU, USB-C, main components |
 | In1.Cu (inner 1) | Signal traces (ROW/COL) — primary routing layer |
-| In2.Cu (inner 2) | Power plane (VCC/VBUS) — clean power distribution |
-| B.Cu (bottom) | Diodes, LEDs, ground pour |
+| In2.Cu (inner 2) | Power plane (VCC copper fill) — clean power distribution |
+| B.Cu (bottom) | Diodes, ground pour |
 
 **4-layer benefits:** Dedicated ground/power planes reduce noise, improve signal integrity, and give the autorouter more room to route traces without crossing.
 

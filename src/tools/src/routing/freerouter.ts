@@ -14,10 +14,9 @@ const FREEROUTING_DIRS = [
 function findFreerouting(): string | null {
   for (const dir of FREEROUTING_DIRS) {
     if (!existsSync(dir)) continue;
-    const exact = join(dir, 'freerouting.jar');
-    if (existsSync(exact)) return exact;
     try {
       const files = readdirSync(dir);
+      // Pick highest-versioned jar (e.g. freerouting-2.1.0.jar before 1.9.0)
       const jars = files
         .filter(f => f.startsWith('freerouting') && f.endsWith('.jar'))
         .sort()
@@ -102,9 +101,9 @@ function formatLine(line: string): string {
 
 /**
  * Run Freerouting autorouter on a DSN file, streaming filtered output in real-time.
- * Returns a promise that resolves when routing is complete.
+ * Returns true if all connections were routed, false if some remain unrouted.
  */
-export async function runFreerouting(dsnPath: string, sesOutputPath: string, onLog?: (msg: string) => void, timeoutMinutes = 10, maxPasses = 25): Promise<void> {
+export async function runFreerouting(dsnPath: string, sesOutputPath: string, onLog?: (msg: string) => void, timeoutMinutes = 10, maxPasses = 25): Promise<boolean> {
   const log = (msg: string) => { console.log(msg); onLog?.(msg); };
   const jar = findFreerouting();
   if (!jar) {
@@ -268,10 +267,11 @@ export async function runFreerouting(dsnPath: string, sesOutputPath: string, onL
     if (lastUnrouted !== null && lastUnrouted > 0) {
       log(`  Routing complete with ${lastUnrouted} unrouted connections remaining.`);
       log('  These may need manual routing in KiCad.');
+      return false;
     } else {
       log('  Routing complete — all connections routed.');
+      return true;
     }
-    return;
   }
 
   const unroutedMsg = lastUnrouted !== null ? ` (${lastUnrouted} unrouted at last pass)` : '';

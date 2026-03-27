@@ -90,6 +90,23 @@
     "Consider STM32F072CBT6 (128KB) or STM32F072C8T6 (64KB) variants",
     "Best choice for wired keyboards where cost per unit matters"
   ],
+  "package": {
+    "type": "LQFP-48",
+    "dimensions": { "width": 7.0, "height": 7.0 },
+    "pitch": 0.5,
+    "padCount": 48,
+    "padsPerSide": 12,
+    "padSize": { "width": 0.3, "height": 1.2 },
+    "thermalPad": false,
+    "footprintRef": "Package_QFP:LQFP-48_7x7mm_P0.5mm"
+  },
+  "pinMap": {
+    "vcc": [9, 24, 36, 48],
+    "gnd": [8, 23, 35, 47],
+    "usbDm": [32],
+    "usbDp": [33],
+    "reset": [7]
+  },
   "datasheet": "https://www.st.com/resource/en/datasheet/stm32f072cb.pdf",
   "externalLinks": [
     { "label": "STM32F072 Product Page", "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32f072cb.html" },
