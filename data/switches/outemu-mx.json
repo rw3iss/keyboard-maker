@@ -1,0 +1,105 @@
+{
+  "id": "outemu-mx",
+  "name": "Outemu MX",
+  "manufacturer": "Outemu (Gaote)",
+  "type": "mechanical",
+  "mounting": "through-hole",
+  "profile": "MX",
+  "hotswapCompatible": true,
+  "hotswapSocket": "outemu-mx-hotswap",
+  "pinSpacing": 6.25,
+  "switchSpacing": {
+    "x": 19.05,
+    "y": 19.05
+  },
+  "activationDistance": 2.0,
+  "travelDistance": 4.0,
+  "totalHeight": 18.5,
+  "actuationForce": null,
+  "keycapMount": "mx",
+  "dimensions": {
+    "width": 15.6,
+    "depth": 15.6,
+    "height": 18.5,
+    "unit": "mm"
+  },
+  "footprintFile": "Cherry_MX.kicad_mod",
+  "symbolRef": "Switch:SW_Push",
+  "datasheet": "https://www.outemu.com/en/products_detail/30.html",
+  "variants": [
+    {
+      "id": "outemu-brown",
+      "name": "Outemu Brown (Tactile)",
+      "actuationForce": 55,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-switches.html", "priceUsd": 0.12 }
+      ]
+    },
+    {
+      "id": "outemu-red",
+      "name": "Outemu Red (Linear)",
+      "actuationForce": 45,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-switches.html", "priceUsd": 0.12 }
+      ]
+    },
+    {
+      "id": "outemu-blue",
+      "name": "Outemu Blue (Clicky)",
+      "actuationForce": 60,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-switches.html", "priceUsd": 0.12 }
+      ]
+    },
+    {
+      "id": "outemu-black",
+      "name": "Outemu Black (Linear Heavy)",
+      "actuationForce": 60,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-switches.html", "priceUsd": 0.12 }
+      ]
+    }
+  ],
+  "summary": "Cheapest MX-compatible switches available — absolute budget pick at $0.10-0.15 per switch",
+  "features": [
+    "MX-compatible cross stem — works with all MX keycaps",
+    "Cheapest MX switches available ($0.10-0.15 per switch)",
+    "Standard MX 19.05mm spacing",
+    "5-pin (PCB mount) variant available",
+    "Multiple variants: linear, tactile, clicky",
+    "100M cycle rating",
+    "Widely used in budget pre-built keyboards"
+  ],
+  "concerns": [
+    "Scratchier than Gateron or Cherry — benefit from lubing",
+    "Outemu hot-swap sockets use slightly smaller pin holes — NOT compatible with Cherry/Gateron pins",
+    "Inconsistent quality control across batches",
+    "Spring ping is common",
+    "Housing can feel rattly compared to premium switches",
+    "Not recommended if budget allows Gateron or Akko"
+  ],
+  "designNotes": [
+    "Uses standard Cherry MX footprint for through-hole mounting",
+    "CAUTION: Outemu hot-swap sockets have narrower pin holes than Kailh sockets",
+    "If using Outemu hot-swap sockets, only Outemu switches will fit without pin modification",
+    "Kailh hot-swap sockets accept all MX-compatible switches including Outemu",
+    "Best for absolute minimum budget builds where switch cost must be minimized",
+    "Consider spending slightly more for Akko CS or Gateron for much better feel"
+  ],
+  "externalLinks": [
+    { "label": "Outemu Official Product Page", "url": "https://www.outemu.com/en/products_detail/30.html" },
+    { "label": "Theremingoat Reviews", "url": "https://www.theremingoat.com/" }
+  ],
+  "suppliers": [
+    { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-switches.html", "priceUsd": 0.12 },
+    { "name": "AliExpress (bulk)", "url": "https://www.aliexpress.com/item/outemu-switches-bulk.html", "priceUsd": 0.10 }
+  ]
+}

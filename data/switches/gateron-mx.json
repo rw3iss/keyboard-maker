@@ -1,0 +1,136 @@
+{
+  "id": "gateron-mx",
+  "name": "Gateron MX (G Pro 3.0)",
+  "manufacturer": "Gateron",
+  "type": "mechanical",
+  "mounting": "through-hole",
+  "profile": "MX",
+  "hotswapCompatible": true,
+  "hotswapSocket": "kailh-cpg151101s11",
+  "pinSpacing": 6.25,
+  "switchSpacing": {
+    "x": 19.05,
+    "y": 19.05
+  },
+  "activationDistance": 2.0,
+  "travelDistance": 4.0,
+  "totalHeight": 18.5,
+  "actuationForce": null,
+  "keycapMount": "mx",
+  "dimensions": {
+    "width": 15.6,
+    "depth": 15.6,
+    "height": 18.5,
+    "unit": "mm"
+  },
+  "footprintFile": "Cherry_MX.kicad_mod",
+  "symbolRef": "Switch:SW_Push",
+  "datasheet": "https://www.gateron.com/pages/switches-702",
+  "variants": [
+    {
+      "id": "gateron-brown",
+      "name": "Gateron G Pro 3.0 Brown (Tactile)",
+      "actuationForce": 55,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        { "name": "Gateron Official", "url": "https://www.gateron.com/collections/switches", "priceUsd": 0.30 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/gateron-switches.html", "priceUsd": 0.20 },
+        { "name": "KBDfans", "url": "https://kbdfans.com/collections/gateron-swithes", "priceUsd": 0.30 }
+      ]
+    },
+    {
+      "id": "gateron-red",
+      "name": "Gateron G Pro 3.0 Red (Linear)",
+      "actuationForce": 45,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "Gateron Official", "url": "https://www.gateron.com/collections/switches", "priceUsd": 0.30 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/gateron-switches.html", "priceUsd": 0.20 }
+      ]
+    },
+    {
+      "id": "gateron-blue",
+      "name": "Gateron G Pro 3.0 Blue (Clicky)",
+      "actuationForce": 60,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        { "name": "Gateron Official", "url": "https://www.gateron.com/collections/switches", "priceUsd": 0.30 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/gateron-switches.html", "priceUsd": 0.20 }
+      ]
+    },
+    {
+      "id": "gateron-black",
+      "name": "Gateron G Pro 3.0 Black (Linear Heavy)",
+      "actuationForce": 60,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "Gateron Official", "url": "https://www.gateron.com/collections/switches", "priceUsd": 0.30 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/gateron-switches.html", "priceUsd": 0.20 }
+      ]
+    },
+    {
+      "id": "gateron-yellow",
+      "name": "Gateron G Pro 3.0 Yellow (Linear Medium)",
+      "actuationForce": 50,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "Gateron Official", "url": "https://www.gateron.com/collections/switches", "priceUsd": 0.30 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/gateron-switches.html", "priceUsd": 0.20 }
+      ]
+    },
+    {
+      "id": "gateron-milky-yellow",
+      "name": "Gateron Milky Yellow (Linear — Budget King)",
+      "actuationForce": 50,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/gateron-milky-yellow.html", "priceUsd": 0.18 },
+        { "name": "KBDfans", "url": "https://kbdfans.com/collections/gateron-swithes", "priceUsd": 0.28 }
+      ]
+    }
+  ],
+  "summary": "Most popular Cherry MX alternative — smoother than Cherry at half the price, industry standard clone",
+  "features": [
+    "MX-compatible cross stem — works with all MX keycaps",
+    "Smoother than genuine Cherry MX switches",
+    "Factory pre-lubed (G Pro 3.0 revision)",
+    "Standard MX 19.05mm spacing",
+    "Works with standard Kailh MX hot-swap sockets",
+    "5-pin (PCB mount) variant available",
+    "Very affordable ($0.20-0.30 per switch)",
+    "Milky Yellow is considered the best budget linear switch",
+    "100M cycle rating",
+    "Clear/milky housing for RGB LED passthrough"
+  ],
+  "concerns": [
+    "Not a low-profile switch — standard MX height",
+    "Earlier revisions (pre-G Pro 3.0) were scratchier",
+    "Some leaf ping in budget variants",
+    "Brand perception as 'clone' despite high quality"
+  ],
+  "designNotes": [
+    "Uses standard Cherry MX footprint — no special PCB design needed",
+    "Most recommended MX-compatible switch for custom keyboard beginners",
+    "Milky Yellow is the community's go-to budget linear recommendation",
+    "G Pro 3.0 revision is significantly improved — factory-lubed and smoother",
+    "Clear top housing version allows better RGB LED diffusion",
+    "Can be used as drop-in replacement in any MX-compatible keyboard"
+  ],
+  "externalLinks": [
+    { "label": "Gateron Official Switches", "url": "https://www.gateron.com/collections/switches" },
+    { "label": "KBDfans Gateron Collection", "url": "https://kbdfans.com/collections/gateron-swithes" },
+    { "label": "Theremingoat Reviews", "url": "https://www.theremingoat.com/" }
+  ],
+  "suppliers": [
+    { "name": "Gateron Official", "url": "https://www.gateron.com/collections/switches", "priceUsd": 0.30 },
+    { "name": "AliExpress", "url": "https://www.aliexpress.com/item/gateron-switches.html", "priceUsd": 0.20 },
+    { "name": "KBDfans", "url": "https://kbdfans.com/collections/gateron-swithes", "priceUsd": 0.30 },
+    { "name": "Amazon", "url": "https://www.amazon.com/s?k=gateron+switches", "priceUsd": 0.35 }
+  ]
+}

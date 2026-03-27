@@ -3,8 +3,9 @@
   "name": "Nordic nRF52840-QIAA (Bare Chip)",
   "chip": "nRF52840",
   "formFactor": "qfn-73",
+  "summary": "Maximum flexibility — 48 GPIOs, requires antenna design",
   "hasUsb": true,
-  "usbType": "requires-external-connector",
+  "usbType": "USB 2.0 Full Speed",
   "hasBle": true,
   "bleVersion": "5.0",
   "hasLipoCharger": false,
@@ -14,9 +15,9 @@
     "min": 1.7,
     "max": 5.5
   },
-  "flashSize": "1 MB",
-  "ramSize": "256 KB",
-  "clockSpeed": "64 MHz",
+  "flashKB": 1024,
+  "ramKB": 256,
+  "clockMhz": 64,
   "gpioCount": 48,
   "gpioPins": [
     {
@@ -311,13 +312,10 @@
     "unit": "mm"
   },
   "footprintFile": "Nordic_nRF52840_QIAA_QFN73.kicad_mod",
-  "zmkBoard": null,
-  "firmware": [
-    "zmk",
-    "qmk",
-    "zephyr"
-  ],
-  "summary": "Maximum flexibility — 48 GPIOs, requires antenna design",
+  "splitSupport": true,
+  "zmkBoard": "",
+  "qmkBoard": "",
+  "firmwareSupport": ["zmk", "qmk", "zephyr"],
   "bootloader": "Must flash via SWD (J-Link, CMSIS-DAP)",
   "suppliers": [
     {

@@ -487,6 +487,24 @@ export class LayoutCanvas {
     ctx.arc(rx + sw * 0.15, ry + sh * 0.08, Math.max(1.5, this.scale * 0.6), 0, Math.PI * 2);
     ctx.fill();
 
+    // Fanout zone outline — dashed border showing the extended area needed for fanout vias
+    if (comp.fanout) {
+      const fanoutExtend = 2.4 * this.scale; // 1.2mm offset * 2 sides, in screen px
+      ctx.save();
+      ctx.strokeStyle = '#86efac';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 3]);
+      ctx.globalAlpha = 0.7;
+      ctx.strokeRect(rx - fanoutExtend / 2, ry - fanoutExtend / 2, sw + fanoutExtend, sh + fanoutExtend);
+      // Label the fanout zone
+      ctx.fillStyle = '#86efac';
+      ctx.font = `${Math.max(6, 8)}px monospace`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillText('fanout', sx, ry + sh + fanoutExtend / 2 + 2);
+      ctx.restore();
+    }
+
     // Label
     ctx.fillStyle = '#22c55e';
     const fontSize = Math.max(7, Math.min(10, sw * 0.2));

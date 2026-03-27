@@ -1,5 +1,5 @@
 ** Drc report for blue-dream-space.kicad_pcb **
-** Created on 2026-03-27T02:05:13-0400 **
+** Created on 2026-03-27T02:07:26-0400 **
 
 ** Found 504 DRC violations **
 [solder_mask_bridge]: Front solder mask aperture bridges items with different nets
@@ -21,11 +21,11 @@
 [solder_mask_bridge]: Front solder mask aperture bridges items with different nets
     Rule: board setup solder mask min width; error
     @(303.2948 mm, 23.0448 mm): Track [USB_DP] on F.Cu, length 0.0634 mm
-    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+    @(303.3500 mm, 22.0200 mm): PTH pad S1 [GND] of J1
 [solder_mask_bridge]: Front solder mask aperture bridges items with different nets
     Rule: board setup solder mask min width; error
     @(303.2948 mm, 24.6711 mm): Track [USB_DP] on F.Cu, length 1.6263 mm
-    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+    @(303.3500 mm, 22.0200 mm): PTH pad S1 [GND] of J1
 [solder_mask_bridge]: Front solder mask aperture bridges items with different nets
     Rule: board setup solder mask min width; error
     @(178.0000 mm, 139.2500 mm): Track [USB_DP] on F.Cu, length 1.1011 mm
@@ -61,11 +61,11 @@
 [solder_mask_bridge]: Front solder mask aperture bridges items with different nets
     Rule: board setup solder mask min width; error
     @(303.4341 mm, 22.0771 mm): Track [VBUS] on F.Cu, length 2.0431 mm
-    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+    @(303.3500 mm, 22.0200 mm): PTH pad S1 [GND] of J1
 [solder_mask_bridge]: Front solder mask aperture bridges items with different nets
     Rule: board setup solder mask min width; error
     @(304.2500 mm, 22.8930 mm): Track [VBUS] on F.Cu, length 1.1539 mm
-    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+    @(303.3500 mm, 22.0200 mm): PTH pad S1 [GND] of J1
 [solder_mask_bridge]: Front solder mask aperture bridges items with different nets
     Rule: board setup solder mask min width; error
     @(300.0484 mm, 22.7016 mm): Track [VBUS] on F.Cu, length 0.4220 mm
@@ -726,18 +726,14 @@
     Local override; error
     @(156.7000 mm, 42.5250 mm): Pad 1 [ROW0] of D7 on F.Cu
     @(156.5771 mm, 43.3776 mm): Track [COL6] on F.Cu, length 1.2967 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1516 mm)
-    Rule: netclass 'Power'; error
-    @(176.7732 mm, 36.5771 mm): Track [VBUS] on In1.Cu, length 13.0731 mm
-    @(185.8569 mm, 28.4149 mm): Via [USB_DM] on F.Cu - B.Cu
-[shorting_items]: Items shorting two nets (nets GND and USB_DM)
-    Local override; error
-    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
-    @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
 [shorting_items]: Items shorting two nets (nets  and COL5)
     Local override; error
     @(184.9375 mm, 135.7500 mm): Pad 32 [<no net>] of U1 on F.Cu
     @(185.0000 mm, 135.7500 mm): Track [COL5] on F.Cu, length 2.3791 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1516 mm)
+    Rule: netclass 'Power'; error
+    @(176.7732 mm, 36.5771 mm): Track [VBUS] on In1.Cu, length 13.0731 mm
+    @(185.8569 mm, 28.4149 mm): Via [USB_DM] on F.Cu - B.Cu
 [shorting_items]: Items shorting two nets (nets  and COL6)
     Local override; error
     @(184.9375 mm, 136.2500 mm): Pad 31 [<no net>] of U1 on F.Cu
@@ -746,78 +742,98 @@
     Local override; error
     @(184.9375 mm, 134.7500 mm): Pad 34 [<no net>] of U1 on F.Cu
     @(185.5408 mm, 134.7500 mm): Track [COL3] on F.Cu, length 0.5408 mm
-[shorting_items]: Items shorting two nets (nets  and ROW10)
+[shorting_items]: Items shorting two nets (nets GND and USB_DM)
     Local override; error
-    @(183.7500 mm, 139.9375 mm): Pad 23 [<no net>] of U1 on F.Cu
-    @(183.7500 mm, 140.3795 mm): Track [ROW10] on F.Cu, length 0.3795 mm
-[shorting_items]: Items shorting two nets (nets ROW4 and COL7)
-    Local override; error
-    @(180.5125 mm, 85.3875 mm): Pad 1 [ROW4] of D40 on F.Cu
-    @(179.8700 mm, 85.7228 mm): Track [COL7] on F.Cu, length 0.7929 mm
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
 [shorting_items]: Items shorting two nets (nets  and ROW9)
     Local override; error
     @(183.2500 mm, 139.9375 mm): Pad 22 [<no net>] of U1 on F.Cu
     @(183.2500 mm, 140.4611 mm): Track [ROW9] on F.Cu, length 0.4611 mm
-[shorting_items]: Items shorting two nets (nets  and ROW10)
-    Local override; error
-    @(183.7500 mm, 139.9375 mm): Pad 23 [<no net>] of U1 on F.Cu
-    @(184.5784 mm, 141.2079 mm): Track [ROW10] on F.Cu, length 1.1715 mm
-[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0925 mm)
-    Rule: netclass 'Default'; error
-    @(180.5125 mm, 85.3875 mm): Pad 1 [ROW4] of D40 on F.Cu
-    @(179.8700 mm, 85.0429 mm): Track [COL7] on F.Cu, length 0.6799 mm
-[shorting_items]: Items shorting two nets (nets  and COL9)
-    Local override; error
-    @(184.9375 mm, 137.7500 mm): Pad 28 [<no net>] of U1 on F.Cu
-    @(185.0000 mm, 137.7500 mm): Track [COL9] on F.Cu, length 0.6463 mm
 [shorting_items]: Items shorting two nets (nets  and ROW9)
     Local override; error
     @(183.2500 mm, 139.9375 mm): Pad 22 [<no net>] of U1 on F.Cu
     @(184.5635 mm, 141.7746 mm): Track [ROW9] on F.Cu, length 1.8576 mm
-[shorting_items]: Items shorting two nets (nets  and COL4)
-    Local override; error
-    @(184.9375 mm, 135.2500 mm): Pad 33 [<no net>] of U1 on F.Cu
-    @(185.9517 mm, 135.2500 mm): Track [COL4] on F.Cu, length 0.9517 mm
 [clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0658 mm)
     Rule: netclass 'Default'; error
     @(184.9375 mm, 134.7500 mm): Pad 34 [<no net>] of U1 on F.Cu
     @(186.2918 mm, 133.9990 mm): Track [COL3] on F.Cu, length 1.0621 mm
+[shorting_items]: Items shorting two nets (nets ROW4 and COL7)
+    Local override; error
+    @(180.5125 mm, 85.3875 mm): Pad 1 [ROW4] of D40 on F.Cu
+    @(179.8700 mm, 85.7228 mm): Track [COL7] on F.Cu, length 0.7929 mm
 [shorting_items]: Items shorting two nets (nets  and COL0)
     Local override; error
     @(184.2500 mm, 139.9375 mm): Pad 24 [<no net>] of U1 on F.Cu
     @(184.2500 mm, 140.0000 mm): Track [COL0] on F.Cu, length 0.7442 mm
-[shorting_items]: Items shorting two nets (nets ROW10 and COL1)
+[shorting_items]: Items shorting two nets (nets  and COL9)
     Local override; error
-    @(59.0688 mm, 142.5375 mm): Pad 1 [ROW10] of D78 on F.Cu
-    @(58.9320 mm, 141.6849 mm): Track [COL1] on F.Cu, length 2.2200 mm
+    @(184.9375 mm, 137.7500 mm): Pad 28 [<no net>] of U1 on F.Cu
+    @(185.0000 mm, 137.7500 mm): Track [COL9] on F.Cu, length 0.6463 mm
 [shorting_items]: Items shorting two nets (nets COL4 and ROW3)
     Local override; error
     @(180.2500 mm, 139.9375 mm): Pad 16 [COL4] of U1 on F.Cu
     @(180.2500 mm, 140.4456 mm): Track [ROW3] on F.Cu, length 0.4456 mm
-[shorting_items]: Items shorting two nets (nets GND and USB_DM)
-    Local override; error
-    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
-    @(299.8584 mm, 25.5517 mm): Track [USB_DM] on In2.Cu, length 3.1940 mm
-[shorting_items]: Items shorting two nets (nets COL3 and ROW2)
-    Local override; error
-    @(179.7500 mm, 139.9375 mm): Pad 15 [COL3] of U1 on F.Cu
-    @(179.7500 mm, 140.4183 mm): Track [ROW2] on F.Cu, length 0.9226 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0925 mm)
+    Rule: netclass 'Default'; error
+    @(180.5125 mm, 85.3875 mm): Pad 1 [ROW4] of D40 on F.Cu
+    @(179.8700 mm, 85.0429 mm): Track [COL7] on F.Cu, length 0.6799 mm
 [shorting_items]: Items shorting two nets (nets COL9 and ROW8)
     Local override; error
     @(182.7500 mm, 139.9375 mm): Pad 21 [COL9] of U1 on F.Cu
     @(182.7500 mm, 140.9008 mm): Track [ROW8] on F.Cu, length 0.9008 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0253 mm)
+    Rule: netclass 'Default'; error
+    @(324.5305 mm, 85.3875 mm): Pad 1 [ROW5] of D47 on F.Cu
+    @(324.3159 mm, 84.5067 mm): Track [COL6] on F.Cu, length 1.4477 mm
+[shorting_items]: Items shorting two nets (nets  and ROW10)
+    Local override; error
+    @(183.7500 mm, 139.9375 mm): Pad 23 [<no net>] of U1 on F.Cu
+    @(183.7500 mm, 140.3795 mm): Track [ROW10] on F.Cu, length 0.3795 mm
+[shorting_items]: Items shorting two nets (nets COL2 and ROW1)
+    Local override; error
+    @(179.2500 mm, 139.9375 mm): Pad 14 [COL2] of U1 on F.Cu
+    @(179.2500 mm, 140.4176 mm): Track [ROW1] on F.Cu, length 0.4262 mm
+[shorting_items]: Items shorting two nets (nets  and COL4)
+    Local override; error
+    @(184.9375 mm, 135.2500 mm): Pad 33 [<no net>] of U1 on F.Cu
+    @(185.9517 mm, 135.2500 mm): Track [COL4] on F.Cu, length 0.9517 mm
+[shorting_items]: Items shorting two nets (nets COL2 and ROW1)
+    Local override; error
+    @(179.2500 mm, 139.9375 mm): Pad 14 [COL2] of U1 on F.Cu
+    @(179.2500 mm, 140.0000 mm): Track [ROW1] on F.Cu, length 0.4176 mm
 [shorting_items]: Items shorting two nets (nets COL4 and ROW3)
     Local override; error
     @(180.2500 mm, 139.9375 mm): Pad 16 [COL4] of U1 on F.Cu
     @(179.0732 mm, 141.6224 mm): Track [ROW3] on F.Cu, length 1.6642 mm
-[shorting_items]: Items shorting two nets (nets  and COL7)
+[shorting_items]: Items shorting two nets (nets GND and USB_DM)
     Local override; error
-    @(184.9375 mm, 136.7500 mm): Pad 30 [<no net>] of U1 on F.Cu
-    @(185.0000 mm, 136.7500 mm): Track [COL7] on F.Cu, length 0.6297 mm
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(299.8584 mm, 25.5517 mm): Track [USB_DM] on In2.Cu, length 3.1940 mm
+[shorting_items]: Items shorting two nets (nets  and ROW10)
+    Local override; error
+    @(183.7500 mm, 139.9375 mm): Pad 23 [<no net>] of U1 on F.Cu
+    @(184.5784 mm, 141.2079 mm): Track [ROW10] on F.Cu, length 1.1715 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1911 mm)
+    Rule: netclass 'Power'; error
+    @(176.1830 mm, 136.9238 mm): Track [COL6] on In2.Cu, length 1.8593 mm
+    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
 [shorting_items]: Items shorting two nets (nets COL3 and ROW2)
     Local override; error
     @(179.7500 mm, 139.9375 mm): Pad 15 [COL3] of U1 on F.Cu
-    @(179.7500 mm, 140.0000 mm): Track [ROW2] on F.Cu, length 0.4183 mm
+    @(179.7500 mm, 140.4183 mm): Track [ROW2] on F.Cu, length 0.9226 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1931 mm)
+    Rule: netclass 'Power'; error
+    @(176.7755 mm, 136.9238 mm): Track [COL6] on In2.Cu, length 0.5925 mm
+    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets ROW1 and COL6)
+    Local override; error
+    @(319.5775 mm, 42.5250 mm): Pad 1 [ROW1] of D15 on F.Cu
+    @(319.4483 mm, 41.6441 mm): Track [COL6] on F.Cu, length 1.8447 mm
+[shorting_items]: Items shorting two nets (nets ROW10 and COL1)
+    Local override; error
+    @(59.0688 mm, 142.5375 mm): Pad 1 [ROW10] of D78 on F.Cu
+    @(58.9320 mm, 141.6849 mm): Track [COL1] on F.Cu, length 2.2200 mm
 [clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.0928 mm)
     Rule: netclass 'Power'; error
     @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
@@ -826,106 +842,90 @@
     Local override; error
     @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
     @(302.1169 mm, 23.2932 mm): Track [USB_DM] on F.Cu, length 0.3399 mm
-[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0253 mm)
-    Rule: netclass 'Default'; error
-    @(324.5305 mm, 85.3875 mm): Pad 1 [ROW5] of D47 on F.Cu
-    @(324.3159 mm, 84.5067 mm): Track [COL6] on F.Cu, length 1.4477 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1911 mm)
-    Rule: netclass 'Power'; error
-    @(176.1830 mm, 136.9238 mm): Track [COL6] on In2.Cu, length 1.8593 mm
-    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
-[shorting_items]: Items shorting two nets (nets COL2 and ROW1)
+[shorting_items]: Items shorting two nets (nets COL3 and ROW2)
     Local override; error
-    @(179.2500 mm, 139.9375 mm): Pad 14 [COL2] of U1 on F.Cu
-    @(179.2500 mm, 140.4176 mm): Track [ROW1] on F.Cu, length 0.4262 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1931 mm)
-    Rule: netclass 'Power'; error
-    @(176.7755 mm, 136.9238 mm): Track [COL6] on In2.Cu, length 0.5925 mm
-    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
-[shorting_items]: Items shorting two nets (nets VCC and COL1)
-    Local override; error
-    @(184.9375 mm, 133.7500 mm): Pad 36 [VCC] of U1 on F.Cu
-    @(185.6562 mm, 133.0938 mm): Track [COL1] on F.Cu, length 0.9280 mm
-[shorting_items]: Items shorting two nets (nets COL2 and ROW1)
-    Local override; error
-    @(179.2500 mm, 139.9375 mm): Pad 14 [COL2] of U1 on F.Cu
-    @(179.2500 mm, 140.0000 mm): Track [ROW1] on F.Cu, length 0.4176 mm
-[shorting_items]: Items shorting two nets (nets ROW1 and COL6)
-    Local override; error
-    @(319.5775 mm, 42.5250 mm): Pad 1 [ROW1] of D15 on F.Cu
-    @(319.4483 mm, 41.6441 mm): Track [COL6] on F.Cu, length 1.8447 mm
-[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1400 mm)
-    Rule: netclass 'Default'; error
-    @(221.9125 mm, 42.5250 mm): Pad 2 [COL1] of D10 on F.Cu
-    @(222.8025 mm, 42.1604 mm): Via [ROW1] on F.Cu - B.Cu
+    @(179.7500 mm, 139.9375 mm): Pad 15 [COL3] of U1 on F.Cu
+    @(179.7500 mm, 140.0000 mm): Track [ROW2] on F.Cu, length 0.4183 mm
 [shorting_items]: Items shorting two nets (nets COL5 and ROW4)
     Local override; error
     @(180.7500 mm, 139.9375 mm): Pad 17 [COL5] of U1 on F.Cu
     @(180.7153 mm, 140.0347 mm): Track [ROW4] on F.Cu, length 0.7903 mm
-[shorting_items]: Items shorting two nets (nets ROW10 and USB_DM)
-    Local override; error
-    @(178.0625 mm, 138.7500 mm): Pad 11 [ROW10] of U1 on F.Cu
-    @(176.6190 mm, 138.7500 mm): Track [USB_DM] on F.Cu, length 1.3810 mm
-[shorting_items]: Items shorting two nets (nets COL5 and ROW4)
-    Local override; error
-    @(180.7500 mm, 139.9375 mm): Pad 17 [COL5] of U1 on F.Cu
-    @(180.7500 mm, 140.0000 mm): Track [ROW4] on F.Cu, length 0.0491 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.0685 mm)
-    Rule: netclass 'Power'; error
-    @(184.9375 mm, 134.2500 mm): Pad 35 [VCC] of U1 on F.Cu
-    @(185.5435 mm, 134.2500 mm): Track [COL2] on F.Cu, length 0.8523 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1940 mm)
-    Rule: netclass 'Power'; error
-    @(175.8155 mm, 137.9465 mm): Track [USB_DM] on F.Cu, length 1.1363 mm
-    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1518 mm)
-    Rule: netclass 'Power'; error
-    @(175.8155 mm, 137.3472 mm): Track [USB_DM] on F.Cu, length 0.5993 mm
-    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1454 mm)
-    Rule: netclass 'Default'; error
-    @(181.2500 mm, 139.9375 mm): Pad 18 [COL6] of U1 on F.Cu
-    @(181.2500 mm, 140.6204 mm): Track [ROW5] on F.Cu, length 0.2588 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1516 mm)
-    Rule: netclass 'Power'; error
-    @(176.7820 mm, 136.3807 mm): Track [USB_DM] on F.Cu, length 1.3668 mm
-    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
-[shorting_items]: Items shorting two nets (nets VCC and COL2)
-    Local override; error
-    @(184.9375 mm, 134.2500 mm): Pad 35 [VCC] of U1 on F.Cu
-    @(185.0000 mm, 134.2500 mm): Track [COL2] on F.Cu, length 0.5435 mm
-[shorting_items]: Items shorting two nets (nets  and COL8)
-    Local override; error
-    @(184.9375 mm, 137.2500 mm): Pad 29 [<no net>] of U1 on F.Cu
-    @(185.0664 mm, 137.3164 mm): Track [COL8] on F.Cu, length 1.1249 mm
 [clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0217 mm)
     Rule: netclass 'Default'; error
     @(228.1375 mm, 123.4875 mm): Pad 1 [ROW9] of D72 on F.Cu
     @(227.3950 mm, 122.9362 mm): Via [COL2] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets VCC and COL1)
+    Local override; error
+    @(184.9375 mm, 133.7500 mm): Pad 36 [VCC] of U1 on F.Cu
+    @(185.6562 mm, 133.0938 mm): Track [COL1] on F.Cu, length 0.9280 mm
+[shorting_items]: Items shorting two nets (nets COL5 and ROW4)
+    Local override; error
+    @(180.7500 mm, 139.9375 mm): Pad 17 [COL5] of U1 on F.Cu
+    @(180.7500 mm, 140.0000 mm): Track [ROW4] on F.Cu, length 0.0491 mm
+[shorting_items]: Items shorting two nets (nets  and COL7)
+    Local override; error
+    @(184.9375 mm, 136.7500 mm): Pad 30 [<no net>] of U1 on F.Cu
+    @(185.0000 mm, 136.7500 mm): Track [COL7] on F.Cu, length 0.6297 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1400 mm)
+    Rule: netclass 'Default'; error
+    @(221.9125 mm, 42.5250 mm): Pad 2 [COL1] of D10 on F.Cu
+    @(222.8025 mm, 42.1604 mm): Via [ROW1] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets  and COL8)
+    Local override; error
+    @(184.9375 mm, 137.2500 mm): Pad 29 [<no net>] of U1 on F.Cu
+    @(185.0664 mm, 137.3164 mm): Track [COL8] on F.Cu, length 1.1249 mm
 [shorting_items]: Items shorting two nets (nets  and COL8)
     Local override; error
     @(184.9375 mm, 137.2500 mm): Pad 29 [<no net>] of U1 on F.Cu
     @(185.0000 mm, 137.2500 mm): Track [COL8] on F.Cu, length 0.0939 mm
+[shorting_items]: Items shorting two nets (nets ROW10 and USB_DM)
+    Local override; error
+    @(178.0625 mm, 138.7500 mm): Pad 11 [ROW10] of U1 on F.Cu
+    @(176.6190 mm, 138.7500 mm): Track [USB_DM] on F.Cu, length 1.3810 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1940 mm)
+    Rule: netclass 'Power'; error
+    @(175.8155 mm, 137.9465 mm): Track [USB_DM] on F.Cu, length 1.1363 mm
+    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets ROW2 and COL4)
+    Local override; error
+    @(109.0750 mm, 66.3375 mm): Pad 1 [ROW2] of D21 on F.Cu
+    @(107.8701 mm, 66.1080 mm): Track [COL4] on F.Cu, length 1.5303 mm
 [shorting_items]: Items shorting two nets (nets COL3 and ROW8)
     Local override; error
     @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
     @(117.5401 mm, 122.9147 mm): Track [ROW8] on F.Cu, length 0.3957 mm
-[shorting_items]: Items shorting two nets (nets COL6 and ROW5)
-    Local override; error
-    @(181.2500 mm, 139.9375 mm): Pad 18 [COL6] of U1 on F.Cu
-    @(181.2500 mm, 140.0000 mm): Track [ROW5] on F.Cu, length 0.6204 mm
-[shorting_items]: Items shorting two nets (nets COL7 and ROW6)
-    Local override; error
-    @(181.7500 mm, 139.9375 mm): Pad 19 [COL7] of U1 on F.Cu
-    @(181.7500 mm, 140.9005 mm): Track [ROW6] on F.Cu, length 0.9005 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1518 mm)
+    Rule: netclass 'Power'; error
+    @(175.8155 mm, 137.3472 mm): Track [USB_DM] on F.Cu, length 0.5993 mm
+    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0123 mm)
+    Rule: netclass 'Default'; error
+    @(140.9500 mm, 42.5250 mm): Pad 2 [COL5] of D6 on F.Cu
+    @(142.8781 mm, 41.6739 mm): Track [ROW0] on F.Cu, length 2.4391 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1516 mm)
+    Rule: netclass 'Power'; error
+    @(176.7820 mm, 136.3807 mm): Track [USB_DM] on F.Cu, length 1.3668 mm
+    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
 [shorting_items]: Items shorting two nets (nets COL3 and ROW8)
     Local override; error
     @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
     @(117.5401 mm, 123.4875 mm): Track [ROW8] on F.Cu, length 0.5728 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
+    Local override; error
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(323.2801 mm, 43.0978 mm): Track [ROW1] on F.Cu, length 0.5728 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.0685 mm)
+    Rule: netclass 'Power'; error
+    @(184.9375 mm, 134.2500 mm): Pad 35 [VCC] of U1 on F.Cu
+    @(185.5435 mm, 134.2500 mm): Track [COL2] on F.Cu, length 0.8523 mm
 [shorting_items]: Items shorting two nets (nets COL3 and ROW8)
     Local override; error
     @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
     @(133.1875 mm, 123.4875 mm): Track [ROW8] on F.Cu, length 15.6474 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
+    Local override; error
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(323.0003 mm, 43.3776 mm): Track [ROW1] on F.Cu, length 0.3957 mm
 [shorting_items]: Items shorting two nets (nets COL3 and ROW8)
     Local override; error
     @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
@@ -934,114 +934,82 @@
     Local override; error
     @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
     @(117.2311 mm, 124.3693 mm): Track [ROW8] on F.Cu, length 0.4370 mm
-[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
-    Local override; error
-    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
-    @(323.2801 mm, 43.0978 mm): Track [ROW1] on F.Cu, length 0.5728 mm
-[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
-    Local override; error
-    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
-    @(323.0003 mm, 43.3776 mm): Track [ROW1] on F.Cu, length 0.3957 mm
-[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
-    Local override; error
-    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
-    @(338.9275 mm, 42.5250 mm): Track [ROW1] on F.Cu, length 15.6474 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1791 mm)
-    Rule: netclass 'Power'; error
-    @(175.3698 mm, 116.5239 mm): Track [VBUS] on In1.Cu, length 1.9847 mm
-    @(174.8907 mm, 139.8351 mm): Track [ROW8] on In1.Cu, length 29.1408 mm
-[shorting_items]: Items shorting two nets (nets COL4 and ROW7)
-    Local override; error
-    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
-    @(265.1776 mm, 103.8647 mm): Track [ROW7] on F.Cu, length 0.3957 mm
-[shorting_items]: Items shorting two nets (nets COL4 and ROW7)
-    Local override; error
-    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
-    @(265.1776 mm, 105.0103 mm): Track [ROW7] on F.Cu, length 1.1456 mm
-[shorting_items]: Items shorting two nets (nets COL4 and ROW7)
-    Local override; error
-    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
-    @(264.8619 mm, 105.3260 mm): Track [ROW7] on F.Cu, length 0.4465 mm
-[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
-    Local override; error
-    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
-    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.2713 mm
-[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
-    Local override; error
-    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
-    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.5728 mm
-[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
-    Local override; error
-    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
-    @(88.9651 mm, 84.8147 mm): Track [ROW4] on F.Cu, length 0.4482 mm
-[shorting_items]: Items shorting two nets (nets ROW2 and COL4)
-    Local override; error
-    @(109.0750 mm, 66.3375 mm): Pad 1 [ROW2] of D21 on F.Cu
-    @(107.8701 mm, 66.1080 mm): Track [COL4] on F.Cu, length 1.5303 mm
-[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
-    Local override; error
-    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
-    @(88.9651 mm, 85.3875 mm): Track [ROW4] on F.Cu, length 0.5728 mm
-[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
-    Local override; error
-    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
-    @(88.9651 mm, 85.3875 mm): Track [ROW4] on F.Cu, length 15.6474 mm
-[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
-    Local override; error
-    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
-    @(88.9651 mm, 85.9603 mm): Track [ROW4] on F.Cu, length 0.5728 mm
-[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
-    Local override; error
-    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
-    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.9331 mm
-[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
-    Local override; error
-    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
-    @(88.6853 mm, 86.2401 mm): Track [ROW4] on F.Cu, length 0.3957 mm
-[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0123 mm)
-    Rule: netclass 'Default'; error
-    @(140.9500 mm, 42.5250 mm): Pad 2 [COL5] of D6 on F.Cu
-    @(142.8781 mm, 41.6739 mm): Track [ROW0] on F.Cu, length 2.4391 mm
 [shorting_items]: Items shorting two nets (nets ROW1 and COL4)
     Local override; error
     @(275.7625 mm, 42.5250 mm): Pad 1 [ROW1] of D13 on F.Cu
     @(275.3599 mm, 43.0978 mm): Track [COL4] on F.Cu, length 0.3957 mm
+[shorting_items]: Items shorting two nets (nets COL4 and ROW7)
+    Local override; error
+    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
+    @(265.1776 mm, 103.8647 mm): Track [ROW7] on F.Cu, length 0.3957 mm
 [shorting_items]: Items shorting two nets (nets ROW1 and COL4)
     Local override; error
     @(275.7625 mm, 42.5250 mm): Pad 1 [ROW1] of D13 on F.Cu
     @(275.3599 mm, 41.4982 mm): Track [COL4] on F.Cu, length 1.5996 mm
-[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1379 mm)
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1454 mm)
     Rule: netclass 'Default'; error
-    @(221.9125 mm, 42.5250 mm): Pad 2 [COL1] of D10 on F.Cu
-    @(222.8025 mm, 42.1604 mm): Track [ROW1] on F.Cu, length 0.6901 mm
-[shorting_items]: Items shorting two nets (nets GND and USB_DP)
+    @(181.2500 mm, 139.9375 mm): Pad 18 [COL6] of U1 on F.Cu
+    @(181.2500 mm, 140.6204 mm): Track [ROW5] on F.Cu, length 0.2588 mm
+[shorting_items]: Items shorting two nets (nets COL4 and ROW7)
     Local override; error
-    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
-    @(303.2948 mm, 23.0448 mm): Track [USB_DP] on F.Cu, length 0.0634 mm
-[shorting_items]: Items shorting two nets (nets GND and USB_DP)
+    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
+    @(265.1776 mm, 105.0103 mm): Track [ROW7] on F.Cu, length 1.1456 mm
+[shorting_items]: Items shorting two nets (nets VCC and COL2)
     Local override; error
-    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
-    @(303.2948 mm, 24.6711 mm): Track [USB_DP] on F.Cu, length 1.6263 mm
-[shorting_items]: Items shorting two nets (nets COL8 and ROW7)
+    @(184.9375 mm, 134.2500 mm): Pad 35 [VCC] of U1 on F.Cu
+    @(185.0000 mm, 134.2500 mm): Track [COL2] on F.Cu, length 0.5435 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
     Local override; error
-    @(182.2500 mm, 139.9375 mm): Pad 20 [COL8] of U1 on F.Cu
-    @(182.2500 mm, 141.1810 mm): Track [ROW7] on F.Cu, length 1.1810 mm
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(338.9275 mm, 42.5250 mm): Track [ROW1] on F.Cu, length 15.6474 mm
+[shorting_items]: Items shorting two nets (nets COL4 and ROW7)
+    Local override; error
+    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
+    @(264.8619 mm, 105.3260 mm): Track [ROW7] on F.Cu, length 0.4465 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW5)
+    Local override; error
+    @(181.2500 mm, 139.9375 mm): Pad 18 [COL6] of U1 on F.Cu
+    @(181.2500 mm, 140.0000 mm): Track [ROW5] on F.Cu, length 0.6204 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1791 mm)
+    Rule: netclass 'Power'; error
+    @(175.3698 mm, 116.5239 mm): Track [VBUS] on In1.Cu, length 1.9847 mm
+    @(174.8907 mm, 139.8351 mm): Track [ROW8] on In1.Cu, length 29.1408 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
+    Local override; error
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.2713 mm
 [shorting_items]: Items shorting two nets (nets COL1 and ROW0)
     Local override; error
     @(178.7500 mm, 139.9375 mm): Pad 13 [COL1] of U1 on F.Cu
     @(178.7500 mm, 140.0000 mm): Track [ROW0] on F.Cu, length 4.1119 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
+    Local override; error
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.5728 mm
+[shorting_items]: Items shorting two nets (nets COL7 and ROW6)
+    Local override; error
+    @(181.7500 mm, 139.9375 mm): Pad 19 [COL7] of U1 on F.Cu
+    @(181.7500 mm, 140.9005 mm): Track [ROW6] on F.Cu, length 0.9005 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
+    Local override; error
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.9331 mm
 [shorting_items]: Items shorting two nets (nets ROW4 and COL7)
     Local override; error
     @(180.5125 mm, 85.3875 mm): Pad 1 [ROW4] of D40 on F.Cu
     @(179.8700 mm, 85.0429 mm): Via [COL7] on F.Cu - B.Cu
-[shorting_items]: Items shorting two nets (nets COL0 and USB_DP)
+[shorting_items]: Items shorting two nets (nets COL8 and ROW7)
     Local override; error
-    @(178.0625 mm, 139.2500 mm): Pad 12 [COL0] of U1 on F.Cu
-    @(178.0000 mm, 139.2500 mm): Track [USB_DP] on F.Cu, length 1.1011 mm
+    @(182.2500 mm, 139.9375 mm): Pad 20 [COL8] of U1 on F.Cu
+    @(182.2500 mm, 141.1810 mm): Track [ROW7] on F.Cu, length 1.1810 mm
 [clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1364 mm)
     Rule: netclass 'Power'; error
     @(179.2500 mm, 133.0625 mm): Pad 47 [<no net>] of U1 on F.Cu
     @(178.7500 mm, 133.0000 mm): Track [GND] on F.Cu, length 0.0386 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1379 mm)
+    Rule: netclass 'Default'; error
+    @(221.9125 mm, 42.5250 mm): Pad 2 [COL1] of D10 on F.Cu
+    @(222.8025 mm, 42.1604 mm): Track [ROW1] on F.Cu, length 0.6901 mm
 [shorting_items]: Items shorting two nets (nets  and GND)
     Local override; error
     @(179.2500 mm, 133.0625 mm): Pad 47 [<no net>] of U1 on F.Cu
@@ -1050,6 +1018,22 @@
     Rule: netclass 'Power'; error
     @(179.2500 mm, 133.0625 mm): Pad 47 [<no net>] of U1 on F.Cu
     @(178.3859 mm, 132.6359 mm): Track [GND] on F.Cu, length 0.5149 mm
+[shorting_items]: Items shorting two nets (nets GND and USB_DP)
+    Local override; error
+    @(303.3500 mm, 22.0200 mm): PTH pad S1 [GND] of J1
+    @(303.2948 mm, 23.0448 mm): Track [USB_DP] on F.Cu, length 0.0634 mm
+[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
+    Local override; error
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+    @(88.9651 mm, 84.8147 mm): Track [ROW4] on F.Cu, length 0.4482 mm
+[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
+    Local override; error
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+    @(88.9651 mm, 85.3875 mm): Track [ROW4] on F.Cu, length 0.5728 mm
+[shorting_items]: Items shorting two nets (nets GND and USB_DP)
+    Local override; error
+    @(303.3500 mm, 22.0200 mm): PTH pad S1 [GND] of J1
+    @(303.2948 mm, 24.6711 mm): Track [USB_DP] on F.Cu, length 1.6263 mm
 [shorting_items]: Items shorting two nets (nets  and GND)
     Local override; error
     @(296.9000 mm, 23.0000 mm): PTH pad A9 [<no net>] of J1
@@ -1058,14 +1042,30 @@
     Local override; error
     @(296.0500 mm, 23.0000 mm): PTH pad A12 [<no net>] of J1
     @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
+    Local override; error
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+    @(88.9651 mm, 85.3875 mm): Track [ROW4] on F.Cu, length 15.6474 mm
+[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
+    Local override; error
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+    @(88.9651 mm, 85.9603 mm): Track [ROW4] on F.Cu, length 0.5728 mm
 [clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1751 mm)
     Rule: netclass 'Power'; error
     @(190.8732 mm, 22.7016 mm): Track [VBUS] on In2.Cu, length 109.8933 mm
     @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
+    Local override; error
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+    @(88.6853 mm, 86.2401 mm): Track [ROW4] on F.Cu, length 0.3957 mm
 [clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1533 mm)
     Rule: netclass 'Power'; error
     @(175.3698 mm, 136.5194 mm): Track [VBUS] on In1.Cu, length 19.9955 mm
     @(176.1231 mm, 133.3971 mm): Via [GND] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets COL0 and USB_DP)
+    Local override; error
+    @(178.0625 mm, 139.2500 mm): Pad 12 [COL0] of U1 on F.Cu
+    @(178.0000 mm, 139.2500 mm): Track [USB_DP] on F.Cu, length 1.1011 mm
 [clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1579 mm)
     Rule: netclass 'Power'; error
     @(298.2733 mm, 23.4767 mm): Track [GND] on F.Cu, length 0.6742 mm
@@ -1128,11 +1128,11 @@
     @(301.3910 mm, 22.0771 mm): Track [VBUS] on F.Cu, length 0.8832 mm
 [shorting_items]: Items shorting two nets (nets GND and VBUS)
     Local override; error
-    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+    @(303.3500 mm, 22.0200 mm): PTH pad S1 [GND] of J1
     @(303.4341 mm, 22.0771 mm): Track [VBUS] on F.Cu, length 2.0431 mm
 [shorting_items]: Items shorting two nets (nets GND and VBUS)
     Local override; error
-    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+    @(303.3500 mm, 22.0200 mm): PTH pad S1 [GND] of J1
     @(304.2500 mm, 22.8930 mm): Track [VBUS] on F.Cu, length 1.1539 mm
 [shorting_items]: Items shorting two nets (nets VBUS and )
     Local override; error
@@ -1154,18 +1154,18 @@
     Rule: board setup constraints hole; error
     @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
     @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
-    Rule: netclass 'Power'; error
-    @(301.1500 mm, 23.0000 mm): PTH pad A4 [VBUS] of J1
-    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
-[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
-    Rule: netclass 'Power'; error
-    @(301.1500 mm, 23.0000 mm): PTH pad A4 [VBUS] of J1
-    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
-[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
-    Rule: netclass 'Power'; error
-    @(301.1500 mm, 23.0000 mm): PTH pad A4 [VBUS] of J1
-    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; error
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; error
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; error
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
 [clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
     Rule: netclass 'Power'; error
     @(301.1500 mm, 23.0000 mm): PTH pad A4 [VBUS] of J1
@@ -1905,7 +1905,7 @@
     @(180.7500 mm, 139.9375 mm): Pad 17 [COL5] of U1 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(177.1469 mm, 139.7822 mm): Track [COL6] on In2.Cu, length 0.2794 mm
+    @(284.3853 mm, 139.7822 mm): Track [COL6] on In2.Cu, length 107.2384 mm
     @(181.2500 mm, 139.9375 mm): Pad 18 [COL6] of U1 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
@@ -1930,7 +1930,7 @@
 [unconnected_items]: Missing connection between items
     Local override; error
     @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
-    @(18.0000 mm, 18.0000 mm): Zone [GND] on B.Cu, priority 0
+    @(18.0000 mm, 18.0000 mm): Zone [GND] on In1.Cu, priority 0
 [unconnected_items]: Missing connection between items
     Local override; error
     @(183.2500 mm, 133.0625 mm): Pad 39 [VBUS] of U1 on F.Cu
@@ -1949,11 +1949,11 @@
     @(299.4500 mm, 23.0000 mm): PTH pad A6 [USB_DP] of J1
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(180.6028 mm, 33.6690 mm): Track [USB_DM] on In1.Cu, length 99.1216 mm
+    @(180.6028 mm, 132.7906 mm): Track [USB_DM] on In1.Cu, length 5.0772 mm
     @(183.7500 mm, 133.0625 mm): Pad 38 [USB_DM] of U1 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(299.8584 mm, 25.5517 mm): Track [USB_DM] on In2.Cu, length 3.1940 mm
+    @(190.4534 mm, 25.5517 mm): Track [USB_DM] on In2.Cu, length 109.4050 mm
     @(298.6000 mm, 23.0000 mm): PTH pad A7 [USB_DM] of J1
 
 ** Found 0 Footprint errors **

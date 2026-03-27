@@ -1,0 +1,77 @@
+{
+  "id": "xiao-rp2040",
+  "name": "Seeed XIAO RP2040",
+  "chip": "RP2040",
+  "formFactor": "xiao",
+  "summary": "Tiny RP2040 in XIAO form factor — ultra-compact wired controller for small keyboards",
+  "hasUsb": true,
+  "usbType": "USB 1.1 Full Speed",
+  "hasBle": false,
+  "bleVersion": "",
+  "hasLipoCharger": false,
+  "chargerMaxMa": 0,
+  "operatingVoltage": 3.3,
+  "flashKB": 2048,
+  "ramKB": 264,
+  "clockMhz": 133,
+  "gpioCount": 11,
+  "gpioPins": [
+    { "pin": "GP26", "label": "D0/A0" },
+    { "pin": "GP27", "label": "D1/A1" },
+    { "pin": "GP28", "label": "D2/A2" },
+    { "pin": "GP29", "label": "D3/A3" },
+    { "pin": "GP6", "label": "D4/SDA" },
+    { "pin": "GP7", "label": "D5/SCL" },
+    { "pin": "GP0", "label": "D6/TX" },
+    { "pin": "GP1", "label": "D7/RX" },
+    { "pin": "GP2", "label": "D8/SCK" },
+    { "pin": "GP4", "label": "D9/MISO" },
+    { "pin": "GP3", "label": "D10/MOSI" }
+  ],
+  "splitSupport": false,
+  "dimensions": { "length": 21.0, "width": 17.5, "height": 3.5 },
+  "footprintFile": "Seeed_XIAO_RP2040.kicad_mod",
+  "zmkBoard": "",
+  "qmkBoard": "seeeduino/xiao_rp2040",
+  "firmwareSupport": ["qmk", "kmk", "circuitpython"],
+  "features": [
+    "Dual-core ARM Cortex-M0+ at 133 MHz",
+    "2MB onboard flash",
+    "264KB SRAM",
+    "Ultra-compact XIAO form factor (21x17.5mm)",
+    "USB-C connector",
+    "PIO for hardware WS2812 LED driving",
+    "UF2 bootloader — drag-and-drop firmware flashing",
+    "4 analog input pins",
+    "Onboard RGB LED (WS2812)",
+    "Very affordable (~$5)"
+  ],
+  "concerns": [
+    "Only 11 GPIOs — severely limits matrix size",
+    "No Bluetooth — wired USB only",
+    "No built-in battery charging",
+    "XIAO form factor — NOT Pro Micro compatible",
+    "ZMK does not support RP2040",
+    "USB 1.1 only (fine for HID keyboards)",
+    "Requires custom PCB or adapter board"
+  ],
+  "designNotes": [
+    "Good for very small wired keyboards or macropads",
+    "11 GPIOs supports up to ~5x6 matrix = 30 keys without expanders",
+    "XIAO form factor is the smallest common MCU module",
+    "2MB flash is generous for the price",
+    "PIO state machines can drive WS2812 LEDs without CPU overhead",
+    "Consider XIAO BLE (nRF52840) version if wireless is needed"
+  ],
+  "datasheet": "https://wiki.seeedstudio.com/XIAO-RP2040/",
+  "externalLinks": [
+    { "label": "Seeed Studio Wiki", "url": "https://wiki.seeedstudio.com/XIAO-RP2040/" },
+    { "label": "Seeed Studio Store", "url": "https://www.seeedstudio.com/XIAO-RP2040-v1-0-p-5026.html" },
+    { "label": "RP2040 Datasheet", "url": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf" }
+  ],
+  "suppliers": [
+    { "name": "Seeed Studio", "url": "https://www.seeedstudio.com/XIAO-RP2040-v1-0-p-5026.html", "priceUsd": 5.40 },
+    { "name": "DigiKey", "url": "https://www.digikey.com/en/products/detail/seeed-technology-co-ltd/102010428/15278071", "priceUsd": 5.40 },
+    { "name": "Mouser", "url": "https://www.mouser.com/ProductDetail/Seeed-Studio/102010428", "priceUsd": 5.40 }
+  ]
+}

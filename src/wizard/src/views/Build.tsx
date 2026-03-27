@@ -236,8 +236,8 @@ export function Build() {
                 ))}
               </div>
             </div>
-            {/* Routing settings */}
-            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+            {/* Routing settings — only shown for auto routing */}
+            {config?.pcb?.routing === 'auto' && <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
               <div style="display:flex;align-items:center;gap:10px">
                 <label style="font-size:13px;color:var(--text-secondary);min-width:130px">Max routing passes:</label>
                 <input
@@ -262,7 +262,7 @@ export function Build() {
                 />
                 <span style="font-size:12px;color:var(--text-muted)">minutes (hard stop — ensures SES file is saved)</span>
               </div>
-            </div>
+            </div>}
 
             <div style="margin-top:16px">
               <Button variant="primary" onClick={startBuild}>Start Build</Button>

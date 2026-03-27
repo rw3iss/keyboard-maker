@@ -96,15 +96,19 @@ export function generatePCBWithScrews(
   const signalLayerNum = config.pcb.signalLayer ?? 0;
   const layerNameMap: Record<number, string> = { 0: 'F.Cu', 1: 'In1.Cu', 2: 'In2.Cu', 31: 'B.Cu' };
   const signalLayerName = layerNameMap[signalLayerNum] ?? 'F.Cu';
-  // Through-hole pads always span all copper layers
+  // Through-hole pads span all copper layers + mask
   const allCopperLayers = is4Layer
     ? '"F.Cu" "In1.Cu" "In2.Cu" "B.Cu" "*.Mask"'
     : '"F.Cu" "B.Cu" "*.Mask"';
+  // Vias only span copper layers (no mask — KiCad 9 rejects *.Mask on vias)
+  const viaCopperLayers = is4Layer
+    ? '"F.Cu" "In1.Cu" "In2.Cu" "B.Cu"'
+    : '"F.Cu" "B.Cu"';
 
   // Setup — increased clearances to reduce DRC violations
   w(`  (setup`);
-  w(`    (pad_to_mask_clearance 0.025)`);
-  w(`    (solder_mask_min_width 0.05)`);
+  w(`    (pad_to_mask_clearance 0.05)`);
+  w(`    (solder_mask_min_width 0.1)`);
   w(`    (allow_soldermask_bridges_in_footprints no)`);
   w(`    (pcbplotparams`);
   w(`      (layerselection 0x00010fc_ffffffff)`);
@@ -134,18 +138,18 @@ export function generatePCBWithScrews(
   const netIndex = (name: string) => netNames.indexOf(name);
 
   // Design rules
-  // Default net class for signal traces (ROW/COL)
+  // Default net class — 0.25mm clearance for clean routing around QFN pads
   w(`  (net_class "Default" ""`);
-  w(`    (clearance 0.15)`);
+  w(`    (clearance 0.25)`);
   w(`    (trace_width 0.2)`);
   w(`    (via_dia 0.6)`);
   w(`    (via_drill 0.3)`);
   w(`    (uvia_dia 0.3)`);
   w(`    (uvia_drill 0.1)`);
   w(`  )`);
-  // Power net class — wider traces, helps Freerouting avoid congestion
+  // Power net class — wider traces and clearance for safety
   w(`  (net_class "Power" "Power nets"`);
-  w(`    (clearance 0.2)`);
+  w(`    (clearance 0.25)`);
   w(`    (trace_width 0.4)`);
   w(`    (via_dia 0.8)`);
   w(`    (via_drill 0.4)`);
@@ -208,21 +212,22 @@ export function generatePCBWithScrews(
     w(`    (pad "2" smd roundrect (at 1.35 0) (size 0.9 1.2) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (net ${colNetIdx} "${netNames[colNetIdx]}") (uuid "${uuid()}"))`);
     w(`  )`);
 
-    // LED footprint (per-key RGB)
+    // LED footprint (per-key RGB) — on F.Cu (same side as switches)
+    // "above" = north of switch (negative Y), "below" = south of switch (positive Y)
     if (hasPerKeyRgb) {
       const ledOffsetY = ledPlacement === 'above' ? -6 : 6;
       const ledY = absY + ledOffsetY;
       w(`  (footprint "LED_SMD:LED_SK6812MINI-E"`);
-      w(`    (layer "B.Cu")`);
+      w(`    (layer "F.Cu")`);
       w(`    (uuid "${uuid()}")`);
       w(`    (at ${n(absX)} ${n(ledY)})`);
-      w(`    (property "Reference" "LED${idx}" (at 0 -2) (layer "B.SilkS") (effects (font (size 0.8 0.8) (thickness 0.12))))`);
-      w(`    (property "Value" "SK6812MINI-E" (at 0 2) (layer "B.Fab") (effects (font (size 0.8 0.8) (thickness 0.12))))`);
-      w(`    (pad "1" smd rect (at -2.45 -0.75) (size 0.9 0.9) (layers "B.Cu" "B.Paste" "B.Mask") (net ${netIndex('VCC')} "VCC") (uuid "${uuid()}"))`);
-      w(`    (pad "2" smd rect (at -2.45 0.75) (size 0.9 0.9) (layers "B.Cu" "B.Paste" "B.Mask") (net 0 "") (uuid "${uuid()}"))`);
-      w(`    (pad "3" smd rect (at 2.45 0.75) (size 0.9 0.9) (layers "B.Cu" "B.Paste" "B.Mask") (net ${netIndex('GND')} "GND") (uuid "${uuid()}"))`);
-      w(`    (pad "4" smd rect (at 2.45 -0.75) (size 0.9 0.9) (layers "B.Cu" "B.Paste" "B.Mask") (net 0 "") (uuid "${uuid()}"))`);
-      w(`    (fp_rect (start -3 -1.5) (end 3 1.5) (stroke (width 0.05) (type default)) (fill none) (layer "B.CrtYd") (uuid "${uuid()}"))`);
+      w(`    (property "Reference" "LED${idx}" (at 0 -2) (layer "F.SilkS") (effects (font (size 0.8 0.8) (thickness 0.12))))`);
+      w(`    (property "Value" "SK6812MINI-E" (at 0 2) (layer "F.Fab") (effects (font (size 0.8 0.8) (thickness 0.12))))`);
+      w(`    (pad "1" smd rect (at -2.45 -0.75) (size 0.9 0.9) (layers "F.Cu" "F.Paste" "F.Mask") (net ${netIndex('VCC')} "VCC") (uuid "${uuid()}"))`);
+      w(`    (pad "2" smd rect (at -2.45 0.75) (size 0.9 0.9) (layers "F.Cu" "F.Paste" "F.Mask") (net 0 "") (uuid "${uuid()}"))`);
+      w(`    (pad "3" smd rect (at 2.45 0.75) (size 0.9 0.9) (layers "F.Cu" "F.Paste" "F.Mask") (net ${netIndex('GND')} "GND") (uuid "${uuid()}"))`);
+      w(`    (pad "4" smd rect (at 2.45 -0.75) (size 0.9 0.9) (layers "F.Cu" "F.Paste" "F.Mask") (net 0 "") (uuid "${uuid()}"))`);
+      w(`    (fp_rect (start -3 -1.5) (end 3 1.5) (stroke (width 0.05) (type default)) (fill none) (layer "F.CrtYd") (uuid "${uuid()}"))`);
       w(`  )`);
     }
 
@@ -328,6 +333,66 @@ export function generatePCBWithScrews(
   w(`    (fp_rect (start -4 -4) (end 4 4) (stroke (width 0.05) (type default)) (fill none) (layer "F.CrtYd") (uuid "${uuid()}"))`);
   w(`  )`);
 
+  // ── MCU Fanout vias — route QFN pad signals to inner layer immediately ──
+  // Places a via 1mm outside each GPIO pad, connected to the same net,
+  // on the inner signal layer. This clears congestion around the QFN.
+  if (config.pcb.mcuFanout && is4Layer) {
+    const fanoutOffset = 1.2; // mm from pad center to via center
+    const fanoutVia = { dia: 0.6, drill: 0.3 };
+    let gpioFanIdx = 0;
+
+    // Fanout for each side of the QFN
+    const sides = [
+      { startPad: 1, count: padsPerSide, dx: 0, dy: 1 },    // bottom: vias go down
+      { startPad: padsPerSide + 1, count: padsPerSide, dx: 1, dy: 0 },    // right: vias go right
+      { startPad: 2 * padsPerSide + 1, count: padsPerSide, dx: 0, dy: -1 }, // top: vias go up
+      { startPad: 3 * padsPerSide + 1, count: padsPerSide, dx: -1, dy: 0 }, // left: vias go left
+    ];
+
+    for (const side of sides) {
+      for (let i = 0; i < side.count; i++) {
+        const padNum = side.startPad + i;
+        if (padNum > 48) break; // skip exposed pad
+
+        // Calculate pad position relative to MCU center
+        let px: number, py: number;
+        if (side.dy === 1) { // bottom
+          px = -((padsPerSide - 1) * mcuPadPitch) / 2 + i * mcuPadPitch;
+          py = mcuBodySize / 2;
+        } else if (side.dx === 1) { // right
+          px = mcuBodySize / 2;
+          py = -((padsPerSide - 1) * mcuPadPitch) / 2 + i * mcuPadPitch;
+        } else if (side.dy === -1) { // top
+          px = ((padsPerSide - 1) * mcuPadPitch) / 2 - i * mcuPadPitch;
+          py = -mcuBodySize / 2;
+        } else { // left
+          px = -mcuBodySize / 2;
+          py = ((padsPerSide - 1) * mcuPadPitch) / 2 - i * mcuPadPitch;
+        }
+
+        // Get the net assigned to this pad (look up from netNames)
+        const padNetIdx = gpioFanIdx < mcuPadCount
+          ? (gpioFanIdx < matrix.rows ? gpioFanIdx + 1 : matrix.rows + (gpioFanIdx - matrix.rows) + 1)
+          : 0;
+        gpioFanIdx++;
+
+        if (padNetIdx === 0) continue; // skip unassigned pads
+
+        // Via position: offset outward from the pad
+        const vx = mcuX + px + side.dx * fanoutOffset;
+        const vy = mcuY2 + py + side.dy * fanoutOffset;
+
+        // Place the fanout via
+        w(`  (via (at ${n(vx)} ${n(vy)}) (size ${fanoutVia.dia}) (drill ${fanoutVia.drill}) (layers ${viaCopperLayers}) (net ${padNetIdx}) (uuid "${uuid()}"))`);
+
+        // Short trace from pad to via on F.Cu
+        const padAbsX = mcuX + px;
+        const padAbsY = mcuY2 + py;
+        w(`  (segment (start ${n(padAbsX)} ${n(padAbsY)}) (end ${n(vx)} ${n(vy)}) (width 0.2) (layer "F.Cu") (net ${padNetIdx}) (uuid "${uuid()}"))`);
+      }
+    }
+  }
+
   // ── USB-C connector with power/data nets — configurable side ──
   const connectorSide = config.physical?.connectorSide ?? 'back';
   const connectorPosition = config.physical?.connectorPosition ?? 'center';
@@ -429,6 +494,60 @@ export function generatePCBWithScrews(
     w(`  )`);
   }
 
+  // ── RGB Underglow LEDs — placed around the perimeter of the PCB on B.Cu ──
+  if (config.features?.rgbUnderglow) {
+    const ledCount = config.features.underglow?.ledCount || 12;
+    const boardCenterX = (olMinX + olMaxX) / 2;
+    const boardCenterY = (olMinY + olMaxY) / 2;
+    const boardW = olMaxX - olMinX;
+    const boardH = olMaxY - olMinY;
+    const perimeter = 2 * (boardW + boardH);
+    const ledSpacing = perimeter / ledCount;
+    const inset = 3; // mm inset from board edge
+
+    // Distribute LEDs evenly around the perimeter
+    for (let i = 0; i < ledCount; i++) {
+      const dist = i * ledSpacing;
+      let lx: number, ly: number, lRot = 0;
+
+      if (dist < boardW) {
+        // Top edge (left to right)
+        lx = olMinX + dist;
+        ly = olMinY + inset;
+        lRot = 0;
+      } else if (dist < boardW + boardH) {
+        // Right edge (top to bottom)
+        lx = olMaxX - inset;
+        ly = olMinY + (dist - boardW);
+        lRot = 90;
+      } else if (dist < 2 * boardW + boardH) {
+        // Bottom edge (right to left)
+        lx = olMaxX - (dist - boardW - boardH);
+        ly = olMaxY - inset;
+        lRot = 180;
+      } else {
+        // Left edge (bottom to top)
+        lx = olMinX + inset;
+        ly = olMaxY - (dist - 2 * boardW - boardH);
+        lRot = 270;
+      }
+
+      const ledIdx = i + 1;
+      w(`  (footprint "LED_SMD:LED_SK6812MINI-E"`);
+      w(`    (layer "B.Cu")`);
+      w(`    (uuid "${uuid()}")`);
+      w(`    (at ${n(lx)} ${n(ly)}${lRot ? ` ${lRot}` : ''})`);
+      w(`    (property "Reference" "UG${ledIdx}" (at 0 -2) (layer "B.SilkS") (effects (font (size 0.8 0.8) (thickness 0.12))))`);
+      w(`    (property "Value" "SK6812MINI-E" (at 0 2) (layer "B.Fab") (effects (font (size 0.8 0.8) (thickness 0.12))))`);
+      w(`    (pad "1" smd rect (at -2.45 -0.75) (size 0.9 0.9) (layers "B.Cu" "B.Paste" "B.Mask") (net ${netIndex('VCC')} "VCC") (uuid "${uuid()}"))`);
+      w(`    (pad "2" smd rect (at -2.45 0.75) (size 0.9 0.9) (layers "B.Cu" "B.Paste" "B.Mask") (net 0 "") (uuid "${uuid()}"))`);
+      w(`    (pad "3" smd rect (at 2.45 0.75) (size 0.9 0.9) (layers "B.Cu" "B.Paste" "B.Mask") (net ${netIndex('GND')} "GND") (uuid "${uuid()}"))`);
+      w(`    (pad "4" smd rect (at 2.45 -0.75) (size 0.9 0.9) (layers "B.Cu" "B.Paste" "B.Mask") (net 0 "") (uuid "${uuid()}"))`);
+      w(`    (fp_rect (start -3 -1.5) (end 3 1.5) (stroke (width 0.05) (type default)) (fill none) (layer "B.CrtYd") (uuid "${uuid()}"))`);
+      w(`  )`);
+    }
+  }
+
   // ── Mounting holes — use layout overrides if available, otherwise auto-calculate ──
   let screwPositions: ScrewPosition[];
   if (overrides?.screws && overrides.screws.length > 0) {
@@ -472,7 +591,7 @@ export function generatePCBWithScrews(
     w(`    (layer "In1.Cu")`);
     w(`    (uuid "${uuid()}")`);
     w(`    (hatch edge 0.5)`);
-    w(`    (connect_pads (clearance 0.3))`);
+    w(`    (connect_pads (clearance 0.4))`);
     w(`    (min_thickness 0.2)`);
     w(`    (fill yes (thermal_gap 0.3) (thermal_bridge_width 0.3))`);
     w(`    (polygon`);
@@ -487,7 +606,7 @@ export function generatePCBWithScrews(
     w(`    (layer "In2.Cu")`);
     w(`    (uuid "${uuid()}")`);
     w(`    (hatch edge 0.5)`);
-    w(`    (connect_pads (clearance 0.3))`);
+    w(`    (connect_pads (clearance 0.4))`);
     w(`    (min_thickness 0.2)`);
     w(`    (fill yes (thermal_gap 0.3) (thermal_bridge_width 0.3))`);
     w(`    (polygon`);
@@ -505,7 +624,7 @@ export function generatePCBWithScrews(
     w(`    (layer "B.Cu")`);
     w(`    (uuid "${uuid()}")`);
     w(`    (hatch edge 0.5)`);
-    w(`    (connect_pads (clearance 0.3))`);
+    w(`    (connect_pads (clearance 0.4))`);
     w(`    (min_thickness 0.2)`);
     w(`    (fill yes (thermal_gap 0.3) (thermal_bridge_width 0.3))`);
     w(`    (polygon`);

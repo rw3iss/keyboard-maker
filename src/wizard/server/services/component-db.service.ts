@@ -54,11 +54,13 @@ export async function listComponents(category: string): Promise<ComponentSummary
   for (const file of jsonFiles) {
     const raw = await readFile(join(catPath, file), 'utf-8');
     const data = JSON.parse(raw);
+    // Return full component data — the filter UI needs all fields
     components.push({
       id: data.id ?? file.replace('.json', ''),
       name: data.name ?? file.replace('.json', ''),
       manufacturer: data.manufacturer,
-      description: data.designNotes?.[0] ?? undefined,
+      description: data.summary ?? data.designNotes?.[0] ?? undefined,
+      ...data,
     });
   }
 

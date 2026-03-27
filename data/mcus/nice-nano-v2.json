@@ -10,9 +10,9 @@
   "hasLipoCharger": true,
   "chargerMaxMa": 100,
   "operatingVoltage": 3.3,
-  "flashSize": "1 MB",
-  "ramSize": "256 KB",
-  "clockSpeed": "64 MHz",
+  "flashKB": 1024,
+  "ramKB": 256,
+  "clockMhz": 64,
   "gpioCount": 21,
   "gpioPins": [
     {
@@ -126,12 +126,11 @@
     "length": 33.3,
     "unit": "mm"
   },
+  "splitSupport": true,
   "footprintFile": "nRF52840_Module_NiceNano.kicad_mod",
   "zmkBoard": "nice_nano_v2",
-  "firmware": [
-    "zmk",
-    "qmk"
-  ],
+  "qmkBoard": "",
+  "firmwareSupport": ["zmk", "qmk"],
   "summary": "Drop-in Pro Micro replacement with built-in BLE and LiPo charging",
   "bootloader": "Adafruit nRF52 UF2",
   "suppliers": [

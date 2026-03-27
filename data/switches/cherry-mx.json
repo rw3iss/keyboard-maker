@@ -4,6 +4,7 @@
   "manufacturer": "Cherry",
   "type": "mechanical",
   "mounting": "through-hole",
+  "profile": "MX",
   "hotswapCompatible": true,
   "hotswapSocket": "kailh-cpg151101s11",
   "pinSpacing": 6.25,
@@ -11,7 +12,9 @@
     "x": 19.05,
     "y": 19.05
   },
+  "activationDistance": 2.0,
   "travelDistance": 4.0,
+  "totalHeight": 18.5,
   "actuationForce": null,
   "keycapMount": "mx",
   "footprintFile": "Cherry_MX.kicad_mod",

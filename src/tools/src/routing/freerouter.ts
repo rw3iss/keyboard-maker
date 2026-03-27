@@ -1,5 +1,5 @@
 import { spawn, spawnSync } from 'child_process';
-import { existsSync, readdirSync, writeFileSync, copyFileSync } from 'fs';
+import { existsSync, readdirSync, writeFileSync, copyFileSync, unlinkSync } from 'fs';
 import { resolve, join, dirname } from 'path';
 import { homedir } from 'os';
 
@@ -131,6 +131,10 @@ export async function runFreerouting(dsnPath: string, sesOutputPath: string, onL
   }
 
   writeFreeroutingConfig(dirname(dsnPath), dsnPath, sesOutputPath, maxPasses);
+
+  // Remove stale .rules file from previous runs — mismatched rules cause warnings
+  const rulesPath = dsnPath.replace(/\.dsn$/, '.rules');
+  try { if (existsSync(rulesPath)) unlinkSync(rulesPath); } catch { /* ignore */ }
 
   const javaArgs = [
     '-Djava.awt.headless=true',

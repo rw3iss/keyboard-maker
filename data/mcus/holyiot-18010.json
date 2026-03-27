@@ -4,15 +4,15 @@
   "chip": "nRF52840",
   "formFactor": "castellated-module",
   "hasUsb": false,
-  "usbType": null,
+  "usbType": "requires-external-connector",
   "hasBle": true,
   "bleVersion": "5.0",
   "hasLipoCharger": false,
   "chargerMaxMa": null,
   "operatingVoltage": 3.3,
-  "flashSize": "1 MB",
-  "ramSize": "256 KB",
-  "clockSpeed": "64 MHz",
+  "flashKB": 1024,
+  "ramKB": 256,
+  "clockMhz": 64,
   "gpioCount": 32,
   "gpioPins": [
     {
@@ -183,15 +183,13 @@
     "length": 19.5,
     "unit": "mm"
   },
+  "splitSupport": true,
   "antennaType": "on-module-pcb",
   "hasExternalCrystal": true,
   "footprintFile": "Holyiot_18010_nRF52840.kicad_mod",
-  "zmkBoard": null,
-  "firmware": [
-    "zmk",
-    "qmk",
-    "zephyr"
-  ],
+  "zmkBoard": "",
+  "qmkBoard": "",
+  "firmwareSupport": ["zmk", "qmk", "zephyr"],
   "summary": "32 GPIOs with pre-certified BLE — ideal for large custom PCBs",
   "bootloader": "Adafruit nRF52 UF2 (must flash via SWD)",
   "suppliers": [

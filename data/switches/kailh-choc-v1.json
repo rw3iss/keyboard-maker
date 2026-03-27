@@ -4,6 +4,7 @@
   "manufacturer": "Kailh",
   "type": "low-profile-mechanical",
   "mounting": "through-hole",
+  "profile": "Choc",
   "hotswapCompatible": true,
   "hotswapSocket": "kailh-cpg135001s30",
   "pinSpacing": 5.5,
@@ -11,7 +12,9 @@
     "x": 18,
     "y": 17
   },
+  "activationDistance": 1.5,
   "travelDistance": 3.0,
+  "totalHeight": 8.0,
   "actuationForce": null,
   "keycapMount": "choc",
   "footprintFile": "Kailh_Choc_v1.kicad_mod",

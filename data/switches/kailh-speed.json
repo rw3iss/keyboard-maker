@@ -1,0 +1,107 @@
+{
+  "id": "kailh-speed",
+  "name": "Kailh Speed",
+  "manufacturer": "Kailh",
+  "type": "mechanical",
+  "mounting": "through-hole",
+  "profile": "MX",
+  "hotswapCompatible": true,
+  "hotswapSocket": "kailh-cpg151101s11",
+  "pinSpacing": 6.25,
+  "switchSpacing": {
+    "x": 19.05,
+    "y": 19.05
+  },
+  "activationDistance": 1.1,
+  "travelDistance": 3.5,
+  "totalHeight": 18.5,
+  "actuationForce": null,
+  "keycapMount": "mx",
+  "dimensions": {
+    "width": 15.6,
+    "depth": 15.6,
+    "height": 18.5,
+    "unit": "mm"
+  },
+  "footprintFile": "Cherry_MX.kicad_mod",
+  "symbolRef": "Switch:SW_Push",
+  "datasheet": "https://www.kailhswitch.com/mechanical-keyboard-switches/key-switches/kailh-speed-switch-red.html",
+  "variants": [
+    {
+      "id": "kailh-speed-silver",
+      "name": "Kailh Speed Silver (Linear)",
+      "actuationForce": 40,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches", "priceUsd": 0.35 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-speed-switches.html", "priceUsd": 0.25 }
+      ]
+    },
+    {
+      "id": "kailh-speed-copper",
+      "name": "Kailh Speed Copper (Tactile)",
+      "actuationForce": 40,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches", "priceUsd": 0.35 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-speed-switches.html", "priceUsd": 0.25 }
+      ]
+    },
+    {
+      "id": "kailh-speed-gold",
+      "name": "Kailh Speed Gold (Clicky)",
+      "actuationForce": 50,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches", "priceUsd": 0.35 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-speed-switches.html", "priceUsd": 0.25 }
+      ]
+    },
+    {
+      "id": "kailh-speed-bronze",
+      "name": "Kailh Speed Bronze (Clicky)",
+      "actuationForce": 50,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches", "priceUsd": 0.35 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-speed-switches.html", "priceUsd": 0.25 }
+      ]
+    }
+  ],
+  "summary": "Ultra-fast actuation MX switches with 1.1mm actuation point — designed for gaming and speed typing",
+  "features": [
+    "1.1mm actuation distance — fastest MX-compatible switch",
+    "MX-compatible cross stem — works with all MX keycaps",
+    "Standard MX 19.05mm spacing",
+    "Works with standard Kailh MX hot-swap sockets",
+    "3.5mm total travel — slightly shorter than standard MX",
+    "Multiple variants: linear (Silver), tactile (Copper), clicky (Gold/Bronze)",
+    "Popular for gaming due to fast actuation"
+  ],
+  "concerns": [
+    "Very short actuation distance may cause accidental keypresses",
+    "Not ideal for touch typists who rest fingers on keys",
+    "Lighter actuation force can feel mushy to some users",
+    "Standard MX height — not a low-profile switch"
+  ],
+  "designNotes": [
+    "Same PCB footprint as Cherry MX",
+    "1.1mm actuation is roughly half of standard Cherry MX (2.0mm)",
+    "Popular in gaming keyboards like Ducky One 2 and others",
+    "Silver (linear) is the most popular Speed variant",
+    "Can be used interchangeably with any MX-compatible PCB"
+  ],
+  "externalLinks": [
+    { "label": "Kailh Speed Switch Product Page", "url": "https://www.kailhswitch.com/mechanical-keyboard-switches/key-switches/kailh-speed-switch-red.html" },
+    { "label": "Theremingoat Reviews", "url": "https://www.theremingoat.com/" }
+  ],
+  "suppliers": [
+    { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches", "priceUsd": 0.35 },
+    { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-speed-switches.html", "priceUsd": 0.25 },
+    { "name": "KBDfans", "url": "https://kbdfans.com/collections/kailh-switches", "priceUsd": 0.40 }
+  ]
+}

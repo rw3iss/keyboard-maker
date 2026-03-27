@@ -29,6 +29,9 @@ Matrix: 11 rows x 10 columns
 5. **MCU connections**
    - Short stubs from row/col nets to MCU GPIO pads
 
+6. **LED data line**
+   - Daisy-chain from MCU through all LEDs
+   - Keep segments under 10cm
 
 ## Layer Assignment (4-layer board)
 

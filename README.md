@@ -181,6 +181,7 @@ Three modes, selectable in the config or wizard:
 Instead of "auto" freerouting from the wizard, you should run the Freerouting manually after a build (as the Build Output will explain, if it can't complete).
 For example, with the latest freerouting jar:
 1. Run: java -jar /home/<user>/.local/bin/freerouting-2.1.0.jar -de <keyboard-maker-root>/projects/<project>/build/keyboard.dsn
+(then click 'Start the auto-router', in the opened freerouter window, and wait... it will take 5-15 minutes or so)
 2. In Freerouting GUI: File → Export Specctra Session
 3. Save as: <keyboard-maker-root>/projects/<project>/build/keyboard.ses
 4. Then import in KiCad PCB: File → Import → Specctra Session

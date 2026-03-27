@@ -1,0 +1,82 @@
+{
+  "id": "puchi-ble",
+  "name": "Puchi-BLE",
+  "chip": "nRF52840",
+  "formFactor": "pro-micro",
+  "summary": "Open-source nRF52840 Pro Micro with BLE and battery charging — community-designed wireless controller",
+  "hasUsb": true,
+  "usbType": "USB 2.0 Full Speed",
+  "hasBle": true,
+  "bleVersion": "5.0",
+  "hasLipoCharger": true,
+  "chargerMaxMa": 100,
+  "operatingVoltage": 3.3,
+  "flashKB": 1024,
+  "ramKB": 256,
+  "clockMhz": 64,
+  "gpioCount": 21,
+  "gpioPins": [
+    { "pin": "P0.06", "label": "D0" },
+    { "pin": "P0.08", "label": "D1" },
+    { "pin": "P0.17", "label": "D2" },
+    { "pin": "P0.20", "label": "D3" },
+    { "pin": "P0.22", "label": "D4" },
+    { "pin": "P0.24", "label": "D5" },
+    { "pin": "P1.00", "label": "D6" },
+    { "pin": "P0.11", "label": "D7" },
+    { "pin": "P1.04", "label": "D8" },
+    { "pin": "P1.06", "label": "D9" },
+    { "pin": "P0.09", "label": "D10" },
+    { "pin": "P0.10", "label": "D16" },
+    { "pin": "P1.11", "label": "D14" },
+    { "pin": "P1.13", "label": "D15" },
+    { "pin": "P0.02", "label": "D18/A0" },
+    { "pin": "P0.03", "label": "D19/A1" },
+    { "pin": "P0.28", "label": "D20/A2" },
+    { "pin": "P0.29", "label": "D21/A3" },
+    { "pin": "P0.30", "label": "D22/A4" },
+    { "pin": "P0.31", "label": "D23/A5" },
+    { "pin": "P0.13", "label": "D24" }
+  ],
+  "splitSupport": true,
+  "dimensions": { "length": 33.3, "width": 18.0, "height": 4.5 },
+  "footprintFile": "nRF52840_Module_NiceNano.kicad_mod",
+  "zmkBoard": "puchi_ble_v1",
+  "qmkBoard": "",
+  "firmwareSupport": ["zmk"],
+  "features": [
+    "nRF52840 with native USB + BLE 5.0",
+    "Built-in LiPo charging (100mA)",
+    "Pro Micro footprint — drop-in replacement",
+    "Open-source hardware design",
+    "1MB flash, 256KB RAM",
+    "21 usable GPIO pins",
+    "ZMK firmware support",
+    "UF2 bootloader — drag-and-drop flashing",
+    "Nice!nano compatible pinout"
+  ],
+  "concerns": [
+    "100mA charging is slow for larger batteries",
+    "Harder to source than nice!nano or SuperMini",
+    "Smaller community and less documentation",
+    "Open-source means less QC than commercial options",
+    "21 GPIOs limits matrix size for larger keyboards"
+  ],
+  "designNotes": [
+    "Open-source alternative to nice!nano with same pinout",
+    "Can be manufactured by JLCPCB or similar PCB assembly services",
+    "KiCad design files available on GitHub",
+    "Uses nice!nano compatible ZMK board definition",
+    "Good option if you want to manufacture your own controllers"
+  ],
+  "datasheet": "https://github.com/KarlK90/Puchi-BLE",
+  "externalLinks": [
+    { "label": "Puchi-BLE GitHub", "url": "https://github.com/KarlK90/Puchi-BLE" },
+    { "label": "ZMK Firmware", "url": "https://zmk.dev/docs" },
+    { "label": "nRF52840 Datasheet", "url": "https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.7.pdf" }
+  ],
+  "suppliers": [
+    { "name": "42. Keebs", "url": "https://42keebs.eu/shop/parts/controllers/puchi-ble-wireless-controller/", "priceUsd": 20.00 },
+    { "name": "DIY (JLCPCB)", "url": "https://github.com/KarlK90/Puchi-BLE", "priceUsd": 10.00 }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "splinky",
+  "name": "Splinky RP2040",
+  "chip": "RP2040",
+  "formFactor": "pro-micro",
+  "summary": "Budget RP2040 Pro Micro designed for split keyboards — open-source hardware",
+  "hasUsb": true,
+  "usbType": "USB 1.1 Full Speed",
+  "hasBle": false,
+  "bleVersion": "",
+  "hasLipoCharger": false,
+  "chargerMaxMa": 0,
+  "operatingVoltage": 3.3,
+  "flashKB": 16384,
+  "ramKB": 264,
+  "clockMhz": 133,
+  "gpioCount": 20,
+  "gpioPins": [
+    { "pin": "GP0", "label": "D0/TX" },
+    { "pin": "GP1", "label": "D1/RX" },
+    { "pin": "GP2", "label": "D2" },
+    { "pin": "GP3", "label": "D3" },
+    { "pin": "GP4", "label": "D4" },
+    { "pin": "GP5", "label": "D5" },
+    { "pin": "GP6", "label": "D6" },
+    { "pin": "GP7", "label": "D7" },
+    { "pin": "GP8", "label": "D8" },
+    { "pin": "GP9", "label": "D9" },
+    { "pin": "GP21", "label": "D10" },
+    { "pin": "GP23", "label": "D14" },
+    { "pin": "GP20", "label": "D15" },
+    { "pin": "GP22", "label": "D16" },
+    { "pin": "GP26", "label": "D18/A0" },
+    { "pin": "GP27", "label": "D19/A1" },
+    { "pin": "GP28", "label": "D20/A2" },
+    { "pin": "GP29", "label": "D21/A3" },
+    { "pin": "GP16", "label": "MOSI" },
+    { "pin": "GP25", "label": "LED" }
+  ],
+  "splitSupport": true,
+  "dimensions": { "length": 33.3, "width": 18.0, "height": 4.0 },
+  "footprintFile": "RP2040_Module_ProMicro.kicad_mod",
+  "zmkBoard": "",
+  "qmkBoard": "plywrks/splinky",
+  "firmwareSupport": ["qmk", "kmk", "circuitpython", "vial"],
+  "features": [
+    "Dual-core ARM Cortex-M0+ at 133 MHz",
+    "16MB onboard flash",
+    "264KB SRAM",
+    "Pro Micro footprint — drop-in replacement",
+    "Open-source hardware design (KiCad files available)",
+    "PIO for hardware WS2812 LED driving",
+    "UF2 bootloader — drag-and-drop firmware flashing",
+    "Very affordable for an RP2040 Pro Micro"
+  ],
+  "concerns": [
+    "No Bluetooth — wired USB only",
+    "No built-in battery charging",
+    "ZMK does not support RP2040",
+    "USB 1.1 only (fine for HID keyboards)",
+    "Can be hard to find in stock",
+    "Less polished than commercial alternatives"
+  ],
+  "designNotes": [
+    "Open-source hardware — KiCad design files available on GitHub",
+    "Designed specifically for split keyboard community",
+    "Pro Micro compatible footprint works with Corne, Lily58, Sofle, etc.",
+    "Available in v3 revision with improved routing",
+    "Good budget alternative to splitkb Liatris"
+  ],
+  "datasheet": "https://github.com/plywrks/Splinky",
+  "externalLinks": [
+    { "label": "Splinky GitHub Repository", "url": "https://github.com/plywrks/Splinky" },
+    { "label": "RP2040 Datasheet", "url": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf" },
+    { "label": "QMK Splinky Support", "url": "https://docs.qmk.fm/" }
+  ],
+  "suppliers": [
+    { "name": "Beekeeb", "url": "https://shop.beekeeb.com/product/splinky-rp2040-controller/", "priceUsd": 7.50 },
+    { "name": "42. Keebs", "url": "https://42keebs.eu/shop/parts/controllers/splinky-rp2040-controller/", "priceUsd": 8.00 }
+  ]
+}

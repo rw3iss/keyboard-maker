@@ -1,0 +1,134 @@
+{
+  "id": "akko-cs",
+  "name": "Akko CS (Custom Series)",
+  "manufacturer": "Akko",
+  "type": "mechanical",
+  "mounting": "through-hole",
+  "profile": "MX",
+  "hotswapCompatible": true,
+  "hotswapSocket": "kailh-cpg151101s11",
+  "pinSpacing": 6.25,
+  "switchSpacing": {
+    "x": 19.05,
+    "y": 19.05
+  },
+  "activationDistance": 1.9,
+  "travelDistance": 4.0,
+  "totalHeight": 18.5,
+  "actuationForce": null,
+  "keycapMount": "mx",
+  "dimensions": {
+    "width": 15.6,
+    "depth": 15.6,
+    "height": 18.5,
+    "unit": "mm"
+  },
+  "footprintFile": "Cherry_MX.kicad_mod",
+  "symbolRef": "Switch:SW_Push",
+  "datasheet": "https://en.akkogear.com/store/switch/",
+  "variants": [
+    {
+      "id": "akko-cs-lavender-purple",
+      "name": "Akko CS Lavender Purple (Tactile)",
+      "actuationForce": 36,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-lavender-purple-switch-45pcs/", "priceUsd": 0.22 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 },
+        { "name": "Amazon", "url": "https://www.amazon.com/s?k=akko+cs+switch", "priceUsd": 0.25 }
+      ]
+    },
+    {
+      "id": "akko-cs-rose-red",
+      "name": "Akko CS Rose Red (Linear)",
+      "actuationForce": 43,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-rose-red-switch-45pcs/", "priceUsd": 0.22 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 }
+      ]
+    },
+    {
+      "id": "akko-cs-ocean-blue",
+      "name": "Akko CS Ocean Blue (Tactile)",
+      "actuationForce": 36,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-ocean-blue-switch-45pcs/", "priceUsd": 0.22 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 }
+      ]
+    },
+    {
+      "id": "akko-cs-matcha-green",
+      "name": "Akko CS Matcha Green (Linear)",
+      "actuationForce": 50,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-matcha-green-switch-45pcs/", "priceUsd": 0.22 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 }
+      ]
+    },
+    {
+      "id": "akko-cs-jelly-black",
+      "name": "Akko CS Jelly Black (Linear)",
+      "actuationForce": 50,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-jelly-black-switch-45pcs/", "priceUsd": 0.22 },
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 }
+      ]
+    },
+    {
+      "id": "akko-cs-silver",
+      "name": "Akko CS Silver (Speed Linear)",
+      "actuationForce": 43,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-silver-switch-45pcs/", "priceUsd": 0.22 }
+      ]
+    }
+  ],
+  "summary": "Best-value MX-compatible switches — factory-lubed with smooth housings at budget prices",
+  "features": [
+    "MX-compatible cross stem — works with all MX keycaps",
+    "Factory pre-lubed — smooth out of the box",
+    "Dustproof stem design on most variants",
+    "Standard MX 19.05mm spacing",
+    "Works with standard Kailh MX hot-swap sockets",
+    "5-pin (PCB mount) variant available",
+    "Excellent price-to-quality ratio ($0.18-0.25 per switch)",
+    "Wide color/feel selection",
+    "100M cycle rating"
+  ],
+  "concerns": [
+    "Not a low-profile switch — standard MX height",
+    "Factory lube quality can be inconsistent",
+    "Some variants have noticeable spring ping",
+    "Brand is less established than Cherry, Gateron, or Kailh",
+    "Available primarily online — limited physical retail"
+  ],
+  "designNotes": [
+    "Uses standard Cherry MX footprint — no special PCB design needed",
+    "Best budget option for MX-compatible custom keyboards",
+    "Factory lube makes them usable without additional modification",
+    "Lavender Purple and Rose Red are the most popular variants",
+    "45-pack pricing makes large keyboard builds very affordable",
+    "Good recommendation for first-time keyboard builders on a budget"
+  ],
+  "externalLinks": [
+    { "label": "Akko Official Switch Store", "url": "https://en.akkogear.com/store/switch/" },
+    { "label": "Theremingoat Reviews", "url": "https://www.theremingoat.com/" },
+    { "label": "Switch Comparison", "url": "https://www.theremingoat.com/" }
+  ],
+  "suppliers": [
+    { "name": "Akko Official", "url": "https://en.akkogear.com/store/switch/", "priceUsd": 0.22 },
+    { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 },
+    { "name": "Amazon", "url": "https://www.amazon.com/s?k=akko+cs+switch", "priceUsd": 0.25 }
+  ]
+}

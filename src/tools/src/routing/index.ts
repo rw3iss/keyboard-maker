@@ -92,17 +92,17 @@ ${config.features.rgbPerKey ? `\n6. **LED data line**\n   - Daisy-chain from MCU
 ${(config.pcb.layers ?? 2) >= 4 ? `
 | Layer | Purpose |
 |-------|---------|
-| F.Cu (top) | Switch pads, MCU, USB-C, main components |
-| In1.Cu (inner 1) | ${config.pcb.signalLayer === 1 ? 'Signal traces (ROW/COL) — primary routing layer' : 'Ground plane — provides return path and shielding'} |
-| In2.Cu (inner 2) | ${config.pcb.signalLayer === 2 ? 'Signal traces (ROW/COL) — primary routing layer' : 'Power plane (VCC/VBUS) — clean power distribution'} |
-| B.Cu (bottom) | Diodes, LEDs, ${config.pcb.signalLayer === 31 ? 'signal traces' : 'ground pour'} |
+| F.Cu (top) | Switch pads, ${config.features.rgbPerKey ? 'per-key LEDs, ' : ''}MCU, USB-C, main components |
+| In1.Cu (inner 1) | ${config.pcb.signalLayer === 1 ? 'Signal traces (ROW/COL) — primary routing layer' : 'Ground plane (copper fill) — provides return path and shielding'} |
+| In2.Cu (inner 2) | ${config.pcb.signalLayer === 2 ? 'Signal traces (ROW/COL) — primary routing layer' : 'Power plane (VCC copper fill) — clean power distribution'} |
+| B.Cu (bottom) | Diodes, ${config.features.rgbUnderglow ? 'underglow LEDs, ' : ''}${config.pcb.signalLayer === 31 ? 'signal traces' : 'ground pour'} |
 
 **4-layer benefits:** Dedicated ground/power planes reduce noise, improve signal integrity, and give the autorouter more room to route traces without crossing.
 ` : `
 | Layer | Purpose |
 |-------|---------|
-| F.Cu (front) | Switches, column traces, MCU, USB-C, main components |
-| B.Cu (back) | Diodes, row traces, ground pour |
+| F.Cu (front) | Switches, ${config.features.rgbPerKey ? 'per-key LEDs, ' : ''}column traces, MCU, USB-C, main components |
+| B.Cu (back) | Diodes, ${config.features.rgbUnderglow ? 'underglow LEDs, ' : ''}row traces, ground pour |
 `}
 
 ## Trace Widths

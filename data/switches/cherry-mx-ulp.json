@@ -4,6 +4,7 @@
   "manufacturer": "Cherry",
   "type": "ultra-low-profile-mechanical",
   "mounting": "smd",
+  "profile": "ULP",
   "hotswapCompatible": false,
   "hotswapSocket": null,
   "pinSpacing": null,
@@ -11,7 +12,9 @@
     "x": 18.0,
     "y": 18.0
   },
+  "activationDistance": 0.8,
   "travelDistance": 1.8,
+  "totalHeight": 3.5,
   "actuationForce": null,
   "keycapMount": "cherry-ulp",
   "footprintFile": "Cherry_MX_ULP.kicad_mod",

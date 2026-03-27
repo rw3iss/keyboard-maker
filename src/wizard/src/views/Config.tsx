@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { useState, useEffect } from 'preact/hooks';
+import { useState, useEffect, useMemo } from 'preact/hooks';
 import { currentProject, projectConfig, activeTab } from '../state/app.state';
 import { addToast } from '../services/toast.service';
 import { apiGet, apiPost, apiPut } from '../services/api.service';
@@ -8,6 +8,10 @@ import { Card } from '../components/common/Card';
 import { Button } from '../components/common/Button';
 import { Dropdown } from '../components/common/Dropdown';
 import { Spinner } from '../components/common/Spinner';
+import { ComponentFilter, matchesFilters } from '../components/wizard/ComponentFilter';
+import { ComponentListItem } from '../components/wizard/ComponentListItem';
+import type { FilterConfig } from '../components/wizard/ComponentFilter';
+import type { ChipDef } from '../components/wizard/ComponentListItem';
 import type { BuildConfig } from '../types/project.types';
 import { route } from 'preact-router';
 
@@ -27,6 +31,75 @@ interface ConfigProps {
 const COMPONENT_STEPS: Record<string, string> = {
 	switches: 'switches',
 	mcu: 'mcus',
+};
+
+// Filter configurations per category
+const SWITCH_FILTERS: FilterConfig[] = [
+	{ key: 'type', label: 'Type', type: 'select' },
+	{ key: 'manufacturer', label: 'Brand', type: 'select' },
+	{ key: 'profile', label: 'Profile', type: 'select' },
+	{ key: 'hotswapCompatible', label: 'Hotswap', type: 'boolean' },
+	{ key: 'mounting', label: 'Mounting', type: 'select' },
+	{ key: 'activationDistance', label: 'Actuation (mm)', type: 'range' },
+	{ key: 'travelDistance', label: 'Travel (mm)', type: 'range' },
+	{ key: 'totalHeight', label: 'Height (mm)', type: 'range' },
+	{ key: 'keycapMount', label: 'Keycap Mount', type: 'select' },
+	{ key: 'pinSpacing', label: 'Pin Spacing', type: 'range' },
+	{ key: 'maxPrice', label: 'Max Price', type: 'maxPrice' },
+];
+
+const MCU_FILTERS: FilterConfig[] = [
+	{ key: 'hasUsb', label: 'USB', type: 'boolean' },
+	{ key: 'hasBle', label: 'BLE', type: 'boolean' },
+	{ key: 'bleVersion', label: 'BLE Version', type: 'select' },
+	{ key: 'hasLipoCharger', label: 'LiPo Charger', type: 'boolean' },
+	{ key: 'splitSupport', label: 'Split Support', type: 'boolean' },
+	{ key: 'firmwareSupport', label: 'Firmware', type: 'multi', options: ['zmk', 'qmk', 'vial', 'kmk', 'via', 'circuitpython'] },
+	{ key: 'gpioCount', label: 'GPIOs', type: 'range', rangeBrackets: ['10-15', '16-20', '21-30', '31-40', '41+'] },
+	{ key: 'operatingVoltage', label: 'Voltage', type: 'select' },
+	{ key: 'flashKB', label: 'Flash (KB)', type: 'range', rangeBrackets: ['0-256', '257-1024', '1025-8192', '8193+'] },
+	{ key: 'ramKB', label: 'RAM (KB)', type: 'range', rangeBrackets: ['0-64', '65-256', '257-512', '513+'] },
+	{ key: 'clockMhz', label: 'Clock (MHz)', type: 'range', rangeBrackets: ['0-48', '49-100', '101-150', '151+'] },
+	{ key: 'chip', label: 'Chip', type: 'select' },
+	{ key: 'maxPrice', label: 'Max Price', type: 'maxPrice' },
+];
+
+const FILTER_CONFIGS: Record<string, FilterConfig[]> = {
+	switches: SWITCH_FILTERS,
+	mcu: MCU_FILTERS,
+};
+
+/** Extract display chips for a switch component */
+function getSwitchChips(c: any): ChipDef[] {
+	const chips: ChipDef[] = [];
+	if (c.type) chips.push({ label: 'Type', value: c.type });
+	if (c.keycapMount) chips.push({ label: 'Profile', value: c.keycapMount });
+	if (c.travelDistance != null) chips.push({ label: 'Travel', value: `${c.travelDistance}mm` });
+	// Actuation force from first variant
+	const force = c.actuationForce || c.variants?.[0]?.actuationForce;
+	if (force) chips.push({ label: 'Force', value: `${force}g` });
+	if (c.mounting) chips.push({ label: 'Mount', value: c.mounting });
+	if (c.hotswapCompatible != null) chips.push({ label: 'Hotswap', value: c.hotswapCompatible ? 'Yes' : 'No' });
+	return chips;
+}
+
+/** Extract display chips for an MCU component */
+function getMcuChips(c: any): ChipDef[] {
+	const chips: ChipDef[] = [];
+	if (c.chip) chips.push({ label: 'Chip', value: c.chip });
+	if (c.gpioCount != null) chips.push({ label: 'GPIOs', value: String(c.gpioCount) });
+	if (c.hasUsb != null) chips.push({ label: 'USB', value: c.hasUsb ? (c.usbType || 'Yes') : 'No' });
+	if (c.hasBle != null) chips.push({ label: 'BLE', value: c.hasBle ? (c.bleVersion || 'Yes') : 'No' });
+	const fw = c.firmwareSupport || c.firmware;
+	if (fw?.length) chips.push({ label: 'Firmware', value: fw.join(', ') });
+	if (c.flashSize) chips.push({ label: 'Flash', value: c.flashSize });
+	if (c.clockSpeed) chips.push({ label: 'Clock', value: c.clockSpeed });
+	return chips;
+}
+
+const CHIP_EXTRACTORS: Record<string, (c: any) => ChipDef[]> = {
+	switches: getSwitchChips,
+	mcu: getMcuChips,
 };
 
 export function Config({ step }: ConfigProps) {
@@ -162,6 +235,21 @@ export function Config({ step }: ConfigProps) {
 		}));
 	};
 
+	const [activeFilters, setActiveFilters] = useState<Record<string, any>>({});
+
+	// Reset filters when step changes
+	useEffect(() => {
+		setActiveFilters({});
+	}, [currentStep]);
+
+	const filterConfigs = FILTER_CONFIGS[currentStep] || [];
+	const chipExtractor = CHIP_EXTRACTORS[currentStep] || (() => []);
+
+	const filteredOptions = useMemo(() => {
+		if (filterConfigs.length === 0) return options;
+		return options.filter((opt) => matchesFilters(opt, activeFilters, filterConfigs));
+	}, [options, activeFilters, filterConfigs]);
+
 	const renderComponentStep = () => {
 		if (loading) {
 			return (
@@ -171,46 +259,40 @@ export function Config({ step }: ConfigProps) {
 			);
 		}
 		return (
-			<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
-				{options.map((opt) => (
-					<Card
-						key={opt.id}
-						title={opt.name}
-						description={opt.description}
-						selected={isSelected(opt)}
-						onClick={() => setSelected(opt.id)}
-					>
-						{opt.manufacturer && (
-							<div style="font-size:12px;color:var(--text-muted);margin-top:4px">
-								{opt.manufacturer}
-							</div>
-						)}
-						{opt.specs && (
-							<div style="font-size:12px;margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-								{Object.entries(opt.specs).slice(0, 4).map(([k, v]) => (
-									<span
-										key={k}
-										style="background:var(--bg-hover);padding:2px 6px;border-radius:4px"
-									>
-										{k}: {String(v)}
-									</span>
-								))}
-							</div>
-						)}
-						<a
-							href={`/parts/${COMPONENT_STEPS[currentStep]}/${opt.id}`}
-							style="display:inline-block;margin-top:8px;font-size:12px;color:var(--accent)"
-							onClick={(e) => e.stopPropagation()}
-						>
-							View Details &rarr;
-						</a>
-					</Card>
-				))}
-				{options.length === 0 && (
-					<div style="color:var(--text-muted);padding:20px">
-						No options available for this category.
+			<div>
+				{filterConfigs.length > 0 && (
+					<ComponentFilter
+						components={options}
+						filters={filterConfigs}
+						activeFilters={activeFilters}
+						onChange={setActiveFilters}
+						onReset={() => setActiveFilters({})}
+					/>
+				)}
+				{filteredOptions.length !== options.length && (
+					<div class="comp-list-count">
+						Showing {filteredOptions.length} of {options.length} components
 					</div>
 				)}
+				<div class="comp-list-container">
+					{filteredOptions.map((opt) => (
+						<ComponentListItem
+							key={opt.id}
+							component={opt}
+							category={COMPONENT_STEPS[currentStep]}
+							isSelected={isSelected(opt)}
+							onSelect={() => setSelected(opt.id)}
+							chips={chipExtractor(opt)}
+						/>
+					))}
+					{filteredOptions.length === 0 && (
+						<div class="comp-list-empty">
+							{options.length === 0
+								? 'No options available for this category.'
+								: 'No components match the current filters.'}
+						</div>
+					)}
+				</div>
 			</div>
 		);
 	};
@@ -254,38 +336,76 @@ export function Config({ step }: ConfigProps) {
 	const renderFeatures = () => {
 		const feat = (localConfig as BuildConfig)?.features;
 		return (
-			<div style="display:flex;flex-direction:column;gap:16px;max-width:500px">
-				<label style="display:flex;align-items:center;gap:12px;cursor:pointer">
-					<input
-						type="checkbox"
-						checked={feat?.rgbPerKey ?? false}
-						onChange={(e) => updateLocal('features', 'rgbPerKey', (e.target as HTMLInputElement).checked)}
-					/>
-					<span>Per-key RGB LEDs</span>
+			<div style="display:flex;flex-direction:column;gap:20px;max-width:600px">
+				{/* Per-key RGB */}
+				<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
+					<input type="checkbox" checked={feat?.rgbPerKey ?? false} onChange={(e) => updateLocal('features', 'rgbPerKey', (e.target as HTMLInputElement).checked)} style="margin-top:3px;accent-color:var(--accent)" />
+					<div>
+						<div style="font-weight:600">Per-Key RGB LEDs</div>
+						<div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-top:2px">
+							Adds one addressable RGB LED (SK6812MINI-E) per switch on the top side of the PCB (F.Cu), same side as the switches.
+							Each key can be individually controlled for color and brightness. Choose to place LEDs above (north) or below (south) of each switch.
+						</div>
+						<div style="font-size:11px;color:var(--warning);margin-top:4px">
+							Adds {86} LEDs. High power draw (~1.7A at full white) — battery life significantly reduced in wireless mode.
+						</div>
+					</div>
 				</label>
-				<label style="display:flex;align-items:center;gap:12px;cursor:pointer">
-					<input
-						type="checkbox"
-						checked={feat?.rgbUnderglow ?? false}
-						onChange={(e) => updateLocal('features', 'rgbUnderglow', (e.target as HTMLInputElement).checked)}
-					/>
-					<span>RGB Underglow</span>
+
+				{feat?.rgbPerKey && (
+					<div style="margin-left:32px">
+						<div style="font-size:13px;font-weight:500;margin-bottom:6px">LED Placement</div>
+						<div style="display:flex;gap:12px">
+							<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px">
+								<input type="radio" name="ledPlacement" checked={feat?.ledPlacement === 'below'} onChange={() => updateLocal('features', 'ledPlacement', 'below')} />
+								Below switch (south side of each key)
+							</label>
+							<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px">
+								<input type="radio" name="ledPlacement" checked={feat?.ledPlacement === 'above'} onChange={() => updateLocal('features', 'ledPlacement', 'above')} />
+								Above switch (north side of each key)
+							</label>
+						</div>
+					</div>
+				)}
+
+				{/* RGB Underglow */}
+				<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
+					<input type="checkbox" checked={feat?.rgbUnderglow ?? false} onChange={(e) => updateLocal('features', 'rgbUnderglow', (e.target as HTMLInputElement).checked)} style="margin-top:3px;accent-color:var(--accent)" />
+					<div>
+						<div style="font-weight:600">RGB Underglow</div>
+						<div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-top:2px">
+							Places 12 addressable RGB LEDs (SK6812MINI-E) evenly around the perimeter of the PCB on the back side.
+							Creates a glow effect underneath the keyboard, visible through translucent or open cases.
+							All LEDs are independently addressable and daisy-chained on a single data line from the MCU.
+						</div>
+						<div style="font-size:11px;color:var(--text-muted);margin-top:4px">
+							Low power (~0.2A). Minimal PCB space. Does NOT light individual keys — use per-key RGB for that.
+						</div>
+					</div>
 				</label>
-				<label style="display:flex;align-items:center;gap:12px;cursor:pointer">
-					<input
-						type="checkbox"
-						checked={feat?.rotaryEncoder ?? false}
-						onChange={(e) => updateLocal('features', 'rotaryEncoder', (e.target as HTMLInputElement).checked)}
-					/>
-					<span>Rotary Encoder</span>
+
+				{/* Rotary Encoder */}
+				<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
+					<input type="checkbox" checked={feat?.rotaryEncoder ?? false} onChange={(e) => updateLocal('features', 'rotaryEncoder', (e.target as HTMLInputElement).checked)} style="margin-top:3px;accent-color:var(--accent)" />
+					<div>
+						<div style="font-weight:600">Rotary Encoder</div>
+						<div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-top:2px">
+							Adds a rotary encoder for volume control, scrolling, or custom functions. Typically placed in a corner of the keyboard.
+							Uses 3 GPIO pins (A, B, switch). Supported by ZMK with custom key bindings.
+						</div>
+					</div>
 				</label>
-				<label style="display:flex;align-items:center;gap:12px;cursor:pointer">
-					<input
-						type="checkbox"
-						checked={feat?.oledDisplay ?? false}
-						onChange={(e) => updateLocal('features', 'oledDisplay', (e.target as HTMLInputElement).checked)}
-					/>
-					<span>OLED Display</span>
+
+				{/* OLED Display */}
+				<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
+					<input type="checkbox" checked={feat?.oledDisplay ?? false} onChange={(e) => updateLocal('features', 'oledDisplay', (e.target as HTMLInputElement).checked)} style="margin-top:3px;accent-color:var(--accent)" />
+					<div>
+						<div style="font-weight:600">OLED Display</div>
+						<div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-top:2px">
+							Adds a small OLED screen (128x32 SSD1306) for displaying layer info, WPM, battery level, or custom graphics.
+							Connected via I2C (2 GPIO pins). Requires a cutout or window in the case.
+						</div>
+					</div>
 				</label>
 			</div>
 		);
@@ -361,6 +481,31 @@ export function Config({ step }: ConfigProps) {
 					value={String(pcb?.thickness ?? 1.6)}
 					onChange={(v) => updateLocal('pcb', 'thickness', Number(v))}
 				/>
+
+				{/* MCU Fanout option — only for 4-layer boards */}
+				{pcb?.layers === 4 && (
+					<div style="border-top:1px solid var(--border);padding-top:16px;margin-top:4px">
+						<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
+							<input
+								type="checkbox"
+								checked={(pcb as any)?.mcuFanout ?? false}
+								onChange={(e) => updateLocal('pcb', 'mcuFanout', (e.target as HTMLInputElement).checked)}
+								style="margin-top:3px;accent-color:var(--accent)"
+							/>
+							<div>
+								<div style="font-weight:600;margin-bottom:4px">MCU Fanout Vias</div>
+								<div style="font-size:12px;color:var(--text-muted);line-height:1.5">
+									Places a via next to each MCU GPIO pad, immediately routing the signal down to an inner layer.
+									This clears congestion around the QFN chip and gives Freerouting much more room to route traces.
+								</div>
+								<div style="font-size:12px;margin-top:6px;padding:8px;background:var(--bg-card);border-radius:var(--radius-sm)">
+									<div style="color:var(--success);margin-bottom:4px"><strong>Benefits:</strong> Dramatically reduces routing congestion around the MCU. Fewer DRC violations. Cleaner trace spacing.</div>
+									<div style="color:var(--warning)"><strong>Considerations:</strong> Adds ~48 vias around the MCU. Requires 4-layer board. The MCU needs slightly more clearance from other components.</div>
+								</div>
+							</div>
+						</label>
+					</div>
+				)}
 			</div>
 		);
 	};
@@ -527,7 +672,7 @@ export function Config({ step }: ConfigProps) {
 							onInput={(e) => updateLocal('layout', 'path', (e.target as HTMLInputElement).value)}
 						/>
 						<div style="font-size:12px;color:var(--text-muted);margin-top:4px">
-							Relative to src/tools/, or absolute path, or relative to project directory
+							Relative to project directory, or absolute path
 						</div>
 					</div>
 					<div style="margin-top:16px">

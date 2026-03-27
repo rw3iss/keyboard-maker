@@ -4,6 +4,7 @@
   "manufacturer": "Gateron",
   "type": "low-profile-mechanical",
   "mounting": "through-hole",
+  "profile": "custom",
   "hotswapCompatible": true,
   "hotswapSocket": "gateron-lp-hotswap",
   "pinSpacing": 5.0,
@@ -11,7 +12,9 @@
     "x": 18.0,
     "y": 17.0
   },
+  "activationDistance": 1.5,
   "travelDistance": 3.0,
+  "totalHeight": 9.0,
   "actuationForce": null,
   "keycapMount": "gateron-lp",
   "footprintFile": "Gateron_LP_KS33.kicad_mod",

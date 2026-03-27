@@ -28,6 +28,8 @@ export interface LayoutComponent {
   draggable: boolean;
   selected: boolean;
   collision: boolean;
+  /** MCU fanout enabled — shows extended outline in layout editor */
+  fanout?: boolean;
 }
 
 export interface LayerConfig {
@@ -278,6 +280,7 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
     draggable: true,
     selected: false,
     collision: false,
+    fanout: config?.pcb?.mcuFanout && (config?.pcb?.layers ?? 2) >= 4,
   });
 
   // ── Screws ─────────────────────────────────────────────────────────────
@@ -487,6 +490,14 @@ export function resetComponentPosition(id: string) {
 
 // ── Collision detection ────────────────────────────────────────────────────
 
+/** Get effective collision dimensions — expanded for MCU fanout */
+function effectiveSize(c: LayoutComponent): { w: number; h: number } {
+  if (c.fanout && c.type === 'mcu') {
+    return { w: c.width + 2.4, h: c.height + 2.4 }; // 1.2mm fanout on each side
+  }
+  return { w: c.width, h: c.height };
+}
+
 function rectsOverlap(
   ax: number, ay: number, aw: number, ah: number,
   bx: number, by: number, bw: number, bh: number,
@@ -531,7 +542,8 @@ export function checkCollisions() {
     for (let j = i + 1; j < draggable.length; j++) {
       const a = draggable[i];
       const b = draggable[j];
-      if (sidesCanCollide(a, b) && rectsOverlap(a.x, a.y, a.width, a.height, b.x, b.y, b.width, b.height)) {
+      const sa = effectiveSize(a), sb = effectiveSize(b);
+      if (sidesCanCollide(a, b) && rectsOverlap(a.x, a.y, sa.w, sa.h, b.x, b.y, sb.w, sb.h)) {
         collisionSet.add(a.id);
         collisionSet.add(b.id);
       }
@@ -541,7 +553,8 @@ export function checkCollisions() {
   // Check draggable vs fixed components (switches, etc.) — only same side
   for (const d of draggable) {
     for (const s of nonDraggable) {
-      if (sidesCanCollide(d, s) && rectsOverlap(d.x, d.y, d.width, d.height, s.x, s.y, s.width, s.height)) {
+      const sd = effectiveSize(d), ss = effectiveSize(s);
+      if (sidesCanCollide(d, s) && rectsOverlap(d.x, d.y, sd.w, sd.h, s.x, s.y, ss.w, ss.h)) {
         collisionSet.add(d.id);
         break;
       }

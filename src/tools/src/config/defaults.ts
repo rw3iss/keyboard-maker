@@ -63,6 +63,7 @@ export const DEFAULT_CONFIG: BuildConfig = {
     thickness: 1.6,
     signalLayer: 0,
     routing: 'auto',
+    mcuFanout: false,
     fabricator: null,
   },
   physical: {

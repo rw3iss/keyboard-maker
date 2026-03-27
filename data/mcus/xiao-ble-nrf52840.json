@@ -10,9 +10,9 @@
   "hasLipoCharger": true,
   "chargerMaxMa": 50,
   "operatingVoltage": 3.3,
-  "flashSize": "1 MB",
-  "ramSize": "256 KB",
-  "clockSpeed": "64 MHz",
+  "flashKB": 1024,
+  "ramKB": 256,
+  "clockMhz": 64,
   "gpioCount": 11,
   "gpioPins": [
     {
@@ -76,13 +76,11 @@
     "length": 21.0,
     "unit": "mm"
   },
+  "splitSupport": true,
   "footprintFile": "Seeed_XIAO_BLE.kicad_mod",
   "zmkBoard": "seeeduino_xiao_ble",
-  "firmware": [
-    "zmk",
-    "qmk",
-    "circuitpython"
-  ],
+  "qmkBoard": "",
+  "firmwareSupport": ["zmk", "qmk", "circuitpython"],
   "summary": "Ultra-compact module, only 11 GPIOs — best for small splits",
   "bootloader": "Adafruit nRF52 UF2",
   "suppliers": [

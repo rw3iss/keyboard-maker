@@ -1,0 +1,82 @@
+{
+  "id": "liatris",
+  "name": "splitkb Liatris",
+  "chip": "RP2040",
+  "formFactor": "pro-micro",
+  "summary": "Premium RP2040 Pro Micro with onboard flash and castellated pads — designed for split keyboards",
+  "hasUsb": true,
+  "usbType": "USB 1.1 Full Speed",
+  "hasBle": false,
+  "bleVersion": "",
+  "hasLipoCharger": false,
+  "chargerMaxMa": 0,
+  "operatingVoltage": 3.3,
+  "flashKB": 16384,
+  "ramKB": 264,
+  "clockMhz": 133,
+  "gpioCount": 20,
+  "gpioPins": [
+    { "pin": "GP0", "label": "D0/TX" },
+    { "pin": "GP1", "label": "D1/RX" },
+    { "pin": "GP2", "label": "D2" },
+    { "pin": "GP3", "label": "D3" },
+    { "pin": "GP4", "label": "D4/A3" },
+    { "pin": "GP5", "label": "D5" },
+    { "pin": "GP6", "label": "D6" },
+    { "pin": "GP7", "label": "D7" },
+    { "pin": "GP8", "label": "D8" },
+    { "pin": "GP9", "label": "D9" },
+    { "pin": "GP21", "label": "D10" },
+    { "pin": "GP23", "label": "D14" },
+    { "pin": "GP20", "label": "D15" },
+    { "pin": "GP22", "label": "D16" },
+    { "pin": "GP26", "label": "D18/A0" },
+    { "pin": "GP27", "label": "D19/A1" },
+    { "pin": "GP28", "label": "D20/A2" },
+    { "pin": "GP29", "label": "D21/A3" },
+    { "pin": "GP16", "label": "MOSI" },
+    { "pin": "GP17", "label": "NeoPixel" }
+  ],
+  "splitSupport": true,
+  "dimensions": { "length": 33.3, "width": 18.0, "height": 4.0 },
+  "footprintFile": "RP2040_Module_ProMicro.kicad_mod",
+  "zmkBoard": "",
+  "qmkBoard": "splitkb/liatris",
+  "firmwareSupport": ["qmk", "kmk", "circuitpython", "vial"],
+  "features": [
+    "Dual-core ARM Cortex-M0+ at 133 MHz",
+    "16MB onboard flash (W25Q128) — huge for firmware and storage",
+    "264KB SRAM",
+    "Pro Micro footprint — drop-in replacement",
+    "Castellated pads for direct soldering to carrier PCB",
+    "PIO for hardware WS2812 LED driving",
+    "UF2 bootloader — drag-and-drop firmware flashing",
+    "ESD protection on USB lines",
+    "Onboard 3.3V regulator",
+    "Designed by splitkb specifically for split keyboards"
+  ],
+  "concerns": [
+    "No Bluetooth — wired USB only",
+    "No built-in battery charging",
+    "ZMK does not support RP2040",
+    "USB 1.1 only (fine for HID keyboards)",
+    "Premium price (~$12) compared to generic RP2040 boards",
+    "Single source (splitkb.com)"
+  ],
+  "designNotes": [
+    "Purpose-built for split keyboards by splitkb",
+    "16MB flash is 1000x what a typical keyboard firmware needs — room for storage features",
+    "Pro Micro compatible footprint works with Corne, Lily58, Sofle, etc.",
+    "Castellated pads allow soldering directly to PCB without headers",
+    "Best RP2040 option if you want premium quality and split keyboard focus"
+  ],
+  "datasheet": "https://docs.splitkb.com/product/liatris",
+  "externalLinks": [
+    { "label": "splitkb Liatris Product Page", "url": "https://splitkb.com/products/liatris" },
+    { "label": "Liatris Documentation", "url": "https://docs.splitkb.com/product/liatris" },
+    { "label": "RP2040 Datasheet", "url": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf" }
+  ],
+  "suppliers": [
+    { "name": "splitkb.com", "url": "https://splitkb.com/products/liatris", "priceUsd": 12.00 }
+  ]
+}

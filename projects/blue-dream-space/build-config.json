@@ -17,7 +17,7 @@
   },
   "mcu": {
     "type": "nrf52840",
-    "module": "nice_nano_v2",
+    "module": "nice-nano-v2",
     "gpioAvailable": 21
   },
   "connectivity": {
@@ -33,9 +33,9 @@
     "chargeCurrentMa": 500
   },
   "features": {
-    "rgbPerKey": false,
+    "rgbPerKey": true,
     "ledPlacement": "below",
-    "rgbUnderglow": true,
+    "rgbUnderglow": false,
     "underglow": {
       "ledCount": 0,
       "ledModel": null
@@ -60,8 +60,9 @@
     "layers": 4,
     "thickness": 1.6,
     "signalLayer": 1,
-    "routing": "auto",
-    "fabricator": null
+    "routing": "manual",
+    "fabricator": null,
+    "mcuFanout": true
   },
   "physical": {
     "connectorSide": "back",
@@ -103,7 +104,7 @@
       {
         "id": "mcu",
         "type": "mcu",
-        "x": 156.5,
+        "x": 157.5,
         "y": 111.5
       },
       {
@@ -192,7 +193,7 @@
       "y": -2
     },
     "mcu": {
-      "x": 156.5,
+      "x": 157.5,
       "y": 111.5
     },
     "battery": {

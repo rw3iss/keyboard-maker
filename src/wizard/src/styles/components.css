@@ -369,3 +369,354 @@
     transform: translateX(0);
   }
 }
+
+/* ---- Component Filter Bar ---- */
+.comp-filter-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.comp-filter-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.comp-filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 120px;
+}
+
+.comp-filter-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.comp-filter-select {
+  padding: 4px 8px;
+  font-size: 12px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  cursor: pointer;
+  max-width: 160px;
+}
+
+.comp-filter-select:focus {
+  border-color: var(--accent);
+}
+
+.comp-filter-reset {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  background: none;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.comp-filter-reset:hover {
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+}
+
+/* ---- Component List Item ---- */
+.comp-list-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  border-left: 3px solid transparent;
+}
+
+.comp-list-item:hover {
+  border-color: var(--border);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.comp-list-item--selected {
+  border-left-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.comp-list-item--selected:hover {
+  border-color: var(--accent);
+}
+
+.comp-list-item-main {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+
+.comp-list-item-indicator {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 4px;
+}
+
+.comp-radio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.comp-radio--active {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: inset 0 0 0 3px var(--bg-card);
+}
+
+.comp-list-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.comp-list-item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.comp-list-item-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comp-list-item-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.comp-list-item-mfr {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.comp-list-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.comp-list-item-price {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--success);
+}
+
+.comp-list-item-details-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+.comp-list-item-details-btn:hover {
+  text-decoration: underline;
+}
+
+.comp-list-item-summary {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.comp-list-item-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.comp-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 11px;
+  border-radius: 10px;
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+}
+
+.comp-chip-label {
+  color: var(--text-muted);
+}
+
+/* ---- Component Expanded Section ---- */
+.comp-list-item-expanded {
+  border-top: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: comp-expand 0.2s ease-out;
+}
+
+@keyframes comp-expand {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 2000px;
+  }
+}
+
+.comp-spec-section {}
+
+.comp-spec-heading {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.comp-spec-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.comp-spec-row {
+  display: contents;
+}
+
+.comp-spec-key {
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-card);
+}
+
+.comp-spec-val {
+  padding: 6px 10px;
+  font-size: 12px;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  word-break: break-word;
+}
+
+.comp-variants-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.comp-variant-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-hover);
+  border-radius: var(--radius-sm);
+  flex-wrap: wrap;
+}
+
+.comp-variant-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.comp-variant-price {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.comp-suppliers-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.comp-supplier-link {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: var(--accent);
+  background: var(--bg-hover);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.comp-supplier-link:hover {
+  background: var(--bg-input);
+  text-decoration: underline;
+}
+
+.comp-notes-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.comp-notes-list--features li::marker {
+  color: var(--success);
+}
+
+.comp-notes-list--concerns li::marker {
+  color: var(--warning);
+}
+
+/* ---- Component List Container ---- */
+.comp-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comp-list-empty {
+  color: var(--text-muted);
+  padding: 20px;
+  text-align: center;
+}
+
+.comp-list-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}

@@ -187,6 +187,8 @@ export interface BuildConfig {
     signalLayer: number;
     /** Routing strategy */
     routing: 'auto' | 'guided' | 'manual';
+    /** MCU fanout vias — routes signals from QFN pads to inner layer immediately */
+    mcuFanout: boolean;
     /** Preferred PCB fabricator name */
     fabricator: string | null;
   };

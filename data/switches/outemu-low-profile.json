@@ -1,0 +1,94 @@
+{
+  "id": "outemu-low-profile",
+  "name": "Outemu Low Profile",
+  "manufacturer": "Outemu (Gaote)",
+  "type": "low-profile-mechanical",
+  "mounting": "through-hole",
+  "profile": "custom",
+  "hotswapCompatible": true,
+  "hotswapSocket": "outemu-lp-hotswap",
+  "pinSpacing": 5.0,
+  "switchSpacing": {
+    "x": 18.0,
+    "y": 17.0
+  },
+  "activationDistance": 1.2,
+  "travelDistance": 2.5,
+  "totalHeight": 8.5,
+  "actuationForce": null,
+  "keycapMount": "custom",
+  "dimensions": {
+    "width": 14.0,
+    "depth": 14.0,
+    "height": 8.5,
+    "unit": "mm"
+  },
+  "footprintFile": "Outemu_Low_Profile.kicad_mod",
+  "symbolRef": "Switch:SW_Push",
+  "datasheet": "https://www.outemu.com/en/products_detail/36.html",
+  "variants": [
+    {
+      "id": "outemu-lp-red",
+      "name": "Outemu Low Profile Red (Linear)",
+      "actuationForce": 40,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html", "priceUsd": 0.20 }
+      ]
+    },
+    {
+      "id": "outemu-lp-brown",
+      "name": "Outemu Low Profile Brown (Tactile)",
+      "actuationForce": 50,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html", "priceUsd": 0.20 }
+      ]
+    },
+    {
+      "id": "outemu-lp-blue",
+      "name": "Outemu Low Profile Blue (Clicky)",
+      "actuationForce": 50,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html", "priceUsd": 0.20 }
+      ]
+    }
+  ],
+  "summary": "Budget low-profile switch with proprietary mount — cheapest LP switch at ~$0.20 each",
+  "features": [
+    "Very affordable — $0.15-0.25 per switch",
+    "Low-profile at 8.5mm height",
+    "2.5mm key travel",
+    "Hot-swap socket available",
+    "Multiple variants: linear, tactile, clicky",
+    "Compact 18x17mm spacing",
+    "Short 1.2mm actuation distance"
+  ],
+  "concerns": [
+    "Proprietary keycap mount — NOT compatible with Choc or MX keycaps",
+    "Very limited keycap ecosystem",
+    "Quality control can be inconsistent",
+    "Less popular in custom keyboard community — fewer PCB designs support it",
+    "Hot-swap socket is proprietary and hard to source",
+    "Limited documentation and footprint availability"
+  ],
+  "designNotes": [
+    "Used in some budget low-profile pre-built keyboards",
+    "NOT compatible with Kailh Choc keycaps or hot-swap sockets",
+    "Cheapest low-profile switch option",
+    "Consider Kailh Choc v1 instead for better keycap ecosystem",
+    "Useful only if keycap compatibility is not a priority"
+  ],
+  "externalLinks": [
+    { "label": "Outemu Official Product Page", "url": "https://www.outemu.com/en/products_detail/36.html" },
+    { "label": "Switch Comparison Tool", "url": "https://www.theremingoat.com/" }
+  ],
+  "suppliers": [
+    { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html", "priceUsd": 0.20 },
+    { "name": "AliExpress (pack)", "url": "https://www.aliexpress.com/item/outemu-low-profile-pack.html", "priceUsd": 0.15 }
+  ]
+}

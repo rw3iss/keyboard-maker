@@ -1,0 +1,81 @@
+{
+  "id": "pillbug",
+  "name": "MechWild PillBug",
+  "chip": "nRF52840",
+  "formFactor": "pro-micro",
+  "summary": "nRF52840 Pro Micro with onboard battery management and power switch — turnkey wireless keyboard controller",
+  "hasUsb": true,
+  "usbType": "USB 2.0 Full Speed",
+  "hasBle": true,
+  "bleVersion": "5.0",
+  "hasLipoCharger": true,
+  "chargerMaxMa": 300,
+  "operatingVoltage": 3.3,
+  "flashKB": 1024,
+  "ramKB": 256,
+  "clockMhz": 64,
+  "gpioCount": 21,
+  "gpioPins": [
+    { "pin": "P0.06", "label": "D0" },
+    { "pin": "P0.08", "label": "D1" },
+    { "pin": "P0.17", "label": "D2" },
+    { "pin": "P0.20", "label": "D3" },
+    { "pin": "P0.22", "label": "D4" },
+    { "pin": "P0.24", "label": "D5" },
+    { "pin": "P1.00", "label": "D6" },
+    { "pin": "P0.11", "label": "D7" },
+    { "pin": "P1.04", "label": "D8" },
+    { "pin": "P1.06", "label": "D9" },
+    { "pin": "P0.09", "label": "D10" },
+    { "pin": "P0.10", "label": "D16" },
+    { "pin": "P1.11", "label": "D14" },
+    { "pin": "P1.13", "label": "D15" },
+    { "pin": "P0.02", "label": "D18/A0" },
+    { "pin": "P0.03", "label": "D19/A1" },
+    { "pin": "P0.28", "label": "D20/A2" },
+    { "pin": "P0.29", "label": "D21/A3" },
+    { "pin": "P0.30", "label": "D22/A4" },
+    { "pin": "P0.31", "label": "D23/A5" },
+    { "pin": "P0.13", "label": "D24" }
+  ],
+  "splitSupport": true,
+  "dimensions": { "length": 33.3, "width": 18.0, "height": 5.5 },
+  "footprintFile": "nRF52840_Module_NiceNano.kicad_mod",
+  "zmkBoard": "pillbug",
+  "qmkBoard": "",
+  "firmwareSupport": ["zmk"],
+  "features": [
+    "nRF52840 with native USB + BLE 5.0",
+    "Built-in LiPo charger at 300mA — 3x faster than nice!nano",
+    "Onboard power switch for battery disconnect",
+    "Pro Micro footprint — drop-in replacement",
+    "1MB flash, 256KB RAM",
+    "21 usable GPIO pins",
+    "ZMK firmware support with custom board definition",
+    "Battery voltage monitoring via ADC",
+    "UF2 bootloader"
+  ],
+  "concerns": [
+    "Less widely known than nice!nano — smaller community",
+    "ZMK board definition may need updating",
+    "Premium price for nRF52840 Pro Micro",
+    "Availability can be limited",
+    "21 GPIOs limits matrix size for larger keyboards"
+  ],
+  "designNotes": [
+    "300mA charging is a significant upgrade over nice!nano's 100mA",
+    "Onboard power switch eliminates need for external power switch in case",
+    "Pro Micro footprint compatible with Corne, Lily58, Sofle, etc.",
+    "Battery voltage divider built in — no external resistors needed",
+    "Good choice when faster charging is important"
+  ],
+  "datasheet": "https://mechwild.com/product/pillbug/",
+  "externalLinks": [
+    { "label": "MechWild PillBug Product Page", "url": "https://mechwild.com/product/pillbug/" },
+    { "label": "PillBug Build Guide", "url": "https://mechwild.com/guides/" },
+    { "label": "ZMK Firmware", "url": "https://zmk.dev/docs" }
+  ],
+  "suppliers": [
+    { "name": "MechWild", "url": "https://mechwild.com/product/pillbug/", "priceUsd": 22.00 }
+  ]
+}

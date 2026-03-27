@@ -3,7 +3,7 @@
 **Version:** 1.0.0  
 **Author:**   
 **Switch Type:** choc_v2  
-**MCU:** nice_nano_v2  
+**MCU:** nice-nano-v2  
 
 | Ref | Component | Qty | Unit Price | Total | Supplier |
 |-----|-----------|-----|-----------|-------|----------|
