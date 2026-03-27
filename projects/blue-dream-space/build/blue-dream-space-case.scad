@@ -2,8 +2,8 @@
 // Layout: Blue Dream Space (86 keys)
 // Switch type: choc_v2
 // Front height: 3.90 mm
-// Rear height: 6.90 mm
-// Generated: 2026-03-25T06:57:08.193Z
+// Rear height: 3.90 mm
+// Generated: 2026-03-27T05:22:26.663Z
 
 $fn = 32;
 
@@ -12,9 +12,9 @@ bottom_t = 2.00;
 inner_h = 10.00;
 outer_w = 349.76;
 outer_h = 139.06;
-total_h = 6.90;
+total_h = 3.90;
 front_h = 3.90;
-rear_h = 6.90;
+rear_h = 3.90;
 corner_r = 3.00;
 plate_w = 344.76;
 plate_h = 134.06;
@@ -41,64 +41,64 @@ difference() {
     cube([12.000, 2.700, 7.000]);
 
   // ----- Screw holes (smart placement) -----
-  // tl
-  translate([127.000, 45.000, -0.1])
+  // screw_tl
+  translate([22.500, 22.500, -0.1])
     cylinder(r = 1.250, h = bottom_t + 0.2);
-  // tr
-  translate([309.456, 69.000, -0.1])
+  // screw_tr
+  translate([357.000, 23.000, -0.1])
     cylinder(r = 1.250, h = bottom_t + 0.2);
-  // bl
-  translate([125.000, 141.581, -0.1])
+  // screw_bl
+  translate([22.500, 146.500, -0.1])
     cylinder(r = 1.250, h = bottom_t + 0.2);
-  // br
-  translate([324.456, 116.581, -0.1])
+  // screw_br
+  translate([357.000, 146.500, -0.1])
     cylinder(r = 1.250, h = bottom_t + 0.2);
-  // ml
-  translate([141.014, 85.484, -0.1])
+  // screw_ml
+  translate([127.500, 45.500, -0.1])
     cylinder(r = 1.250, h = bottom_t + 0.2);
-  // mr
-  translate([282.735, 97.290, -0.1])
+  // screw_mr
+  translate([281.500, 96.000, -0.1])
     cylinder(r = 1.250, h = bottom_t + 0.2);
 }
 
 // ----- PCB standoff posts (no front standoffs) -----
-// tl
-translate([127.000, 45.000, bottom_t])
+// screw_tl
+translate([22.500, 22.500, bottom_t])
   difference() {
     cylinder(r = 2.500, h = 3.000);
     translate([0, 0, -0.1])
       cylinder(r = 1.250, h = 3.200);
   }
-// tr
-translate([309.456, 69.000, bottom_t])
+// screw_tr
+translate([357.000, 23.000, bottom_t])
   difference() {
     cylinder(r = 2.500, h = 3.000);
     translate([0, 0, -0.1])
       cylinder(r = 1.250, h = 3.200);
   }
-// bl
-translate([125.000, 141.581, bottom_t])
+// screw_bl
+translate([22.500, 146.500, bottom_t])
   difference() {
     cylinder(r = 2.500, h = 3.000);
     translate([0, 0, -0.1])
       cylinder(r = 1.250, h = 3.200);
   }
-// br
-translate([324.456, 116.581, bottom_t])
+// screw_br
+translate([357.000, 146.500, bottom_t])
   difference() {
     cylinder(r = 2.500, h = 3.000);
     translate([0, 0, -0.1])
       cylinder(r = 1.250, h = 3.200);
   }
-// ml
-translate([141.014, 85.484, bottom_t])
+// screw_ml
+translate([127.500, 45.500, bottom_t])
   difference() {
     cylinder(r = 2.500, h = 3.000);
     translate([0, 0, -0.1])
       cylinder(r = 1.250, h = 3.200);
   }
-// mr
-translate([282.735, 97.290, bottom_t])
+// screw_mr
+translate([281.500, 96.000, bottom_t])
   difference() {
     cylinder(r = 2.500, h = 3.000);
     translate([0, 0, -0.1])

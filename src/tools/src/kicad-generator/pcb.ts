@@ -229,19 +229,31 @@ export function generatePCBWithScrews(
     idx++;
   }
 
-  // Board outline
+  // Board outline — tight margin around switches
+  // Uses layoutOverrides.boardOutline if set (for future polygon support)
   const margin = 8;
-  const olMinX = minX - margin;
-  const olMinY = minY - margin - 15; // extra space at top for USB/MCU
-  const olMaxX = maxX + margin;
-  const olMaxY = maxY + margin + 20; // extra space at bottom for MCU
+  const boardOverrides = config.layoutOverrides;
+  let olMinX: number, olMinY: number, olMaxX: number, olMaxY: number;
+
+  if (boardOverrides?.boardOutline) {
+    olMinX = PCB_ORIGIN_X + boardOverrides.boardOutline.minX;
+    olMinY = PCB_ORIGIN_Y + boardOverrides.boardOutline.minY;
+    olMaxX = PCB_ORIGIN_X + boardOverrides.boardOutline.maxX;
+    olMaxY = PCB_ORIGIN_Y + boardOverrides.boardOutline.maxY;
+  } else {
+    olMinX = minX - margin;
+    olMinY = minY - margin;
+    olMaxX = maxX + margin;
+    olMaxY = maxY + margin;
+  }
   w(`  (gr_rect (start ${n(olMinX)} ${n(olMinY)}) (end ${n(olMaxX)} ${n(olMaxY)}) (stroke (width 0.1) (type default)) (fill none) (layer "Edge.Cuts") (uuid "${uuid()}"))`);
 
   // ── MCU footprint with GPIO pads assigned to ROW/COL nets ──
   // Apply layout overrides if configured
   const overrides = config.layoutOverrides;
-  let mcuX = overrides?.mcu?.x ?? (minX + maxX) / 2;
-  let mcuY2 = overrides?.mcu?.y ?? (maxY + margin + 5);
+  // Layout overrides are relative to the key area origin — add PCB_ORIGIN to convert
+  let mcuX = overrides?.mcu ? PCB_ORIGIN_X + overrides.mcu.x : (minX + maxX) / 2;
+  let mcuY2 = overrides?.mcu ? PCB_ORIGIN_Y + overrides.mcu.y : (maxY + margin + 5);
 
   // Assign MCU GPIO pins: first rows, then cols
   const mcuPadCount = matrix.rows + matrix.cols;
@@ -321,8 +333,17 @@ export function generatePCBWithScrews(
   const connectorPosition = config.physical?.connectorPosition ?? 'center';
   const boardBounds = { minX, minY, maxX, maxY };
   const defaultUsbPos = getConnectorXY(connectorSide, connectorPosition, boardBounds);
-  const usbPos = overrides?.usb ?? defaultUsbPos;
-  const usbRotation = connectorSide === 'left' ? 90 : connectorSide === 'right' ? -90 : 0;
+  const usbPos = overrides?.usb
+    ? { x: PCB_ORIGIN_X + overrides.usb.x, y: PCB_ORIGIN_Y + overrides.usb.y }
+    : defaultUsbPos;
+  // USB-C connector rotation: port opening must face OUTWARD from the board edge
+  // The GCT USB4085 footprint has the port opening in the -Y direction (top of footprint)
+  // So we rotate it so the opening points away from the board:
+  //   back (top edge):  180° — port faces up/away from board
+  //   left:             90°  — port faces left
+  //   right:           -90°  — port faces right
+  //   top:              0°   — port faces up (default)
+  const usbRotation = connectorSide === 'back' ? 180 : connectorSide === 'left' ? 90 : connectorSide === 'right' ? -90 : 0;
 
   w(`  (footprint "Connector_USB:USB_C_Receptacle_GCT_USB4085"`);
   w(`    (layer "F.Cu")`);
@@ -347,8 +368,8 @@ export function generatePCBWithScrews(
     let batX: number;
     let batY: number;
     if (overrides?.battery) {
-      batX = overrides.battery.x;
-      batY = overrides.battery.y;
+      batX = PCB_ORIGIN_X + overrides.battery.x;
+      batY = PCB_ORIGIN_Y + overrides.battery.y;
     } else if (connectorSide === 'left') {
       batX = olMinX + 10;
       batY = mcuY2;
@@ -360,10 +381,13 @@ export function generatePCBWithScrews(
       batY = mcuY2;
     }
 
+    // Battery connector rotation: opening faces outward from nearest board edge
+    const batRotation = connectorSide === 'back' ? 180 : connectorSide === 'left' ? 90 : connectorSide === 'right' ? -90 : 0;
+
     w(`  (footprint "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"`);
     w(`    (layer "F.Cu")`);
     w(`    (uuid "${uuid()}")`);
-    w(`    (at ${n(batX)} ${n(batY)})`);
+    w(`    (at ${n(batX)} ${n(batY)}${batRotation ? ` ${batRotation}` : ''})`);
     w(`    (property "Reference" "BT1" (at 0 -3) (layer "F.SilkS") (effects (font (size 1 1) (thickness 0.15))))`);
     w(`    (property "Value" "Battery" (at 0 3) (layer "F.Fab") (effects (font (size 1 1) (thickness 0.15))))`);
     w(`    (pad "1" thru_hole circle (at 0 0) (size 1.75 1.75) (drill 1.0) (layers ${allCopperLayers}) (net ${netIndex('VBAT')} "VBAT") (uuid "${uuid()}"))`);
@@ -371,10 +395,44 @@ export function generatePCBWithScrews(
     w(`  )`);
   }
 
+  // ── Power button (slide switch) — oriented to face outward from nearest edge ──
+  if ((config.physical as any)?.powerButton !== false) {
+    // Determine power button position: near USB connector, offset slightly
+    const pwrOverride = overrides?.components?.find((c: any) => c.type === 'power_button');
+    const pwrX = pwrOverride ? PCB_ORIGIN_X + pwrOverride.x : (usbPos.x + (connectorSide === 'back' ? 12 : 0));
+    const pwrY = pwrOverride ? PCB_ORIGIN_Y + pwrOverride.y : (usbPos.y + (connectorSide === 'left' || connectorSide === 'right' ? 12 : 0));
+
+    // Calculate rotation: the switch opening must face the nearest board edge
+    // Determine which edge this button is closest to
+    const distToTop = pwrY - olMinY;
+    const distToBottom = olMaxY - pwrY;
+    const distToLeft = pwrX - olMinX;
+    const distToRight = olMaxX - pwrX;
+    const minEdgeDist = Math.min(distToTop, distToBottom, distToLeft, distToRight);
+
+    let pwrRotation = 0;
+    if (minEdgeDist === distToTop) pwrRotation = 180;        // nearest to top/rear → face up
+    else if (minEdgeDist === distToBottom) pwrRotation = 0;   // nearest to bottom → face down
+    else if (minEdgeDist === distToLeft) pwrRotation = 90;    // nearest to left → face left
+    else if (minEdgeDist === distToRight) pwrRotation = -90;  // nearest to right → face right
+
+    w(`  (footprint "Button_Switch_SMD:SW_SPDT_CK-JS102011SAQN"`);
+    w(`    (layer "F.Cu")`);
+    w(`    (uuid "${uuid()}")`);
+    w(`    (at ${n(pwrX)} ${n(pwrY)}${pwrRotation ? ` ${pwrRotation}` : ''})`);
+    w(`    (property "Reference" "SW_PWR" (at 0 -3) (layer "F.SilkS") (effects (font (size 0.8 0.8) (thickness 0.12))))`);
+    w(`    (property "Value" "Power" (at 0 3) (layer "F.Fab") (effects (font (size 0.8 0.8) (thickness 0.12))))`);
+    w(`    (pad "1" smd rect (at -2.5 0) (size 1 1.5) (layers "F.Cu" "F.Paste" "F.Mask") (net ${netIndex('VBAT')} "VBAT") (uuid "${uuid()}"))`);
+    w(`    (pad "2" smd rect (at 0 0) (size 1 1.5) (layers "F.Cu" "F.Paste" "F.Mask") (net ${netIndex('VCC')} "VCC") (uuid "${uuid()}"))`);
+    w(`    (pad "3" smd rect (at 2.5 0) (size 1 1.5) (layers "F.Cu" "F.Paste" "F.Mask") (net 0 "") (uuid "${uuid()}"))`);
+    w(`    (fp_rect (start -4 -2) (end 4 2) (stroke (width 0.05) (type default)) (fill none) (layer "F.CrtYd") (uuid "${uuid()}"))`);
+    w(`  )`);
+  }
+
   // ── Mounting holes — use layout overrides if available, otherwise auto-calculate ──
   let screwPositions: ScrewPosition[];
   if (overrides?.screws && overrides.screws.length > 0) {
-    screwPositions = overrides.screws.map(s => ({ x: s.x, y: s.y, label: s.id }));
+    screwPositions = overrides.screws.map(s => ({ x: PCB_ORIGIN_X + s.x, y: PCB_ORIGIN_Y + s.y, label: s.id }));
   } else {
     const componentPositions = collectComponentPositions(config, boardBounds);
     screwPositions = calculateScrewPositions(
@@ -394,6 +452,65 @@ export function generatePCBWithScrews(
     w(`    (property "Value" "MountingHole_M2.5" (at 0 3) (layer "F.Fab") (effects (font (size 0.8 0.8) (thickness 0.12))))`);
     w(`    (pad "1" thru_hole circle (at 0 0) (size 5.5 5.5) (drill 2.7) (layers ${allCopperLayers}) (net 0 "") (uuid "${uuid()}"))`);
     w(`    (fp_circle (center 0 0) (end 2.75 0) (stroke (width 0.05) (type default)) (fill none) (layer "F.CrtYd") (uuid "${uuid()}"))`);
+    w(`  )`);
+  }
+
+  // ── Copper zone fills for 4-layer boards ──
+  // Ground plane on In1.Cu, power plane on In2.Cu
+  // These give Freerouting pre-filled planes for power/ground routing
+  if (is4Layer) {
+    const zoneMargin = 1; // 1mm inset from board edge
+    const zMinX = olMinX + zoneMargin;
+    const zMinY = olMinY + zoneMargin;
+    const zMaxX = olMaxX - zoneMargin;
+    const zMaxY = olMaxY - zoneMargin;
+
+    // GND zone on In1.Cu
+    w(`  (zone`);
+    w(`    (net ${netIndex('GND')})`);
+    w(`    (net_name "GND")`);
+    w(`    (layer "In1.Cu")`);
+    w(`    (uuid "${uuid()}")`);
+    w(`    (hatch edge 0.5)`);
+    w(`    (connect_pads (clearance 0.3))`);
+    w(`    (min_thickness 0.2)`);
+    w(`    (fill yes (thermal_gap 0.3) (thermal_bridge_width 0.3))`);
+    w(`    (polygon`);
+    w(`      (pts (xy ${n(zMinX)} ${n(zMinY)}) (xy ${n(zMaxX)} ${n(zMinY)}) (xy ${n(zMaxX)} ${n(zMaxY)}) (xy ${n(zMinX)} ${n(zMaxY)}))`);
+    w(`    )`);
+    w(`  )`);
+
+    // VCC zone on In2.Cu
+    w(`  (zone`);
+    w(`    (net ${netIndex('VCC')})`);
+    w(`    (net_name "VCC")`);
+    w(`    (layer "In2.Cu")`);
+    w(`    (uuid "${uuid()}")`);
+    w(`    (hatch edge 0.5)`);
+    w(`    (connect_pads (clearance 0.3))`);
+    w(`    (min_thickness 0.2)`);
+    w(`    (fill yes (thermal_gap 0.3) (thermal_bridge_width 0.3))`);
+    w(`    (polygon`);
+    w(`      (pts (xy ${n(zMinX)} ${n(zMinY)}) (xy ${n(zMaxX)} ${n(zMinY)}) (xy ${n(zMaxX)} ${n(zMaxY)}) (xy ${n(zMinX)} ${n(zMaxY)}))`);
+    w(`    )`);
+    w(`  )`);
+  }
+
+  // Also add a GND zone on B.Cu for both 2-layer and 4-layer boards
+  {
+    const zMargin = 1;
+    w(`  (zone`);
+    w(`    (net ${netIndex('GND')})`);
+    w(`    (net_name "GND")`);
+    w(`    (layer "B.Cu")`);
+    w(`    (uuid "${uuid()}")`);
+    w(`    (hatch edge 0.5)`);
+    w(`    (connect_pads (clearance 0.3))`);
+    w(`    (min_thickness 0.2)`);
+    w(`    (fill yes (thermal_gap 0.3) (thermal_bridge_width 0.3))`);
+    w(`    (polygon`);
+    w(`      (pts (xy ${n(olMinX + zMargin)} ${n(olMinY + zMargin)}) (xy ${n(olMaxX - zMargin)} ${n(olMinY + zMargin)}) (xy ${n(olMaxX - zMargin)} ${n(olMaxY - zMargin)}) (xy ${n(olMinX + zMargin)} ${n(olMaxY - zMargin)}))`);
+    w(`    )`);
     w(`  )`);
   }
 

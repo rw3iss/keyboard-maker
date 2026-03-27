@@ -310,7 +310,7 @@ function buildOverviewHTML(data: OverviewData): string {
     .section-header .toggle {
       font-size: 14px;
       color: #666;
-      transition: transform 0.3s;
+      transition: transform 0.15s linear;
     }
 
     .section.collapsed .toggle {
@@ -318,10 +318,10 @@ function buildOverviewHTML(data: OverviewData): string {
     }
 
     .section-body {
-      padding: 0 20px 20px 20px;
+      padding: 16px 20px 20px 20px;
       max-height: 5000px;
       overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
+      transition: max-height 0.15s linear, padding 0.15s linear;
     }
 
     .section.collapsed .section-body {

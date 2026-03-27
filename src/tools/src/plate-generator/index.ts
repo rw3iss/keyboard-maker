@@ -117,7 +117,18 @@ export function generatePlate(layout: KeyboardLayout, config: BuildConfig): stri
     maxX: absBounds.maxX,
     maxY: absBounds.maxY,
   });
-  const screwPositions = calculateScrewPositions(layout, config, boardBounds, componentPositions);
+  // Use layout overrides for screw positions if configured, otherwise auto-calculate
+  const overrides = config.layoutOverrides;
+  let screwPositions;
+  if (overrides?.screws && overrides.screws.length > 0) {
+    screwPositions = overrides.screws.map((s: any) => ({
+      x: PCB_ORIGIN_X + s.x,
+      y: PCB_ORIGIN_Y + s.y,
+      label: s.id,
+    }));
+  } else {
+    screwPositions = calculateScrewPositions(layout, config, boardBounds, componentPositions);
+  }
 
   d.setActiveLayer('MountingHoles');
   for (const screw of screwPositions) {

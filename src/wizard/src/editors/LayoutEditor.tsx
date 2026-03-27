@@ -15,6 +15,10 @@ import {
   setLayerVisibility,
   setLayerOpacity,
   nudgeSelected,
+  undo,
+  redo,
+  canUndo,
+  canRedo,
   type SimpleKey,
 } from './LayoutState';
 
@@ -81,8 +85,24 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
   return (
     <div style="display:flex;flex-direction:column;height:100%;min-height:0">
       {/* Tip bar */}
-      <div style="padding:6px 12px;background:#1e293b;border-bottom:1px solid #334155;font-size:11px;color:#94a3b8;flex-shrink:0">
-        Drag components to reposition. Scroll to zoom. Middle-click to pan. Arrow keys nudge selected (Shift for fine). Red = collision.
+      <div style="padding:6px 12px;background:#1e293b;border-bottom:1px solid #334155;font-size:11px;color:#94a3b8;flex-shrink:0;display:flex;align-items:center;justify-content:space-between">
+        <span>Drag components to reposition. Scroll to zoom. Middle-click to pan. Arrow keys nudge (Shift=fine). Ctrl+Z undo, Ctrl+Shift+Z redo.</span>
+        <div style="display:flex;gap:4px;flex-shrink:0;margin-left:12px">
+          {canUndo.value && (
+            <button
+              onClick={() => undo()}
+              title="Undo (Ctrl+Z)"
+              style="padding:2px 8px;font-size:11px;background:#0f172a;color:#94a3b8;border:1px solid #334155;border-radius:3px;cursor:pointer"
+            >Undo</button>
+          )}
+          {canRedo.value && (
+            <button
+              onClick={() => redo()}
+              title="Redo (Ctrl+Shift+Z)"
+              style="padding:2px 8px;font-size:11px;background:#0f172a;color:#94a3b8;border:1px solid #334155;border-radius:3px;cursor:pointer"
+            >Redo</button>
+          )}
+        </div>
       </div>
 
       {/* Main area: sidebar + canvas */}
@@ -126,8 +146,13 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
             <div style="font-weight:700;color:#e2e8f0;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">Selected</div>
             {selected ? (
               <div>
-                <div style="color:#06b6d4;font-weight:600;margin-bottom:6px">{selected.id}</div>
-                <div style="color:#94a3b8;margin-bottom:4px">Type: {selected.type}</div>
+                <div style="color:#06b6d4;font-weight:600;margin-bottom:4px">{selected.id}</div>
+                <div style="color:#94a3b8;margin-bottom:4px;display:flex;align-items:center;gap:6px">
+                  <span>Type: {selected.type}</span>
+                  <span style={`font-size:9px;padding:1px 5px;border-radius:3px;font-weight:700;${selected.side === 'front' ? 'background:#1e3a5f;color:#6ecbf5' : selected.side === 'back' ? 'background:#3f1e1e;color:#f87171' : 'background:#1e3a1e;color:#86efac'}`}>
+                    {selected.side === 'front' ? 'FRONT' : selected.side === 'back' ? 'BACK' : 'THRU'}
+                  </span>
+                </div>
 
                 {selected.collision && (
                   <div style="color:#ef4444;font-weight:600;margin-bottom:6px;padding:4px 6px;background:#3f1111;border-radius:4px;font-size:11px">

@@ -8,6 +8,10 @@ import {
   nudgeSelected,
   resetComponentPosition,
   selectedId,
+  beginDrag,
+  endDrag,
+  undo,
+  redo,
 } from './LayoutState';
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -85,8 +89,14 @@ export class LayoutCanvas {
     this.cssWidth = rect.width;
     this.cssHeight = rect.height;
     this.dpr = window.devicePixelRatio || 1;
+    // Set canvas buffer size (physical pixels)
     this.canvas.width = Math.round(this.cssWidth * this.dpr);
     this.canvas.height = Math.round(this.cssHeight * this.dpr);
+    // IMPORTANT: explicitly set CSS size so offsetX/offsetY are consistent
+    // Without this, the canvas CSS size = attribute size (physical px), causing
+    // mouse coordinates to be scaled by DPR, making drags move too fast
+    this.canvas.style.width = `${this.cssWidth}px`;
+    this.canvas.style.height = `${this.cssHeight}px`;
   }
 
   // ── Coordinate transforms ─────────────────────────────────────────────
@@ -225,6 +235,13 @@ export class LayoutCanvas {
   // ── Component rendering ───────────────────────────────────────────────
 
   private drawComponent(ctx: CanvasRenderingContext2D, comp: LayoutComponent) {
+    // Back-side components render with reduced intensity + dashed outline
+    const isBack = comp.side === 'back';
+    if (isBack) {
+      ctx.save();
+      ctx.globalAlpha *= 0.6;
+    }
+
     switch (comp.type) {
       case 'outline':
         this.drawOutline(ctx, comp);
@@ -251,6 +268,27 @@ export class LayoutCanvas {
       case 'lcd':
         this.drawLCD(ctx, comp);
         break;
+    }
+
+    // Draw side badge for back/through components (not switches or outline)
+    if (comp.type !== 'switch' && comp.type !== 'outline' && this.scale > 1) {
+      const [sx, sy] = this.mmToScreen(comp.x, comp.y);
+      const badgeX = sx + (comp.width * this.scale / 2) - 4;
+      const badgeY = sy - (comp.height * this.scale / 2) + 4;
+      const label = comp.side === 'back' ? 'B' : comp.side === 'front' ? 'F' : 'T';
+      const color = comp.side === 'back' ? '#f87171' : comp.side === 'front' ? '#6ecbf5' : '#86efac';
+      ctx.save();
+      ctx.globalAlpha = 1;
+      ctx.font = `bold ${Math.max(8, 9)}px monospace`;
+      ctx.fillStyle = color;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(label, badgeX, badgeY);
+      ctx.restore();
+    }
+
+    if (isBack) {
+      ctx.restore();
     }
   }
 
@@ -733,6 +771,7 @@ export class LayoutCanvas {
           this.isPanning = false;
           this.dragId = hit.id;
           selectComponent(hit.id);
+          beginDrag(hit.id); // Record position for undo
           c.style.cursor = 'grabbing';
         } else if (hit && hit.type !== 'outline') {
           selectComponent(hit.id);
@@ -783,7 +822,8 @@ export class LayoutCanvas {
 
     // Mouse up
     c.addEventListener('mouseup', () => {
-      if (this.isDragging) {
+      if (this.isDragging && this.dragId) {
+        endDrag(this.dragId); // Record action for undo/redo
         c.style.cursor = 'grab';
       }
       this.isDragging = false;
@@ -803,6 +843,20 @@ export class LayoutCanvas {
   // ── Keyboard ──────────────────────────────────────────────────────────
 
   private handleKeyDown(e: KeyboardEvent) {
+    // Undo: Ctrl+Z / Cmd+Z
+    if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey) {
+      undo();
+      e.preventDefault();
+      return;
+    }
+    // Redo: Ctrl+Shift+Z / Cmd+Shift+Z / Ctrl+Y
+    if (((e.ctrlKey || e.metaKey) && e.key === 'z' && e.shiftKey) ||
+        ((e.ctrlKey || e.metaKey) && e.key === 'y')) {
+      redo();
+      e.preventDefault();
+      return;
+    }
+
     if (e.key === ' ') {
       this.spaceHeld = true;
       this.canvas.style.cursor = 'grab';

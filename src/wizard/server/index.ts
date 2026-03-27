@@ -10,6 +10,9 @@ import { generateRoutes } from './routes/generate.routes.js';
 import { buildRoutes } from './routes/build.routes.js';
 import { configRoutes } from './routes/config.routes.js';
 
+// Increase listener limit to avoid warnings from dynamic imports and SSE connections
+process.setMaxListeners(30);
+
 async function main() {
   const app = Fastify({
     logger: {
@@ -82,6 +85,15 @@ async function main() {
     app.log.error(err);
     process.exit(1);
   }
+
+  // Immediate shutdown — don't wait for open connections (SSE streams hang forever)
+  const shutdown = (signal: string) => {
+    console.log(`\n${signal} received, exiting.`);
+    process.exit(0);
+  };
+
+  process.on('SIGINT', () => shutdown('SIGINT'));
+  process.on('SIGTERM', () => shutdown('SIGTERM'));
 }
 
 main();

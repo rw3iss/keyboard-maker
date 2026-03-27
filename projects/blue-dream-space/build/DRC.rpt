@@ -1,0 +1,1961 @@
+** Drc report for blue-dream-space.kicad_pcb **
+** Created on 2026-03-27T02:05:13-0400 **
+
+** Found 504 DRC violations **
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(302.1169 mm, 23.2932 mm): Track [USB_DM] on F.Cu, length 0.3399 mm
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(176.6190 mm, 138.7500 mm): Track [USB_DM] on F.Cu, length 1.3810 mm
+    @(178.0625 mm, 138.7500 mm): Pad 11 [ROW10] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(303.2948 mm, 23.0448 mm): Track [USB_DP] on F.Cu, length 0.0634 mm
+    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(303.2948 mm, 24.6711 mm): Track [USB_DP] on F.Cu, length 1.6263 mm
+    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(178.0000 mm, 139.2500 mm): Track [USB_DP] on F.Cu, length 1.1011 mm
+    @(178.0625 mm, 139.2500 mm): Pad 12 [COL0] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(300.7665 mm, 22.7016 mm): Via [VBUS] on F.Cu - B.Cu
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(300.7665 mm, 22.7016 mm): Via [VBUS] on F.Cu - B.Cu
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(177.3151 mm, 138.2500 mm): Track [VBUS] on F.Cu, length 0.6849 mm
+    @(178.0625 mm, 138.2500 mm): Pad 10 [ROW9] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(301.3910 mm, 22.0771 mm): Track [VBUS] on F.Cu, length 0.8832 mm
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(301.3910 mm, 22.0771 mm): Track [VBUS] on F.Cu, length 0.8832 mm
+    @(301.1500 mm, 21.6500 mm): PTH pad B9 [<no net>] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(303.4341 mm, 22.0771 mm): Track [VBUS] on F.Cu, length 2.0431 mm
+    @(301.1500 mm, 21.6500 mm): PTH pad B9 [<no net>] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(303.4341 mm, 22.0771 mm): Track [VBUS] on F.Cu, length 2.0431 mm
+    @(302.0000 mm, 21.6500 mm): PTH pad B12 [<no net>] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(303.4341 mm, 22.0771 mm): Track [VBUS] on F.Cu, length 2.0431 mm
+    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(304.2500 mm, 22.8930 mm): Track [VBUS] on F.Cu, length 1.1539 mm
+    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(300.0484 mm, 22.7016 mm): Track [VBUS] on F.Cu, length 0.4220 mm
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(300.0484 mm, 22.7016 mm): Track [VBUS] on F.Cu, length 0.4220 mm
+    @(299.4500 mm, 23.0000 mm): PTH pad A6 [USB_DP] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(300.7665 mm, 22.7016 mm): Track [VBUS] on F.Cu, length 0.7181 mm
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(185.0000 mm, 137.7500 mm): Track [COL9] on F.Cu, length 0.6463 mm
+    @(184.9375 mm, 137.7500 mm): Pad 28 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(185.0664 mm, 137.3164 mm): Track [COL8] on F.Cu, length 1.1249 mm
+    @(184.9375 mm, 137.2500 mm): Pad 29 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(185.0000 mm, 137.2500 mm): Track [COL8] on F.Cu, length 0.0939 mm
+    @(184.9375 mm, 137.2500 mm): Pad 29 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(179.8700 mm, 85.0429 mm): Via [COL7] on F.Cu - B.Cu
+    @(180.5125 mm, 85.3875 mm): Pad 1 [ROW4] of D40 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(179.8700 mm, 85.7228 mm): Track [COL7] on F.Cu, length 0.7929 mm
+    @(180.5125 mm, 85.3875 mm): Pad 1 [ROW4] of D40 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(185.0000 mm, 136.7500 mm): Track [COL7] on F.Cu, length 0.6297 mm
+    @(184.9375 mm, 136.7500 mm): Pad 30 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(319.4483 mm, 41.6441 mm): Track [COL6] on F.Cu, length 1.8447 mm
+    @(319.5775 mm, 42.5250 mm): Pad 1 [ROW1] of D15 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(156.5771 mm, 43.3776 mm): Track [COL6] on F.Cu, length 1.2967 mm
+    @(156.7000 mm, 42.5250 mm): Pad 1 [ROW0] of D7 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(185.0000 mm, 136.2500 mm): Track [COL6] on F.Cu, length 0.9098 mm
+    @(184.9375 mm, 136.2500 mm): Pad 31 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(185.0000 mm, 135.7500 mm): Track [COL5] on F.Cu, length 2.3791 mm
+    @(184.9375 mm, 135.7500 mm): Pad 32 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(107.8701 mm, 66.1080 mm): Track [COL4] on F.Cu, length 1.5303 mm
+    @(109.0750 mm, 66.3375 mm): Pad 1 [ROW2] of D21 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(275.3599 mm, 43.0978 mm): Track [COL4] on F.Cu, length 0.3957 mm
+    @(275.7625 mm, 42.5250 mm): Pad 1 [ROW1] of D13 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(275.3599 mm, 41.4982 mm): Track [COL4] on F.Cu, length 1.5996 mm
+    @(275.7625 mm, 42.5250 mm): Pad 1 [ROW1] of D13 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(185.9517 mm, 135.2500 mm): Track [COL4] on F.Cu, length 0.9517 mm
+    @(184.9375 mm, 135.2500 mm): Pad 33 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(185.5408 mm, 134.7500 mm): Track [COL3] on F.Cu, length 0.5408 mm
+    @(184.9375 mm, 134.7500 mm): Pad 34 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(227.3950 mm, 122.9362 mm): Via [COL2] on F.Cu - B.Cu
+    @(228.1375 mm, 123.4875 mm): Pad 1 [ROW9] of D72 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(185.0000 mm, 134.2500 mm): Track [COL2] on F.Cu, length 0.5435 mm
+    @(184.9375 mm, 134.2500 mm): Pad 35 [VCC] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(58.9320 mm, 141.6849 mm): Track [COL1] on F.Cu, length 2.2200 mm
+    @(59.0688 mm, 142.5375 mm): Pad 1 [ROW10] of D78 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(185.6562 mm, 133.0938 mm): Track [COL1] on F.Cu, length 0.9280 mm
+    @(184.9375 mm, 133.7500 mm): Pad 36 [VCC] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(184.2500 mm, 140.0000 mm): Track [COL0] on F.Cu, length 0.7442 mm
+    @(184.2500 mm, 139.9375 mm): Pad 24 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(183.7500 mm, 140.3795 mm): Track [ROW10] on F.Cu, length 0.3795 mm
+    @(183.7500 mm, 139.9375 mm): Pad 23 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(184.5784 mm, 141.2079 mm): Track [ROW10] on F.Cu, length 1.1715 mm
+    @(183.7500 mm, 139.9375 mm): Pad 23 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(183.2500 mm, 140.4611 mm): Track [ROW9] on F.Cu, length 0.4611 mm
+    @(183.2500 mm, 139.9375 mm): Pad 22 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(184.5635 mm, 141.7746 mm): Track [ROW9] on F.Cu, length 1.8576 mm
+    @(183.2500 mm, 139.9375 mm): Pad 22 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(117.5401 mm, 122.9147 mm): Track [ROW8] on F.Cu, length 0.3957 mm
+    @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(117.5401 mm, 123.4875 mm): Track [ROW8] on F.Cu, length 0.5728 mm
+    @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(133.1875 mm, 123.4875 mm): Track [ROW8] on F.Cu, length 15.6474 mm
+    @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(117.5401 mm, 124.0603 mm): Track [ROW8] on F.Cu, length 0.5728 mm
+    @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(117.2311 mm, 124.3693 mm): Track [ROW8] on F.Cu, length 0.4370 mm
+    @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(182.7500 mm, 140.9008 mm): Track [ROW8] on F.Cu, length 0.9008 mm
+    @(182.7500 mm, 139.9375 mm): Pad 21 [COL9] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(265.1776 mm, 103.8647 mm): Track [ROW7] on F.Cu, length 0.3957 mm
+    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(265.1776 mm, 105.0103 mm): Track [ROW7] on F.Cu, length 1.1456 mm
+    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(264.8619 mm, 105.3260 mm): Track [ROW7] on F.Cu, length 0.4465 mm
+    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(182.2500 mm, 141.1810 mm): Track [ROW7] on F.Cu, length 1.1810 mm
+    @(182.2500 mm, 139.9375 mm): Pad 20 [COL8] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(181.7500 mm, 140.9005 mm): Track [ROW6] on F.Cu, length 0.9005 mm
+    @(181.7500 mm, 139.9375 mm): Pad 19 [COL7] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(181.2500 mm, 140.0000 mm): Track [ROW5] on F.Cu, length 0.6204 mm
+    @(181.2500 mm, 139.9375 mm): Pad 18 [COL6] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(88.9651 mm, 84.8147 mm): Track [ROW4] on F.Cu, length 0.4482 mm
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(88.9651 mm, 85.3875 mm): Track [ROW4] on F.Cu, length 0.5728 mm
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(88.9651 mm, 85.3875 mm): Track [ROW4] on F.Cu, length 15.6474 mm
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(88.9651 mm, 85.9603 mm): Track [ROW4] on F.Cu, length 0.5728 mm
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(88.6853 mm, 86.2401 mm): Track [ROW4] on F.Cu, length 0.3957 mm
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(180.7153 mm, 140.0347 mm): Track [ROW4] on F.Cu, length 0.7903 mm
+    @(180.7500 mm, 139.9375 mm): Pad 17 [COL5] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(180.7500 mm, 140.0000 mm): Track [ROW4] on F.Cu, length 0.0491 mm
+    @(180.7500 mm, 139.9375 mm): Pad 17 [COL5] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(180.2500 mm, 140.4456 mm): Track [ROW3] on F.Cu, length 0.4456 mm
+    @(180.2500 mm, 139.9375 mm): Pad 16 [COL4] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(179.0732 mm, 141.6224 mm): Track [ROW3] on F.Cu, length 1.6642 mm
+    @(180.2500 mm, 139.9375 mm): Pad 16 [COL4] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(179.7500 mm, 140.4183 mm): Track [ROW2] on F.Cu, length 0.9226 mm
+    @(179.7500 mm, 139.9375 mm): Pad 15 [COL3] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(179.7500 mm, 140.0000 mm): Track [ROW2] on F.Cu, length 0.4183 mm
+    @(179.7500 mm, 139.9375 mm): Pad 15 [COL3] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(323.2801 mm, 43.0978 mm): Track [ROW1] on F.Cu, length 0.5728 mm
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(323.0003 mm, 43.3776 mm): Track [ROW1] on F.Cu, length 0.3957 mm
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(338.9275 mm, 42.5250 mm): Track [ROW1] on F.Cu, length 15.6474 mm
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.2713 mm
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.5728 mm
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.9331 mm
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(179.2500 mm, 140.4176 mm): Track [ROW1] on F.Cu, length 0.4262 mm
+    @(179.2500 mm, 139.9375 mm): Pad 14 [COL2] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(179.2500 mm, 140.0000 mm): Track [ROW1] on F.Cu, length 0.4176 mm
+    @(179.2500 mm, 139.9375 mm): Pad 14 [COL2] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.8781 mm, 41.6739 mm): Track [ROW0] on F.Cu, length 2.4391 mm
+    @(140.9500 mm, 42.5250 mm): Pad 2 [COL5] of D6 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(178.7500 mm, 140.0000 mm): Track [ROW0] on F.Cu, length 4.1119 mm
+    @(178.7500 mm, 139.9375 mm): Pad 13 [COL1] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(179.2500 mm, 133.0000 mm): Track [GND] on F.Cu, length 0.4614 mm
+    @(179.2500 mm, 133.0625 mm): Pad 47 [<no net>] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+    @(296.9000 mm, 23.0000 mm): PTH pad A9 [<no net>] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+    @(296.0500 mm, 23.0000 mm): PTH pad A12 [<no net>] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+    @(296.9000 mm, 23.0000 mm): PTH pad A9 [<no net>] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+    @(296.0500 mm, 23.0000 mm): PTH pad A12 [<no net>] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(298.2733 mm, 23.4767 mm): Track [GND] on F.Cu, length 0.6742 mm
+    @(298.6000 mm, 23.0000 mm): PTH pad A7 [USB_DM] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(296.4356 mm, 23.4767 mm): Track [GND] on F.Cu, length 1.8377 mm
+    @(297.7500 mm, 23.0000 mm): PTH pad A8 [<no net>] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(296.4356 mm, 23.4767 mm): Track [GND] on F.Cu, length 1.8377 mm
+    @(296.9000 mm, 23.0000 mm): PTH pad A9 [<no net>] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(178.0438 mm, 133.7062 mm): Track [GND] on F.Cu, length 0.0619 mm
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(178.0438 mm, 133.7062 mm): Track [GND] on F.Cu, length 0.2752 mm
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(178.4880 mm, 133.7612 mm): Track [GND] on F.Cu, length 0.3530 mm
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(178.5112 mm, 133.7612 mm): Track [GND] on F.Cu, length 0.0232 mm
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(178.5112 mm, 133.7612 mm): Track [GND] on F.Cu, length 0.2500 mm
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(177.9755 mm, 133.7255 mm): Track [GND] on F.Cu, length 0.0346 mm
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(177.9755 mm, 133.7255 mm): Track [GND] on F.Cu, length 1.5240 mm
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(34.5250 mm, 34.5250 mm): Footprint SW1
+    @(34.5250 mm, 42.5250 mm): Footprint D1
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(58.3375 mm, 34.5250 mm): Footprint SW2
+    @(58.3375 mm, 42.5250 mm): Footprint D2
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(77.3875 mm, 34.5250 mm): Footprint SW3
+    @(77.3875 mm, 42.5250 mm): Footprint D3
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(96.4375 mm, 34.5250 mm): Footprint SW4
+    @(96.4375 mm, 42.5250 mm): Footprint D4
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(115.4875 mm, 34.5250 mm): Footprint SW5
+    @(115.4875 mm, 42.5250 mm): Footprint D5
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(139.3000 mm, 34.5250 mm): Footprint SW6
+    @(139.3000 mm, 42.5250 mm): Footprint D6
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(158.3500 mm, 34.5250 mm): Footprint SW7
+    @(158.3500 mm, 42.5250 mm): Footprint D7
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(177.4000 mm, 34.5250 mm): Footprint SW8
+    @(177.4000 mm, 42.5250 mm): Footprint D8
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(196.4500 mm, 34.5250 mm): Footprint SW9
+    @(196.4500 mm, 42.5250 mm): Footprint D9
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(220.2625 mm, 34.5250 mm): Footprint SW10
+    @(220.2625 mm, 42.5250 mm): Footprint D10
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(239.3125 mm, 34.5250 mm): Footprint SW11
+    @(239.3125 mm, 42.5250 mm): Footprint D11
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(258.3625 mm, 34.5250 mm): Footprint SW12
+    @(258.3625 mm, 42.5250 mm): Footprint D12
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(277.4125 mm, 34.5250 mm): Footprint SW13
+    @(277.4125 mm, 42.5250 mm): Footprint D13
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(302.1775 mm, 34.5250 mm): Footprint SW14
+    @(302.1775 mm, 42.5250 mm): Footprint D14
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(321.2275 mm, 34.5250 mm): Footprint SW15
+    @(321.2275 mm, 42.5250 mm): Footprint D15
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(321.2275 mm, 34.5250 mm): Footprint SW15
+    @(331.0000 mm, 38.0000 mm): Footprint BT1
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(340.2775 mm, 34.5250 mm): Footprint SW16
+    @(340.2775 mm, 42.5250 mm): Footprint D16
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(340.2775 mm, 34.5250 mm): Footprint SW16
+    @(331.0000 mm, 38.0000 mm): Footprint BT1
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(34.5250 mm, 58.3375 mm): Footprint SW17
+    @(34.5250 mm, 66.3375 mm): Footprint D17
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(53.5750 mm, 58.3375 mm): Footprint SW18
+    @(53.5750 mm, 66.3375 mm): Footprint D18
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(72.6250 mm, 58.3375 mm): Footprint SW19
+    @(72.6250 mm, 66.3375 mm): Footprint D19
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(91.6750 mm, 58.3375 mm): Footprint SW20
+    @(91.6750 mm, 66.3375 mm): Footprint D20
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(110.7250 mm, 58.3375 mm): Footprint SW21
+    @(110.7250 mm, 66.3375 mm): Footprint D21
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(129.7750 mm, 58.3375 mm): Footprint SW22
+    @(129.7750 mm, 66.3375 mm): Footprint D22
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(148.8250 mm, 58.3375 mm): Footprint SW23
+    @(148.8250 mm, 66.3375 mm): Footprint D23
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(167.8750 mm, 58.3375 mm): Footprint SW24
+    @(167.8750 mm, 66.3375 mm): Footprint D24
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(186.9250 mm, 58.3375 mm): Footprint SW25
+    @(186.9250 mm, 66.3375 mm): Footprint D25
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(205.9750 mm, 58.3375 mm): Footprint SW26
+    @(205.9750 mm, 66.3375 mm): Footprint D26
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(225.0250 mm, 58.3375 mm): Footprint SW27
+    @(225.0250 mm, 66.3375 mm): Footprint D27
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(244.0750 mm, 58.3375 mm): Footprint SW28
+    @(244.0750 mm, 66.3375 mm): Footprint D28
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(263.1250 mm, 58.3375 mm): Footprint SW29
+    @(263.1250 mm, 66.3375 mm): Footprint D29
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(294.0813 mm, 58.3375 mm): Footprint SW30
+    @(294.0813 mm, 66.3375 mm): Footprint D30
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(326.1805 mm, 58.3375 mm): Footprint SW31
+    @(326.1805 mm, 66.3375 mm): Footprint D31
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(345.2305 mm, 58.3375 mm): Footprint SW32
+    @(345.2305 mm, 66.3375 mm): Footprint D32
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(41.6688 mm, 77.3875 mm): Footprint SW33
+    @(41.6688 mm, 85.3875 mm): Footprint D33
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(67.8625 mm, 77.3875 mm): Footprint SW34
+    @(67.8625 mm, 85.3875 mm): Footprint D34
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(86.9125 mm, 77.3875 mm): Footprint SW35
+    @(86.9125 mm, 85.3875 mm): Footprint D35
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(105.9625 mm, 77.3875 mm): Footprint SW36
+    @(105.9625 mm, 85.3875 mm): Footprint D36
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(125.0125 mm, 77.3875 mm): Footprint SW37
+    @(125.0125 mm, 85.3875 mm): Footprint D37
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(144.0625 mm, 77.3875 mm): Footprint SW38
+    @(144.0625 mm, 85.3875 mm): Footprint D38
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(163.1125 mm, 77.3875 mm): Footprint SW39
+    @(163.1125 mm, 85.3875 mm): Footprint D39
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(182.1625 mm, 77.3875 mm): Footprint SW40
+    @(182.1625 mm, 85.3875 mm): Footprint D40
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(201.2125 mm, 77.3875 mm): Footprint SW41
+    @(201.2125 mm, 85.3875 mm): Footprint D41
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(220.2625 mm, 77.3875 mm): Footprint SW42
+    @(220.2625 mm, 85.3875 mm): Footprint D42
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(239.3125 mm, 77.3875 mm): Footprint SW43
+    @(239.3125 mm, 85.3875 mm): Footprint D43
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(258.3625 mm, 77.3875 mm): Footprint SW44
+    @(258.3625 mm, 85.3875 mm): Footprint D44
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(277.4125 mm, 77.3875 mm): Footprint SW45
+    @(277.4125 mm, 85.3875 mm): Footprint D45
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(301.2250 mm, 86.9125 mm): Footprint SW46
+    @(301.2250 mm, 94.9125 mm): Footprint D46
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(326.1805 mm, 77.3875 mm): Footprint SW47
+    @(326.1805 mm, 85.3875 mm): Footprint D47
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(345.2305 mm, 77.3875 mm): Footprint SW48
+    @(345.2305 mm, 85.3875 mm): Footprint D48
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(44.0500 mm, 96.4375 mm): Footprint SW49
+    @(44.0500 mm, 104.4375 mm): Footprint D49
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(72.6250 mm, 96.4375 mm): Footprint SW50
+    @(72.6250 mm, 104.4375 mm): Footprint D50
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(91.6750 mm, 96.4375 mm): Footprint SW51
+    @(91.6750 mm, 104.4375 mm): Footprint D51
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(110.7250 mm, 96.4375 mm): Footprint SW52
+    @(110.7250 mm, 104.4375 mm): Footprint D52
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(129.7750 mm, 96.4375 mm): Footprint SW53
+    @(129.7750 mm, 104.4375 mm): Footprint D53
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(148.8250 mm, 96.4375 mm): Footprint SW54
+    @(148.8250 mm, 104.4375 mm): Footprint D54
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(167.8750 mm, 96.4375 mm): Footprint SW55
+    @(167.8750 mm, 104.4375 mm): Footprint D55
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(186.9250 mm, 96.4375 mm): Footprint SW56
+    @(186.9250 mm, 104.4375 mm): Footprint D56
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(205.9750 mm, 96.4375 mm): Footprint SW57
+    @(205.9750 mm, 104.4375 mm): Footprint D57
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(225.0250 mm, 96.4375 mm): Footprint SW58
+    @(225.0250 mm, 104.4375 mm): Footprint D58
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(244.0750 mm, 96.4375 mm): Footprint SW59
+    @(244.0750 mm, 104.4375 mm): Footprint D59
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(263.1250 mm, 96.4375 mm): Footprint SW60
+    @(263.1250 mm, 104.4375 mm): Footprint D60
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(326.1805 mm, 96.4375 mm): Footprint SW61
+    @(326.1805 mm, 104.4375 mm): Footprint D61
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(345.2305 mm, 96.4375 mm): Footprint SW62
+    @(345.2305 mm, 104.4375 mm): Footprint D62
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(46.4313 mm, 115.4875 mm): Footprint SW63
+    @(46.4313 mm, 123.4875 mm): Footprint D63
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(77.3875 mm, 115.4875 mm): Footprint SW64
+    @(77.3875 mm, 123.4875 mm): Footprint D64
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(96.4375 mm, 115.4875 mm): Footprint SW65
+    @(96.4375 mm, 123.4875 mm): Footprint D65
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(115.4875 mm, 115.4875 mm): Footprint SW66
+    @(115.4875 mm, 123.4875 mm): Footprint D66
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(134.5375 mm, 115.4875 mm): Footprint SW67
+    @(134.5375 mm, 123.4875 mm): Footprint D67
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(153.5875 mm, 115.4875 mm): Footprint SW68
+    @(153.5875 mm, 123.4875 mm): Footprint D68
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(172.6375 mm, 115.4875 mm): Footprint SW69
+    @(172.6375 mm, 123.4875 mm): Footprint D69
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(191.6875 mm, 115.4875 mm): Footprint SW70
+    @(191.6875 mm, 123.4875 mm): Footprint D70
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(210.7375 mm, 115.4875 mm): Footprint SW71
+    @(210.7375 mm, 123.4875 mm): Footprint D71
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(229.7875 mm, 115.4875 mm): Footprint SW72
+    @(229.7875 mm, 123.4875 mm): Footprint D72
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(248.8375 mm, 115.4875 mm): Footprint SW73
+    @(248.8375 mm, 123.4875 mm): Footprint D73
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(275.0313 mm, 115.4875 mm): Footprint SW74
+    @(275.0313 mm, 123.4875 mm): Footprint D74
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(305.9875 mm, 115.4875 mm): Footprint SW75
+    @(305.9875 mm, 123.4875 mm): Footprint D75
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(346.9450 mm, 117.3925 mm): Footprint SW76
+    @(346.9450 mm, 125.3925 mm): Footprint D76
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(36.9063 mm, 134.5375 mm): Footprint SW77
+    @(36.9063 mm, 142.5375 mm): Footprint D77
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(60.7188 mm, 134.5375 mm): Footprint SW78
+    @(60.7188 mm, 142.5375 mm): Footprint D78
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(84.5313 mm, 134.5375 mm): Footprint SW79
+    @(84.5313 mm, 142.5375 mm): Footprint D79
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(158.3500 mm, 134.5375 mm): Footprint SW80
+    @(158.3500 mm, 142.5375 mm): Footprint D80
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(232.1688 mm, 134.5375 mm): Footprint SW81
+    @(232.1688 mm, 142.5375 mm): Footprint D81
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(255.9813 mm, 134.5375 mm): Footprint SW82
+    @(255.9813 mm, 142.5375 mm): Footprint D82
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(286.9375 mm, 134.5375 mm): Footprint SW83
+    @(286.9375 mm, 142.5375 mm): Footprint D83
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(305.9875 mm, 134.5375 mm): Footprint SW84
+    @(305.9875 mm, 142.5375 mm): Footprint D84
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(325.0375 mm, 134.5375 mm): Footprint SW85
+    @(325.0375 mm, 142.5375 mm): Footprint D85
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(346.9450 mm, 136.4425 mm): Footprint SW86
+    @(346.9450 mm, 144.4425 mm): Footprint D86
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1791 mm)
+    Rule: netclass 'Power'; error
+    @(174.8907 mm, 139.8351 mm): Track [ROW8] on In1.Cu, length 29.1408 mm
+    @(176.4673 mm, 137.6169 mm): Track [VBUS] on In1.Cu, length 1.5521 mm
+[shorting_items]: Items shorting two nets (nets ROW0 and COL6)
+    Local override; error
+    @(156.7000 mm, 42.5250 mm): Pad 1 [ROW0] of D7 on F.Cu
+    @(156.5771 mm, 43.3776 mm): Track [COL6] on F.Cu, length 1.2967 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1516 mm)
+    Rule: netclass 'Power'; error
+    @(176.7732 mm, 36.5771 mm): Track [VBUS] on In1.Cu, length 13.0731 mm
+    @(185.8569 mm, 28.4149 mm): Via [USB_DM] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets GND and USB_DM)
+    Local override; error
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets  and COL5)
+    Local override; error
+    @(184.9375 mm, 135.7500 mm): Pad 32 [<no net>] of U1 on F.Cu
+    @(185.0000 mm, 135.7500 mm): Track [COL5] on F.Cu, length 2.3791 mm
+[shorting_items]: Items shorting two nets (nets  and COL6)
+    Local override; error
+    @(184.9375 mm, 136.2500 mm): Pad 31 [<no net>] of U1 on F.Cu
+    @(185.0000 mm, 136.2500 mm): Track [COL6] on F.Cu, length 0.9098 mm
+[shorting_items]: Items shorting two nets (nets  and COL3)
+    Local override; error
+    @(184.9375 mm, 134.7500 mm): Pad 34 [<no net>] of U1 on F.Cu
+    @(185.5408 mm, 134.7500 mm): Track [COL3] on F.Cu, length 0.5408 mm
+[shorting_items]: Items shorting two nets (nets  and ROW10)
+    Local override; error
+    @(183.7500 mm, 139.9375 mm): Pad 23 [<no net>] of U1 on F.Cu
+    @(183.7500 mm, 140.3795 mm): Track [ROW10] on F.Cu, length 0.3795 mm
+[shorting_items]: Items shorting two nets (nets ROW4 and COL7)
+    Local override; error
+    @(180.5125 mm, 85.3875 mm): Pad 1 [ROW4] of D40 on F.Cu
+    @(179.8700 mm, 85.7228 mm): Track [COL7] on F.Cu, length 0.7929 mm
+[shorting_items]: Items shorting two nets (nets  and ROW9)
+    Local override; error
+    @(183.2500 mm, 139.9375 mm): Pad 22 [<no net>] of U1 on F.Cu
+    @(183.2500 mm, 140.4611 mm): Track [ROW9] on F.Cu, length 0.4611 mm
+[shorting_items]: Items shorting two nets (nets  and ROW10)
+    Local override; error
+    @(183.7500 mm, 139.9375 mm): Pad 23 [<no net>] of U1 on F.Cu
+    @(184.5784 mm, 141.2079 mm): Track [ROW10] on F.Cu, length 1.1715 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0925 mm)
+    Rule: netclass 'Default'; error
+    @(180.5125 mm, 85.3875 mm): Pad 1 [ROW4] of D40 on F.Cu
+    @(179.8700 mm, 85.0429 mm): Track [COL7] on F.Cu, length 0.6799 mm
+[shorting_items]: Items shorting two nets (nets  and COL9)
+    Local override; error
+    @(184.9375 mm, 137.7500 mm): Pad 28 [<no net>] of U1 on F.Cu
+    @(185.0000 mm, 137.7500 mm): Track [COL9] on F.Cu, length 0.6463 mm
+[shorting_items]: Items shorting two nets (nets  and ROW9)
+    Local override; error
+    @(183.2500 mm, 139.9375 mm): Pad 22 [<no net>] of U1 on F.Cu
+    @(184.5635 mm, 141.7746 mm): Track [ROW9] on F.Cu, length 1.8576 mm
+[shorting_items]: Items shorting two nets (nets  and COL4)
+    Local override; error
+    @(184.9375 mm, 135.2500 mm): Pad 33 [<no net>] of U1 on F.Cu
+    @(185.9517 mm, 135.2500 mm): Track [COL4] on F.Cu, length 0.9517 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0658 mm)
+    Rule: netclass 'Default'; error
+    @(184.9375 mm, 134.7500 mm): Pad 34 [<no net>] of U1 on F.Cu
+    @(186.2918 mm, 133.9990 mm): Track [COL3] on F.Cu, length 1.0621 mm
+[shorting_items]: Items shorting two nets (nets  and COL0)
+    Local override; error
+    @(184.2500 mm, 139.9375 mm): Pad 24 [<no net>] of U1 on F.Cu
+    @(184.2500 mm, 140.0000 mm): Track [COL0] on F.Cu, length 0.7442 mm
+[shorting_items]: Items shorting two nets (nets ROW10 and COL1)
+    Local override; error
+    @(59.0688 mm, 142.5375 mm): Pad 1 [ROW10] of D78 on F.Cu
+    @(58.9320 mm, 141.6849 mm): Track [COL1] on F.Cu, length 2.2200 mm
+[shorting_items]: Items shorting two nets (nets COL4 and ROW3)
+    Local override; error
+    @(180.2500 mm, 139.9375 mm): Pad 16 [COL4] of U1 on F.Cu
+    @(180.2500 mm, 140.4456 mm): Track [ROW3] on F.Cu, length 0.4456 mm
+[shorting_items]: Items shorting two nets (nets GND and USB_DM)
+    Local override; error
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(299.8584 mm, 25.5517 mm): Track [USB_DM] on In2.Cu, length 3.1940 mm
+[shorting_items]: Items shorting two nets (nets COL3 and ROW2)
+    Local override; error
+    @(179.7500 mm, 139.9375 mm): Pad 15 [COL3] of U1 on F.Cu
+    @(179.7500 mm, 140.4183 mm): Track [ROW2] on F.Cu, length 0.9226 mm
+[shorting_items]: Items shorting two nets (nets COL9 and ROW8)
+    Local override; error
+    @(182.7500 mm, 139.9375 mm): Pad 21 [COL9] of U1 on F.Cu
+    @(182.7500 mm, 140.9008 mm): Track [ROW8] on F.Cu, length 0.9008 mm
+[shorting_items]: Items shorting two nets (nets COL4 and ROW3)
+    Local override; error
+    @(180.2500 mm, 139.9375 mm): Pad 16 [COL4] of U1 on F.Cu
+    @(179.0732 mm, 141.6224 mm): Track [ROW3] on F.Cu, length 1.6642 mm
+[shorting_items]: Items shorting two nets (nets  and COL7)
+    Local override; error
+    @(184.9375 mm, 136.7500 mm): Pad 30 [<no net>] of U1 on F.Cu
+    @(185.0000 mm, 136.7500 mm): Track [COL7] on F.Cu, length 0.6297 mm
+[shorting_items]: Items shorting two nets (nets COL3 and ROW2)
+    Local override; error
+    @(179.7500 mm, 139.9375 mm): Pad 15 [COL3] of U1 on F.Cu
+    @(179.7500 mm, 140.0000 mm): Track [ROW2] on F.Cu, length 0.4183 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.0928 mm)
+    Rule: netclass 'Power'; error
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(302.4568 mm, 23.2932 mm): Track [USB_DM] on F.Cu, length 0.4146 mm
+[shorting_items]: Items shorting two nets (nets GND and USB_DM)
+    Local override; error
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(302.1169 mm, 23.2932 mm): Track [USB_DM] on F.Cu, length 0.3399 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0253 mm)
+    Rule: netclass 'Default'; error
+    @(324.5305 mm, 85.3875 mm): Pad 1 [ROW5] of D47 on F.Cu
+    @(324.3159 mm, 84.5067 mm): Track [COL6] on F.Cu, length 1.4477 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1911 mm)
+    Rule: netclass 'Power'; error
+    @(176.1830 mm, 136.9238 mm): Track [COL6] on In2.Cu, length 1.8593 mm
+    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets COL2 and ROW1)
+    Local override; error
+    @(179.2500 mm, 139.9375 mm): Pad 14 [COL2] of U1 on F.Cu
+    @(179.2500 mm, 140.4176 mm): Track [ROW1] on F.Cu, length 0.4262 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1931 mm)
+    Rule: netclass 'Power'; error
+    @(176.7755 mm, 136.9238 mm): Track [COL6] on In2.Cu, length 0.5925 mm
+    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets VCC and COL1)
+    Local override; error
+    @(184.9375 mm, 133.7500 mm): Pad 36 [VCC] of U1 on F.Cu
+    @(185.6562 mm, 133.0938 mm): Track [COL1] on F.Cu, length 0.9280 mm
+[shorting_items]: Items shorting two nets (nets COL2 and ROW1)
+    Local override; error
+    @(179.2500 mm, 139.9375 mm): Pad 14 [COL2] of U1 on F.Cu
+    @(179.2500 mm, 140.0000 mm): Track [ROW1] on F.Cu, length 0.4176 mm
+[shorting_items]: Items shorting two nets (nets ROW1 and COL6)
+    Local override; error
+    @(319.5775 mm, 42.5250 mm): Pad 1 [ROW1] of D15 on F.Cu
+    @(319.4483 mm, 41.6441 mm): Track [COL6] on F.Cu, length 1.8447 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1400 mm)
+    Rule: netclass 'Default'; error
+    @(221.9125 mm, 42.5250 mm): Pad 2 [COL1] of D10 on F.Cu
+    @(222.8025 mm, 42.1604 mm): Via [ROW1] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets COL5 and ROW4)
+    Local override; error
+    @(180.7500 mm, 139.9375 mm): Pad 17 [COL5] of U1 on F.Cu
+    @(180.7153 mm, 140.0347 mm): Track [ROW4] on F.Cu, length 0.7903 mm
+[shorting_items]: Items shorting two nets (nets ROW10 and USB_DM)
+    Local override; error
+    @(178.0625 mm, 138.7500 mm): Pad 11 [ROW10] of U1 on F.Cu
+    @(176.6190 mm, 138.7500 mm): Track [USB_DM] on F.Cu, length 1.3810 mm
+[shorting_items]: Items shorting two nets (nets COL5 and ROW4)
+    Local override; error
+    @(180.7500 mm, 139.9375 mm): Pad 17 [COL5] of U1 on F.Cu
+    @(180.7500 mm, 140.0000 mm): Track [ROW4] on F.Cu, length 0.0491 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.0685 mm)
+    Rule: netclass 'Power'; error
+    @(184.9375 mm, 134.2500 mm): Pad 35 [VCC] of U1 on F.Cu
+    @(185.5435 mm, 134.2500 mm): Track [COL2] on F.Cu, length 0.8523 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1940 mm)
+    Rule: netclass 'Power'; error
+    @(175.8155 mm, 137.9465 mm): Track [USB_DM] on F.Cu, length 1.1363 mm
+    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1518 mm)
+    Rule: netclass 'Power'; error
+    @(175.8155 mm, 137.3472 mm): Track [USB_DM] on F.Cu, length 0.5993 mm
+    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1454 mm)
+    Rule: netclass 'Default'; error
+    @(181.2500 mm, 139.9375 mm): Pad 18 [COL6] of U1 on F.Cu
+    @(181.2500 mm, 140.6204 mm): Track [ROW5] on F.Cu, length 0.2588 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1516 mm)
+    Rule: netclass 'Power'; error
+    @(176.7820 mm, 136.3807 mm): Track [USB_DM] on F.Cu, length 1.3668 mm
+    @(176.4673 mm, 137.6169 mm): Via [VBUS] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets VCC and COL2)
+    Local override; error
+    @(184.9375 mm, 134.2500 mm): Pad 35 [VCC] of U1 on F.Cu
+    @(185.0000 mm, 134.2500 mm): Track [COL2] on F.Cu, length 0.5435 mm
+[shorting_items]: Items shorting two nets (nets  and COL8)
+    Local override; error
+    @(184.9375 mm, 137.2500 mm): Pad 29 [<no net>] of U1 on F.Cu
+    @(185.0664 mm, 137.3164 mm): Track [COL8] on F.Cu, length 1.1249 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0217 mm)
+    Rule: netclass 'Default'; error
+    @(228.1375 mm, 123.4875 mm): Pad 1 [ROW9] of D72 on F.Cu
+    @(227.3950 mm, 122.9362 mm): Via [COL2] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets  and COL8)
+    Local override; error
+    @(184.9375 mm, 137.2500 mm): Pad 29 [<no net>] of U1 on F.Cu
+    @(185.0000 mm, 137.2500 mm): Track [COL8] on F.Cu, length 0.0939 mm
+[shorting_items]: Items shorting two nets (nets COL3 and ROW8)
+    Local override; error
+    @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
+    @(117.5401 mm, 122.9147 mm): Track [ROW8] on F.Cu, length 0.3957 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW5)
+    Local override; error
+    @(181.2500 mm, 139.9375 mm): Pad 18 [COL6] of U1 on F.Cu
+    @(181.2500 mm, 140.0000 mm): Track [ROW5] on F.Cu, length 0.6204 mm
+[shorting_items]: Items shorting two nets (nets COL7 and ROW6)
+    Local override; error
+    @(181.7500 mm, 139.9375 mm): Pad 19 [COL7] of U1 on F.Cu
+    @(181.7500 mm, 140.9005 mm): Track [ROW6] on F.Cu, length 0.9005 mm
+[shorting_items]: Items shorting two nets (nets COL3 and ROW8)
+    Local override; error
+    @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
+    @(117.5401 mm, 123.4875 mm): Track [ROW8] on F.Cu, length 0.5728 mm
+[shorting_items]: Items shorting two nets (nets COL3 and ROW8)
+    Local override; error
+    @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
+    @(133.1875 mm, 123.4875 mm): Track [ROW8] on F.Cu, length 15.6474 mm
+[shorting_items]: Items shorting two nets (nets COL3 and ROW8)
+    Local override; error
+    @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
+    @(117.5401 mm, 124.0603 mm): Track [ROW8] on F.Cu, length 0.5728 mm
+[shorting_items]: Items shorting two nets (nets COL3 and ROW8)
+    Local override; error
+    @(117.1375 mm, 123.4875 mm): Pad 2 [COL3] of D66 on F.Cu
+    @(117.2311 mm, 124.3693 mm): Track [ROW8] on F.Cu, length 0.4370 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
+    Local override; error
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(323.2801 mm, 43.0978 mm): Track [ROW1] on F.Cu, length 0.5728 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
+    Local override; error
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(323.0003 mm, 43.3776 mm): Track [ROW1] on F.Cu, length 0.3957 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
+    Local override; error
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(338.9275 mm, 42.5250 mm): Track [ROW1] on F.Cu, length 15.6474 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1791 mm)
+    Rule: netclass 'Power'; error
+    @(175.3698 mm, 116.5239 mm): Track [VBUS] on In1.Cu, length 1.9847 mm
+    @(174.8907 mm, 139.8351 mm): Track [ROW8] on In1.Cu, length 29.1408 mm
+[shorting_items]: Items shorting two nets (nets COL4 and ROW7)
+    Local override; error
+    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
+    @(265.1776 mm, 103.8647 mm): Track [ROW7] on F.Cu, length 0.3957 mm
+[shorting_items]: Items shorting two nets (nets COL4 and ROW7)
+    Local override; error
+    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
+    @(265.1776 mm, 105.0103 mm): Track [ROW7] on F.Cu, length 1.1456 mm
+[shorting_items]: Items shorting two nets (nets COL4 and ROW7)
+    Local override; error
+    @(264.7750 mm, 104.4375 mm): Pad 2 [COL4] of D60 on F.Cu
+    @(264.8619 mm, 105.3260 mm): Track [ROW7] on F.Cu, length 0.4465 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
+    Local override; error
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.2713 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
+    Local override; error
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.5728 mm
+[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
+    Local override; error
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+    @(88.9651 mm, 84.8147 mm): Track [ROW4] on F.Cu, length 0.4482 mm
+[shorting_items]: Items shorting two nets (nets ROW2 and COL4)
+    Local override; error
+    @(109.0750 mm, 66.3375 mm): Pad 1 [ROW2] of D21 on F.Cu
+    @(107.8701 mm, 66.1080 mm): Track [COL4] on F.Cu, length 1.5303 mm
+[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
+    Local override; error
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+    @(88.9651 mm, 85.3875 mm): Track [ROW4] on F.Cu, length 0.5728 mm
+[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
+    Local override; error
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+    @(88.9651 mm, 85.3875 mm): Track [ROW4] on F.Cu, length 15.6474 mm
+[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
+    Local override; error
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+    @(88.9651 mm, 85.9603 mm): Track [ROW4] on F.Cu, length 0.5728 mm
+[shorting_items]: Items shorting two nets (nets COL6 and ROW1)
+    Local override; error
+    @(322.8775 mm, 42.5250 mm): Pad 2 [COL6] of D15 on F.Cu
+    @(323.2801 mm, 41.9522 mm): Track [ROW1] on F.Cu, length 0.9331 mm
+[shorting_items]: Items shorting two nets (nets COL2 and ROW4)
+    Local override; error
+    @(88.5625 mm, 85.3875 mm): Pad 2 [COL2] of D35 on F.Cu
+    @(88.6853 mm, 86.2401 mm): Track [ROW4] on F.Cu, length 0.3957 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0123 mm)
+    Rule: netclass 'Default'; error
+    @(140.9500 mm, 42.5250 mm): Pad 2 [COL5] of D6 on F.Cu
+    @(142.8781 mm, 41.6739 mm): Track [ROW0] on F.Cu, length 2.4391 mm
+[shorting_items]: Items shorting two nets (nets ROW1 and COL4)
+    Local override; error
+    @(275.7625 mm, 42.5250 mm): Pad 1 [ROW1] of D13 on F.Cu
+    @(275.3599 mm, 43.0978 mm): Track [COL4] on F.Cu, length 0.3957 mm
+[shorting_items]: Items shorting two nets (nets ROW1 and COL4)
+    Local override; error
+    @(275.7625 mm, 42.5250 mm): Pad 1 [ROW1] of D13 on F.Cu
+    @(275.3599 mm, 41.4982 mm): Track [COL4] on F.Cu, length 1.5996 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1379 mm)
+    Rule: netclass 'Default'; error
+    @(221.9125 mm, 42.5250 mm): Pad 2 [COL1] of D10 on F.Cu
+    @(222.8025 mm, 42.1604 mm): Track [ROW1] on F.Cu, length 0.6901 mm
+[shorting_items]: Items shorting two nets (nets GND and USB_DP)
+    Local override; error
+    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+    @(303.2948 mm, 23.0448 mm): Track [USB_DP] on F.Cu, length 0.0634 mm
+[shorting_items]: Items shorting two nets (nets GND and USB_DP)
+    Local override; error
+    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+    @(303.2948 mm, 24.6711 mm): Track [USB_DP] on F.Cu, length 1.6263 mm
+[shorting_items]: Items shorting two nets (nets COL8 and ROW7)
+    Local override; error
+    @(182.2500 mm, 139.9375 mm): Pad 20 [COL8] of U1 on F.Cu
+    @(182.2500 mm, 141.1810 mm): Track [ROW7] on F.Cu, length 1.1810 mm
+[shorting_items]: Items shorting two nets (nets COL1 and ROW0)
+    Local override; error
+    @(178.7500 mm, 139.9375 mm): Pad 13 [COL1] of U1 on F.Cu
+    @(178.7500 mm, 140.0000 mm): Track [ROW0] on F.Cu, length 4.1119 mm
+[shorting_items]: Items shorting two nets (nets ROW4 and COL7)
+    Local override; error
+    @(180.5125 mm, 85.3875 mm): Pad 1 [ROW4] of D40 on F.Cu
+    @(179.8700 mm, 85.0429 mm): Via [COL7] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets COL0 and USB_DP)
+    Local override; error
+    @(178.0625 mm, 139.2500 mm): Pad 12 [COL0] of U1 on F.Cu
+    @(178.0000 mm, 139.2500 mm): Track [USB_DP] on F.Cu, length 1.1011 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1364 mm)
+    Rule: netclass 'Power'; error
+    @(179.2500 mm, 133.0625 mm): Pad 47 [<no net>] of U1 on F.Cu
+    @(178.7500 mm, 133.0000 mm): Track [GND] on F.Cu, length 0.0386 mm
+[shorting_items]: Items shorting two nets (nets  and GND)
+    Local override; error
+    @(179.2500 mm, 133.0625 mm): Pad 47 [<no net>] of U1 on F.Cu
+    @(179.2500 mm, 133.0000 mm): Track [GND] on F.Cu, length 0.4614 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1750 mm)
+    Rule: netclass 'Power'; error
+    @(179.2500 mm, 133.0625 mm): Pad 47 [<no net>] of U1 on F.Cu
+    @(178.3859 mm, 132.6359 mm): Track [GND] on F.Cu, length 0.5149 mm
+[shorting_items]: Items shorting two nets (nets  and GND)
+    Local override; error
+    @(296.9000 mm, 23.0000 mm): PTH pad A9 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets  and GND)
+    Local override; error
+    @(296.0500 mm, 23.0000 mm): PTH pad A12 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1751 mm)
+    Rule: netclass 'Power'; error
+    @(190.8732 mm, 22.7016 mm): Track [VBUS] on In2.Cu, length 109.8933 mm
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1533 mm)
+    Rule: netclass 'Power'; error
+    @(175.3698 mm, 136.5194 mm): Track [VBUS] on In1.Cu, length 19.9955 mm
+    @(176.1231 mm, 133.3971 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1579 mm)
+    Rule: netclass 'Power'; error
+    @(298.2733 mm, 23.4767 mm): Track [GND] on F.Cu, length 0.6742 mm
+    @(297.7500 mm, 23.0000 mm): PTH pad A8 [<no net>] of J1
+[shorting_items]: Items shorting two nets (nets GND and )
+    Local override; error
+    @(296.4356 mm, 23.4767 mm): Track [GND] on F.Cu, length 1.8377 mm
+    @(297.7500 mm, 23.0000 mm): PTH pad A8 [<no net>] of J1
+[shorting_items]: Items shorting two nets (nets ROW0 and GND)
+    Local override; error
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+    @(178.0438 mm, 133.7062 mm): Track [GND] on F.Cu, length 0.0619 mm
+[shorting_items]: Items shorting two nets (nets ROW0 and GND)
+    Local override; error
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+    @(178.0438 mm, 133.7062 mm): Track [GND] on F.Cu, length 0.2752 mm
+[shorting_items]: Items shorting two nets (nets ROW0 and GND)
+    Local override; error
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+    @(178.4880 mm, 133.7612 mm): Track [GND] on F.Cu, length 0.3530 mm
+[shorting_items]: Items shorting two nets (nets ROW0 and GND)
+    Local override; error
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+    @(178.5112 mm, 133.7612 mm): Track [GND] on F.Cu, length 0.0232 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.0612 mm)
+    Rule: netclass 'Power'; error
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+    @(178.7612 mm, 133.7612 mm): Track [GND] on F.Cu, length 3.8732 mm
+[shorting_items]: Items shorting two nets (nets ROW0 and GND)
+    Local override; error
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+    @(178.5112 mm, 133.7612 mm): Track [GND] on F.Cu, length 0.2500 mm
+[shorting_items]: Items shorting two nets (nets ROW0 and GND)
+    Local override; error
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+    @(177.9755 mm, 133.7255 mm): Track [GND] on F.Cu, length 0.0346 mm
+[shorting_items]: Items shorting two nets (nets ROW0 and GND)
+    Local override; error
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+    @(177.9755 mm, 133.7255 mm): Track [GND] on F.Cu, length 1.5240 mm
+[shorting_items]: Items shorting two nets (nets  and VBUS)
+    Local override; error
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+    @(300.7665 mm, 22.7016 mm): Via [VBUS] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets ROW9 and VBUS)
+    Local override; error
+    @(178.0625 mm, 138.2500 mm): Pad 10 [ROW9] of U1 on F.Cu
+    @(177.3151 mm, 138.2500 mm): Track [VBUS] on F.Cu, length 0.6849 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1099 mm)
+    Rule: netclass 'Power'; error
+    @(178.0625 mm, 138.2500 mm): Pad 10 [ROW9] of U1 on F.Cu
+    @(177.3151 mm, 138.2500 mm): Track [VBUS] on F.Cu, length 0.2147 mm
+[shorting_items]: Items shorting two nets (nets  and VBUS)
+    Local override; error
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+    @(190.8732 mm, 22.7016 mm): Track [VBUS] on In2.Cu, length 109.8933 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.0038 mm)
+    Rule: netclass 'Power'; error
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+    @(301.3910 mm, 22.0771 mm): Track [VBUS] on F.Cu, length 0.8832 mm
+[shorting_items]: Items shorting two nets (nets GND and VBUS)
+    Local override; error
+    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+    @(303.4341 mm, 22.0771 mm): Track [VBUS] on F.Cu, length 2.0431 mm
+[shorting_items]: Items shorting two nets (nets GND and VBUS)
+    Local override; error
+    @(294.7000 mm, 18.6400 mm): PTH pad S1 [GND] of J1
+    @(304.2500 mm, 22.8930 mm): Track [VBUS] on F.Cu, length 1.1539 mm
+[shorting_items]: Items shorting two nets (nets VBUS and )
+    Local override; error
+    @(300.0484 mm, 22.7016 mm): Track [VBUS] on F.Cu, length 0.4220 mm
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+[shorting_items]: Items shorting two nets (nets  and VBUS)
+    Local override; error
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+    @(300.7665 mm, 22.7016 mm): Track [VBUS] on F.Cu, length 0.7181 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1791 mm)
+    Rule: netclass 'Power'; error
+    @(175.3698 mm, 136.5194 mm): Track [VBUS] on In1.Cu, length 19.9955 mm
+    @(174.8907 mm, 139.8351 mm): Track [ROW8] on In1.Cu, length 29.1408 mm
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
+    Rule: netclass 'Power'; error
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(301.1500 mm, 23.0000 mm): PTH pad A4 [VBUS] of J1
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; error
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
+    Rule: netclass 'Power'; error
+    @(301.1500 mm, 23.0000 mm): PTH pad A4 [VBUS] of J1
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
+    Rule: netclass 'Power'; error
+    @(301.1500 mm, 23.0000 mm): PTH pad A4 [VBUS] of J1
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
+    Rule: netclass 'Power'; error
+    @(301.1500 mm, 23.0000 mm): PTH pad A4 [VBUS] of J1
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
+    Rule: netclass 'Power'; error
+    @(301.1500 mm, 23.0000 mm): PTH pad A4 [VBUS] of J1
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0038 mm)
+    Rule: board setup constraints hole; error
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+    @(300.7665 mm, 22.7016 mm): Via [VBUS] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0038 mm)
+    Rule: board setup constraints hole; error
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+    @(300.7665 mm, 22.7016 mm): Via [VBUS] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0038 mm)
+    Rule: board setup constraints hole; error
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+    @(300.7665 mm, 22.7016 mm): Via [VBUS] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0038 mm)
+    Rule: board setup constraints hole; error
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+    @(300.7665 mm, 22.7016 mm): Via [VBUS] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1155 mm)
+    Rule: board setup constraints hole; error
+    @(296.9000 mm, 23.0000 mm): PTH pad A9 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1155 mm)
+    Rule: board setup constraints hole; error
+    @(296.9000 mm, 23.0000 mm): PTH pad A9 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1155 mm)
+    Rule: board setup constraints hole; error
+    @(296.9000 mm, 23.0000 mm): PTH pad A9 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1155 mm)
+    Rule: board setup constraints hole; error
+    @(296.9000 mm, 23.0000 mm): PTH pad A9 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0631 mm)
+    Rule: board setup constraints hole; error
+    @(296.0500 mm, 23.0000 mm): PTH pad A12 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0631 mm)
+    Rule: board setup constraints hole; error
+    @(296.0500 mm, 23.0000 mm): PTH pad A12 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0631 mm)
+    Rule: board setup constraints hole; error
+    @(296.0500 mm, 23.0000 mm): PTH pad A12 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0631 mm)
+    Rule: board setup constraints hole; error
+    @(296.0500 mm, 23.0000 mm): PTH pad A12 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
+    Rule: netclass 'Power'; error
+    @(296.0500 mm, 21.6500 mm): PTH pad B1 [GND] of J1
+    @(296.9000 mm, 21.6500 mm): PTH pad B4 [VBUS] of J1
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
+    Rule: netclass 'Power'; error
+    @(296.0500 mm, 21.6500 mm): PTH pad B1 [GND] of J1
+    @(296.9000 mm, 21.6500 mm): PTH pad B4 [VBUS] of J1
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
+    Rule: netclass 'Power'; error
+    @(296.0500 mm, 21.6500 mm): PTH pad B1 [GND] of J1
+    @(296.9000 mm, 21.6500 mm): PTH pad B4 [VBUS] of J1
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
+    Rule: netclass 'Power'; error
+    @(296.0500 mm, 21.6500 mm): PTH pad B1 [GND] of J1
+    @(296.9000 mm, 21.6500 mm): PTH pad B4 [VBUS] of J1
+[clearance]: Clearance violation (netclass 'Power' clearance 0.2000 mm; actual 0.1500 mm)
+    Rule: netclass 'Power'; error
+    @(296.9000 mm, 21.6500 mm): PTH pad B4 [VBUS] of J1
+    @(297.7500 mm, 21.6500 mm): PTH pad B5 [<no net>] of J1
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(22.5000 mm, 19.5000 mm): Reference field of MH_screw_tl
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(357.0000 mm, 20.0000 mm): Reference field of MH_screw_tr
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(22.5000 mm, 143.5000 mm): Reference field of MH_screw_bl
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(357.0000 mm, 143.5000 mm): Reference field of MH_screw_br
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(127.5000 mm, 42.5000 mm): Reference field of MH_screw_ml
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(281.5000 mm, 93.0000 mm): Reference field of MH_screw_mr
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(34.5250 mm, 42.5250 mm): Footprint D1
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(58.3375 mm, 42.5250 mm): Footprint D2
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(77.3875 mm, 42.5250 mm): Footprint D3
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(96.4375 mm, 42.5250 mm): Footprint D4
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(115.4875 mm, 42.5250 mm): Footprint D5
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(139.3000 mm, 42.5250 mm): Footprint D6
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(158.3500 mm, 42.5250 mm): Footprint D7
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(177.4000 mm, 42.5250 mm): Footprint D8
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(196.4500 mm, 42.5250 mm): Footprint D9
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(220.2625 mm, 42.5250 mm): Footprint D10
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(239.3125 mm, 42.5250 mm): Footprint D11
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(258.3625 mm, 42.5250 mm): Footprint D12
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(277.4125 mm, 42.5250 mm): Footprint D13
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(302.1775 mm, 42.5250 mm): Footprint D14
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(321.2275 mm, 42.5250 mm): Footprint D15
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(340.2775 mm, 42.5250 mm): Footprint D16
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(34.5250 mm, 66.3375 mm): Footprint D17
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(53.5750 mm, 66.3375 mm): Footprint D18
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(72.6250 mm, 66.3375 mm): Footprint D19
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(91.6750 mm, 66.3375 mm): Footprint D20
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(110.7250 mm, 66.3375 mm): Footprint D21
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(129.7750 mm, 66.3375 mm): Footprint D22
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(148.8250 mm, 66.3375 mm): Footprint D23
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(167.8750 mm, 66.3375 mm): Footprint D24
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(186.9250 mm, 66.3375 mm): Footprint D25
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(205.9750 mm, 66.3375 mm): Footprint D26
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(225.0250 mm, 66.3375 mm): Footprint D27
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(244.0750 mm, 66.3375 mm): Footprint D28
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(263.1250 mm, 66.3375 mm): Footprint D29
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(294.0813 mm, 66.3375 mm): Footprint D30
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(326.1805 mm, 66.3375 mm): Footprint D31
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(345.2305 mm, 66.3375 mm): Footprint D32
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(41.6688 mm, 85.3875 mm): Footprint D33
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(67.8625 mm, 85.3875 mm): Footprint D34
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(86.9125 mm, 85.3875 mm): Footprint D35
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(105.9625 mm, 85.3875 mm): Footprint D36
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(125.0125 mm, 85.3875 mm): Footprint D37
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(144.0625 mm, 85.3875 mm): Footprint D38
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(163.1125 mm, 85.3875 mm): Footprint D39
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(182.1625 mm, 85.3875 mm): Footprint D40
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(201.2125 mm, 85.3875 mm): Footprint D41
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(220.2625 mm, 85.3875 mm): Footprint D42
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(239.3125 mm, 85.3875 mm): Footprint D43
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(258.3625 mm, 85.3875 mm): Footprint D44
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(277.4125 mm, 85.3875 mm): Footprint D45
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(301.2250 mm, 94.9125 mm): Footprint D46
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(326.1805 mm, 85.3875 mm): Footprint D47
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(345.2305 mm, 85.3875 mm): Footprint D48
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(44.0500 mm, 104.4375 mm): Footprint D49
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(72.6250 mm, 104.4375 mm): Footprint D50
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(91.6750 mm, 104.4375 mm): Footprint D51
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(110.7250 mm, 104.4375 mm): Footprint D52
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(129.7750 mm, 104.4375 mm): Footprint D53
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(148.8250 mm, 104.4375 mm): Footprint D54
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(167.8750 mm, 104.4375 mm): Footprint D55
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(186.9250 mm, 104.4375 mm): Footprint D56
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(205.9750 mm, 104.4375 mm): Footprint D57
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(225.0250 mm, 104.4375 mm): Footprint D58
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(244.0750 mm, 104.4375 mm): Footprint D59
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(263.1250 mm, 104.4375 mm): Footprint D60
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(326.1805 mm, 104.4375 mm): Footprint D61
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(345.2305 mm, 104.4375 mm): Footprint D62
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(46.4313 mm, 123.4875 mm): Footprint D63
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(77.3875 mm, 123.4875 mm): Footprint D64
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(96.4375 mm, 123.4875 mm): Footprint D65
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(115.4875 mm, 123.4875 mm): Footprint D66
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(134.5375 mm, 123.4875 mm): Footprint D67
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(153.5875 mm, 123.4875 mm): Footprint D68
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(172.6375 mm, 123.4875 mm): Footprint D69
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(191.6875 mm, 123.4875 mm): Footprint D70
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(210.7375 mm, 123.4875 mm): Footprint D71
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(229.7875 mm, 123.4875 mm): Footprint D72
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(248.8375 mm, 123.4875 mm): Footprint D73
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(275.0313 mm, 123.4875 mm): Footprint D74
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(305.9875 mm, 123.4875 mm): Footprint D75
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(346.9450 mm, 125.3925 mm): Footprint D76
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(36.9063 mm, 142.5375 mm): Footprint D77
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(60.7188 mm, 142.5375 mm): Footprint D78
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(84.5313 mm, 142.5375 mm): Footprint D79
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(158.3500 mm, 142.5375 mm): Footprint D80
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(232.1688 mm, 142.5375 mm): Footprint D81
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(255.9813 mm, 142.5375 mm): Footprint D82
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(286.9375 mm, 142.5375 mm): Footprint D83
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(305.9875 mm, 142.5375 mm): Footprint D84
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(325.0375 mm, 142.5375 mm): Footprint D85
+[lib_footprint_mismatch]: Footprint 'D_SOD-123' does not match copy in library 'Diode_SMD'.
+    Local override; warning
+    @(346.9450 mm, 144.4425 mm): Footprint D86
+[lib_footprint_mismatch]: Footprint 'QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm' does not match copy in library 'Package_DFN_QFN'.
+    Local override; warning
+    @(181.5000 mm, 136.5000 mm): Footprint U1
+[lib_footprint_mismatch]: Footprint 'USB_C_Receptacle_GCT_USB4085' does not match copy in library 'Connector_USB'.
+    Local override; warning
+    @(302.0000 mm, 23.0000 mm): Footprint J1
+[lib_footprint_mismatch]: Footprint 'JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal' does not match copy in library 'Connector_JST'.
+    Local override; warning
+    @(331.0000 mm, 38.0000 mm): Footprint BT1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(34.5250 mm, 34.5250 mm): Footprint SW1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(58.3375 mm, 34.5250 mm): Footprint SW2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(77.3875 mm, 34.5250 mm): Footprint SW3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(96.4375 mm, 34.5250 mm): Footprint SW4
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(115.4875 mm, 34.5250 mm): Footprint SW5
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(139.3000 mm, 34.5250 mm): Footprint SW6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(158.3500 mm, 34.5250 mm): Footprint SW7
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(177.4000 mm, 34.5250 mm): Footprint SW8
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(196.4500 mm, 34.5250 mm): Footprint SW9
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(220.2625 mm, 34.5250 mm): Footprint SW10
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(239.3125 mm, 34.5250 mm): Footprint SW11
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(258.3625 mm, 34.5250 mm): Footprint SW12
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(277.4125 mm, 34.5250 mm): Footprint SW13
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(302.1775 mm, 34.5250 mm): Footprint SW14
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(321.2275 mm, 34.5250 mm): Footprint SW15
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(340.2775 mm, 34.5250 mm): Footprint SW16
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(34.5250 mm, 58.3375 mm): Footprint SW17
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(53.5750 mm, 58.3375 mm): Footprint SW18
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(72.6250 mm, 58.3375 mm): Footprint SW19
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(91.6750 mm, 58.3375 mm): Footprint SW20
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(110.7250 mm, 58.3375 mm): Footprint SW21
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(129.7750 mm, 58.3375 mm): Footprint SW22
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(148.8250 mm, 58.3375 mm): Footprint SW23
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(167.8750 mm, 58.3375 mm): Footprint SW24
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(186.9250 mm, 58.3375 mm): Footprint SW25
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(205.9750 mm, 58.3375 mm): Footprint SW26
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(225.0250 mm, 58.3375 mm): Footprint SW27
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(244.0750 mm, 58.3375 mm): Footprint SW28
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(263.1250 mm, 58.3375 mm): Footprint SW29
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(294.0813 mm, 58.3375 mm): Footprint SW30
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(326.1805 mm, 58.3375 mm): Footprint SW31
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(345.2305 mm, 58.3375 mm): Footprint SW32
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(41.6688 mm, 77.3875 mm): Footprint SW33
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(67.8625 mm, 77.3875 mm): Footprint SW34
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(86.9125 mm, 77.3875 mm): Footprint SW35
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(105.9625 mm, 77.3875 mm): Footprint SW36
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(125.0125 mm, 77.3875 mm): Footprint SW37
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(144.0625 mm, 77.3875 mm): Footprint SW38
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(163.1125 mm, 77.3875 mm): Footprint SW39
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(182.1625 mm, 77.3875 mm): Footprint SW40
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(201.2125 mm, 77.3875 mm): Footprint SW41
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(220.2625 mm, 77.3875 mm): Footprint SW42
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(239.3125 mm, 77.3875 mm): Footprint SW43
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(258.3625 mm, 77.3875 mm): Footprint SW44
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(277.4125 mm, 77.3875 mm): Footprint SW45
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(301.2250 mm, 86.9125 mm): Footprint SW46
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(326.1805 mm, 77.3875 mm): Footprint SW47
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(345.2305 mm, 77.3875 mm): Footprint SW48
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(44.0500 mm, 96.4375 mm): Footprint SW49
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(72.6250 mm, 96.4375 mm): Footprint SW50
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(91.6750 mm, 96.4375 mm): Footprint SW51
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(110.7250 mm, 96.4375 mm): Footprint SW52
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(129.7750 mm, 96.4375 mm): Footprint SW53
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(148.8250 mm, 96.4375 mm): Footprint SW54
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(167.8750 mm, 96.4375 mm): Footprint SW55
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(186.9250 mm, 96.4375 mm): Footprint SW56
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(205.9750 mm, 96.4375 mm): Footprint SW57
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(225.0250 mm, 96.4375 mm): Footprint SW58
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(244.0750 mm, 96.4375 mm): Footprint SW59
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(263.1250 mm, 96.4375 mm): Footprint SW60
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(326.1805 mm, 96.4375 mm): Footprint SW61
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(345.2305 mm, 96.4375 mm): Footprint SW62
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(46.4313 mm, 115.4875 mm): Footprint SW63
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(77.3875 mm, 115.4875 mm): Footprint SW64
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(96.4375 mm, 115.4875 mm): Footprint SW65
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(115.4875 mm, 115.4875 mm): Footprint SW66
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(134.5375 mm, 115.4875 mm): Footprint SW67
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(153.5875 mm, 115.4875 mm): Footprint SW68
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(172.6375 mm, 115.4875 mm): Footprint SW69
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(191.6875 mm, 115.4875 mm): Footprint SW70
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(210.7375 mm, 115.4875 mm): Footprint SW71
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(229.7875 mm, 115.4875 mm): Footprint SW72
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(248.8375 mm, 115.4875 mm): Footprint SW73
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(275.0313 mm, 115.4875 mm): Footprint SW74
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(305.9875 mm, 115.4875 mm): Footprint SW75
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(346.9450 mm, 117.3925 mm): Footprint SW76
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(36.9063 mm, 134.5375 mm): Footprint SW77
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(60.7188 mm, 134.5375 mm): Footprint SW78
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(84.5313 mm, 134.5375 mm): Footprint SW79
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(158.3500 mm, 134.5375 mm): Footprint SW80
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(232.1688 mm, 134.5375 mm): Footprint SW81
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(255.9813 mm, 134.5375 mm): Footprint SW82
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(286.9375 mm, 134.5375 mm): Footprint SW83
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(305.9875 mm, 134.5375 mm): Footprint SW84
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(325.0375 mm, 134.5375 mm): Footprint SW85
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Switch'.
+    Local override; warning
+    @(346.9450 mm, 136.4425 mm): Footprint SW86
+[lib_footprint_issues]: Footprint 'SW_SPDT_CK-JS102011SAQN' not found in library 'Button_Switch_SMD'.
+    Local override; warning
+    @(330.5000 mm, 23.0000 mm): Footprint SW_PWR
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.2495 mm; actual 0.0000 mm)
+    Rule: board setup constraints; warning
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.2495 mm; actual 0.1538 mm)
+    Rule: board setup constraints; warning
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+    @(300.7665 mm, 22.7016 mm): Via [VBUS] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.2495 mm; actual 0.0859 mm)
+    Rule: board setup constraints; warning
+    @(301.1500 mm, 23.0000 mm): PTH pad A4 [VBUS] of J1
+    @(300.7665 mm, 22.7016 mm): Via [VBUS] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.2495 mm; actual 0.2131 mm)
+    Rule: board setup constraints; warning
+    @(296.0500 mm, 23.0000 mm): PTH pad A12 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.2495 mm; actual 0.0000 mm)
+    Rule: board setup constraints; warning
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(302.1169 mm, 23.2932 mm): Via [USB_DM] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.2495 mm; actual 0.0859 mm)
+    Rule: board setup constraints; warning
+    @(301.1500 mm, 23.0000 mm): PTH pad A4 [VBUS] of J1
+    @(300.7665 mm, 22.7016 mm): Via [VBUS] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.2495 mm; actual 0.1538 mm)
+    Rule: board setup constraints; warning
+    @(300.3000 mm, 23.0000 mm): PTH pad A5 [<no net>] of J1
+    @(300.7665 mm, 22.7016 mm): Via [VBUS] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.2495 mm; actual 0.2131 mm)
+    Rule: board setup constraints; warning
+    @(296.0500 mm, 23.0000 mm): PTH pad A12 [<no net>] of J1
+    @(296.4356 mm, 23.4767 mm): Via [GND] on F.Cu - B.Cu
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(17.0000 mm, 17.0000 mm): Rectangle on Edge.Cuts
+    @(303.6200 mm, 17.0000 mm): Segment of J1 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(17.0000 mm, 17.0000 mm): Rectangle on Edge.Cuts
+    @(294.4300 mm, 17.0000 mm): Segment of J1 on F.Silkscreen
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(302.4568 mm, 23.2932 mm): Track [USB_DM] on F.Cu, length 0.4146 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(304.2500 mm, 23.0000 mm): Track [VBUS] on F.Cu, length 0.1070 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(305.5481 mm, 22.7019 mm): Track [GND] on F.Cu, length 0.4216 mm
+
+** Found 30 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.7500 mm, 140.0000 mm): Track [ROW0] on F.Cu, length 4.1119 mm
+    @(178.0625 mm, 133.7500 mm): Pad 1 [ROW0] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(181.3562 mm, 52.3761 mm): Track [ROW1] on In1.Cu, length 84.8897 mm
+    @(178.0625 mm, 134.2500 mm): Pad 2 [ROW1] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.0625 mm, 134.7500 mm): Pad 3 [ROW2] of U1 on F.Cu
+    @(173.2288 mm, 137.0846 mm): Track [ROW2] on B.Cu, length 2.7122 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.0625 mm, 135.2500 mm): Pad 4 [ROW3] of U1 on F.Cu
+    @(181.7278 mm, 67.6158 mm): Track [ROW3] on In1.Cu, length 71.3520 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.0625 mm, 135.7500 mm): Pad 5 [ROW4] of U1 on F.Cu
+    @(180.7500 mm, 140.0000 mm): Track [ROW4] on F.Cu, length 0.0491 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(181.2500 mm, 140.0000 mm): Track [ROW5] on F.Cu, length 0.6204 mm
+    @(178.0625 mm, 136.2500 mm): Pad 6 [ROW5] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(181.7500 mm, 140.9005 mm): Track [ROW6] on F.Cu, length 0.9005 mm
+    @(178.0625 mm, 136.7500 mm): Pad 7 [ROW6] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.0625 mm, 137.2500 mm): Pad 8 [ROW7] of U1 on F.Cu
+    @(182.2500 mm, 141.1810 mm): Track [ROW7] on F.Cu, length 1.1810 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.0625 mm, 137.7500 mm): Pad 9 [ROW8] of U1 on F.Cu
+    @(174.8907 mm, 139.8351 mm): Track [ROW8] on In1.Cu, length 29.1408 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(183.2500 mm, 140.4611 mm): Track [ROW9] on F.Cu, length 0.4611 mm
+    @(178.0625 mm, 138.2500 mm): Pad 10 [ROW9] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(179.0818 mm, 140.8337 mm): Track [ROW10] on In2.Cu, length 1.5624 mm
+    @(178.0625 mm, 138.7500 mm): Pad 11 [ROW10] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.0625 mm, 139.2500 mm): Pad 12 [COL0] of U1 on F.Cu
+    @(184.2500 mm, 140.0000 mm): Track [COL0] on F.Cu, length 0.7442 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(185.6562 mm, 133.0938 mm): Track [COL1] on F.Cu, length 0.9280 mm
+    @(178.7500 mm, 139.9375 mm): Pad 13 [COL1] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(179.2500 mm, 139.9375 mm): Pad 14 [COL2] of U1 on F.Cu
+    @(185.0000 mm, 134.2500 mm): Track [COL2] on F.Cu, length 0.5435 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(179.7500 mm, 139.9375 mm): Pad 15 [COL3] of U1 on F.Cu
+    @(185.5408 mm, 134.7500 mm): Track [COL3] on F.Cu, length 0.5408 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(185.9517 mm, 135.2500 mm): Track [COL4] on F.Cu, length 0.9517 mm
+    @(180.2500 mm, 139.9375 mm): Pad 16 [COL4] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(185.0000 mm, 135.7500 mm): Track [COL5] on F.Cu, length 2.3791 mm
+    @(180.7500 mm, 139.9375 mm): Pad 17 [COL5] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(177.1469 mm, 139.7822 mm): Track [COL6] on In2.Cu, length 0.2794 mm
+    @(181.2500 mm, 139.9375 mm): Pad 18 [COL6] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(185.0000 mm, 136.7500 mm): Track [COL7] on F.Cu, length 0.6297 mm
+    @(181.7500 mm, 139.9375 mm): Pad 19 [COL7] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(185.0000 mm, 137.2500 mm): Track [COL8] on F.Cu, length 0.0939 mm
+    @(182.2500 mm, 139.9375 mm): Pad 20 [COL8] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(185.0000 mm, 137.7500 mm): Track [COL9] on F.Cu, length 0.6463 mm
+    @(182.7500 mm, 139.9375 mm): Pad 21 [COL9] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(184.9375 mm, 133.7500 mm): Pad 36 [VCC] of U1 on F.Cu
+    @(184.9375 mm, 134.2500 mm): Pad 35 [VCC] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(330.1074 mm, 24.7960 mm): Via [VCC] on F.Cu - B.Cu
+    @(184.9375 mm, 133.7500 mm): Pad 36 [VCC] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(302.0000 mm, 23.0000 mm): PTH pad A1 [GND] of J1
+    @(18.0000 mm, 18.0000 mm): Zone [GND] on B.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(183.2500 mm, 133.0625 mm): Pad 39 [VBUS] of U1 on F.Cu
+    @(177.3151 mm, 138.2500 mm): Track [VBUS] on F.Cu, length 0.6849 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(300.0484 mm, 22.7016 mm): Track [VBUS] on F.Cu, length 0.4220 mm
+    @(296.9000 mm, 21.6500 mm): PTH pad B4 [VBUS] of J1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.0000 mm, 139.2500 mm): Track [USB_DP] on F.Cu, length 1.1011 mm
+    @(184.2500 mm, 133.0625 mm): Pad 37 [USB_DP] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(303.2948 mm, 23.0448 mm): Track [USB_DP] on F.Cu, length 0.0634 mm
+    @(299.4500 mm, 23.0000 mm): PTH pad A6 [USB_DP] of J1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(180.6028 mm, 33.6690 mm): Track [USB_DM] on In1.Cu, length 99.1216 mm
+    @(183.7500 mm, 133.0625 mm): Pad 38 [USB_DM] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(299.8584 mm, 25.5517 mm): Track [USB_DM] on In2.Cu, length 3.1940 mm
+    @(298.6000 mm, 23.0000 mm): PTH pad A7 [USB_DM] of J1
+
+** Found 0 Footprint errors **
+
+** End of Report **

@@ -1,0 +1,15 @@
+{
+  "gui": {
+    "enabled": false
+  },
+  "router": {
+    "max_passes": 50,
+    "via_costs": 40,
+    "fanout": true,
+    "autoroute": true,
+    "postroute_optimization": false
+  },
+  "output": {
+    "session_file": "/home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/keyboard.ses"
+  }
+}

@@ -103,10 +103,20 @@ function computeSmartScrewPositions(
   const margin = 8;
   const boardBounds = {
     minX: minX - margin,
-    minY: minY - margin - 15,
+    minY: minY - margin,
     maxX: maxX + margin,
-    maxY: maxY + margin + 20,
+    maxY: maxY + margin,
   };
+
+  // Use layout overrides for screw positions if configured
+  const overrides = config.layoutOverrides;
+  if (overrides?.screws && overrides.screws.length > 0) {
+    return overrides.screws.map((s: any) => ({
+      x: PCB_ORIGIN_X + s.x,
+      y: PCB_ORIGIN_Y + s.y,
+      label: s.id,
+    }));
+  }
 
   const componentPositions = collectComponentPositions(config, { minX, minY, maxX, maxY });
   return calculateScrewPositions(layout, config, boardBounds, componentPositions);

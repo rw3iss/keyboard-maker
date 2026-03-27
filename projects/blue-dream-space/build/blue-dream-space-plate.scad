@@ -1,7 +1,7 @@
 // Auto-generated keyboard switch plate
 // Layout: Blue Dream Space (86 keys)
 // Switch type: choc_v2
-// Generated: 2026-03-25T06:57:08.180Z
+// Generated: 2026-03-27T05:22:26.663Z
 
 $fn = 32;
 
@@ -301,22 +301,22 @@ difference() {
     cube([14.000, 14.000, plate_t + 0.2]);
 
   // ----- Mounting holes (smart placement) -----
-  // tl
-  translate([127.000, 45.000, -0.1])
+  // screw_tl
+  translate([22.500, 22.500, -0.1])
     cylinder(r = 1.250, h = plate_t + 0.2);
-  // tr
-  translate([309.456, 69.000, -0.1])
+  // screw_tr
+  translate([357.000, 23.000, -0.1])
     cylinder(r = 1.250, h = plate_t + 0.2);
-  // bl
-  translate([125.000, 141.581, -0.1])
+  // screw_bl
+  translate([22.500, 146.500, -0.1])
     cylinder(r = 1.250, h = plate_t + 0.2);
-  // br
-  translate([324.456, 116.581, -0.1])
+  // screw_br
+  translate([357.000, 146.500, -0.1])
     cylinder(r = 1.250, h = plate_t + 0.2);
-  // ml
-  translate([141.014, 85.484, -0.1])
+  // screw_ml
+  translate([127.500, 45.500, -0.1])
     cylinder(r = 1.250, h = plate_t + 0.2);
-  // mr
-  translate([282.735, 97.290, -0.1])
+  // screw_mr
+  translate([281.500, 96.000, -0.1])
     cylinder(r = 1.250, h = plate_t + 0.2);
 }

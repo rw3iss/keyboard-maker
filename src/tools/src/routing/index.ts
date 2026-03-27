@@ -18,7 +18,10 @@ export async function routePCB(
   pcbPath: string,
   outputDir: string,
   config: BuildConfig,
-  matrix: SwitchMatrix
+  matrix: SwitchMatrix,
+  onLog?: (msg: string) => void,
+  timeoutMinutes?: number,
+  maxPasses?: number,
 ): Promise<string> {
   const mode = config.pcb.routing;
 
@@ -40,11 +43,13 @@ export async function routePCB(
 
   try {
     exportDSN(pcbPath, dsnPath);
-    await runFreerouting(dsnPath, sesPath);
+    await runFreerouting(dsnPath, sesPath, onLog, timeoutMinutes, maxPasses);
     importSES(pcbPath, sesPath, routedPcbPath);
     return routedPcbPath;
   } catch (err: any) {
-    console.log(`  Auto-routing failed: ${err.message}`);
+    const msg = `Auto-routing failed: ${err.message}`;
+    console.log(`  ${msg}`);
+    onLog?.(`  ${msg}`);
     console.log('  Falling back to unrouted PCB. See routing-guide.md for manual instructions.');
     return pcbPath;
   }

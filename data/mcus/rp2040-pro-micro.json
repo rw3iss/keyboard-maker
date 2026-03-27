@@ -1,0 +1,71 @@
+{
+  "id": "rp2040-pro-micro",
+  "name": "SparkFun Pro Micro RP2040",
+  "chip": "RP2040",
+  "formFactor": "pro-micro",
+  "summary": "Budget-friendly RP2040 in Pro Micro footprint — best value for wired QMK keyboards",
+  "hasUsb": true,
+  "hasBle": false,
+  "bleVersion": "",
+  "hasLipoCharger": false,
+  "chargerMaxMa": 0,
+  "gpioCount": 20,
+  "gpioPins": [
+    { "pin": "GP0", "label": "D0/TX" },
+    { "pin": "GP1", "label": "D1/RX" },
+    { "pin": "GP2", "label": "D2" },
+    { "pin": "GP3", "label": "D3" },
+    { "pin": "GP4", "label": "D4/A0" },
+    { "pin": "GP5", "label": "D5" },
+    { "pin": "GP6", "label": "D6/A1" },
+    { "pin": "GP7", "label": "D7/A2" },
+    { "pin": "GP8", "label": "D8/A3" },
+    { "pin": "GP9", "label": "D9/A4" },
+    { "pin": "GP16", "label": "D10/MOSI" },
+    { "pin": "GP20", "label": "D14/MISO" },
+    { "pin": "GP23", "label": "D15/SCK" },
+    { "pin": "GP21", "label": "D16" },
+    { "pin": "GP26", "label": "D18/A0" },
+    { "pin": "GP27", "label": "D19/A1" },
+    { "pin": "GP28", "label": "D20/A2" },
+    { "pin": "GP29", "label": "D21/A3" },
+    { "pin": "GP17", "label": "NeoPixel" },
+    { "pin": "GP25", "label": "LED" }
+  ],
+  "footprintFile": "RP2040_Module_ProMicro.kicad_mod",
+  "zmkBoard": "",
+  "qmkBoard": "sparkfun/pro_micro_rp2040",
+  "firmwareSupport": ["qmk", "kmk", "circuitpython"],
+  "suppliers": [
+    { "name": "SparkFun", "url": "https://www.sparkfun.com/sparkfun-pro-micro-rp2040", "priceUsd": 10.95 },
+    { "name": "Adafruit KB2040", "url": "https://www.adafruit.com/product/5302", "priceUsd": 8.95 }
+  ],
+  "features": [
+    "Dual-core ARM Cortex-M0+ at 133 MHz",
+    "264KB SRAM — huge for keyboard firmware",
+    "Native USB 1.1 — no external USB chip needed",
+    "20 usable GPIOs in Pro Micro footprint",
+    "PIO (Programmable I/O) — hardware-level WS2812 LED driving",
+    "UF2 bootloader — drag-and-drop firmware flashing",
+    "Extremely cheap ($1 for bare chip, $9-11 for dev board)",
+    "QMK, KMK (CircuitPython), and Vial support"
+  ],
+  "concerns": [
+    "No Bluetooth — wired USB only",
+    "No built-in battery charging",
+    "ZMK does not support RP2040 (use QMK or KMK instead)",
+    "USB 1.1 only (not USB 2.0) — fine for HID keyboards"
+  ],
+  "datasheet": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf",
+  "externalLinks": [
+    { "label": "QMK RP2040 Guide", "url": "https://docs.qmk.fm/platformdev_rp2040" },
+    { "label": "SparkFun Pro Micro RP2040 Hookup Guide", "url": "https://learn.sparkfun.com/tutorials/pro-micro-rp2040-hookup-guide" },
+    { "label": "Adafruit KB2040", "url": "https://learn.adafruit.com/adafruit-kb2040" }
+  ],
+  "designNotes": [
+    "Best choice for budget wired keyboards with QMK",
+    "Pro Micro footprint — drop-in replacement for original Pro Micro",
+    "PIO state machines can drive WS2812 LEDs without CPU overhead",
+    "Dual-core allows running LED animations independently from matrix scanning"
+  ]
+}

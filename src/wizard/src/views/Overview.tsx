@@ -59,8 +59,14 @@ function getStepSummary(stepId: string, config: BuildConfig | null): string {
       const count = Object.values(config.outputs).filter(Boolean).length;
       return `${count} output${count !== 1 ? 's' : ''} enabled`;
     }
-    case 'layout-editor':
+    case 'layout-editor': {
+      const ov = (config as any).layoutOverrides;
+      if (ov?.components?.length > 0 || ov?.screws?.length > 0 || ov?.usb || ov?.mcu || ov?.battery) {
+        const count = ov.components?.length || 0;
+        return `${count} position${count !== 1 ? 's' : ''} customized`;
+      }
       return 'Not customized';
+    }
     default:
       return 'Not configured';
   }

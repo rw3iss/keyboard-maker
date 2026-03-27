@@ -12,7 +12,7 @@
   },
   "switches": {
     "type": "choc_v2",
-    "model": "kailh-choc-v2-blue",
+    "model": "kailh-choc-v2",
     "hotswap": true
   },
   "mcu": {
@@ -23,7 +23,7 @@
   "connectivity": {
     "usb": true,
     "bluetooth": true,
-    "bluetoothVersion": "5.0"
+    "bluetoothVersion": "5.2"
   },
   "power": {
     "battery": true,
@@ -35,12 +35,12 @@
   "features": {
     "rgbPerKey": false,
     "ledPlacement": "below",
-    "rgbUnderglow": false,
+    "rgbUnderglow": true,
     "underglow": {
       "ledCount": 0,
       "ledModel": null
     },
-    "rotaryEncoder": false,
+    "rotaryEncoder": true,
     "oledDisplay": false
   },
   "diode": {
@@ -60,7 +60,7 @@
     "layers": 4,
     "thickness": 1.6,
     "signalLayer": 1,
-    "routing": "guided",
+    "routing": "auto",
     "fabricator": null
   },
   "physical": {
@@ -68,7 +68,7 @@
     "connectorPosition": "right",
     "connectorOrder": "usb-first",
     "frontHeight": 3.9,
-    "rearHeight": 6.9
+    "rearHeight": 3.9
   },
   "plate": {
     "enabled": true,
@@ -97,38 +97,38 @@
       {
         "id": "usb",
         "type": "usb",
-        "x": 164.87775,
-        "y": -3.0474999999999994
+        "x": 277,
+        "y": -2
       },
       {
         "id": "mcu",
         "type": "mcu",
-        "x": 164.5,
-        "y": 110.5
+        "x": 156.5,
+        "y": 111.5
       },
       {
         "id": "screw_tl",
         "type": "screw",
         "x": -2.5,
-        "y": -1.5
+        "y": -2.5
       },
       {
         "id": "screw_tr",
         "type": "screw",
-        "x": 331,
-        "y": -1
+        "x": 332,
+        "y": -2
       },
       {
         "id": "screw_bl",
         "type": "screw",
-        "x": -1.5,
-        "y": 120.5
+        "x": -2.5,
+        "y": 121.5
       },
       {
         "id": "screw_br",
         "type": "screw",
-        "x": 331,
-        "y": 120.5
+        "x": 332,
+        "y": 121.5
       },
       {
         "id": "screw_ml",
@@ -145,360 +145,36 @@
       {
         "id": "battery",
         "type": "battery",
-        "x": 339,
-        "y": 90.5
+        "x": 306,
+        "y": 13
       },
       {
         "id": "power_btn",
         "type": "power_button",
-        "x": 174.87775,
-        "y": -3.0474999999999994
-      },
-      {
-        "id": "usb",
-        "type": "usb",
-        "x": 164.87775,
-        "y": -3.0474999999999994
-      },
-      {
-        "id": "mcu",
-        "type": "mcu",
-        "x": 164.5,
-        "y": 110.5
-      },
-      {
-        "id": "battery",
-        "type": "battery",
-        "x": 339,
-        "y": 90.5
-      },
-      {
-        "id": "screw_tl",
-        "type": "screw",
-        "x": -2.5,
-        "y": -1.5
-      },
-      {
-        "id": "screw_tr",
-        "type": "screw",
-        "x": 331,
-        "y": -1
-      },
-      {
-        "id": "screw_bl",
-        "type": "screw",
-        "x": -1.5,
-        "y": 120.5
-      },
-      {
-        "id": "screw_br",
-        "type": "screw",
-        "x": 331,
-        "y": 120.5
-      },
-      {
-        "id": "screw_ml",
-        "type": "screw",
-        "x": 102.5,
-        "y": 20.5
-      },
-      {
-        "id": "screw_mr",
-        "type": "screw",
-        "x": 256.5,
-        "y": 71
-      },
-      {
-        "id": "usb",
-        "type": "usb",
-        "x": 164.87775,
-        "y": -3.0474999999999994
-      },
-      {
-        "id": "mcu",
-        "type": "mcu",
-        "x": 164.5,
-        "y": 110.5
-      },
-      {
-        "id": "battery",
-        "type": "battery",
-        "x": 339,
-        "y": 90.5
-      },
-      {
-        "id": "screw_tl",
-        "type": "screw",
-        "x": -2.5,
-        "y": -1.5
-      },
-      {
-        "id": "screw_tr",
-        "type": "screw",
-        "x": 331,
-        "y": -1
-      },
-      {
-        "id": "screw_bl",
-        "type": "screw",
-        "x": -1.5,
-        "y": 120.5
-      },
-      {
-        "id": "screw_br",
-        "type": "screw",
-        "x": 331,
-        "y": 120.5
-      },
-      {
-        "id": "screw_ml",
-        "type": "screw",
-        "x": 102.5,
-        "y": 20.5
-      },
-      {
-        "id": "screw_mr",
-        "type": "screw",
-        "x": 256.5,
-        "y": 71
-      },
-      {
-        "id": "usb",
-        "type": "usb",
-        "x": 164.87775,
-        "y": -3.0474999999999994
-      },
-      {
-        "id": "mcu",
-        "type": "mcu",
-        "x": 164.5,
-        "y": 110.5
-      },
-      {
-        "id": "battery",
-        "type": "battery",
-        "x": 339,
-        "y": 90.5
-      },
-      {
-        "id": "screw_tl",
-        "type": "screw",
-        "x": -2.5,
-        "y": -1.5
-      },
-      {
-        "id": "screw_tr",
-        "type": "screw",
-        "x": 331,
-        "y": -1
-      },
-      {
-        "id": "screw_bl",
-        "type": "screw",
-        "x": -1.5,
-        "y": 120.5
-      },
-      {
-        "id": "screw_br",
-        "type": "screw",
-        "x": 331,
-        "y": 120.5
-      },
-      {
-        "id": "screw_ml",
-        "type": "screw",
-        "x": 102.5,
-        "y": 20.5
-      },
-      {
-        "id": "screw_mr",
-        "type": "screw",
-        "x": 256.5,
-        "y": 71
-      },
-      {
-        "id": "usb",
-        "type": "usb",
-        "x": 164.87775,
-        "y": -3.0474999999999994
-      },
-      {
-        "id": "mcu",
-        "type": "mcu",
-        "x": 164.5,
-        "y": 110.5
-      },
-      {
-        "id": "battery",
-        "type": "battery",
-        "x": 339,
-        "y": 90.5
-      },
-      {
-        "id": "screw_tl",
-        "type": "screw",
-        "x": -2.5,
-        "y": -1.5
-      },
-      {
-        "id": "screw_tr",
-        "type": "screw",
-        "x": 331,
-        "y": -1
-      },
-      {
-        "id": "screw_bl",
-        "type": "screw",
-        "x": -1.5,
-        "y": 120.5
-      },
-      {
-        "id": "screw_br",
-        "type": "screw",
-        "x": 331,
-        "y": 120.5
-      },
-      {
-        "id": "screw_ml",
-        "type": "screw",
-        "x": 102.5,
-        "y": 20.5
-      },
-      {
-        "id": "screw_mr",
-        "type": "screw",
-        "x": 256.5,
-        "y": 71
-      },
-      {
-        "id": "usb",
-        "type": "usb",
-        "x": 164.87775,
-        "y": -3.0474999999999994
-      },
-      {
-        "id": "mcu",
-        "type": "mcu",
-        "x": 164.5,
-        "y": 110.5
-      },
-      {
-        "id": "battery",
-        "type": "battery",
-        "x": 339,
-        "y": 90.5
-      },
-      {
-        "id": "screw_tl",
-        "type": "screw",
-        "x": -2.5,
-        "y": -1.5
-      },
-      {
-        "id": "screw_tr",
-        "type": "screw",
-        "x": 331,
-        "y": -1
-      },
-      {
-        "id": "screw_bl",
-        "type": "screw",
-        "x": -1.5,
-        "y": 120.5
-      },
-      {
-        "id": "screw_br",
-        "type": "screw",
-        "x": 331,
-        "y": 120.5
-      },
-      {
-        "id": "screw_ml",
-        "type": "screw",
-        "x": 102.5,
-        "y": 20.5
-      },
-      {
-        "id": "screw_mr",
-        "type": "screw",
-        "x": 256.5,
-        "y": 71
-      },
-      {
-        "id": "usb",
-        "type": "usb",
-        "x": 164.87775,
-        "y": -3.0474999999999994
-      },
-      {
-        "id": "mcu",
-        "type": "mcu",
-        "x": 164.5,
-        "y": 110.5
-      },
-      {
-        "id": "battery",
-        "type": "battery",
-        "x": 339,
-        "y": 90.5
-      },
-      {
-        "id": "screw_tl",
-        "type": "screw",
-        "x": -2.5,
-        "y": -1.5
-      },
-      {
-        "id": "screw_tr",
-        "type": "screw",
-        "x": 331,
-        "y": -1
-      },
-      {
-        "id": "screw_bl",
-        "type": "screw",
-        "x": -1.5,
-        "y": 120.5
-      },
-      {
-        "id": "screw_br",
-        "type": "screw",
-        "x": 331,
-        "y": 120.5
-      },
-      {
-        "id": "screw_ml",
-        "type": "screw",
-        "x": 102.5,
-        "y": 20.5
-      },
-      {
-        "id": "screw_mr",
-        "type": "screw",
-        "x": 256.5,
-        "y": 71
+        "x": 305.5,
+        "y": -2
       }
     ],
     "screws": [
       {
         "id": "screw_tl",
         "x": -2.5,
-        "y": -1.5
+        "y": -2.5
       },
       {
         "id": "screw_tr",
-        "x": 331,
-        "y": -1
+        "x": 332,
+        "y": -2
       },
       {
         "id": "screw_bl",
-        "x": -1.5,
-        "y": 120.5
+        "x": -2.5,
+        "y": 121.5
       },
       {
         "id": "screw_br",
-        "x": 331,
-        "y": 120.5
+        "x": 332,
+        "y": 121.5
       },
       {
         "id": "screw_ml",
@@ -512,16 +188,16 @@
       }
     ],
     "usb": {
-      "x": 164.87775,
-      "y": -3.0474999999999994
+      "x": 277,
+      "y": -2
     },
     "mcu": {
-      "x": 164.5,
-      "y": 110.5
+      "x": 156.5,
+      "y": 111.5
     },
     "battery": {
-      "x": 339,
-      "y": 90.5
+      "x": 306,
+      "y": 13
     }
   }
 }

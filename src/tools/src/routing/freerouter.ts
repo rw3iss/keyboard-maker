@@ -38,16 +38,16 @@ function detectVersion(jarPath: string): [number, number, number] | null {
   return [parseInt(match[1]), parseInt(match[2]), parseInt(match[3])];
 }
 
-function writeFreeroutingConfig(dsnDir: string, dsnPath: string, sesPath: string): void {
+function writeFreeroutingConfig(dsnDir: string, dsnPath: string, sesPath: string, passes: number): void {
   const configPath = join(dsnDir, 'freerouting.json');
   const config = {
     gui: { enabled: false },
     router: {
-      max_passes: 200,
+      max_passes: passes,
       via_costs: 40,
       fanout: true,
       autoroute: true,
-      postroute_optimization: true,
+      postroute_optimization: false,  // Disable so Freerouting finishes and saves the SES
     },
     output: { session_file: sesPath },
   };
@@ -68,18 +68,44 @@ function shouldShowLine(line: string): boolean {
   if (t.includes('~[freerouting')) return false;    // jar reference in stack
   if (t.includes('[freerouting')) return false;     // jar reference in stack
   if (t.startsWith('WARNING:')) return false;       // JVM warnings
+  // Suppress repetitive Freerouting geometry warnings
+  if (t.includes('WARN') && t.includes('ItemAutorouteInfo')) return false;
+  if (t.includes('WARN') && t.includes('ShapeSearchTree')) return false;
+  if (t.includes('WARN') && t.includes('expansion_room')) return false;
+  if (t.includes('WARN') && t.includes('complete_shape')) return false;
+  if (t.includes('WARN') && t.includes('cannot convert')) return false;
+  // Suppress noisy status lines
+  if (t.includes('Restoring an earlier board')) return false;
+  if (t.includes('Settings were loaded')) return false;
+  if (t.includes('New version available')) return false;
+  if (t.includes('screen resolution')) return false;
+  if (t.includes('No default constructor')) return false;
   return true;
 }
 
 function formatLine(line: string): string {
-  return line.trim().replace(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+\s+/, '');
+  return line.trim()
+    // Strip timestamp: "2026-03-27 00:55:30.181 "
+    .replace(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+\s+/, '')
+    // Strip ANSI escape codes
+    .replace(/\x1b\[[0-9;]*m/g, '')
+    // Strip Freerouting job IDs in brackets: [762775\D78A03]
+    .replace(/\[[0-9A-Fa-f]{4,8}\\[0-9A-Fa-f]{4,8}\]\s*/g, '')
+    // Strip Freerouting job IDs in quotes: '762775\D78A03'
+    .replace(/'[0-9A-Fa-f]{4,8}\\[0-9A-Fa-f]{4,8}'\s*/g, '')
+    // Clean up "Job ... started at <ISO date>" → "Routing started"
+    .replace(/^Job\s+started at \S+/, 'Routing started')
+    // Strip redundant "INFO   " / "WARN   " prefixes
+    .replace(/^INFO\s+/, '')
+    .replace(/^WARN\s+/, '');
 }
 
 /**
  * Run Freerouting autorouter on a DSN file, streaming filtered output in real-time.
  * Returns a promise that resolves when routing is complete.
  */
-export async function runFreerouting(dsnPath: string, sesOutputPath: string): Promise<void> {
+export async function runFreerouting(dsnPath: string, sesOutputPath: string, onLog?: (msg: string) => void, timeoutMinutes = 10, maxPasses = 25): Promise<void> {
+  const log = (msg: string) => { console.log(msg); onLog?.(msg); };
   const jar = findFreerouting();
   if (!jar) {
     throw new Error(
@@ -98,13 +124,13 @@ export async function runFreerouting(dsnPath: string, sesOutputPath: string): Pr
 
   const version = detectVersion(jar);
   const jarName = jar.split('/').pop();
-  console.log(`  Running Freerouting (${jarName})...`);
+  log(`  Running Freerouting (${jarName})... Please wait, this may take a while...`);
 
   if (version && version[0] < 2) {
-    console.log(`  Note: v${version.join('.')} is outdated. Upgrade: https://github.com/freerouting/freerouting/releases`);
+    log(`  Note: v${version.join('.')} is outdated. Upgrade: https://github.com/freerouting/freerouting/releases`);
   }
 
-  writeFreeroutingConfig(dirname(dsnPath), dsnPath, sesOutputPath);
+  writeFreeroutingConfig(dirname(dsnPath), dsnPath, sesOutputPath, maxPasses);
 
   const javaArgs = [
     '-Djava.awt.headless=true',
@@ -112,15 +138,22 @@ export async function runFreerouting(dsnPath: string, sesOutputPath: string): Pr
     '-jar', jar,
     '-de', dsnPath,
     '-do', sesOutputPath,
-    '-mp', '50',
+    '-mp', String(maxPasses),
   ];
 
   // Track last unrouted count from streamed output
   let lastUnrouted: number | null = null;
   let allOutput = '';
+  // Stall detection: kill if no progress for N consecutive passes
+  let passCount = 0;
+  let bestUnrouted = Infinity;
+  let stallCount = 0;
+  const MAX_PASSES = 50;
+  const MAX_STALL = 10; // kill if 10 passes with no improvement
 
   await new Promise<void>((resolvePromise, rejectPromise) => {
     const child = spawn('java', javaArgs, {
+      cwd: dirname(dsnPath), // Freerouting reads freerouting.json from CWD
       env: { ...process.env, JAVA_TOOL_OPTIONS: '' },
       stdio: ['inherit', 'pipe', 'pipe'],
     });
@@ -130,18 +163,38 @@ export async function runFreerouting(dsnPath: string, sesOutputPath: string): Pr
 
     const processBuffer = (buf: string): string => {
       const lines = buf.split('\n');
-      // Keep the last incomplete line in the buffer
       const remainder = lines.pop() ?? '';
 
       for (const line of lines) {
         allOutput += line + '\n';
 
-        // Track unrouted count
+        // Track unrouted count and pass number
         const unroutedMatch = line.match(/\((\d+) unrouted\)/);
-        if (unroutedMatch) lastUnrouted = parseInt(unroutedMatch[1]);
+        if (unroutedMatch) {
+          lastUnrouted = parseInt(unroutedMatch[1]);
+
+          // Stall detection
+          if (lastUnrouted < bestUnrouted) {
+            bestUnrouted = lastUnrouted;
+            stallCount = 0;
+          } else {
+            stallCount++;
+          }
+        }
+
+        const passMatch = line.match(/pass #(\d+)/);
+        if (passMatch) {
+          passCount = parseInt(passMatch[1]);
+        }
+
+        // Log stall detection but DON'T kill — let Freerouting finish naturally
+        // so it saves the SES file. Killing prevents SES save in v2.x.
+        if (stallCount === MAX_STALL && !child.killed) {
+          log(`  Routing stalled at ${bestUnrouted} unrouted (${MAX_STALL} passes without improvement). Waiting for Freerouting to finish...`);
+        }
 
         if (shouldShowLine(line)) {
-          console.log(`  ${formatLine(line)}`);
+          log(`  ${formatLine(line)}`);
         }
       }
 
@@ -158,10 +211,13 @@ export async function runFreerouting(dsnPath: string, sesOutputPath: string): Pr
       stderrBuf = processBuffer(stderrBuf);
     });
 
+    const timeoutMs = timeoutMinutes * 60 * 1000;
+    log(`  Timeout set to ${timeoutMinutes} minute${timeoutMinutes !== 1 ? 's' : ''}`);
     const timeout = setTimeout(() => {
-      child.kill('SIGTERM');
-      rejectPromise(new Error('Freerouting timed out after 10 minutes.'));
-    }, 600000);
+      log(`  Freerouting timeout (${timeoutMinutes} min). Stopping...`);
+      child.kill('SIGKILL');
+      resolvePromise();
+    }, timeoutMs);
 
     child.on('close', (code) => {
       clearTimeout(timeout);
@@ -177,23 +233,39 @@ export async function runFreerouting(dsnPath: string, sesOutputPath: string): Pr
     });
   });
 
-  // Check for SES file
+  // Check for SES file — search multiple possible locations
   const autoSesPath = dsnPath.replace(/\.dsn$/, '.ses');
+  const dsnDir = dirname(dsnPath);
   let foundSes: string | null = null;
 
+  // Check explicit output path
   if (existsSync(sesOutputPath)) {
     foundSes = sesOutputPath;
-  } else if (existsSync(autoSesPath) && autoSesPath !== sesOutputPath) {
+  }
+  // Check auto-named path (same dir as DSN, .ses extension)
+  if (!foundSes && existsSync(autoSesPath) && autoSesPath !== sesOutputPath) {
     copyFileSync(autoSesPath, sesOutputPath);
     foundSes = sesOutputPath;
+  }
+  // Search the DSN directory for any .ses file
+  if (!foundSes) {
+    try {
+      const sesFiles = readdirSync(dsnDir).filter(f => f.endsWith('.ses'));
+      if (sesFiles.length > 0) {
+        const found = join(dsnDir, sesFiles[0]);
+        copyFileSync(found, sesOutputPath);
+        foundSes = sesOutputPath;
+        log(`  Found SES file: ${sesFiles[0]}`);
+      }
+    } catch { /* ignore */ }
   }
 
   if (foundSes) {
     if (lastUnrouted !== null && lastUnrouted > 0) {
-      console.log(`  Routing complete with ${lastUnrouted} unrouted connections remaining.`);
-      console.log('  These may need manual routing in KiCad.');
+      log(`  Routing complete with ${lastUnrouted} unrouted connections remaining.`);
+      log('  These may need manual routing in KiCad.');
     } else {
-      console.log('  Routing complete — all connections routed.');
+      log('  Routing complete — all connections routed.');
     }
     return;
   }

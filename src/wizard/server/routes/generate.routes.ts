@@ -16,10 +16,12 @@ const sseListeners = new Map<string, Set<(event: BuildEvent) => void>>();
 export async function generateRoutes(app: FastifyInstance): Promise<void> {
   app.post<{
     Params: { name: string };
-    Body: { outputs?: BuildOutputSelections };
+    Body: { outputs?: BuildOutputSelections; routingTimeoutMinutes?: number; maxPasses?: number };
   }>('/api/generate/:name', async (request, reply) => {
     const { name } = request.params;
     const outputs = request.body?.outputs ?? {};
+    const routingTimeoutMinutes = request.body?.routingTimeoutMinutes ?? 10;
+    const maxPasses = request.body?.maxPasses ?? 25;
 
     if (isBuildActive(name)) {
       throw new AppError(
@@ -55,7 +57,7 @@ export async function generateRoutes(app: FastifyInstance): Promise<void> {
     };
 
     // Start build asynchronously - don't await
-    executeBuild(name, project.config, outputs, emitter).catch((err) => {
+    executeBuild(name, project.config, outputs, emitter, routingTimeoutMinutes, maxPasses).catch((err) => {
       console.error(`Build failed for ${name}:`, err);
     });
 

@@ -52,11 +52,27 @@ export function Config({ step }: ConfigProps) {
 	useEffect(() => {
 		if (!config) return;
 		setLocalConfig(JSON.parse(JSON.stringify(config)));
-		// Set selected component from config
-		if (currentStep === 'switches') setSelected(config.switches?.model || '');
+		// Set selected component from config — store the raw value, matching happens in isSelected()
+		if (currentStep === 'switches') setSelected(config.switches?.model || config.switches?.type || '');
 		else if (currentStep === 'mcu') setSelected(config.mcu?.module || '');
 		else if (currentStep === 'power') setSelected(config.power?.chargerIc || '');
 	}, [config, currentStep]);
+
+	// Flexible matching: the saved config value might be an id, name, or partial match
+	const isSelected = (opt: ComponentOption): boolean => {
+		if (!selected) return false;
+		const sel = selected.toLowerCase();
+		const id = (opt.id || '').toLowerCase();
+		const name = (opt.name || '').toLowerCase();
+		// Exact match
+		if (sel === id || sel === name) return true;
+		// ID with underscores vs hyphens
+		if (sel.replace(/_/g, '-') === id || sel.replace(/-/g, '_') === id) return true;
+		// Partial match — selected value contains the ID or vice versa
+		if (id && (sel.includes(id) || id.includes(sel))) return true;
+		if (name && (sel.includes(name) || name.includes(sel))) return true;
+		return false;
+	};
 
 	// Fetch component options
 	useEffect(() => {
@@ -95,7 +111,7 @@ export function Config({ step }: ConfigProps) {
 
 			// Apply selected component
 			if (currentStep === 'switches' && selected) {
-				const opt = options.find((o) => o.name === selected || o.id === selected);
+				const opt = options.find((o) => isSelected(o));
 				// Map component ID to the SwitchType enum used by generators
 				const switchTypeMap: Record<string, string> = {
 					'kailh-choc-v1': 'choc_v1',
@@ -112,7 +128,7 @@ export function Config({ step }: ConfigProps) {
 					hotswap: updatedConfig.switches?.hotswap ?? true,
 				};
 			} else if (currentStep === 'mcu' && selected) {
-				const opt = options.find((o) => o.name === selected || o.id === selected);
+				const opt = options.find((o) => isSelected(o));
 				// Extract GPIO count from component data
 				const gpioCount = (opt as any)?.gpioCount || (opt as any)?.specs?.gpioCount || updatedConfig.mcu?.gpioAvailable || 21;
 				updatedConfig.mcu = {
@@ -161,8 +177,8 @@ export function Config({ step }: ConfigProps) {
 						key={opt.id}
 						title={opt.name}
 						description={opt.description}
-						selected={selected === opt.name || selected === opt.id}
-						onClick={() => setSelected(opt.name || opt.id)}
+						selected={isSelected(opt)}
+						onClick={() => setSelected(opt.id)}
 					>
 						{opt.manufacturer && (
 							<div style="font-size:12px;color:var(--text-muted);margin-top:4px">
@@ -616,17 +632,57 @@ export function Config({ step }: ConfigProps) {
 							</div>
 						</div>
 
-						<div>
+						<div style="border-top:1px solid var(--border);padding-top:16px;margin-top:8px">
 							<label style="display:block;font-weight:500;margin-bottom:6px;font-size:13px">Charge Current (mA)</label>
-							<input
-								type="number"
-								step="50"
-								min="100"
-								max="2000"
-								style="width:150px;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-input,#0f172a);color:var(--text-primary)"
-								value={pwr?.chargeCurrentMa ?? 500}
-								onInput={(e) => updateLocal('power', 'chargeCurrentMa', parseInt((e.target as HTMLInputElement).value) || 500)}
-							/>
+							{(() => {
+								// Determine limits from selected charger
+								const chargerId = pwr?.chargerIc || '';
+								const chargerMaxMa: Record<string, number> = {
+									'mcp73831': 500, 'tp4056': 1000, 'bq24075': 1500,
+									'MCP73831': 500, 'TP4056': 1000, 'BQ24075RGTR': 1500,
+								};
+								const maxMa = chargerMaxMa[chargerId] || 500;
+								const battMah = pwr?.batteryCapacityMah || 1000;
+								// Safe charge rate: 0.5C (half the battery capacity)
+								const safeMa = Math.min(maxMa, Math.round(battMah * 0.5));
+								const chargeHours = battMah / (pwr?.chargeCurrentMa || safeMa);
+
+								return (
+									<div>
+										<input
+											type="number"
+											step="50"
+											min="100"
+											max={maxMa}
+											style="width:150px;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-input,#0f172a);color:var(--text-primary)"
+											value={pwr?.chargeCurrentMa ?? safeMa}
+											onInput={(e) => updateLocal('power', 'chargeCurrentMa', parseInt((e.target as HTMLInputElement).value) || safeMa)}
+										/>
+										<span style="margin-left:8px;font-size:12px;color:var(--text-muted)">
+											max {maxMa}mA ({chargerId || 'charger'})
+										</span>
+
+										<div style="margin-top:10px;padding:10px 12px;background:var(--bg-hover,#2d3748);border-radius:var(--radius-sm);font-size:12px;line-height:1.6">
+											<div style="font-weight:600;color:var(--text-primary);margin-bottom:4px">About charge current</div>
+											<div style="color:var(--text-muted)">
+												This sets how fast the battery charges via the charger IC. It's limited by the charger module's maximum output.
+											</div>
+											<div style="margin-top:6px;color:var(--text-muted)">
+												<strong style="color:var(--text-secondary)">Higher current</strong> = faster charge, but generates more heat and can reduce battery lifespan. Max for your charger: {maxMa}mA.
+											</div>
+											<div style="margin-top:4px;color:var(--text-muted)">
+												<strong style="color:var(--text-secondary)">Lower current</strong> = slower charge, gentler on the battery, longer lifespan. Min recommended: 100mA.
+											</div>
+											<div style="margin-top:8px;padding:6px 8px;background:var(--bg-card,#1f2937);border-radius:4px;border-left:3px solid var(--accent)">
+												<strong style="color:var(--accent)">Recommended: {safeMa}mA</strong> (0.5C rate for {battMah}mAh battery)
+												<div style="color:var(--text-muted);font-size:11px;margin-top:2px">
+													Estimated charge time: ~{chargeHours.toFixed(1)} hours
+												</div>
+											</div>
+										</div>
+									</div>
+								);
+							})()}
 						</div>
 					</>
 				)}

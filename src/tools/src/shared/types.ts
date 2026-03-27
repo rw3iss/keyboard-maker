@@ -215,6 +215,15 @@ export interface BuildConfig {
     mcu?: { x: number; y: number };
     /** Custom battery position */
     battery?: { x: number; y: number };
+    /** Custom board outline (rectangle for now, polygon points for future) */
+    boardOutline?: {
+      minX: number;
+      minY: number;
+      maxX: number;
+      maxY: number;
+      /** Future: arbitrary polygon points for non-rectangular boards */
+      points?: Array<{ x: number; y: number }>;
+    };
   };
   /** Switch plate settings */
   plate: {

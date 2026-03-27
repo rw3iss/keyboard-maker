@@ -17,6 +17,8 @@ export interface LayoutComponent {
   id: string;
   type: ComponentType;
   layer: string;
+  /** Which side of the PCB this component is on */
+  side: 'front' | 'back' | 'through';
   x: number;
   y: number;
   width: number;
@@ -80,6 +82,80 @@ export const layers = signal<LayerConfig[]>(DEFAULT_LAYERS.map((l) => ({ ...l })
 export const selectedId = signal<string | null>(null);
 export const boardBounds = signal<BoardBounds>({ minX: 0, minY: 0, maxX: 200, maxY: 100 });
 
+// ── Undo/Redo history ──────────────────────────────────────────────────────
+
+export interface HistoryAction {
+  type: 'move';
+  componentId: string;
+  fromX: number;
+  fromY: number;
+  toX: number;
+  toY: number;
+}
+
+export const undoStack = signal<HistoryAction[]>([]);
+export const redoStack = signal<HistoryAction[]>([]);
+export const canUndo = computed(() => undoStack.value.length > 0);
+export const canRedo = computed(() => redoStack.value.length > 0);
+
+/** Record start position before a drag begins */
+let dragStartPos: { id: string; x: number; y: number } | null = null;
+
+export function beginDrag(id: string) {
+  const comp = layoutComponents.value.find(c => c.id === id);
+  if (comp) {
+    dragStartPos = { id, x: comp.x, y: comp.y };
+  }
+}
+
+export function endDrag(id: string) {
+  if (!dragStartPos || dragStartPos.id !== id) return;
+  const comp = layoutComponents.value.find(c => c.id === id);
+  if (!comp) return;
+  // Only record if position actually changed
+  if (comp.x !== dragStartPos.x || comp.y !== dragStartPos.y) {
+    undoStack.value = [...undoStack.value, {
+      type: 'move',
+      componentId: id,
+      fromX: dragStartPos.x,
+      fromY: dragStartPos.y,
+      toX: comp.x,
+      toY: comp.y,
+    }];
+    // Clear redo stack on new action (standard undo/redo behavior)
+    redoStack.value = [];
+  }
+  dragStartPos = null;
+}
+
+export function undo() {
+  const stack = undoStack.value;
+  if (stack.length === 0) return;
+  const action = stack[stack.length - 1];
+  undoStack.value = stack.slice(0, -1);
+  // Move component back to original position
+  layoutComponents.value = layoutComponents.value.map(c =>
+    c.id === action.componentId ? { ...c, x: action.fromX, y: action.fromY } : c
+  );
+  // Push to redo stack
+  redoStack.value = [...redoStack.value, action];
+  checkCollisions();
+}
+
+export function redo() {
+  const stack = redoStack.value;
+  if (stack.length === 0) return;
+  const action = stack[stack.length - 1];
+  redoStack.value = stack.slice(0, -1);
+  // Move component to the "new" position
+  layoutComponents.value = layoutComponents.value.map(c =>
+    c.id === action.componentId ? { ...c, x: action.toX, y: action.toY } : c
+  );
+  // Push back to undo stack
+  undoStack.value = [...undoStack.value, action];
+  checkCollisions();
+}
+
 /** Default positions for all draggable components, used by reset */
 let defaultPositions: Record<string, { x: number; y: number }> = {};
 
@@ -124,6 +200,7 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
       id: `sw_${i}`,
       type: 'switch',
       layer: 'switches',
+      side: 'front',
       x: (key.x + kw / 2) * sp.x,
       y: (key.y + kh / 2) * sp.y,
       width: kw * sp.x * 0.9,
@@ -157,6 +234,7 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
     id: 'outline',
     type: 'outline',
     layer: 'outline',
+    side: 'through',
     x: midX,
     y: (minY + maxY) / 2,
     width: boardW,
@@ -173,6 +251,7 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
     id: 'usb',
     type: 'usb',
     layer: 'connectors',
+    side: 'through',  // USB-C is edge-mounted, passes through the board
     x: midX,
     y: minY + 4,
     width: 12,
@@ -189,8 +268,9 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
     id: 'mcu',
     type: 'mcu',
     layer: 'mcu',
+    side: 'back',  // MCU is on the back of the PCB, under the switches
     x: midX,
-    y: maxY - 12,
+    y: (minY + maxY) / 2,  // center of board — fits under switches on back side
     width: 18,
     height: 22,
     rotation: 0,
@@ -214,6 +294,7 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
       id: s.id,
       type: 'screw',
       layer: 'screws',
+      side: 'through',  // screws pass through all layers
       x: s.x,
       y: s.y,
       width: 5.5,
@@ -232,8 +313,9 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
       id: 'battery',
       type: 'battery',
       layer: 'power',
+      side: 'back',  // battery sits under the PCB in the case cavity
       x: midX,
-      y: maxY - 35,
+      y: (minY + maxY) / 2 + 20,  // offset from MCU, under switch area
       width: 30,
       height: 15,
       rotation: 0,
@@ -251,6 +333,7 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
       id: 'power_btn',
       type: 'power_button',
       layer: 'extras',
+      side: 'through',  // edge-mounted button
       x: midX + 10,
       y: minY + 4,
       width: 4,
@@ -269,6 +352,7 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
       id: 'wifi_btn',
       type: 'wifi_button',
       layer: 'extras',
+      side: 'through',  // edge-mounted button
       x: midX + 18,
       y: minY + 4,
       width: 4,
@@ -287,6 +371,7 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
       id: 'lcd',
       type: 'lcd',
       layer: 'extras',
+      side: 'front',  // OLED faces up through a window in the case
       x: midX - 30,
       y: maxY - 18,
       width: 27,
@@ -337,9 +422,11 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
 
   layoutComponents.value = components;
 
-  // Reset layers to defaults
+  // Reset layers and history
   layers.value = DEFAULT_LAYERS.map((l) => ({ ...l }));
   selectedId.value = null;
+  undoStack.value = [];
+  redoStack.value = [];
 
   checkCollisions();
 }
@@ -381,7 +468,13 @@ export function nudgeSelected(dx: number, dy: number) {
   if (!id) return;
   const comp = layoutComponents.value.find((c) => c.id === id);
   if (!comp || !comp.draggable) return;
+  const fromX = comp.x, fromY = comp.y;
   moveComponent(id, dx, dy);
+  const after = layoutComponents.value.find(c => c.id === id);
+  if (after && (after.x !== fromX || after.y !== fromY)) {
+    undoStack.value = [...undoStack.value, { type: 'move', componentId: id, fromX, fromY, toX: after.x, toY: after.y }];
+    redoStack.value = [];
+  }
 }
 
 // ── Reset position ─────────────────────────────────────────────────────────
@@ -404,29 +497,51 @@ function rectsOverlap(
   );
 }
 
+/**
+ * Side-aware collision detection.
+ *
+ * Rules:
+ * - Components on the SAME side collide with each other
+ * - 'through' components (screws, USB, buttons) collide with ALL sides
+ * - 'back' components (MCU, battery) do NOT collide with 'front' components (switches)
+ *   because they are on opposite sides of the PCB
+ * - 'back' components DO collide with each other and with 'through' components
+ *
+ * This means MCU and battery can be placed under the switch area without collision,
+ * which is the standard approach for keyboard PCBs.
+ */
+function sidesCanCollide(a: LayoutComponent, b: LayoutComponent): boolean {
+  // 'through' components collide with everything
+  if (a.side === 'through' || b.side === 'through') return true;
+  // Same side = collision possible
+  if (a.side === b.side) return true;
+  // Different sides (front vs back) = no collision
+  return false;
+}
+
 export function checkCollisions() {
   const comps = layoutComponents.value;
   const draggable = comps.filter((c) => c.draggable);
-  const switches = comps.filter((c) => c.type === 'switch');
+  const nonDraggable = comps.filter((c) => !c.draggable && c.type !== 'outline');
 
   const collisionSet = new Set<string>();
 
-  // Check draggable vs draggable
+  // Check draggable vs draggable (only same-side or through)
   for (let i = 0; i < draggable.length; i++) {
     for (let j = i + 1; j < draggable.length; j++) {
       const a = draggable[i];
       const b = draggable[j];
-      if (rectsOverlap(a.x, a.y, a.width, a.height, b.x, b.y, b.width, b.height)) {
+      if (sidesCanCollide(a, b) && rectsOverlap(a.x, a.y, a.width, a.height, b.x, b.y, b.width, b.height)) {
         collisionSet.add(a.id);
         collisionSet.add(b.id);
       }
     }
   }
 
-  // Check draggable vs switches
+  // Check draggable vs fixed components (switches, etc.) — only same side
   for (const d of draggable) {
-    for (const s of switches) {
-      if (rectsOverlap(d.x, d.y, d.width, d.height, s.x, s.y, s.width, s.height)) {
+    for (const s of nonDraggable) {
+      if (sidesCanCollide(d, s) && rectsOverlap(d.x, d.y, d.width, d.height, s.x, s.y, s.width, s.height)) {
         collisionSet.add(d.id);
         break;
       }

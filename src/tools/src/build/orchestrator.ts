@@ -23,7 +23,7 @@ import { routePCB } from '../routing/index.js';
 import { generateCase } from '../case-generator/index.js';
 import { generateOverview } from '../overview-generator/index.js';
 import { renderLayoutImage } from '../kle-renderer/index.js';
-import { KLE_UNIT_MM } from '../shared/constants.js';
+import { KLE_UNIT_MM, SWITCH_SPACING } from '../shared/constants.js';
 
 /**
  * Run the full build pipeline based on config.outputs flags.
@@ -301,21 +301,24 @@ export async function runBuild(config: BuildConfig, outputBase: string, overwrit
   {
     const s = ora('Generating project overview...').start();
     try {
-      // Calculate board dimensions from layout keys (same logic as PCB generator)
+      // Calculate board dimensions from layout keys using actual switch spacing
+      const spacing = SWITCH_SPACING[config.switches.type] || SWITCH_SPACING.choc_v1;
       let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
       for (const key of layout.keys) {
-        const cx = key.x * KLE_UNIT_MM;
-        const cy = key.y * KLE_UNIT_MM;
-        const halfW = (key.width * KLE_UNIT_MM) / 2;
-        const halfH = (key.height * KLE_UNIT_MM) / 2;
+        const cx = (key.x + key.width / 2) * spacing.x;
+        const cy = (key.y + key.height / 2) * spacing.y;
+        const halfW = (key.width * spacing.x) / 2;
+        const halfH = (key.height * spacing.y) / 2;
         minX = Math.min(minX, cx - halfW);
-        maxX = Math.max(maxX, cx + key.width * KLE_UNIT_MM - halfW + halfW);
+        maxX = Math.max(maxX, cx + halfW);
         minY = Math.min(minY, cy - halfH);
-        maxY = Math.max(maxY, cy + key.height * KLE_UNIT_MM - halfH + halfH);
+        maxY = Math.max(maxY, cy + halfH);
       }
+      // Guard against empty layout
+      if (!isFinite(minX)) { minX = 0; maxX = 300; minY = 0; maxY = 100; }
       const margin = 8;
-      const boardWidth = (maxX - minX) + margin * 2;
-      const boardDepth = (maxY - minY) + margin * 2 + 35; // extra for MCU area
+      const boardWidth = Math.round((maxX - minX) + margin * 2);
+      const boardDepth = Math.round((maxY - minY) + margin * 2 + 35); // extra for MCU area
       const frontHeight = config.physical.frontHeight ?? (config.pcb.thickness + (config.plate.enabled ? config.plate.thickness : 0) + 2);
       const rearHeight = config.physical.rearHeight ?? (frontHeight + 4);
 

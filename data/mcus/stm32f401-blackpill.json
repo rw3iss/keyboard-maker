@@ -1,0 +1,78 @@
+{
+  "id": "stm32f401-blackpill",
+  "name": "WeAct STM32F401 Black Pill",
+  "chip": "STM32F401",
+  "formFactor": "blackpill",
+  "summary": "Proven STM32 workhorse for QMK — fast, cheap, and rock-solid wired keyboard MCU",
+  "hasUsb": true,
+  "hasBle": false,
+  "bleVersion": "",
+  "hasLipoCharger": false,
+  "chargerMaxMa": 0,
+  "gpioCount": 25,
+  "gpioPins": [
+    { "pin": "PA0", "label": "A0" },
+    { "pin": "PA1", "label": "A1" },
+    { "pin": "PA2", "label": "A2" },
+    { "pin": "PA3", "label": "A3" },
+    { "pin": "PA4", "label": "A4" },
+    { "pin": "PA5", "label": "A5" },
+    { "pin": "PA6", "label": "A6" },
+    { "pin": "PA7", "label": "A7" },
+    { "pin": "PA8", "label": "D8" },
+    { "pin": "PA9", "label": "D9/TX" },
+    { "pin": "PA10", "label": "D10/RX" },
+    { "pin": "PA15", "label": "D15" },
+    { "pin": "PB0", "label": "B0" },
+    { "pin": "PB1", "label": "B1" },
+    { "pin": "PB3", "label": "B3" },
+    { "pin": "PB4", "label": "B4" },
+    { "pin": "PB5", "label": "B5" },
+    { "pin": "PB6", "label": "B6/SCL" },
+    { "pin": "PB7", "label": "B7/SDA" },
+    { "pin": "PB8", "label": "B8" },
+    { "pin": "PB9", "label": "B9" },
+    { "pin": "PB10", "label": "B10" },
+    { "pin": "PB12", "label": "B12" },
+    { "pin": "PB13", "label": "B13" },
+    { "pin": "PB14", "label": "B14" }
+  ],
+  "footprintFile": "STM32F401_BlackPill.kicad_mod",
+  "zmkBoard": "",
+  "qmkBoard": "weact/weact_stm32f401",
+  "firmwareSupport": ["qmk", "vial"],
+  "suppliers": [
+    { "name": "WeAct Studio (AliExpress)", "url": "https://www.aliexpress.com/item/weact-stm32f401-blackpill", "priceUsd": 3.50 },
+    { "name": "Amazon", "url": "https://www.amazon.com/s?k=stm32f401+black+pill", "priceUsd": 6.00 }
+  ],
+  "features": [
+    "ARM Cortex-M4 at 84 MHz with FPU",
+    "256KB Flash, 64KB SRAM",
+    "Native USB OTG Full Speed",
+    "25 usable GPIOs — enough for full-size keyboards",
+    "SWD debugging support",
+    "QMK and Vial fully supported",
+    "Very cheap ($3-6) and widely available",
+    "Well-documented pinout and community support"
+  ],
+  "concerns": [
+    "No Bluetooth — wired USB only",
+    "No built-in battery charging",
+    "ZMK does not support STM32F4 well",
+    "Larger form factor than Pro Micro (40-pin DIP)",
+    "Requires STM32 DFU bootloader for first flash"
+  ],
+  "datasheet": "https://www.st.com/resource/en/datasheet/stm32f401cc.pdf",
+  "externalLinks": [
+    { "label": "QMK STM32 Platform Guide", "url": "https://docs.qmk.fm/platformdev_blackpill_f4x1" },
+    { "label": "WeAct Black Pill GitHub", "url": "https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1" },
+    { "label": "Pinout Reference", "url": "https://stm32-base.org/boards/STM32F401CCU6-WeAct-Black-Pill-V3.0" }
+  ],
+  "designNotes": [
+    "The go-to STM32 board for QMK keyboards",
+    "F411 variant available for 100MHz and 512KB flash",
+    "Larger than Pro Micro — needs more PCB space",
+    "Hardware FPU is overkill for keyboards but doesn't hurt",
+    "Use SWD header for debugging if needed"
+  ]
+}

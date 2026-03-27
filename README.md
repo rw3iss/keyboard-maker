@@ -177,6 +177,14 @@ Three modes, selectable in the config or wizard:
 - **`guided`** — Generates a detailed routing guide with trace priority order, layer assignments, and width recommendations. Includes instructions for running Freerouting manually.
 - **`manual`** — Outputs the unrouted PCB + routing guide. You handle routing entirely in KiCad.
 
+* Note: The automated freerouting will not complete, usually. In normal circuits, it will get hung up on the last 5 traces or so. This is expected.
+Instead of "auto" freerouting from the wizard, you should run the Freerouting manually after a build (as the Build Output will explain, if it can't complete).
+For example, with the latest freerouting jar:
+1. Run: java -jar /home/<user>/.local/bin/freerouting-2.1.0.jar -de <keyboard-maker-root>/projects/<project>/build/keyboard.dsn
+2. In Freerouting GUI: File → Export Specctra Session
+3. Save as: <keyboard-maker-root>/projects/<project>/build/keyboard.ses
+4. Then import in KiCad PCB: File → Import → Specctra Session
+
 ### Component Database
 
 All supported components live in `data/` as JSON files. The wizard loads these to populate its selection menus with detailed spec sheets, and the BOM generator pulls prices and supplier links from them.
@@ -331,3 +339,19 @@ The toolchain generates KiCad and OpenSCAD files without those tools installed �
 ```bash
 cd src/tools && npm test
 ```
+
+## Contributing
+
+Contributions are welcome! Feel free to try out the toolchain, explore the codebase, and submit improvements.
+
+**How to contribute:**
+
+1. Fork the repo and create a feature branch (`git checkout -b my-feature`)
+2. Make your changes, ensuring tests pass (`cd src/tools && npm test`)
+3. Submit a Pull Request describing what you changed and why
+
+Bug fixes, feature implementations, documentation improvements, and new component data are all appreciated. Please keep PRs focused — one feature or fix per PR.
+
+**Using AI assistants is recommended.** This project was largely built with [Claude Code](https://claude.ai/code) (Claude Opus 4.6) and is well-suited for AI-assisted development. The repo includes a `CLAUDE.md` file at the root with up-to-date project context, architecture decisions, and build instructions — it's automatically loaded by Claude Code and provides good initial context for any AI assistant working on the codebase.
+
+If you're using Claude Code or another AI tool, point it at `CLAUDE.md` first to get oriented, then explore the implementation plan at `.claude/plans/` for deeper architectural context.
