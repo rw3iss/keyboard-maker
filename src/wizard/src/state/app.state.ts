@@ -8,3 +8,9 @@ export const isProjectDirty = signal(false);
 export const isLoading = signal(false);
 
 export const hasProject = computed(() => currentProject.value !== null);
+
+/** Server capabilities — fetched once on load */
+export interface ServerConfig {
+  enableAutoRouting: boolean;
+}
+export const serverConfig = signal<ServerConfig>({ enableAutoRouting: true });

@@ -12,7 +12,7 @@ import { PartDetail } from './views/PartDetail';
 import { OpenProject } from './views/OpenProject';
 import { NewProject } from './views/NewProject';
 import { About } from './views/About';
-import { currentProject, projectConfig } from './state/app.state';
+import { currentProject, projectConfig, serverConfig } from './state/app.state';
 import { addToast } from './services/toast.service';
 import { apiGet } from './services/api.service';
 import Router from 'preact-router';
@@ -29,8 +29,12 @@ export function saveLastProject(name: string) {
 export function App() {
   const [modal, setModal] = useState<'open' | 'new' | 'about' | null>(null);
 
-  // On mount: restore last opened project
+  // On mount: fetch server config + restore last project
   useEffect(() => {
+    apiGet<{ enableAutoRouting: boolean }>('/api/config/server')
+      .then((cfg) => { serverConfig.value = cfg; })
+      .catch(() => { /* use defaults */ });
+
     const last = localStorage.getItem(LAST_PROJECT_KEY);
     if (last && !currentProject.value) {
       apiGet<{ config: any }>(`/api/projects/${last}`)

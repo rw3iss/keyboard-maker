@@ -1,56 +1,56 @@
-[2026-03-27T19:17:14.229Z] Build started for blue-dream-space
-[2026-03-27T19:17:14.230Z] Parsed layout: 86 keys
-[2026-03-27T19:17:14.235Z] Layout image: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/images/kle-layout.svg
-[2026-03-27T19:17:14.235Z] Matrix: 11x10 (21 GPIOs)
-[2026-03-27T19:17:14.235Z] WARNING: Per-key RGB LEDs draw significant power (~20mA each at full brightness). Battery life will be greatly reduced. Consider disabling LEDs in wireless mode.
-[2026-03-27T19:17:14.266Z] Schematic: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space.kicad_sch
-[2026-03-27T19:17:14.270Z] PCB: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space.kicad_pcb
-[2026-03-27T19:17:14.458Z] Routing guide generated (manual mode)
-[2026-03-27T19:17:15.256Z] Gerbers: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/gerbers
-[2026-03-27T19:17:15.259Z] Plate: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-plate.dxf
-[2026-03-27T19:17:20.758Z] Case SCAD: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-plate.scad, /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-case.scad
-[2026-03-27T19:17:20.758Z] Plate STL: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-plate.stl
-[2026-03-27T19:17:20.758Z] Case STL: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-case.stl
-[2026-03-27T19:17:20.760Z] Firmware: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/firmware
-[2026-03-27T19:17:20.761Z] BOM: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/bom.md
-[2026-03-27T19:17:20.762Z] Design notes: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/design-notes.txt
-[2026-03-27T19:17:20.764Z] Overview: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/overview.html
-[2026-03-27T19:17:20.765Z] 
-[2026-03-27T19:17:20.765Z] --- Manual Routing Instructions ---
-[2026-03-27T19:17:20.765Z] 
-[2026-03-27T19:17:20.765Z] Routing was skipped. To route your PCB:
-[2026-03-27T19:17:20.765Z] 
-[2026-03-27T19:17:20.765Z] Option 1: Route with Freerouting (auto)
-[2026-03-27T19:17:20.765Z]   The DSN file was exported during the build.
-[2026-03-27T19:17:20.765Z]   From the repo root, run Freerouting:
-[2026-03-27T19:17:20.765Z]     java -jar ~/.local/bin/freerouting-2.1.0.jar \
-[2026-03-27T19:17:20.765Z]       -de projects/blue-dream-space/build/keyboard.dsn \
-[2026-03-27T19:17:20.765Z]       -do projects/blue-dream-space/build/keyboard.ses -mp 50 -mt 24
-[2026-03-27T19:17:20.765Z]   -mp  Max routing passes (default 50). Increase for complex boards,
-[2026-03-27T19:17:20.765Z]         decrease to limit run time. There is no time-based timeout.
-[2026-03-27T19:17:20.765Z]   -mt  Thread count for post-route optimization (your system: 24 cores).
-[2026-03-27T19:17:20.765Z]         Note: the autoroute phase itself is always single-threaded.
-[2026-03-27T19:17:20.765Z] 
-[2026-03-27T19:17:20.765Z]   Freerouting reads a freerouting.json config from its working directory.
-[2026-03-27T19:17:20.765Z]   The build generates one at projects/blue-dream-space/build/freerouting.json with
-[2026-03-27T19:17:20.765Z]   headless mode, via costs, and other router settings. To use it:
-[2026-03-27T19:17:20.765Z]     cd projects/blue-dream-space/build && java -jar ~/.local/bin/freerouting-2.1.0.jar \
-[2026-03-27T19:17:20.765Z]       -de keyboard.dsn -do keyboard.ses -mp 50 -mt 24
-[2026-03-27T19:17:20.765Z] 
-[2026-03-27T19:17:20.765Z] Option 2: Route manually in KiCad
-[2026-03-27T19:17:20.765Z]   Open projects/blue-dream-space/build/blue-dream-space.kicad_pcb in KiCad and route traces by hand.
-[2026-03-27T19:17:20.765Z]   See projects/blue-dream-space/build/routing-guide.md for routing priority and trace widths.
-[2026-03-27T19:17:20.765Z] 
-[2026-03-27T19:17:20.765Z] After routing, import the session and re-export Gerbers:
-[2026-03-27T19:17:20.765Z]   1. Import the .ses into KiCad: File > Import > Specctra Session
-[2026-03-27T19:17:20.765Z]      Select: projects/blue-dream-space/build/keyboard.ses
-[2026-03-27T19:17:20.765Z]   2. Review the routing, fix any remaining unrouted nets, then save
-[2026-03-27T19:17:20.765Z]   3. Re-export Gerbers:
-[2026-03-27T19:17:20.765Z]        kicad-cli pcb export gerbers --board-plot-params \
-[2026-03-27T19:17:20.765Z]          --output projects/blue-dream-space/build/gerbers/ projects/blue-dream-space/build/blue-dream-space.kicad_pcb
-[2026-03-27T19:17:20.765Z]        kicad-cli pcb export drill \
-[2026-03-27T19:17:20.765Z]          --output projects/blue-dream-space/build/gerbers/ projects/blue-dream-space/build/blue-dream-space.kicad_pcb
-[2026-03-27T19:17:20.765Z] 
-[2026-03-27T19:17:20.765Z] See projects/blue-dream-space/build/routing-guide.md for trace widths, layer assignments, and routing tips.
-[2026-03-27T19:17:20.765Z] 
-[2026-03-27T19:17:20.765Z] Build complete
+[2026-03-27T21:10:21.972Z] Build started for blue-dream-space
+[2026-03-27T21:10:21.973Z] Parsed layout: 86 keys
+[2026-03-27T21:10:21.978Z] Layout image: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/images/kle-layout.svg
+[2026-03-27T21:10:21.978Z] Matrix: 11x10 (21 GPIOs)
+[2026-03-27T21:10:21.978Z] WARNING: Per-key RGB LEDs draw significant power (~20mA each at full brightness). Battery life will be greatly reduced. Consider disabling LEDs in wireless mode.
+[2026-03-27T21:10:22.008Z] Schematic: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space.kicad_sch
+[2026-03-27T21:10:22.012Z] PCB: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space.kicad_pcb
+[2026-03-27T21:10:22.215Z] Routing guide generated (manual mode)
+[2026-03-27T21:10:23.036Z] Gerbers: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/gerbers
+[2026-03-27T21:10:23.039Z] Plate: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-plate.dxf
+[2026-03-27T21:10:28.515Z] Case SCAD: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-plate.scad, /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-case.scad
+[2026-03-27T21:10:28.515Z] Plate STL: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-plate.stl
+[2026-03-27T21:10:28.515Z] Case STL: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/blue-dream-space-case.stl
+[2026-03-27T21:10:28.517Z] Firmware: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/firmware
+[2026-03-27T21:10:28.519Z] BOM: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/bom.md
+[2026-03-27T21:10:28.519Z] Design notes: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/design-notes.txt
+[2026-03-27T21:10:28.522Z] Overview: /home/rw3iss/Projects/Keyboard/projects/blue-dream-space/build/overview.html
+[2026-03-27T21:10:28.523Z] 
+[2026-03-27T21:10:28.523Z] --- Manual Routing Instructions ---
+[2026-03-27T21:10:28.523Z] 
+[2026-03-27T21:10:28.523Z] Routing was skipped. To route your PCB:
+[2026-03-27T21:10:28.523Z] 
+[2026-03-27T21:10:28.523Z] Option 1: Route with Freerouting (auto)
+[2026-03-27T21:10:28.523Z]   The DSN file was exported during the build.
+[2026-03-27T21:10:28.523Z]   From the repo root, run Freerouting:
+[2026-03-27T21:10:28.523Z]     java -jar ~/.local/bin/freerouting-2.1.0.jar \
+[2026-03-27T21:10:28.523Z]       -de projects/blue-dream-space/build/keyboard.dsn \
+[2026-03-27T21:10:28.523Z]       -do projects/blue-dream-space/build/keyboard.ses -mp 50 -mt 24
+[2026-03-27T21:10:28.523Z]   -mp  Max routing passes (default 50). Increase for complex boards,
+[2026-03-27T21:10:28.523Z]         decrease to limit run time. There is no time-based timeout.
+[2026-03-27T21:10:28.523Z]   -mt  Thread count for post-route optimization (your system: 24 cores).
+[2026-03-27T21:10:28.523Z]         Note: the autoroute phase itself is always single-threaded.
+[2026-03-27T21:10:28.523Z] 
+[2026-03-27T21:10:28.523Z]   Freerouting reads a freerouting.json config from its working directory.
+[2026-03-27T21:10:28.523Z]   The build generates one at projects/blue-dream-space/build/freerouting.json with
+[2026-03-27T21:10:28.523Z]   headless mode, via costs, and other router settings. To use it:
+[2026-03-27T21:10:28.523Z]     cd projects/blue-dream-space/build && java -jar ~/.local/bin/freerouting-2.1.0.jar \
+[2026-03-27T21:10:28.523Z]       -de keyboard.dsn -do keyboard.ses -mp 50 -mt 24
+[2026-03-27T21:10:28.523Z] 
+[2026-03-27T21:10:28.523Z] Option 2: Route manually in KiCad
+[2026-03-27T21:10:28.523Z]   Open projects/blue-dream-space/build/blue-dream-space.kicad_pcb in KiCad and route traces by hand.
+[2026-03-27T21:10:28.523Z]   See projects/blue-dream-space/build/routing-guide.md for routing priority and trace widths.
+[2026-03-27T21:10:28.523Z] 
+[2026-03-27T21:10:28.523Z] After routing, import the session and re-export Gerbers:
+[2026-03-27T21:10:28.523Z]   1. Import the .ses into KiCad: File > Import > Specctra Session
+[2026-03-27T21:10:28.523Z]      Select: projects/blue-dream-space/build/keyboard.ses
+[2026-03-27T21:10:28.523Z]   2. Review the routing, fix any remaining unrouted nets, then save
+[2026-03-27T21:10:28.523Z]   3. Re-export Gerbers:
+[2026-03-27T21:10:28.523Z]        kicad-cli pcb export gerbers --board-plot-params \
+[2026-03-27T21:10:28.523Z]          --output projects/blue-dream-space/build/gerbers/ projects/blue-dream-space/build/blue-dream-space.kicad_pcb
+[2026-03-27T21:10:28.523Z]        kicad-cli pcb export drill \
+[2026-03-27T21:10:28.523Z]          --output projects/blue-dream-space/build/gerbers/ projects/blue-dream-space/build/blue-dream-space.kicad_pcb
+[2026-03-27T21:10:28.523Z] 
+[2026-03-27T21:10:28.523Z] See projects/blue-dream-space/build/routing-guide.md for trace widths, layer assignments, and routing tips.
+[2026-03-27T21:10:28.523Z] 
+[2026-03-27T21:10:28.523Z] Build complete

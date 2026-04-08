@@ -8,6 +8,7 @@ export type ComponentType =
   | 'usb'
   | 'mcu'
   | 'battery'
+  | 'charger'
   | 'power_button'
   | 'wifi_button'
   | 'lcd'
@@ -30,6 +31,10 @@ export interface LayoutComponent {
   collision: boolean;
   /** MCU fanout enabled — shows extended outline in layout editor */
   fanout?: boolean;
+  /** Fanout via extension distance in mm (total both sides) */
+  fanoutExtend?: number;
+  /** True if component is outside the board outline */
+  outOfBounds?: boolean;
 }
 
 export interface LayerConfig {
@@ -53,6 +58,7 @@ export interface LayoutOverride {
   type: ComponentType;
   x: number;
   y: number;
+  side?: 'front' | 'back' | 'through';
 }
 
 // ── Layer definitions ──────────────────────────────────────────────────────
@@ -63,7 +69,7 @@ export const DEFAULT_LAYERS: LayerConfig[] = [
   { id: 'screws', label: 'Screw Holes', visible: true, opacity: 1, locked: false, color: '#d4a574' },
   { id: 'connectors', label: 'Connectors', visible: true, opacity: 1, locked: false, color: '#6ecbf5' },
   { id: 'mcu', label: 'MCU', visible: true, opacity: 1, locked: false, color: '#22c55e' },
-  { id: 'power', label: 'Power/Battery', visible: true, opacity: 1, locked: false, color: '#ef4444' },
+  { id: 'power', label: 'Power/Battery', visible: true, opacity: 1, locked: false, color: '#f59e0b' },
   { id: 'extras', label: 'LCD/Buttons', visible: true, opacity: 1, locked: false, color: '#eab308' },
 ];
 
@@ -76,6 +82,51 @@ const SPACING: Record<string, { x: number; y: number }> = {
   mx_ulp: { x: 18, y: 18 },
   gateron_lp: { x: 18, y: 17 },
 };
+
+// ── MCU dimensions from component data ────────────────────────────────────
+
+/** Compute MCU footprint size (mm) from its data. Matches mcu-footprint.ts output. */
+function getMcuDimensions(mcuData: any): { width: number; height: number; fanoutExtend: number } {
+  const bp = mcuData?.boardPins;
+  const pkg = mcuData?.package;
+
+  if (bp) {
+    // Module: dimensions from pin layout
+    const pitch = bp.pitch ?? 2.54;
+    const rowSpacing = bp.rowSpacing ?? 15.24;
+    const pins = bp.pins ?? [];
+    const mainPins = pins.filter((p: any) => (p.row ?? 0) <= 1);
+    const maxPos = mainPins.reduce((m: number, p: any) => Math.max(m, p.position ?? 0), 0);
+    const mainH = maxPos * pitch;
+    const extraPins = pins.filter((p: any) => (p.row ?? 0) >= 2);
+    const extraH = extraPins.length > 0 ? pitch * 2 : 0;
+    return {
+      width: rowSpacing + 4,   // row spacing + pad overhang
+      height: mainH + 4 + extraH, // pin span + margins + bottom pads
+      fanoutExtend: 0,         // modules don't use fanout
+    };
+  }
+
+  if (pkg) {
+    // Bare chip: body size + courtyard
+    const w = (pkg.dimensions?.width ?? 7) + 2;
+    const h = (pkg.dimensions?.height ?? 7) + 2;
+    const pitch = pkg.pitch ?? 0.5;
+    // Staggered fanout: inner 1.0/0.8mm, outer 1.8/1.5mm depending on pitch
+    const fanoutOuter = pitch <= 0.4 ? 1.5 : 1.8;
+    return { width: w, height: h, fanoutExtend: fanoutOuter * 2 };
+  }
+
+  // Fallback: generic module
+  const gpioCount = mcuData?.gpioCount ?? 20;
+  const totalPins = Math.max(gpioCount + 4, 12);
+  const pinsPerRow = Math.ceil(totalPins / 2);
+  return {
+    width: 15.24 + 4,
+    height: (pinsPerRow - 1) * 2.54 + 4,
+    fanoutExtend: 0,
+  };
+}
 
 // ── Signals ────────────────────────────────────────────────────────────────
 
@@ -170,7 +221,7 @@ export const selectedComponent = computed(() => {
 });
 
 export const hasCollisions = computed(() => {
-  return layoutComponents.value.some((c) => c.collision);
+  return layoutComponents.value.some((c) => c.collision || c.outOfBounds);
 });
 
 // ── Grid snap ──────────────────────────────────────────────────────────────
@@ -189,7 +240,15 @@ export interface SimpleKey {
   label: string;
 }
 
-export function initLayout(config: any, kleKeys: SimpleKey[]) {
+/** Component data passed from the editor for accurate sizing */
+export interface ComponentDataSet {
+  mcu?: any;
+  battery?: any;
+  charger?: any;
+  connector?: any;
+}
+
+export function initLayout(config: any, kleKeys: SimpleKey[], componentData?: ComponentDataSet) {
   const sp = SPACING[config?.switches?.type] || SPACING.choc_v1;
   const components: LayoutComponent[] = [];
   const margin = 8; // mm margin around switches for the board
@@ -248,7 +307,10 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
     collision: false,
   });
 
-  // ── USB connector ──────────────────────────────────────────────────────
+  // ── USB connector — use actual dimensions from connector data ──────────
+  const connDims = componentData?.connector?.dimensions;
+  const usbW = connDims?.width ?? 9;    // GCT USB4085: 8.94mm
+  const usbH = connDims?.depth ?? connDims?.length ?? 7.3; // depth into board
   components.push({
     id: 'usb',
     type: 'usb',
@@ -256,8 +318,8 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
     side: 'through',  // USB-C is edge-mounted, passes through the board
     x: midX,
     y: minY + 4,
-    width: 12,
-    height: 8,
+    width: usbW,
+    height: usbH,
     rotation: 0,
     label: 'USB-C',
     draggable: true,
@@ -266,6 +328,8 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
   });
 
   // ── MCU ────────────────────────────────────────────────────────────────
+  const mcuDims = getMcuDimensions(componentData?.mcu);
+  const hasFanout = !!(config?.pcb?.mcuFanout && (config?.pcb?.layers ?? 2) >= 4 && mcuDims.fanoutExtend > 0);
   components.push({
     id: 'mcu',
     type: 'mcu',
@@ -273,14 +337,15 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
     side: 'back',  // MCU is on the back of the PCB, under the switches
     x: midX,
     y: (minY + maxY) / 2,  // center of board — fits under switches on back side
-    width: 18,
-    height: 22,
+    width: mcuDims.width,
+    height: mcuDims.height,
     rotation: 0,
     label: config?.mcu?.module || 'MCU',
     draggable: true,
     selected: false,
     collision: false,
-    fanout: config?.pcb?.mcuFanout && (config?.pcb?.layers ?? 2) >= 4,
+    fanout: hasFanout,
+    fanoutExtend: mcuDims.fanoutExtend,
   });
 
   // ── Screws ─────────────────────────────────────────────────────────────
@@ -310,8 +375,11 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
     });
   }
 
-  // ── Battery (if enabled) ───────────────────────────────────────────────
+  // ── Battery (if enabled) — use actual dimensions from battery data ─────
   if (config?.power?.battery) {
+    const batDims = componentData?.battery?.dimensions;
+    const batW = batDims?.width ?? 34;    // fallback: 1000mAh LiPo
+    const batH = batDims?.length ?? 50;
     components.push({
       id: 'battery',
       type: 'battery',
@@ -319,17 +387,49 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
       side: 'back',  // battery sits under the PCB in the case cavity
       x: midX,
       y: (minY + maxY) / 2 + 20,  // offset from MCU, under switch area
-      width: 30,
-      height: 15,
+      width: batW,
+      height: batH,
       rotation: 0,
-      label: 'Battery',
+      label: componentData?.battery?.name ?? 'Battery',
       draggable: true,
       selected: false,
       collision: false,
     });
   }
 
-  // ── Power button ───────────────────────────────────────────────────────
+  // ── Charger IC (if battery enabled and charger selected) ──────────────
+  if (config?.power?.battery && config?.power?.chargerIc) {
+    const chgData = componentData?.charger;
+    const pkgInfo = chgData?.packageInfo;
+    const chgDims = chgData?.dimensions;
+    // Use packageInfo for accurate sizing if available, fallback to dimensions
+    const bodyW = pkgInfo?.dimensions?.width ?? chgDims?.width ?? 3.5;
+    const bodyH = pkgInfo?.dimensions?.height ?? chgDims?.length ?? 3.5;
+    const chgPitch = pkgInfo?.pitch ?? 1.0;
+    const isQfnCharger = pkgInfo && /qfn|bga/i.test(pkgInfo.type ?? '') && chgPitch <= 0.65;
+    const chargerFanoutEnabled = !!(isQfnCharger && config?.pcb?.chargerFanout && (config?.pcb?.layers ?? 2) >= 4);
+    const chgFanoutExtend = chargerFanoutEnabled ? (chgPitch <= 0.4 ? 1.5 : 1.8) * 2 : 0;
+
+    components.push({
+      id: 'charger',
+      type: 'charger',
+      layer: 'power',
+      side: 'back',
+      x: midX + 15,
+      y: (minY + maxY) / 2 + 10,
+      width: bodyW + 2,  // +2mm for pads/courtyard
+      height: bodyH + 2,
+      rotation: 0,
+      label: chgData?.name?.split(/\s/)[0] ?? 'Charger',
+      draggable: true,
+      selected: false,
+      collision: false,
+      fanout: chargerFanoutEnabled,
+      fanoutExtend: chgFanoutExtend,
+    });
+  }
+
+  // ── Power button (CK-JS102011 SPDT slide switch: 8.5 x 3.5mm) ────────
   const phys = config?.physical;
   if (phys?.powerButton !== false) {
     components.push({
@@ -337,10 +437,10 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
       type: 'power_button',
       layer: 'extras',
       side: 'through',  // edge-mounted button
-      x: midX + 10,
+      x: midX + 12,
       y: minY + 4,
-      width: 4,
-      height: 4,
+      width: 8.5,
+      height: 3.5,
       rotation: 0,
       label: 'PWR',
       draggable: true,
@@ -420,6 +520,7 @@ export function initLayout(config: any, kleKeys: SimpleKey[]) {
     if (comp && comp.draggable) {
       comp.x = ov.x;
       comp.y = ov.y;
+      if (ov.side) comp.side = ov.side;
     }
   }
 
@@ -450,6 +551,14 @@ export function moveComponentTo(id: string, x: number, y: number) {
     c.id === id && c.draggable
       ? { ...c, x: snapToGrid(x), y: snapToGrid(y) }
       : c,
+  );
+  checkCollisions();
+}
+
+/** Change which side of the PCB a component is on */
+export function setComponentSide(id: string, side: 'front' | 'back' | 'through') {
+  layoutComponents.value = layoutComponents.value.map((c) =>
+    c.id === id && c.draggable ? { ...c, side } : c,
   );
   checkCollisions();
 }
@@ -493,7 +602,8 @@ export function resetComponentPosition(id: string) {
 /** Get effective collision dimensions — expanded for MCU fanout */
 function effectiveSize(c: LayoutComponent): { w: number; h: number } {
   if (c.fanout && c.type === 'mcu') {
-    return { w: c.width + 2.4, h: c.height + 2.4 }; // 1.2mm fanout on each side
+    const ext = c.fanoutExtend ?? 3.6; // default to 1.8mm * 2 sides
+    return { w: c.width + ext, h: c.height + ext };
   }
   return { w: c.width, h: c.height };
 }
@@ -561,9 +671,24 @@ export function checkCollisions() {
     }
   }
 
+  // Check out-of-bounds — draggable components outside the board outline
+  const bounds = boardBounds.value;
+  const oobSet = new Set<string>();
+  for (const d of draggable) {
+    const s = effectiveSize(d);
+    const left = d.x - s.w / 2;
+    const right = d.x + s.w / 2;
+    const top = d.y - s.h / 2;
+    const bottom = d.y + s.h / 2;
+    if (left < bounds.minX || right > bounds.maxX || top < bounds.minY || bottom > bounds.maxY) {
+      oobSet.add(d.id);
+    }
+  }
+
   layoutComponents.value = comps.map((c) => ({
     ...c,
     collision: collisionSet.has(c.id),
+    outOfBounds: oobSet.has(c.id),
   }));
 }
 
@@ -577,6 +702,7 @@ export function getLayoutOverrides(): LayoutOverride[] {
       type: c.type,
       x: c.x,
       y: c.y,
+      side: c.side,
     }));
 }
 

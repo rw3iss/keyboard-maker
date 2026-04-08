@@ -315,13 +315,16 @@
       (place LED86 346945.000000 -142442.500000 front 0.000000 (PN "SK6812MINI-E"))
     )
     (component "Module:pro-micro_29pin_P2.54mm"
-      (place U1 182500.000000 -136500.000000 front 0.000000 (PN "nice!nano v2"))
+      (place U1 183500.000000 -126500.000000 front 0.000000 (PN "nice!nano v2"))
     )
     (component Connector_USB:USB_C_Receptacle_GCT_USB4085
       (place J1 302000.000000 -23000.000000 front 180.000000 (PN USB_C))
     )
     (component "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"
-      (place BT1 331000.000000 -38000.000000 front 180.000000 (PN Battery))
+      (place BT1 335500.000000 -76000.000000 front 180.000000 (PN Battery))
+    )
+    (component "Package_DFN_QFN:QFN-16-1EP_3.5x3.5mm_P0.5mm_EP2.15x2.15mm"
+      (place U2 204877.700000 -94626.500000 front 0.000000 (PN bq24075))
     )
     (component "Button_Switch_SMD:SW_SPDT_CK-JS102011SAQN"
       (place SW_PWR 330500.000000 -23000.000000 front 180.000000 (PN Power))
@@ -399,6 +402,14 @@
       (pin Round[A]Pad_1750.000000_um (rotate 180) 1 0 0)
       (pin Round[A]Pad_1750.000000_um (rotate 180) 2 2000 0)
     )
+    (image "Package_DFN_QFN:QFN-16-1EP_3.5x3.5mm_P0.5mm_EP2.15x2.15mm"
+      (outline (path signal 50  -2750 2750  2750 2750  2750 -2750  -2750 -2750  -2750 2750))
+      (pin Rect[T]Pad_600.000000x400.000000_um 1 -1100 650)
+      (pin Rect[T]Pad_600.000000x400.000000_um 2 -1100 0)
+      (pin Rect[T]Pad_600.000000x400.000000_um 3 -1100 -650)
+      (pin Rect[T]Pad_600.000000x400.000000_um 4 1100 0)
+      (pin Rect[T]Pad_2150.000000x2150.000000_um EP 0 0)
+    )
     (image "Button_Switch_SMD:SW_SPDT_CK-JS102011SAQN"
       (outline (path signal 50  -4000 2000  4000 2000  4000 -2000  -4000 -2000  -4000 2000))
       (pin Rect[T]Pad_1000.000000x1500.000000_um (rotate 180) 1 -2500 0)
@@ -473,6 +484,14 @@
             384.704 -534.704  311.431 -583.664  225 -600.856  -225 -600.856
             -311.431 -583.664  -384.704 -534.704  -433.664 -461.431  -450.856 -375
             -450.856 375))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_2150.000000x2150.000000_um
+      (shape (rect F.Cu -1075 -1075 1075 1075))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_600.000000x400.000000_um
+      (shape (rect F.Cu -300 -200 300 200))
       (attach off)
     )
     (padstack Rect[T]Pad_900.000000x900.000000_um
@@ -590,7 +609,7 @@
         LED51-1 LED52-1 LED53-1 LED54-1 LED55-1 LED56-1 LED57-1 LED58-1 LED59-1 LED60-1
         LED61-1 LED62-1 LED63-1 LED64-1 LED65-1 LED66-1 LED67-1 LED68-1 LED69-1 LED70-1
         LED71-1 LED72-1 LED73-1 LED74-1 LED75-1 LED76-1 LED77-1 LED78-1 LED79-1 LED80-1
-        LED81-1 LED82-1 LED83-1 LED84-1 LED85-1 LED86-1 U1-4 U1-16 SW_PWR-2)
+        LED81-1 LED82-1 LED83-1 LED84-1 LED85-1 LED86-1 U1-4 U1-16 U2-4 SW_PWR-2)
     )
     (net GND
       (pins LED1-3 LED2-3 LED3-3 LED4-3 LED5-3 LED6-3 LED7-3 LED8-3 LED9-3 LED10-3
@@ -602,13 +621,13 @@
         LED61-3 LED62-3 LED63-3 LED64-3 LED65-3 LED66-3 LED67-3 LED68-3 LED69-3 LED70-3
         LED71-3 LED72-3 LED73-3 LED74-3 LED75-3 LED76-3 LED77-3 LED78-3 LED79-3 LED80-3
         LED81-3 LED82-3 LED83-3 LED84-3 LED85-3 LED86-3 U1-2 U1-14 J1-A1 J1-B1 J1-S1
-        J1-S2 BT1-2)
+        J1-S2 BT1-2 U2-2 U2-EP)
     )
     (net VBUS
-      (pins U1-13 J1-A4 J1-B4)
+      (pins U1-13 J1-A4 J1-B4 U2-1)
     )
     (net VBAT
-      (pins U1-1 BT1-1 SW_PWR-1)
+      (pins U1-1 BT1-1 U2-3 SW_PWR-1)
     )
     (net USB_DP
       (pins J1-A6)

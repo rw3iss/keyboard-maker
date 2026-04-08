@@ -66,7 +66,7 @@ async function scanDir(dirPath: string, relativeTo: string): Promise<BuildFile[]
     if (entry.isDirectory()) {
       const subFiles = await scanDir(fullPath, relativeTo);
       files.push(...subFiles);
-    } else if (entry.isFile()) {
+    } else if (entry.isFile() && entry.name !== 'build-archive.zip') {
       const info = await stat(fullPath);
       const relPath = fullPath.slice(relativeTo.length + 1);
       const { group, previewable } = classifyFile(entry.name);

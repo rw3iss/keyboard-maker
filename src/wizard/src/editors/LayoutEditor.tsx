@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import { useEffect, useRef, useState, useCallback } from 'preact/hooks';
 import { LayoutCanvas } from './LayoutCanvas';
+import { apiGet } from '../services/api.service';
 import {
   layoutComponents,
   layers,
@@ -12,6 +13,7 @@ import {
   selectComponent,
   moveComponentTo,
   resetComponentPosition,
+  setComponentSide,
   setLayerVisibility,
   setLayerOpacity,
   nudgeSelected,
@@ -33,10 +35,34 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
   const [cursorPos, setCursorPos] = useState<{ mmX: number; mmY: number } | null>(null);
   const [zoomLevel, setZoomLevel] = useState(2);
 
-  // Init layout + canvas
+  // Fetch component data for accurate dimensions, then init layout
   useEffect(() => {
     if (!canvasRef.current) return;
-    initLayout(config, keys);
+    // Fetch all relevant component categories in parallel
+    Promise.all([
+      apiGet<any[]>('/api/components/mcus').catch(() => []),
+      apiGet<any[]>('/api/components/batteries').catch(() => []),
+      apiGet<any[]>('/api/components/chargers').catch(() => []),
+      apiGet<any[]>('/api/components/connectors').catch(() => []),
+    ]).then(([mcus, batteries, chargers, connectors]) => {
+      const mcuId = config?.mcu?.module;
+      const batteryId = config?.power?.batteryCapacityMah;
+      const chargerId = config?.power?.chargerIc;
+      const connectorId = config?.usbConnector?.model;
+
+      // Match battery by capacity since that's the config key
+      const batteryData = batteries.find((b: any) =>
+        b.id === batteryId || b.capacityMah === batteryId
+          || String(b.capacityMah) === String(batteryId)
+      ) ?? batteries[0] ?? null;
+
+      initLayout(config, keys, {
+        mcu: mcus.find((m: any) => m.id === mcuId) ?? null,
+        battery: batteryData,
+        charger: chargers.find((c: any) => c.id === chargerId) ?? null,
+        connector: connectors.find((c: any) => c.id === connectorId) ?? connectors[0] ?? null,
+      });
+    }).catch(() => initLayout(config, keys));
     const canvas = new LayoutCanvas(canvasRef.current);
     rendererRef.current = canvas;
 
@@ -86,7 +112,7 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
     <div style="display:flex;flex-direction:column;height:100%;min-height:0">
       {/* Tip bar */}
       <div style="padding:6px 12px;background:#1e293b;border-bottom:1px solid #334155;font-size:11px;color:#94a3b8;flex-shrink:0;display:flex;align-items:center;justify-content:space-between">
-        <span>Drag components to reposition. Scroll to zoom. Middle-click to pan. Arrow keys nudge (Shift=fine). Ctrl+Z undo, Ctrl+Shift+Z redo.</span>
+        <span>Drag to reposition. Scroll to zoom. Middle-click to pan. Arrows nudge 1mm (Shift=0.25mm, Ctrl=0.1mm). Ctrl+Z undo, Ctrl+Shift+Z redo.</span>
         <div style="display:flex;gap:4px;flex-shrink:0;margin-left:12px">
           {canUndo.value && (
             <button
@@ -141,87 +167,6 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
             ))}
           </div>
 
-          {/* Selected component section */}
-          <div style="padding:10px 12px;border-bottom:1px solid #334155;flex:1">
-            <div style="font-weight:700;color:#e2e8f0;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">Selected</div>
-            {selected ? (
-              <div>
-                <div style="color:#06b6d4;font-weight:600;margin-bottom:4px">{selected.id}</div>
-                <div style="color:#94a3b8;margin-bottom:4px;display:flex;align-items:center;gap:6px">
-                  <span>Type: {selected.type}</span>
-                  <span style={`font-size:9px;padding:1px 5px;border-radius:3px;font-weight:700;${selected.side === 'front' ? 'background:#1e3a5f;color:#6ecbf5' : selected.side === 'back' ? 'background:#3f1e1e;color:#f87171' : 'background:#1e3a1e;color:#86efac'}`}>
-                    {selected.side === 'front' ? 'FRONT' : selected.side === 'back' ? 'BACK' : 'THRU'}
-                  </span>
-                </div>
-
-                {selected.collision && (
-                  <div style="color:#ef4444;font-weight:600;margin-bottom:6px;padding:4px 6px;background:#3f1111;border-radius:4px;font-size:11px">
-                    COLLISION DETECTED
-                  </div>
-                )}
-
-                {/* Position inputs */}
-                <div style="display:flex;gap:8px;margin-bottom:6px">
-                  <div style="flex:1">
-                    <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">X (mm)</label>
-                    <input
-                      type="number"
-                      step="0.5"
-                      value={selected.x.toFixed(1)}
-                      disabled={!selected.draggable}
-                      onInput={(e) => {
-                        const v = parseFloat((e.target as HTMLInputElement).value);
-                        if (!isNaN(v)) moveComponentTo(selected.id, v, selected.y);
-                      }}
-                      style="width:100%;padding:4px 6px;background:#0f172a;border:1px solid #334155;border-radius:3px;color:#e2e8f0;font-size:12px;font-family:monospace"
-                    />
-                  </div>
-                  <div style="flex:1">
-                    <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">Y (mm)</label>
-                    <input
-                      type="number"
-                      step="0.5"
-                      value={selected.y.toFixed(1)}
-                      disabled={!selected.draggable}
-                      onInput={(e) => {
-                        const v = parseFloat((e.target as HTMLInputElement).value);
-                        if (!isNaN(v)) moveComponentTo(selected.id, selected.x, v);
-                      }}
-                      style="width:100%;padding:4px 6px;background:#0f172a;border:1px solid #334155;border-radius:3px;color:#e2e8f0;font-size:12px;font-family:monospace"
-                    />
-                  </div>
-                </div>
-
-                {/* Size (read-only) */}
-                <div style="display:flex;gap:8px;margin-bottom:8px">
-                  <div style="flex:1">
-                    <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">W (mm)</label>
-                    <div style="padding:4px 6px;background:#0f172a;border:1px solid #1e293b;border-radius:3px;color:#64748b;font-size:12px;font-family:monospace">
-                      {selected.width.toFixed(1)}
-                    </div>
-                  </div>
-                  <div style="flex:1">
-                    <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">H (mm)</label>
-                    <div style="padding:4px 6px;background:#0f172a;border:1px solid #1e293b;border-radius:3px;color:#64748b;font-size:12px;font-family:monospace">
-                      {selected.height.toFixed(1)}
-                    </div>
-                  </div>
-                </div>
-
-                {selected.draggable && (
-                  <button
-                    onClick={() => resetComponentPosition(selected.id)}
-                    style="width:100%;padding:5px 8px;background:#1e293b;border:1px solid #334155;border-radius:4px;color:#94a3b8;cursor:pointer;font-size:11px"
-                  >
-                    Reset Position
-                  </button>
-                )}
-              </div>
-            ) : (
-              <div style="color:#64748b;font-style:italic">Click a component to select it</div>
-            )}
-          </div>
-
           {/* Zoom controls */}
           <div style="padding:10px 12px;border-top:1px solid #334155;flex-shrink:0">
             <div style="font-weight:700;color:#e2e8f0;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">Zoom</div>
@@ -253,6 +198,125 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
           tabIndex={0}
           style="flex:1;min-width:0;min-height:0;outline:none;cursor:crosshair;background:#0f172a"
         />
+
+        {/* Right sidebar: Component Properties */}
+        {selected && (
+          <div style="width:220px;flex-shrink:0;background:#1e293b;border-left:1px solid #334155;overflow-y:auto;display:flex;flex-direction:column;font-size:12px">
+            <div style="padding:10px 12px;border-bottom:1px solid #334155">
+              <div style="font-weight:700;color:#e2e8f0;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">Properties</div>
+              <div style="color:#06b6d4;font-weight:600;margin-bottom:6px">{selected.label || selected.id}</div>
+              <div style="color:#64748b;font-size:11px;margin-bottom:8px">{selected.type}</div>
+
+              {(selected.collision || selected.outOfBounds) && (
+                <div style="color:#ef4444;font-weight:600;margin-bottom:8px;padding:4px 6px;background:#3f1111;border-radius:4px;font-size:11px">
+                  {selected.collision ? 'COLLISION DETECTED' : 'OUT OF BOUNDS'}
+                </div>
+              )}
+            </div>
+
+            {/* Board Side selector */}
+            {selected.draggable && selected.type !== 'screw' && (
+              <div style="padding:10px 12px;border-bottom:1px solid #334155">
+                <div style="font-weight:600;color:#94a3b8;margin-bottom:6px;font-size:11px">Board Side</div>
+                <div style="display:flex;gap:4px">
+                  {(['front', 'back', 'through'] as const).map((side) => {
+                    const isActive = selected.side === side;
+                    const colors: Record<string, string> = {
+                      front: isActive ? 'background:#1e3a5f;color:#6ecbf5;border-color:#6ecbf5' : 'color:#64748b',
+                      back: isActive ? 'background:#3f1e1e;color:#f87171;border-color:#f87171' : 'color:#64748b',
+                      through: isActive ? 'background:#1e3a1e;color:#86efac;border-color:#86efac' : 'color:#64748b',
+                    };
+                    return (
+                      <button
+                        key={side}
+                        onClick={() => setComponentSide(selected.id, side)}
+                        style={`flex:1;padding:4px 2px;font-size:10px;font-weight:700;border:1px solid #334155;border-radius:3px;cursor:pointer;background:#0f172a;${colors[side]}`}
+                      >
+                        {side === 'front' ? 'Front' : side === 'back' ? 'Back' : 'Thru'}
+                      </button>
+                    );
+                  })}
+                </div>
+                <div style="color:#475569;font-size:10px;margin-top:4px;line-height:1.4">
+                  {selected.side === 'front' && 'Top side, same as switches'}
+                  {selected.side === 'back' && 'Bottom side, under switches (no switch collision)'}
+                  {selected.side === 'through' && 'Passes through board, collides with all sides'}
+                </div>
+              </div>
+            )}
+
+            {/* Position */}
+            <div style="padding:10px 12px;border-bottom:1px solid #334155">
+              <div style="font-weight:600;color:#94a3b8;margin-bottom:6px;font-size:11px">Position</div>
+              <div style="display:flex;gap:8px;margin-bottom:6px">
+                <div style="flex:1">
+                  <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">X (mm)</label>
+                  <input
+                    type="number"
+                    step="0.5"
+                    value={selected.x.toFixed(1)}
+                    disabled={!selected.draggable}
+                    onInput={(e) => {
+                      const v = parseFloat((e.target as HTMLInputElement).value);
+                      if (!isNaN(v)) moveComponentTo(selected.id, v, selected.y);
+                    }}
+                    style="width:100%;padding:4px 6px;background:#0f172a;border:1px solid #334155;border-radius:3px;color:#e2e8f0;font-size:12px;font-family:monospace"
+                  />
+                </div>
+                <div style="flex:1">
+                  <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">Y (mm)</label>
+                  <input
+                    type="number"
+                    step="0.5"
+                    value={selected.y.toFixed(1)}
+                    disabled={!selected.draggable}
+                    onInput={(e) => {
+                      const v = parseFloat((e.target as HTMLInputElement).value);
+                      if (!isNaN(v)) moveComponentTo(selected.id, selected.x, v);
+                    }}
+                    style="width:100%;padding:4px 6px;background:#0f172a;border:1px solid #334155;border-radius:3px;color:#e2e8f0;font-size:12px;font-family:monospace"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Dimensions (read-only) */}
+            <div style="padding:10px 12px;border-bottom:1px solid #334155">
+              <div style="font-weight:600;color:#94a3b8;margin-bottom:6px;font-size:11px">Dimensions</div>
+              <div style="display:flex;gap:8px">
+                <div style="flex:1">
+                  <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">W (mm)</label>
+                  <div style="padding:4px 6px;background:#0f172a;border:1px solid #1e293b;border-radius:3px;color:#64748b;font-size:12px;font-family:monospace">
+                    {selected.width.toFixed(1)}
+                  </div>
+                </div>
+                <div style="flex:1">
+                  <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">H (mm)</label>
+                  <div style="padding:4px 6px;background:#0f172a;border:1px solid #1e293b;border-radius:3px;color:#64748b;font-size:12px;font-family:monospace">
+                    {selected.height.toFixed(1)}
+                  </div>
+                </div>
+              </div>
+              {selected.fanout && (
+                <div style="color:#86efac;font-size:10px;margin-top:4px">
+                  + {(selected.fanoutExtend ?? 3.6).toFixed(1)}mm fanout zone
+                </div>
+              )}
+            </div>
+
+            {/* Actions */}
+            {selected.draggable && (
+              <div style="padding:10px 12px">
+                <button
+                  onClick={() => resetComponentPosition(selected.id)}
+                  style="width:100%;padding:5px 8px;background:#1e293b;border:1px solid #334155;border-radius:4px;color:#94a3b8;cursor:pointer;font-size:11px"
+                >
+                  Reset Position
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Status bar */}

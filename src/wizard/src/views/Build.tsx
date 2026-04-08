@@ -9,6 +9,7 @@ import {
 import { addToast } from '../services/toast.service';
 import { apiGet, apiPost } from '../services/api.service';
 import { WIZARD_STEPS } from '../config/wizard-steps';
+import { APP_CONFIG } from '../config/app.config';
 import { Button } from '../components/common/Button';
 import { Spinner } from '../components/common/Spinner';
 import { Badge } from '../components/common/Badge';
@@ -342,10 +343,20 @@ export function Build() {
 
       {/* Build output section */}
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px">
-        <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 12px">
-          <h3 style="margin:0">Build Output</h3>
-          {lastBuildTimestamp.value && (
-            <span style="font-size:12px;color:var(--text-muted)">(last build: {new Date(lastBuildTimestamp.value).toLocaleString()})</span>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin:0 0 12px">
+          <div style="display:flex;align-items:baseline;gap:10px">
+            <h3 style="margin:0">Build Output</h3>
+            {lastBuildTimestamp.value && (
+              <span style="font-size:12px;color:var(--text-muted)">(last build: {new Date(lastBuildTimestamp.value).toLocaleString()})</span>
+            )}
+          </div>
+          {files.length > 0 && !running && (
+            <a
+              href={`${APP_CONFIG.apiUrl}/api/build/${project}/download`}
+              style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;font-size:13px;background:var(--accent,#6ecbf5);color:#000;border-radius:var(--radius);text-decoration:none;font-weight:600;white-space:nowrap"
+            >
+              Download All Files
+            </a>
           )}
         </div>
         {loadingFiles ? (

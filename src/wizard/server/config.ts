@@ -13,4 +13,6 @@ export const config = {
   dataDir: resolve(PROJECT_ROOT, 'data'),
   toolsDir: resolve(PROJECT_ROOT, 'src', 'tools'),
   clientDist: resolve(WIZARD_DIR, '..', 'dist', 'client'),
+  /** Allow auto-routing (Freerouting) on this server. Disable for public deployments. */
+  enableAutoRouting: process.env.ENABLE_AUTO_ROUTING !== 'false',
 };

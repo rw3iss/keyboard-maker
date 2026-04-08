@@ -17,6 +17,8 @@ interface Props {
 	activeFilters: Record<string, any>;
 	onChange: (filters: Record<string, any>) => void;
 	onReset: () => void;
+	/** Optional extra content rendered at the end of the filter row */
+	extraFilter?: any;
 }
 
 /** Generate range bracket labels for a numeric field */
@@ -143,7 +145,7 @@ export function matchesFilters(component: any, activeFilters: Record<string, any
 	return true;
 }
 
-export function ComponentFilter({ components, filters, activeFilters, onChange, onReset }: Props) {
+export function ComponentFilter({ components, filters, activeFilters, onChange, onReset, extraFilter }: Props) {
 	const filterOptions = useMemo(() => {
 		const map: Record<string, string[]> = {};
 		for (const fc of filters) {
@@ -197,6 +199,7 @@ export function ComponentFilter({ components, filters, activeFilters, onChange, 
 						</div>
 					);
 				})}
+			{extraFilter}
 			</div>
 			{hasActiveFilters && (
 				<button class="comp-filter-reset" onClick={onReset}>

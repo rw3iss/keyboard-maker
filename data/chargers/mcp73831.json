@@ -35,6 +35,14 @@
     "VDD": "pin 4 - input supply",
     "PROG": "pin 5 - charge current programming"
   },
+  "packageInfo": {
+    "type": "SOT-23-5",
+    "dimensions": { "width": 1.6, "height": 2.9 },
+    "pitch": 0.95,
+    "padCount": 5,
+    "thermalPad": false,
+    "footprintRef": "Package_TO_SOT_SMD:SOT-23-5"
+  },
   "dimensions": {
     "width": 1.6,
     "length": 2.9,

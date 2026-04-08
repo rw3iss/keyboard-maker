@@ -386,6 +386,92 @@ export function generatePCBWithScrews(
     w(`  )`);
   }
 
+  // ── Charger IC (if battery enabled and charger selected) ──
+  if (config.power.battery && config.power.chargerIc) {
+    const chgOverride = overrides?.components?.find((c: any) => c.type === 'charger');
+    let chgX = chgOverride ? PCB_ORIGIN_X + chgOverride.x : (mcuX + 15);
+    let chgY = chgOverride ? PCB_ORIGIN_Y + chgOverride.y : mcuY2;
+
+    // Load charger data for package info
+    let chgFootprint = 'Package_TO_SOT_SMD:SOT-23-5'; // MCP73831 default
+    let chgPkgInfo: any = null;
+    try {
+      const chgData = loadComponent('chargers', config.power.chargerIc);
+      if (chgData) {
+        chgPkgInfo = (chgData as any).packageInfo;
+        if (chgPkgInfo?.footprintRef) {
+          chgFootprint = chgPkgInfo.footprintRef;
+        } else {
+          const pkg = (chgData as any).package;
+          const pkgStr = typeof pkg === 'string' ? pkg : pkg?.type ?? '';
+          if (/qfn/i.test(pkgStr)) chgFootprint = 'Package_DFN_QFN:QFN-16-1EP_3.5x3.5mm_P0.5mm_EP2.15x2.15mm';
+          else if (/sop-8|soic/i.test(pkgStr)) chgFootprint = 'Package_SO:SOIC-8_3.9x4.9mm_P1.27mm';
+        }
+      }
+    } catch { /* use default */ }
+
+    w(`  (footprint "${chgFootprint}"`);
+    w(`    (layer "F.Cu")`);
+    w(`    (uuid "${uuid()}")`);
+    w(`    (at ${n(chgX)} ${n(chgY)})`);
+    w(`    (property "Reference" "U2" (at 0 -3) (layer "F.SilkS") (effects (font (size 0.8 0.8) (thickness 0.12))))`);
+    w(`    (property "Value" "${config.power.chargerIc}" (at 0 3) (layer "F.Fab") (effects (font (size 0.8 0.8) (thickness 0.12))))`);
+    // Simplified pads: IN, VBAT, GND — exact pinout depends on charger IC
+    w(`    (pad "1" smd rect (at -1.1 -0.65) (size 0.6 0.4) (layers "F.Cu" "F.Paste" "F.Mask") (net ${netIndex('VBUS')} "VBUS") (uuid "${uuid()}"))`);
+    w(`    (pad "2" smd rect (at -1.1 0) (size 0.6 0.4) (layers "F.Cu" "F.Paste" "F.Mask") (net ${netIndex('GND')} "GND") (uuid "${uuid()}"))`);
+    w(`    (pad "3" smd rect (at -1.1 0.65) (size 0.6 0.4) (layers "F.Cu" "F.Paste" "F.Mask") (net ${netIndex('VBAT')} "VBAT") (uuid "${uuid()}"))`);
+    w(`    (pad "4" smd rect (at 1.1 0) (size 0.6 0.4) (layers "F.Cu" "F.Paste" "F.Mask") (net ${netIndex('VCC')} "VCC") (uuid "${uuid()}"))`);
+    if (chgPkgInfo?.thermalPad) {
+      const ep = chgPkgInfo.exposedPadSize ?? { width: 2.15, height: 2.15 };
+      w(`    (pad "EP" smd rect (at 0 0) (size ${ep.width} ${ep.height}) (layers "F.Cu" "F.Paste" "F.Mask") (net ${netIndex('GND')} "GND") (uuid "${uuid()}"))`);
+    }
+    const crtyd = chgPkgInfo ? (chgPkgInfo.dimensions?.width ?? 3.5) / 2 + 1 : 1.8;
+    w(`    (fp_rect (start ${n(-crtyd)} ${n(-crtyd)}) (end ${n(crtyd)} ${n(crtyd)}) (stroke (width 0.05) (type default)) (fill none) (layer "F.CrtYd") (uuid "${uuid()}"))`);
+    w(`  )`);
+
+    // Charger IC fanout vias (for QFN chargers on 4-layer boards)
+    if (config.pcb.chargerFanout && is4Layer && chgPkgInfo) {
+      const chgPitch = chgPkgInfo.pitch ?? 1;
+      if (chgPitch <= 0.65 && chgPkgInfo.padsPerSide) {
+        const bodySize = chgPkgInfo.dimensions?.width ?? 3.5;
+        const pps = chgPkgInfo.padsPerSide;
+        const innerOff = chgPitch <= 0.4 ? 0.8 : 1.0;
+        const outerOff = chgPitch <= 0.4 ? 1.5 : 1.8;
+        const vDia = 0.6, vDrill = 0.3;
+        const chargerNets = [netIndex('VBUS'), netIndex('GND'), netIndex('VBAT'), netIndex('VCC')];
+
+        const sides = [
+          { dx: 0, dy: 1 },   // bottom
+          { dx: 1, dy: 0 },   // right
+          { dx: 0, dy: -1 },  // top
+          { dx: -1, dy: 0 },  // left
+        ];
+
+        for (let sideIdx = 0; sideIdx < sides.length; sideIdx++) {
+          const side = sides[sideIdx];
+          for (let i = 0; i < pps; i++) {
+            const padIdx = sideIdx * pps + i;
+            const netIdx = chargerNets[padIdx % chargerNets.length] || 0;
+            if (!netIdx) continue;
+
+            let px: number, py: number;
+            if (side.dy === 1) { px = -((pps - 1) * chgPitch) / 2 + i * chgPitch; py = bodySize / 2; }
+            else if (side.dx === 1) { px = bodySize / 2; py = -((pps - 1) * chgPitch) / 2 + i * chgPitch; }
+            else if (side.dy === -1) { px = ((pps - 1) * chgPitch) / 2 - i * chgPitch; py = -bodySize / 2; }
+            else { px = -bodySize / 2; py = ((pps - 1) * chgPitch) / 2 - i * chgPitch; }
+
+            const offset = (i % 2 === 0) ? innerOff : outerOff;
+            const vx = chgX + px + side.dx * offset;
+            const vy = chgY + py + side.dy * offset;
+
+            w(`  (via (at ${n(vx)} ${n(vy)}) (size ${vDia}) (drill ${vDrill}) (layers ${viaCopperLayers}) (net ${netIdx}) (uuid "${uuid()}"))`);
+            w(`  (segment (start ${n(chgX + px)} ${n(chgY + py)}) (end ${n(vx)} ${n(vy)}) (width 0.2) (layer "F.Cu") (net ${netIdx}) (uuid "${uuid()}"))`);
+          }
+        }
+      }
+    }
+  }
+
   // ── Power button (slide switch) — oriented to face outward from nearest edge ──
   if ((config.physical as any)?.powerButton !== false) {
     // Determine power button position: near USB connector, offset slightly

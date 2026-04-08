@@ -38,6 +38,14 @@
     "CHRG": "pin 7 - charging indicator",
     "CE": "pin 8 - chip enable (active high)"
   },
+  "packageInfo": {
+    "type": "SOP-8",
+    "dimensions": { "width": 3.9, "height": 4.9 },
+    "pitch": 1.27,
+    "padCount": 8,
+    "thermalPad": false,
+    "footprintRef": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+  },
   "dimensions": {
     "width": 4.0,
     "length": 5.0,

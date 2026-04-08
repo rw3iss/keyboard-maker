@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, unlinkSync } from 'fs';
 import { join } from 'path';
 import { config } from '../config.js';
 import { AppError, ErrorCodes } from '../types/errors.js';
@@ -108,6 +108,12 @@ export async function executeBuild(
 
   try {
     mkdirSync(buildDir, { recursive: true });
+
+    // Delete cached build archive from previous build
+    const oldZip = join(buildDir, 'build-archive.zip');
+    if (existsSync(oldZip)) {
+      try { unlinkSync(oldZip); } catch { /* ignore */ }
+    }
 
     // Merge with defaults to fill in any missing fields
     const defaults = {
@@ -263,6 +269,15 @@ export async function executeBuild(
     }
 
     // ---- Stage: routing ----
+    // If auto-routing is disabled on this server, force manual mode
+    if (!config.enableAutoRouting && cfg.pcb?.routing === 'auto') {
+      cfg.pcb.routing = 'manual';
+      await emitEvent(emitter, {
+        type: 'log',
+        message: 'Auto-routing is disabled on this server. Switched to manual mode.',
+      });
+    }
+
     let routingIncomplete = false;
     if (outputs.pcb !== false && pcbPath) {
       await emitEvent(emitter, {

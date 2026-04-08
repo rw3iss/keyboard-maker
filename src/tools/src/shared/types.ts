@@ -189,6 +189,8 @@ export interface BuildConfig {
     routing: 'auto' | 'guided' | 'manual';
     /** MCU fanout vias — routes signals from QFN pads to inner layer immediately */
     mcuFanout: boolean;
+    /** Charger IC fanout vias — for QFN charger ICs on 4-layer boards */
+    chargerFanout?: boolean;
     /** Preferred PCB fabricator name */
     fabricator: string | null;
   };

@@ -261,6 +261,9 @@ export class LayoutCanvas {
       case 'battery':
         this.drawBattery(ctx, comp);
         break;
+      case 'charger':
+        this.drawCharger(ctx, comp);
+        break;
       case 'power_button':
       case 'wifi_button':
         this.drawButton(ctx, comp);
@@ -356,14 +359,14 @@ export class LayoutCanvas {
 
     ctx.save();
 
-    if (comp.collision) {
+    if (comp.collision || comp.outOfBounds) {
       ctx.shadowColor = '#ef4444';
       ctx.shadowBlur = 10;
     }
 
     // Outer circle
     ctx.fillStyle = '#6b4c1e';
-    ctx.strokeStyle = '#d4a574';
+    ctx.strokeStyle = comp.outOfBounds ? '#ef4444' : '#d4a574';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.arc(sx, sy, r, 0, Math.PI * 2);
@@ -412,7 +415,7 @@ export class LayoutCanvas {
 
     ctx.save();
 
-    if (comp.collision) {
+    if (comp.collision || comp.outOfBounds) {
       ctx.shadowColor = '#ef4444';
       ctx.shadowBlur = 10;
     }
@@ -455,14 +458,14 @@ export class LayoutCanvas {
 
     ctx.save();
 
-    if (comp.collision) {
+    if (comp.collision || comp.outOfBounds) {
       ctx.shadowColor = '#ef4444';
       ctx.shadowBlur = 10;
     }
 
     ctx.fillStyle = '#1a3a1a';
-    ctx.strokeStyle = '#22c55e';
-    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = comp.outOfBounds ? '#ef4444' : '#22c55e';
+    ctx.lineWidth = comp.outOfBounds ? 2 : 1.5;
     ctx.fillRect(rx, ry, sw, sh);
     ctx.strokeRect(rx, ry, sw, sh);
 
@@ -489,19 +492,18 @@ export class LayoutCanvas {
 
     // Fanout zone outline — dashed border showing the extended area needed for fanout vias
     if (comp.fanout) {
-      const fanoutExtend = 2.4 * this.scale; // 1.2mm offset * 2 sides, in screen px
+      const ext = (comp.fanoutExtend ?? 3.6) * this.scale; // actual fanout extend in screen px
       ctx.save();
       ctx.strokeStyle = '#86efac';
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 3]);
       ctx.globalAlpha = 0.7;
-      ctx.strokeRect(rx - fanoutExtend / 2, ry - fanoutExtend / 2, sw + fanoutExtend, sh + fanoutExtend);
-      // Label the fanout zone
+      ctx.strokeRect(rx - ext / 2, ry - ext / 2, sw + ext, sh + ext);
       ctx.fillStyle = '#86efac';
       ctx.font = `${Math.max(6, 8)}px monospace`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top';
-      ctx.fillText('fanout', sx, ry + sh + fanoutExtend / 2 + 2);
+      ctx.fillText('fanout', sx, ry + sh + ext / 2 + 2);
       ctx.restore();
     }
 
@@ -525,13 +527,13 @@ export class LayoutCanvas {
 
     ctx.save();
 
-    if (comp.collision) {
+    if (comp.collision || comp.outOfBounds) {
       ctx.shadowColor = '#ef4444';
       ctx.shadowBlur = 10;
     }
 
-    ctx.fillStyle = '#3a1e1e';
-    ctx.strokeStyle = '#ef4444';
+    ctx.fillStyle = '#2a1f0a';
+    ctx.strokeStyle = comp.outOfBounds ? '#ef4444' : '#f59e0b';
     ctx.lineWidth = 1.5;
     ctx.setLineDash([4, 2]);
     this.roundRect(ctx, rx, ry, sw, sh, 3 * this.scale);
@@ -545,19 +547,75 @@ export class LayoutCanvas {
     // + and - terminals
     const termW = Math.max(2, sw * 0.04);
     const termH = sh * 0.3;
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = '#f59e0b';
     // + terminal
     ctx.fillRect(rx + sw - termW, sy - termH / 2, termW * 2, termH);
     // - terminal on left
     ctx.fillRect(rx - termW, sy - termH * 0.4, termW, termH * 0.8);
 
     // Label
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = '#f59e0b';
     const fontSize = Math.max(8, Math.min(12, sw * 0.2));
     ctx.font = `bold ${fontSize}px monospace`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(comp.label, sx, sy);
+
+    ctx.restore();
+  }
+
+  private drawCharger(ctx: CanvasRenderingContext2D, comp: LayoutComponent) {
+    const [sx, sy] = this.mmToScreen(comp.x, comp.y);
+    const sw = comp.width * this.scale;
+    const sh = comp.height * this.scale;
+    const rx = sx - sw / 2;
+    const ry = sy - sh / 2;
+
+    ctx.save();
+
+    if (comp.collision || comp.outOfBounds) {
+      ctx.shadowColor = '#ef4444';
+      ctx.shadowBlur = 10;
+    }
+
+    ctx.fillStyle = '#2a1a3a';
+    ctx.strokeStyle = comp.outOfBounds ? '#ef4444' : '#a855f7';
+    ctx.lineWidth = 1.5;
+    ctx.fillRect(rx, ry, sw, sh);
+    ctx.strokeRect(rx, ry, sw, sh);
+
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur = 0;
+
+    // IC marker dot (pin 1 indicator)
+    ctx.fillStyle = '#a855f7';
+    ctx.beginPath();
+    ctx.arc(rx + sw * 0.15, ry + sh * 0.15, Math.max(1.2, this.scale * 0.4), 0, Math.PI * 2);
+    ctx.fill();
+
+    // Fanout zone
+    if (comp.fanout) {
+      const ext = (comp.fanoutExtend ?? 3.6) * this.scale;
+      ctx.save();
+      ctx.strokeStyle = '#c084fc';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([3, 2]);
+      ctx.globalAlpha = 0.6;
+      ctx.strokeRect(rx - ext / 2, ry - ext / 2, sw + ext, sh + ext);
+      ctx.fillStyle = '#c084fc';
+      ctx.font = `${Math.max(5, 7)}px monospace`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillText('fanout', sx, ry + sh + ext / 2 + 1);
+      ctx.restore();
+    }
+
+    // Label
+    const fontSize = Math.max(6, Math.min(9, sw * 0.3));
+    ctx.font = `bold ${fontSize}px monospace`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(comp.label, sx, sy, sw - 2);
 
     ctx.restore();
   }
@@ -882,8 +940,8 @@ export class LayoutCanvas {
       return;
     }
 
-    // Arrow keys nudge
-    const nudgeAmount = e.shiftKey ? 0.25 : 1;
+    // Arrow keys nudge: Ctrl=0.1mm fine, Shift=0.25mm, default=1mm
+    const nudgeAmount = e.ctrlKey || e.metaKey ? 0.1 : e.shiftKey ? 0.25 : 1;
     switch (e.key) {
       case 'ArrowUp':
         nudgeSelected(0, -nudgeAmount);

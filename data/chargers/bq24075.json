@@ -40,6 +40,16 @@
     "VSS": "Ground",
     "PAD": "Thermal pad (ground)"
   },
+  "packageInfo": {
+    "type": "QFN-16",
+    "dimensions": { "width": 3.5, "height": 3.5 },
+    "pitch": 0.5,
+    "padCount": 16,
+    "padsPerSide": 4,
+    "thermalPad": true,
+    "exposedPadSize": { "width": 2.15, "height": 2.15 },
+    "footprintRef": "Package_DFN_QFN:QFN-16-1EP_3.5x3.5mm_P0.5mm_EP2.15x2.15mm"
+  },
   "dimensions": {
     "width": 3.5,
     "length": 3.5,

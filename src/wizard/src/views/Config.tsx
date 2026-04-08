@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { useState, useEffect, useMemo } from 'preact/hooks';
-import { currentProject, projectConfig, activeTab } from '../state/app.state';
+import { currentProject, projectConfig, activeTab, serverConfig } from '../state/app.state';
 import { addToast } from '../services/toast.service';
 import { apiGet, apiPost, apiPut } from '../services/api.service';
 import { WIZARD_STEPS } from '../config/wizard-steps';
@@ -49,6 +49,7 @@ const SWITCH_FILTERS: FilterConfig[] = [
 ];
 
 const MCU_FILTERS: FilterConfig[] = [
+	{ key: 'formFactor', label: 'Package', type: 'select' },
 	{ key: 'hasUsb', label: 'USB', type: 'boolean' },
 	{ key: 'hasBle', label: 'BLE', type: 'boolean' },
 	{ key: 'bleVersion', label: 'BLE Version', type: 'select' },
@@ -111,6 +112,7 @@ export function Config({ step }: ConfigProps) {
 	const [saving, setSaving] = useState(false);
 	const [selected, setSelected] = useState<string>('');
 	const [localConfig, setLocalConfig] = useState<Partial<BuildConfig>>({});
+	const [compatibleOnly, setCompatibleOnly] = useState(false);
 
 	const stepDef = WIZARD_STEPS.find((s) => s.id === currentStep);
 
@@ -210,12 +212,10 @@ export function Config({ step }: ConfigProps) {
 					type: 'nrf52840',
 					gpioAvailable: gpioCount,
 				};
-			} else if (currentStep === 'power' && selected) {
-				const opt = options.find((o) => o.name === selected || o.id === selected);
-				updatedConfig.power = {
-					...updatedConfig.power,
-					chargerIc: opt?.name || selected,
-				};
+			} else if (currentStep === 'power') {
+				// Power config is already fully updated in localConfig via updateLocal() calls
+				// (chargerIc, battery, batteryCapacityMah, chargeCurrentMa, etc.)
+				// No need to override from `selected` — just use localConfig.power as-is
 			}
 
 			await apiPut(`/api/projects/${project}/config`, updatedConfig);
@@ -245,10 +245,48 @@ export function Config({ step }: ConfigProps) {
 	const filterConfigs = FILTER_CONFIGS[currentStep] || [];
 	const chipExtractor = CHIP_EXTRACTORS[currentStep] || (() => []);
 
+	/** Compute GPIO budget for the current layout + features */
+	const gpioInfo = useMemo(() => {
+		const cfg = localConfig as BuildConfig;
+		const keyCount = cfg?.layout?.path ? 86 : 0;
+		const keys = keyCount || 86;
+		const sqrtKeys = Math.ceil(Math.sqrt(keys));
+		let bestPins = sqrtKeys * 2;
+		for (let r = sqrtKeys; r >= 2; r--) {
+			const c = Math.ceil(keys / r);
+			if (r + c < bestPins) bestPins = r + c;
+		}
+		const matrixGpios = bestPins;
+		let extraGpios = 0;
+		const extras: string[] = [];
+		if (cfg?.features?.rgbPerKey || cfg?.features?.rgbUnderglow) {
+			extraGpios += 1;
+			extras.push('RGB data (1)');
+		}
+		if (cfg?.features?.rotaryEncoder) {
+			extraGpios += 2;
+			extras.push('Encoder (2)');
+		}
+		if (cfg?.features?.oledDisplay) {
+			extraGpios += 2;
+			extras.push('OLED I2C (2)');
+		}
+		return { matrixGpios, extraGpios, total: matrixGpios + extraGpios, extras };
+	}, [localConfig]);
+
 	const filteredOptions = useMemo(() => {
-		if (filterConfigs.length === 0) return options;
-		return options.filter((opt) => matchesFilters(opt, activeFilters, filterConfigs));
-	}, [options, activeFilters, filterConfigs]);
+		let result = options;
+		if (filterConfigs.length > 0) {
+			result = result.filter((opt) => matchesFilters(opt, activeFilters, filterConfigs));
+		}
+		if (compatibleOnly && currentStep === 'mcu') {
+			result = result.filter((opt) => {
+				const gpios = (opt as any).gpioCount;
+				return typeof gpios === 'number' && gpios >= gpioInfo.total;
+			});
+		}
+		return result;
+	}, [options, activeFilters, filterConfigs, compatibleOnly, currentStep, gpioInfo]);
 
 	const renderComponentStep = () => {
 		if (loading) {
@@ -258,15 +296,58 @@ export function Config({ step }: ConfigProps) {
 				</div>
 			);
 		}
+
+		// GPIO budget banner for MCU selection
+		const gpiBanner = currentStep === 'mcu' ? (() => {
+			const selMcu = options.find((o) => isSelected(o)) as any;
+			const mcuGpios = selMcu?.gpioCount ?? 0;
+			const needed = gpioInfo.total;
+			const sufficient = !mcuGpios || mcuGpios >= needed;
+			return (
+				<div style={`padding:10px 14px;margin-bottom:12px;border-radius:var(--radius);font-size:12px;line-height:1.6;border:1px solid ${sufficient ? 'var(--border)' : '#ef4444'};background:${sufficient ? 'var(--bg-card)' : '#2d1111'}`}>
+					<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+						<span style="font-weight:600;color:var(--text-secondary)">GPIO Budget</span>
+						<span style={`font-weight:700;${sufficient ? 'color:var(--success)' : 'color:#ef4444'}`}>
+							{needed} needed {mcuGpios ? `/ ${mcuGpios} available` : ''}
+						</span>
+					</div>
+					<div style="color:var(--text-muted)">
+						Matrix: ~{gpioInfo.matrixGpios} GPIOs
+						{gpioInfo.extras.length > 0 && ` + ${gpioInfo.extras.join(' + ')}`}
+					</div>
+					{!sufficient && mcuGpios > 0 && (
+						<div style="color:#ef4444;font-weight:600;margin-top:4px">
+							This MCU has {mcuGpios - needed} too few GPIOs. Choose an MCU with more pins, reduce key count, or disable features.
+						</div>
+					)}
+				</div>
+			);
+		})() : null;
+
 		return (
 			<div>
+				{gpiBanner}
 				{filterConfigs.length > 0 && (
 					<ComponentFilter
 						components={options}
 						filters={filterConfigs}
 						activeFilters={activeFilters}
 						onChange={setActiveFilters}
-						onReset={() => setActiveFilters({})}
+						onReset={() => { setActiveFilters({}); setCompatibleOnly(false); }}
+						extraFilter={currentStep === 'mcu' ? (
+							<div class="comp-filter-item" title={`Show only MCUs with ${gpioInfo.total}+ GPIOs for this layout and features`}>
+								<label class="comp-filter-label" style="white-space:nowrap">Compatible</label>
+								<label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:11px;color:var(--text-muted,#94a3b8);white-space:nowrap">
+									<input
+										type="checkbox"
+										checked={compatibleOnly}
+										onChange={(e: any) => setCompatibleOnly(e.target.checked)}
+										style="accent-color:var(--accent,#6ecbf5)"
+									/>
+									{gpioInfo.total}+ GPIOs
+								</label>
+							</div>
+						) : undefined}
 					/>
 				)}
 				{filteredOptions.length !== options.length && (
@@ -464,13 +545,23 @@ export function Config({ step }: ConfigProps) {
 				)}
 				<Dropdown
 					label="Routing Mode"
-					options={[
-						{ label: 'Auto-route', value: 'auto' },
-						{ label: 'Manual (guides only)', value: 'manual' },
-					]}
-					value={pcb?.routing || 'auto'}
+					options={serverConfig.value.enableAutoRouting
+						? [
+							{ label: 'Auto-route', value: 'auto' },
+							{ label: 'Manual (guides only)', value: 'manual' },
+						]
+						: [
+							{ label: 'Manual (guides only)', value: 'manual' },
+						]
+					}
+					value={!serverConfig.value.enableAutoRouting ? 'manual' : (pcb?.routing || 'auto')}
 					onChange={(v) => updateLocal('pcb', 'routing', v)}
 				/>
+				{!serverConfig.value.enableAutoRouting && (
+					<div style="font-size:12px;color:var(--text-muted);margin-top:-4px;padding:6px 10px;background:var(--bg-hover);border-radius:var(--radius)">
+						Auto-routing is disabled on this server. You can route manually or run Freerouting locally after downloading your build files.
+					</div>
+				)}
 				<Dropdown
 					label="PCB Thickness"
 					options={[
@@ -482,30 +573,82 @@ export function Config({ step }: ConfigProps) {
 					onChange={(v) => updateLocal('pcb', 'thickness', Number(v))}
 				/>
 
-				{/* MCU Fanout option — only for 4-layer boards */}
-				{pcb?.layers === 4 && (
-					<div style="border-top:1px solid var(--border);padding-top:16px;margin-top:4px">
-						<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
-							<input
-								type="checkbox"
-								checked={(pcb as any)?.mcuFanout ?? false}
-								onChange={(e) => updateLocal('pcb', 'mcuFanout', (e.target as HTMLInputElement).checked)}
-								style="margin-top:3px;accent-color:var(--accent)"
-							/>
-							<div>
-								<div style="font-weight:600;margin-bottom:4px">MCU Fanout Vias</div>
-								<div style="font-size:12px;color:var(--text-muted);line-height:1.5">
-									Places a via next to each MCU GPIO pad, immediately routing the signal down to an inner layer.
-									This clears congestion around the QFN chip and gives Freerouting much more room to route traces.
+				{/* MCU Fanout option — only for 4-layer boards, adapts to selected MCU */}
+				{pcb?.layers === 4 && (() => {
+					const mcuId = (localConfig as BuildConfig)?.mcu?.module;
+					const mcuData = mcuOptions.find((m) => m.id === mcuId) as any;
+					const mcuPkg = mcuData?.package ?? mcuData?.packageInfo;
+					const mcuPitch = mcuPkg?.pitch ?? null;
+					const mcuForm = mcuData?.formFactor ?? '';
+					const isBareChip = mcuPkg && /qfn|qfp|bga|lqfp|tssop/i.test(mcuPkg.type ?? mcuForm);
+					const isTightPitch = mcuPitch !== null && mcuPitch <= 0.65;
+					const mcuName = mcuData?.name ?? mcuId ?? 'MCU';
+
+					// Modules (pro-micro, XIAO, etc.) don't need fanout — hide entirely
+					if (!isBareChip) {
+						// Auto-disable fanout if it was previously enabled for a different MCU
+						if ((pcb as any)?.mcuFanout) {
+							setTimeout(() => updateLocal('pcb', 'mcuFanout', false), 0);
+						}
+						return null;
+					}
+
+					return (
+						<div style="border-top:1px solid var(--border);padding-top:16px;margin-top:4px">
+							<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
+								<input
+									type="checkbox"
+									checked={(pcb as any)?.mcuFanout ?? false}
+									onChange={(e) => updateLocal('pcb', 'mcuFanout', (e.target as HTMLInputElement).checked)}
+									style="margin-top:3px;accent-color:var(--accent)"
+								/>
+								<div>
+									<div style="font-weight:600;margin-bottom:4px">MCU Fanout Vias</div>
+									<div style="font-size:12px;color:var(--text-muted);line-height:1.5">
+										The selected MCU ({mcuName}) uses a {mcuPkg?.type ?? mcuForm} package
+										{mcuPitch ? ` with ${mcuPitch}mm pitch` : ''}.
+										{isTightPitch
+											? ' Fanout vias are strongly recommended — they route signals from the tight pads to inner layers, dramatically reducing routing congestion.'
+											: ` At ${mcuPitch ?? '?'}mm pitch, fanout vias are optional but can still help reduce routing congestion around the chip.`
+										}
+									</div>
+									<div style="font-size:12px;margin-top:6px;padding:8px;background:var(--bg-card);border-radius:var(--radius-sm)">
+										<div style="color:var(--success);margin-bottom:4px"><strong>Benefits:</strong> Reduces routing congestion around the MCU. Fewer DRC violations. Cleaner trace spacing.</div>
+										<div style="color:var(--warning)"><strong>Considerations:</strong> Adds staggered vias around the MCU perimeter. The MCU needs slightly more clearance from other components.</div>
+									</div>
 								</div>
-								<div style="font-size:12px;margin-top:6px;padding:8px;background:var(--bg-card);border-radius:var(--radius-sm)">
-									<div style="color:var(--success);margin-bottom:4px"><strong>Benefits:</strong> Dramatically reduces routing congestion around the MCU. Fewer DRC violations. Cleaner trace spacing.</div>
-									<div style="color:var(--warning)"><strong>Considerations:</strong> Adds ~48 vias around the MCU. Requires 4-layer board. The MCU needs slightly more clearance from other components.</div>
+							</label>
+						</div>
+					);
+				})()}
+
+				{/* Charger IC Fanout — only for 4-layer boards with a QFN charger IC */}
+				{pcb?.layers === 4 && (() => {
+					const chargerId = (localConfig as BuildConfig)?.power?.chargerIc;
+					const chargerData = chargerOptions.find((c) => c.id === chargerId);
+					const pkgInfo = (chargerData as any)?.packageInfo;
+					const isQfn = pkgInfo && /qfn|bga/i.test(pkgInfo.type ?? '') && (pkgInfo.pitch ?? 1) <= 0.65;
+					if (!isQfn) return null;
+					return (
+						<div style="border-top:1px solid var(--border);padding-top:16px;margin-top:4px">
+							<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
+								<input
+									type="checkbox"
+									checked={(pcb as any)?.chargerFanout ?? false}
+									onChange={(e) => updateLocal('pcb', 'chargerFanout', (e.target as HTMLInputElement).checked)}
+									style="margin-top:3px;accent-color:var(--accent)"
+								/>
+								<div>
+									<div style="font-weight:600;margin-bottom:4px">Charger IC Fanout Vias</div>
+									<div style="font-size:12px;color:var(--text-muted);line-height:1.5">
+										The selected charger IC ({(chargerData as any)?.name}) uses a {pkgInfo.type} package ({pkgInfo.pitch}mm pitch).
+										Fanout vias route signals from the tight QFN pads to inner layers for easier routing.
+									</div>
 								</div>
-							</div>
-						</label>
-					</div>
-				)}
+							</label>
+						</div>
+					);
+				})()}
 			</div>
 		);
 	};
@@ -709,15 +852,18 @@ export function Config({ step }: ConfigProps) {
 		return null;
 	};
 
+	// Component data — loaded once, shared between power/pcb sections
+	const [chargerOptions, setChargerOptions] = useState<ComponentOption[]>([]);
+	const [batteryOptions, setBatteryOptions] = useState<ComponentOption[]>([]);
+	const [mcuOptions, setMcuOptions] = useState<ComponentOption[]>([]);
+	useEffect(() => {
+		apiGet<ComponentOption[]>('/api/components/chargers').then(setChargerOptions).catch(() => {});
+		apiGet<ComponentOption[]>('/api/components/batteries').then(setBatteryOptions).catch(() => {});
+		apiGet<ComponentOption[]>('/api/components/mcus').then(setMcuOptions).catch(() => {});
+	}, []);
+
 	const renderPower = () => {
 		const pwr = (localConfig as BuildConfig)?.power;
-		const [chargerOptions, setChargerOptions] = useState<ComponentOption[]>([]);
-		const [batteryOptions, setBatteryOptions] = useState<ComponentOption[]>([]);
-
-		useEffect(() => {
-			apiGet<ComponentOption[]>('/api/components/chargers').then(setChargerOptions).catch(() => {});
-			apiGet<ComponentOption[]>('/api/components/batteries').then(setBatteryOptions).catch(() => {});
-		}, []);
 
 		return (
 			<div style="display:flex;flex-direction:column;gap:20px;max-width:600px">
