@@ -1,12 +1,12 @@
-# Keyboard Maker — Scripts
+# Keybuild — Scripts
 
 ## setup.sh
 
-Comprehensive setup script that installs all prerequisites for the keyboard-maker toolchain. Detects your OS (Linux with apt/dnf, or macOS with Homebrew) and installs:
+Comprehensive setup script that installs all prerequisites for the Keybuild toolchain. Detects your OS (Linux with apt/dnf, or macOS with Homebrew) and installs:
 
 | Dependency | Purpose |
 |---|---|
-| **Node.js 20+** | Runs the keyboard-maker CLI and build tools |
+| **Node.js 20+** | Runs the Keybuild CLI and build tools |
 | **npm** | Installs JavaScript dependencies in `tools/` |
 | **KiCad 8+** | Gerber/drill file export from PCB designs |
 | **Java JRE** | Required to run Freerouting |

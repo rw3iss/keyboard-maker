@@ -41,7 +41,7 @@ export function generateSchematic(
   // Header
   w(`(kicad_sch`);
   w(`  (version 20231120)`);
-  w(`  (generator "keyboard-maker")`);
+  w(`  (generator "keybuild")`);
   w(`  (generator_version "0.1.0")`);
   w(`  (uuid "${uuid()}")`);
   w(`  (paper "A3")`);

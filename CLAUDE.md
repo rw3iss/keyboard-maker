@@ -4,8 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **custom mechanical keyboard hardware project** with an automated design toolchain. The project includes:
-1. **keyboard-maker CLI** — interactive Node.js tool that walks users through keyboard design choices, generates a build config, and produces all hardware/firmware files
+**Keybuild** is a custom mechanical keyboard hardware design toolchain. The project includes:
+1. **Keybuild CLI** (`keybuild`) — interactive Node.js tool that walks users through keyboard design choices, generates a build config, and produces all hardware/firmware files
 2. **Component database** (`data/`) — curated JSON catalog of supported switches, MCUs, connectors, etc.
 3. **Generation pipeline** — KLE layout + config → KiCad schematic/PCB → plate DXF → ZMK firmware → BOM
 4. **Companion app** (Phase 3, planned) — native app (Rust/C++) for runtime key remapping, macros, LED control
@@ -16,7 +16,7 @@ The keyboard supports dual switch types: regular low-profile mechanical (Kailh C
 
 - `projects/` — User projects, each with KLE layout, build-config.json, and build/ output
 - `data/` — Component database (JSON files for switches, MCUs, connectors, diodes, chargers, LEDs, batteries) + JSON Schema
-- `src/tools/` — Node.js/TypeScript toolchain (`@keyboard-maker/tools`), the main CLI and all generators
+- `src/tools/` — Node.js/TypeScript toolchain (`@keybuild/tools`), the main CLI and all generators
 - `src/firmware/` — ZMK firmware workspace, build/flash scripts
 - `src/scripts/` — Setup scripts (`setup.sh` installs prerequisites, `setup-check.sh` validates)
 - `docs/` — Design research and references
@@ -37,10 +37,10 @@ The keyboard supports dual switch types: regular low-profile mechanical (Kailh C
 ./src/scripts/setup.sh
 
 # Run the interactive wizard
-cd src/tools && npx keyboard-maker wizard
+cd src/tools && npx keybuild wizard
 
 # Generate from existing project config
-cd src/tools && npx keyboard-maker generate --config ../../projects/<name>/build-config.json
+cd src/tools && npx keybuild generate --config ../../projects/<name>/build-config.json
 
 # Run tests
 cd src/tools && npm test

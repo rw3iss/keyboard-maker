@@ -62,7 +62,7 @@ export function generatePCBWithScrews(
   // Header
   w(`(kicad_pcb`);
   w(`  (version 20240108)`);
-  w(`  (generator "keyboard-maker")`);
+  w(`  (generator "keybuild")`);
   w(`  (generator_version "0.1.0")`);
   w(`  (general`);
   w(`    (thickness ${config.pcb.thickness})`);

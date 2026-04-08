@@ -118,7 +118,7 @@ export function Overview() {
     return (
       <EmptyState
         icon={'\u2328'}
-        title="Keyboard Maker"
+        title="Keybuild"
         message="Open or create a project to get started. Use the File menu above."
       />
     );

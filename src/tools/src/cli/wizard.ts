@@ -35,7 +35,7 @@ export async function runWizard(opts: {
   config?: string;
   output: string;
 }) {
-  console.log(chalk.bold.cyan('\n  Keyboard Maker — Interactive Build Wizard'));
+  console.log(chalk.bold.cyan('\n  Keybuild — Interactive Build Wizard'));
   console.log(chalk.dim('  Press Escape to go back to the previous step'));
   console.log(chalk.dim('  Press Ctrl+C to exit\n'));
 

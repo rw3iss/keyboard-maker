@@ -1,6 +1,6 @@
 (kicad_pcb
   (version 20240108)
-  (generator "keyboard-maker")
+  (generator "keybuild")
   (generator_version "0.1.0")
   (general
     (thickness 1.6)

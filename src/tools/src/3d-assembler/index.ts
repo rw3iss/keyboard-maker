@@ -46,7 +46,7 @@ export function assemble3D(opts: AssembleOptions): void {
   if (!freecadCmd) {
     console.log(chalk.yellow('  FreeCAD not found — skipping 3D assembly.'));
     console.log(chalk.dim('  Install FreeCAD for 3D assembly: sudo apt install freecad'));
-    console.log(chalk.dim('  You can still use the Three.js viewer: keyboard-maker viewer --dir ' + buildDir));
+    console.log(chalk.dim('  You can still use the Three.js viewer: keybuild viewer --dir ' + buildDir));
     return;
   }
 

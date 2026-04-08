@@ -11,8 +11,8 @@ const PROJECT_ROOT = resolve(dirname(__filename), '..', '..', '..');
 const DEFAULT_PROJECTS_DIR = resolve(PROJECT_ROOT, 'projects');
 
 program
-  .name('keyboard-maker')
-  .description('Interactive keyboard design & build toolchain')
+  .name('keybuild')
+  .description('Keybuild — interactive keyboard design & build toolchain')
   .version('0.1.0');
 
 program

@@ -1,4 +1,4 @@
-# Keyboard Maker
+# Keybuild
 
 A config-driven toolchain for designing and building custom mechanical keyboards from scratch. Takes a keyboard layout and component choices as input, generates KiCad schematics, PCB layouts, switch plates, 3D-printable cases, ZMK firmware, and a bill of materials — all from a single CLI tool. Includes a 3D web viewer for visualizing the assembled keyboard.
 
@@ -12,7 +12,7 @@ A config-driven toolchain for designing and building custom mechanical keyboards
 cd src/tools && npm install
 
 # 3. Run the interactive wizard
-npx keyboard-maker wizard
+npx keybuild wizard
 ```
 
 The wizard walks you through every design choice (layout, switches, MCU, connectivity, features, routing) and generates all project files into `projects/<name>/`.
@@ -44,20 +44,20 @@ Every build produces a `build-config.json` at the project root. You can re-run o
 cd src/tools
 
 # Generate from an existing project config (no prompts)
-npx keyboard-maker generate --config ../../projects/blue-dream-space/build-config.json
+npx keybuild generate --config ../../projects/blue-dream-space/build-config.json
 
 # Re-generate and overwrite existing build
-npx keyboard-maker generate --config ../../projects/my-keyboard/build-config.json --overwrite
+npx keybuild generate --config ../../projects/my-keyboard/build-config.json --overwrite
 
 # Validate a config and see design warnings
-npx keyboard-maker validate --config ../../projects/my-keyboard/build-config.json
+npx keybuild validate --config ../../projects/my-keyboard/build-config.json
 ```
 
 You can also pass a partial config to the wizard — it skips questions that are already answered:
 
 ```bash
-npx keyboard-maker wizard --config ./my-partial-config.json
-npx keyboard-maker wizard --kle-file ../../projects/my-keyboard/my-layout.json
+npx keybuild wizard --config ./my-partial-config.json
+npx keybuild wizard --kle-file ../../projects/my-keyboard/my-layout.json
 ```
 
 ### Project Output Structure
@@ -98,13 +98,13 @@ projects/blue-dream-space/
 cd src/tools
 
 # Generate 2D SVG + 3D PNG preview of a PCB
-npx keyboard-maker preview --pcb ../../projects/my-keyboard/build/my-keyboard.kicad_pcb
+npx keybuild preview --pcb ../../projects/my-keyboard/build/my-keyboard.kicad_pcb
 
 # Run Design Rule Check
-npx keyboard-maker drc --pcb ../../projects/my-keyboard/build/my-keyboard.kicad_pcb
+npx keybuild drc --pcb ../../projects/my-keyboard/build/my-keyboard.kicad_pcb
 
 # Export PCB as STEP for 3D assembly
-npx keyboard-maker export-step --pcb ../../projects/my-keyboard/build/my-keyboard.kicad_pcb
+npx keybuild export-step --pcb ../../projects/my-keyboard/build/my-keyboard.kicad_pcb
 ```
 
 The `preview` command produces a layered SVG (copper, silkscreen, edge cuts) and a ray-traced 3D PNG using KiCad's built-in renderer.
@@ -133,7 +133,7 @@ xdg-open projects/blue-dream-space/build/viewer.html
 
 # Option 2: Start the server-based viewer (supports live file loading)
 cd src/tools
-npx keyboard-maker viewer --dir ../../projects/blue-dream-space/build
+npx keybuild viewer --dir ../../projects/blue-dream-space/build
 ```
 
 The viewer provides:
@@ -180,10 +180,10 @@ Three modes, selectable in the config or wizard:
 * Note: The automated freerouting will not complete, usually. In normal circuits, it will get hung up on the last 5 traces or so. This is expected.
 Instead of "auto" freerouting from the wizard, you should run the Freerouting manually after a build (as the Build Output will explain, if it can't complete).
 For example, with the latest freerouting jar:
-1. Run: java -jar /home/<user>/.local/bin/freerouting-2.1.0.jar -de <keyboard-maker-root>/projects/<project>/build/keyboard.dsn
+1. Run: java -jar /home/<user>/.local/bin/freerouting-2.1.0.jar -de <keybuild-root>/projects/<project>/build/keyboard.dsn
 (then click 'Start the auto-router', in the opened freerouter window, and wait... it will take 5-15 minutes or so)
 2. In Freerouting GUI: File → Export Specctra Session
-3. Save as: <keyboard-maker-root>/projects/<project>/build/keyboard.ses
+3. Save as: <keybuild-root>/projects/<project>/build/keyboard.ses
 4. Then import in KiCad PCB: File → Import → Specctra Session
 
 ### Component Database
@@ -194,9 +194,9 @@ All supported components live in `data/` as JSON files. The wizard loads these t
 cd src/tools
 
 # Browse available components
-npx keyboard-maker list-components
-npx keyboard-maker list-components --type switches
-npx keyboard-maker list-components --type mcus
+npx keybuild list-components
+npx keybuild list-components --type switches
+npx keybuild list-components --type mcus
 ```
 
 **Supported switches:** Kailh Choc v1/v2, Cherry MX ULP, Cherry MX, Gateron Low Profile
@@ -251,14 +251,14 @@ All commands run from `src/tools/`:
 
 | Command | Description |
 |---------|-------------|
-| `npx keyboard-maker wizard` | Interactive build wizard |
-| `npx keyboard-maker generate -c <config>` | Generate from config file (no prompts) |
-| `npx keyboard-maker validate -c <config>` | Validate config and show design concerns |
-| `npx keyboard-maker list-components` | Browse component database |
-| `npx keyboard-maker preview -p <pcb>` | Render 2D SVG + 3D PNG of PCB |
-| `npx keyboard-maker drc -p <pcb>` | Run Design Rule Check |
-| `npx keyboard-maker export-step -p <pcb>` | Export PCB as STEP file |
-| `npx keyboard-maker viewer -d <build-dir>` | Start 3D web viewer |
+| `npx keybuild wizard` | Interactive build wizard |
+| `npx keybuild generate -c <config>` | Generate from config file (no prompts) |
+| `npx keybuild validate -c <config>` | Validate config and show design concerns |
+| `npx keybuild list-components` | Browse component database |
+| `npx keybuild preview -p <pcb>` | Render 2D SVG + 3D PNG of PCB |
+| `npx keybuild drc -p <pcb>` | Run Design Rule Check |
+| `npx keybuild export-step -p <pcb>` | Export PCB as STEP file |
+| `npx keybuild viewer -d <build-dir>` | Start 3D web viewer |
 
 ## Directory Structure
 
@@ -266,7 +266,7 @@ All commands run from `src/tools/`:
 ├── projects/         User projects — each with layout, config, and build output
 ├── data/             Component database (JSON files for switches, MCUs, etc.)
 ├── src/
-│   ├── tools/        Node.js/TypeScript toolchain (keyboard-maker CLI)
+│   ├── tools/        Node.js/TypeScript toolchain (Keybuild CLI)
 │   │   └── src/
 │   │       ├── cli/              Interactive wizard and commands
 │   │       ├── kle-parser/       KLE JSON layout parser

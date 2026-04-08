@@ -1,24 +1,25 @@
 {
-  "name": "@keyboard-maker/tools",
+  "name": "@keybuild/tools",
   "version": "0.1.0",
-  "description": "Interactive keyboard design & build toolchain",
+  "description": "Keybuild — interactive keyboard design & build toolchain",
   "type": "module",
   "bin": {
-    "keyboard-maker": "./bin/keyboard-maker.ts"
+    "keybuild": "./bin/keybuild.ts"
   },
   "scripts": {
     "build": "tsc",
     "test": "vitest",
-    "start": "tsx bin/keyboard-maker.ts",
-    "wizard": "tsx bin/keyboard-maker.ts wizard",
-    "generate": "tsx bin/keyboard-maker.ts generate"
+    "start": "tsx bin/keybuild.ts",
+    "wizard": "tsx bin/keybuild.ts wizard",
+    "generate": "tsx bin/keybuild.ts generate"
   },
   "keywords": [
     "keyboard",
     "mechanical-keyboard",
     "kicad",
     "zmk",
-    "pcb"
+    "pcb",
+    "keybuild"
   ],
   "license": "MIT",
   "dependencies": {

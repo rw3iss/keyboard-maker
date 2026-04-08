@@ -91,7 +91,7 @@ export function AppMenu({ onNewProject, onOpenProject, onAbout }: AppMenuProps) 
 
   return (
     <div class="app-menu" ref={menuRef}>
-      <div class="app-menu-brand">Keyboard Maker</div>
+      <div class="app-menu-brand">Keybuild</div>
       <div class="app-menu-items">
         {renderMenu('file', fileItems)}
         {renderMenu('help', helpItems)}

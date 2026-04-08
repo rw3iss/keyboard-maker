@@ -3,7 +3,7 @@
  *
  * Serves the viewer HTML/JS and build artifacts so the keyboard can be
  * visualised in a browser with Three.js.  Started via:
- *   keyboard-maker viewer --dir <build-dir>
+ *   keybuild viewer --dir <build-dir>
  */
 
 import { createServer } from 'http';
