@@ -6,6 +6,7 @@ import type { BuildConfig } from '../types/project.types';
 import { route } from 'preact-router';
 import { apiPost } from '../services/api.service';
 import { addToast } from '../services/toast.service';
+import { EmptyState } from '../components/common/EmptyState';
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -115,24 +116,11 @@ export function Overview() {
 
   if (!hasProject.value) {
     return (
-      <div style={{
-        display: 'flex', flexDirection: 'column', alignItems: 'center',
-        justifyContent: 'center', height: '100%', color: 'var(--text-muted)',
-        gap: '16px', padding: '60px 40px',
-      }}>
-        <div style={{
-          width: 64, height: 64, borderRadius: '50%',
-          border: '2px solid var(--border)', display: 'flex',
-          alignItems: 'center', justifyContent: 'center', fontSize: 28,
-          color: 'var(--text-secondary)',
-        }}>
-          {'\u2328'}
-        </div>
-        <h2 style={{ margin: 0, color: 'var(--text-primary)' }}>Keyboard Maker</h2>
-        <p style={{ margin: 0, maxWidth: 360, textAlign: 'center', lineHeight: 1.6 }}>
-          Open or create a project to get started. Use the File menu above.
-        </p>
-      </div>
+      <EmptyState
+        icon={'\u2328'}
+        title="Keyboard Maker"
+        message="Open or create a project to get started. Use the File menu above."
+      />
     );
   }
 
@@ -318,7 +306,7 @@ export function Overview() {
               class="btn btn-primary"
               style={{
                 padding: '8px 20px', fontSize: 13, borderRadius: 'var(--radius-sm)',
-                background: 'var(--accent)', color: '#0f172a', fontWeight: 600,
+                background: 'var(--accent)', color: 'var(--bg-input)', fontWeight: 600,
                 border: 'none', cursor: 'pointer',
                 opacity: requiredConfigured < requiredSteps.length ? 0.5 : 1,
               }}

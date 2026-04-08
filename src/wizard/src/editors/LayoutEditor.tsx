@@ -111,21 +111,21 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
   return (
     <div style="display:flex;flex-direction:column;height:100%;min-height:0">
       {/* Tip bar */}
-      <div style="padding:6px 12px;background:#1e293b;border-bottom:1px solid #334155;font-size:11px;color:#94a3b8;flex-shrink:0;display:flex;align-items:center;justify-content:space-between">
+      <div style="padding:6px 12px;background:var(--bg-elevated);border-bottom:1px solid var(--border);font-size:11px;color:var(--text-secondary);flex-shrink:0;display:flex;align-items:center;justify-content:space-between">
         <span>Drag to reposition. Scroll to zoom. Middle-click to pan. Arrows nudge 1mm (Shift=0.25mm, Ctrl=0.1mm). Ctrl+Z undo, Ctrl+Shift+Z redo.</span>
         <div style="display:flex;gap:4px;flex-shrink:0;margin-left:12px">
           {canUndo.value && (
             <button
               onClick={() => undo()}
               title="Undo (Ctrl+Z)"
-              style="padding:2px 8px;font-size:11px;background:#0f172a;color:#94a3b8;border:1px solid #334155;border-radius:3px;cursor:pointer"
+              style="padding:2px 8px;font-size:11px;background:var(--bg-input);color:var(--text-secondary);border:1px solid var(--border);border-radius:3px;cursor:pointer"
             >Undo</button>
           )}
           {canRedo.value && (
             <button
               onClick={() => redo()}
               title="Redo (Ctrl+Shift+Z)"
-              style="padding:2px 8px;font-size:11px;background:#0f172a;color:#94a3b8;border:1px solid #334155;border-radius:3px;cursor:pointer"
+              style="padding:2px 8px;font-size:11px;background:var(--bg-input);color:var(--text-secondary);border:1px solid var(--border);border-radius:3px;cursor:pointer"
             >Redo</button>
           )}
         </div>
@@ -134,10 +134,10 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
       {/* Main area: sidebar + canvas */}
       <div style="display:flex;flex:1;min-height:0;overflow:hidden">
         {/* Sidebar */}
-        <div style="width:200px;flex-shrink:0;background:#1e293b;border-right:1px solid #334155;overflow-y:auto;display:flex;flex-direction:column;font-size:12px">
+        <div style="width:200px;flex-shrink:0;background:var(--bg-elevated);border-right:1px solid var(--border);overflow-y:auto;display:flex;flex-direction:column;font-size:12px">
           {/* Layers section */}
-          <div style="padding:10px 12px;border-bottom:1px solid #334155">
-            <div style="font-weight:700;color:#e2e8f0;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">Layers</div>
+          <div style="padding:10px 12px;border-bottom:1px solid var(--border)">
+            <div class="panel-heading">Layers</div>
             {layers.value.map((layer) => (
               <div key={layer.id} style="margin-bottom:8px">
                 <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
@@ -156,10 +156,10 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
                     max="100"
                     value={Math.round(layer.opacity * 100)}
                     onInput={(e) => setLayerOpacity(layer.id, parseInt((e.target as HTMLInputElement).value) / 100)}
-                    style="width:100%;height:4px;accent-color:#6ecbf5"
+                    style="width:100%;height:4px;accent-color:var(--accent)"
                     disabled={!layer.visible}
                   />
-                  <span style="color:#64748b;font-size:10px;min-width:28px;text-align:right">
+                  <span style="color:var(--text-muted);font-size:10px;min-width:28px;text-align:right">
                     {Math.round(layer.opacity * 100)}%
                   </span>
                 </div>
@@ -168,24 +168,24 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
           </div>
 
           {/* Zoom controls */}
-          <div style="padding:10px 12px;border-top:1px solid #334155;flex-shrink:0">
-            <div style="font-weight:700;color:#e2e8f0;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">Zoom</div>
+          <div style="padding:10px 12px;border-top:1px solid var(--border);flex-shrink:0">
+            <div class="panel-heading">Zoom</div>
             <div style="display:flex;gap:4px;align-items:center">
               <button
                 onClick={handleZoomOut}
-                style="padding:3px 8px;background:#0f172a;border:1px solid #334155;border-radius:3px;color:#e2e8f0;cursor:pointer;font-size:14px"
+                style="padding:3px 8px;background:var(--bg-input);border:1px solid var(--border);border-radius:3px;color:var(--text-primary);cursor:pointer;font-size:14px"
               >-</button>
-              <div style="flex:1;text-align:center;color:#94a3b8;font-size:12px;font-family:monospace">
+              <div style="flex:1;text-align:center;color:var(--text-secondary);font-size:12px;font-family:monospace">
                 {Math.round(zoomLevel * 100)}%
               </div>
               <button
                 onClick={handleZoomIn}
-                style="padding:3px 8px;background:#0f172a;border:1px solid #334155;border-radius:3px;color:#e2e8f0;cursor:pointer;font-size:14px"
+                style="padding:3px 8px;background:var(--bg-input);border:1px solid var(--border);border-radius:3px;color:var(--text-primary);cursor:pointer;font-size:14px"
               >+</button>
             </div>
             <button
               onClick={handleFitView}
-              style="width:100%;margin-top:6px;padding:4px 8px;background:#0f172a;border:1px solid #334155;border-radius:3px;color:#94a3b8;cursor:pointer;font-size:11px"
+              style="width:100%;margin-top:6px;padding:4px 8px;background:var(--bg-input);border:1px solid var(--border);border-radius:3px;color:var(--text-secondary);cursor:pointer;font-size:11px"
             >
               Fit to View
             </button>
@@ -196,19 +196,19 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
         <canvas
           ref={canvasRef}
           tabIndex={0}
-          style="flex:1;min-width:0;min-height:0;outline:none;cursor:crosshair;background:#0f172a"
+          style="flex:1;min-width:0;min-height:0;outline:none;cursor:crosshair;background:var(--bg-input)"
         />
 
         {/* Right sidebar: Component Properties */}
         {selected && (
-          <div style="width:220px;flex-shrink:0;background:#1e293b;border-left:1px solid #334155;overflow-y:auto;display:flex;flex-direction:column;font-size:12px">
-            <div style="padding:10px 12px;border-bottom:1px solid #334155">
-              <div style="font-weight:700;color:#e2e8f0;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">Properties</div>
+          <div style="width:220px;flex-shrink:0;background:var(--bg-elevated);border-left:1px solid var(--border);overflow-y:auto;display:flex;flex-direction:column;font-size:12px">
+            <div style="padding:10px 12px;border-bottom:1px solid var(--border)">
+              <div class="panel-heading">Properties</div>
               <div style="color:#06b6d4;font-weight:600;margin-bottom:6px">{selected.label || selected.id}</div>
-              <div style="color:#64748b;font-size:11px;margin-bottom:8px">{selected.type}</div>
+              <div style="color:var(--text-muted);font-size:11px;margin-bottom:8px">{selected.type}</div>
 
               {(selected.collision || selected.outOfBounds) && (
-                <div style="color:#ef4444;font-weight:600;margin-bottom:8px;padding:4px 6px;background:#3f1111;border-radius:4px;font-size:11px">
+                <div style="color:var(--error);font-weight:600;margin-bottom:8px;padding:4px 6px;background:#3f1111;border-radius:4px;font-size:11px">
                   {selected.collision ? 'COLLISION DETECTED' : 'OUT OF BOUNDS'}
                 </div>
               )}
@@ -216,21 +216,21 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
 
             {/* Board Side selector */}
             {selected.draggable && selected.type !== 'screw' && (
-              <div style="padding:10px 12px;border-bottom:1px solid #334155">
-                <div style="font-weight:600;color:#94a3b8;margin-bottom:6px;font-size:11px">Board Side</div>
+              <div style="padding:10px 12px;border-bottom:1px solid var(--border)">
+                <div style="font-weight:600;color:var(--text-secondary);margin-bottom:6px;font-size:11px">Board Side</div>
                 <div style="display:flex;gap:4px">
                   {(['front', 'back', 'through'] as const).map((side) => {
                     const isActive = selected.side === side;
                     const colors: Record<string, string> = {
-                      front: isActive ? 'background:#1e3a5f;color:#6ecbf5;border-color:#6ecbf5' : 'color:#64748b',
-                      back: isActive ? 'background:#3f1e1e;color:#f87171;border-color:#f87171' : 'color:#64748b',
-                      through: isActive ? 'background:#1e3a1e;color:#86efac;border-color:#86efac' : 'color:#64748b',
+                      front: isActive ? 'background:#1e3a5f;color:var(--accent);border-color:var(--accent)' : 'color:var(--text-muted)',
+                      back: isActive ? 'background:#3f1e1e;color:var(--error-soft);border-color:var(--error-soft)' : 'color:var(--text-muted)',
+                      through: isActive ? 'background:#1e3a1e;color:var(--success-soft);border-color:var(--success-soft)' : 'color:var(--text-muted)',
                     };
                     return (
                       <button
                         key={side}
                         onClick={() => setComponentSide(selected.id, side)}
-                        style={`flex:1;padding:4px 2px;font-size:10px;font-weight:700;border:1px solid #334155;border-radius:3px;cursor:pointer;background:#0f172a;${colors[side]}`}
+                        style={`flex:1;padding:4px 2px;font-size:10px;font-weight:700;border:1px solid var(--border);border-radius:3px;cursor:pointer;background:var(--bg-input);${colors[side]}`}
                       >
                         {side === 'front' ? 'Front' : side === 'back' ? 'Back' : 'Thru'}
                       </button>
@@ -246,11 +246,11 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
             )}
 
             {/* Position */}
-            <div style="padding:10px 12px;border-bottom:1px solid #334155">
-              <div style="font-weight:600;color:#94a3b8;margin-bottom:6px;font-size:11px">Position</div>
+            <div style="padding:10px 12px;border-bottom:1px solid var(--border)">
+              <div style="font-weight:600;color:var(--text-secondary);margin-bottom:6px;font-size:11px">Position</div>
               <div style="display:flex;gap:8px;margin-bottom:6px">
                 <div style="flex:1">
-                  <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">X (mm)</label>
+                  <label style="display:block;color:var(--text-muted);font-size:10px;margin-bottom:2px">X (mm)</label>
                   <input
                     type="number"
                     step="0.5"
@@ -260,11 +260,11 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
                       const v = parseFloat((e.target as HTMLInputElement).value);
                       if (!isNaN(v)) moveComponentTo(selected.id, v, selected.y);
                     }}
-                    style="width:100%;padding:4px 6px;background:#0f172a;border:1px solid #334155;border-radius:3px;color:#e2e8f0;font-size:12px;font-family:monospace"
+                    style="width:100%;padding:4px 6px;background:var(--bg-input);border:1px solid var(--border);border-radius:3px;color:var(--text-primary);font-size:12px;font-family:monospace"
                   />
                 </div>
                 <div style="flex:1">
-                  <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">Y (mm)</label>
+                  <label style="display:block;color:var(--text-muted);font-size:10px;margin-bottom:2px">Y (mm)</label>
                   <input
                     type="number"
                     step="0.5"
@@ -274,31 +274,31 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
                       const v = parseFloat((e.target as HTMLInputElement).value);
                       if (!isNaN(v)) moveComponentTo(selected.id, selected.x, v);
                     }}
-                    style="width:100%;padding:4px 6px;background:#0f172a;border:1px solid #334155;border-radius:3px;color:#e2e8f0;font-size:12px;font-family:monospace"
+                    style="width:100%;padding:4px 6px;background:var(--bg-input);border:1px solid var(--border);border-radius:3px;color:var(--text-primary);font-size:12px;font-family:monospace"
                   />
                 </div>
               </div>
             </div>
 
             {/* Dimensions (read-only) */}
-            <div style="padding:10px 12px;border-bottom:1px solid #334155">
-              <div style="font-weight:600;color:#94a3b8;margin-bottom:6px;font-size:11px">Dimensions</div>
+            <div style="padding:10px 12px;border-bottom:1px solid var(--border)">
+              <div style="font-weight:600;color:var(--text-secondary);margin-bottom:6px;font-size:11px">Dimensions</div>
               <div style="display:flex;gap:8px">
                 <div style="flex:1">
-                  <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">W (mm)</label>
-                  <div style="padding:4px 6px;background:#0f172a;border:1px solid #1e293b;border-radius:3px;color:#64748b;font-size:12px;font-family:monospace">
+                  <label style="display:block;color:var(--text-muted);font-size:10px;margin-bottom:2px">W (mm)</label>
+                  <div style="padding:4px 6px;background:var(--bg-input);border:1px solid var(--bg-elevated);border-radius:3px;color:var(--text-muted);font-size:12px;font-family:monospace">
                     {selected.width.toFixed(1)}
                   </div>
                 </div>
                 <div style="flex:1">
-                  <label style="display:block;color:#64748b;font-size:10px;margin-bottom:2px">H (mm)</label>
-                  <div style="padding:4px 6px;background:#0f172a;border:1px solid #1e293b;border-radius:3px;color:#64748b;font-size:12px;font-family:monospace">
+                  <label style="display:block;color:var(--text-muted);font-size:10px;margin-bottom:2px">H (mm)</label>
+                  <div style="padding:4px 6px;background:var(--bg-input);border:1px solid var(--bg-elevated);border-radius:3px;color:var(--text-muted);font-size:12px;font-family:monospace">
                     {selected.height.toFixed(1)}
                   </div>
                 </div>
               </div>
               {selected.fanout && (
-                <div style="color:#86efac;font-size:10px;margin-top:4px">
+                <div style="color:var(--success-soft);font-size:10px;margin-top:4px">
                   + {(selected.fanoutExtend ?? 3.6).toFixed(1)}mm fanout zone
                 </div>
               )}
@@ -309,7 +309,7 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
               <div style="padding:10px 12px">
                 <button
                   onClick={() => resetComponentPosition(selected.id)}
-                  style="width:100%;padding:5px 8px;background:#1e293b;border:1px solid #334155;border-radius:4px;color:#94a3b8;cursor:pointer;font-size:11px"
+                  style="width:100%;padding:5px 8px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:4px;color:var(--text-secondary);cursor:pointer;font-size:11px"
                 >
                   Reset Position
                 </button>
@@ -320,14 +320,14 @@ export function LayoutEditor({ config, keys }: LayoutEditorProps) {
       </div>
 
       {/* Status bar */}
-      <div style="display:flex;align-items:center;gap:16px;padding:4px 12px;background:#1e293b;border-top:1px solid #334155;font-size:11px;color:#64748b;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:16px;padding:4px 12px;background:var(--bg-elevated);border-top:1px solid var(--border);font-size:11px;color:var(--text-muted);flex-shrink:0">
         <span>
           Cursor: {cursorPos ? `(${cursorPos.mmX.toFixed(1)}, ${cursorPos.mmY.toFixed(1)})mm` : '--'}
         </span>
         <span>Zoom: {Math.round(zoomLevel * 100)}%</span>
         <span>Grid: 0.5mm</span>
         {collisions && (
-          <span style="color:#ef4444;font-weight:600;margin-left:auto">
+          <span style="color:var(--error);font-weight:600;margin-left:auto">
             Collisions detected!
           </span>
         )}

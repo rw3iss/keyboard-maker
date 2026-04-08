@@ -18,15 +18,15 @@
             , <&gpio0 4>
             , <&gpio0 5>
             , <&gpio0 6>
-            , <&gpio0 7>
-            , <&gpio0 8>
+            , <&gpio0 7>;
+
+        col-gpios
+            = <&gpio0 8>
             , <&gpio0 9>
             , <&gpio0 10>
             , <&gpio0 11>
-            , <&gpio0 12>;
-
-        col-gpios
-            = <&gpio0 13>
+            , <&gpio0 12>
+            , <&gpio0 13>
             , <&gpio0 14>
             , <&gpio0 15>
             , <&gpio0 16>
@@ -35,6 +35,7 @@
             , <&gpio0 19>
             , <&gpio0 20>
             , <&gpio0 21>
-            , <&gpio0 22>;
+            , <&gpio0 22>
+            , <&gpio0 23>;
     };
 };

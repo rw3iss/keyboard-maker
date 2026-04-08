@@ -1,4 +1,5 @@
 import { signal, computed } from '@preact/signals';
+import type { McuData, ComponentOption, ChargerPackageInfo } from '../types/mcu.types';
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -86,7 +87,7 @@ const SPACING: Record<string, { x: number; y: number }> = {
 // ── MCU dimensions from component data ────────────────────────────────────
 
 /** Compute MCU footprint size (mm) from its data. Matches mcu-footprint.ts output. */
-function getMcuDimensions(mcuData: any): { width: number; height: number; fanoutExtend: number } {
+function getMcuDimensions(mcuData: McuData | null | undefined): { width: number; height: number; fanoutExtend: number } {
   const bp = mcuData?.boardPins;
   const pkg = mcuData?.package;
 
@@ -95,10 +96,10 @@ function getMcuDimensions(mcuData: any): { width: number; height: number; fanout
     const pitch = bp.pitch ?? 2.54;
     const rowSpacing = bp.rowSpacing ?? 15.24;
     const pins = bp.pins ?? [];
-    const mainPins = pins.filter((p: any) => (p.row ?? 0) <= 1);
-    const maxPos = mainPins.reduce((m: number, p: any) => Math.max(m, p.position ?? 0), 0);
+    const mainPins = pins.filter((p) => (p.row ?? 0) <= 1);
+    const maxPos = mainPins.reduce((m, p) => Math.max(m, p.position ?? 0), 0);
     const mainH = maxPos * pitch;
-    const extraPins = pins.filter((p: any) => (p.row ?? 0) >= 2);
+    const extraPins = pins.filter((p) => (p.row ?? 0) >= 2);
     const extraH = extraPins.length > 0 ? pitch * 2 : 0;
     return {
       width: rowSpacing + 4,   // row spacing + pad overhang
@@ -242,10 +243,10 @@ export interface SimpleKey {
 
 /** Component data passed from the editor for accurate sizing */
 export interface ComponentDataSet {
-  mcu?: any;
-  battery?: any;
-  charger?: any;
-  connector?: any;
+  mcu?: McuData | null;
+  battery?: ComponentOption | null;
+  charger?: ComponentOption | null;
+  connector?: ComponentOption | null;
 }
 
 export function initLayout(config: any, kleKeys: SimpleKey[], componentData?: ComponentDataSet) {
@@ -400,7 +401,7 @@ export function initLayout(config: any, kleKeys: SimpleKey[], componentData?: Co
   // ── Charger IC (if battery enabled and charger selected) ──────────────
   if (config?.power?.battery && config?.power?.chargerIc) {
     const chgData = componentData?.charger;
-    const pkgInfo = chgData?.packageInfo;
+    const pkgInfo = chgData?.packageInfo as ChargerPackageInfo | undefined;
     const chgDims = chgData?.dimensions;
     // Use packageInfo for accurate sizing if available, fallback to dimensions
     const bodyW = pkgInfo?.dimensions?.width ?? chgDims?.width ?? 3.5;

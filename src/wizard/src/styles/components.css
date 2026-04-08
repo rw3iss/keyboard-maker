@@ -8,7 +8,7 @@
   border-radius: var(--radius);
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
   white-space: nowrap;
 }
 
@@ -83,7 +83,7 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .card--clickable {
@@ -188,17 +188,17 @@
   justify-content: center;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
-  z-index: 1000;
+  z-index: var(--z-modal);
 }
 
 .modal-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
   min-width: 360px;
   max-width: 560px;
-  max-height: 80vh;
+  max-height: 85vh;
   display: flex;
   flex-direction: column;
 }
@@ -303,6 +303,13 @@
 
 .file-link-name {
   flex: 1;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.file-link-name:hover {
+  color: var(--accent-hover);
 }
 
 .file-link-size {
@@ -313,12 +320,12 @@
 /* ---- Toast ---- */
 .toast-container {
   position: fixed;
-  bottom: 40px;
-  right: 16px;
+  bottom: calc(var(--status-bar-height) + var(--space-3));
+  right: var(--space-4);
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  z-index: 2000;
+  gap: var(--space-2);
+  z-index: var(--z-toast);
   max-width: 380px;
 }
 
@@ -332,7 +339,7 @@
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   font-size: 13px;
-  animation: toast-in 0.25s ease-out;
+  animation: toast-in var(--transition-slow) ease-out;
 }
 
 .toast--info    { border-left: 3px solid var(--accent); }
@@ -431,7 +438,7 @@
   border-radius: var(--radius-sm);
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.15s, border-color 0.15s;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .comp-filter-reset:hover {
@@ -444,7 +451,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   border-left: 3px solid transparent;
 }
 
@@ -481,7 +488,7 @@
   border-radius: 50%;
   border: 2px solid var(--border);
   flex-shrink: 0;
-  transition: border-color 0.15s, background 0.15s;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
 }
 
 .comp-radio--active {
@@ -719,4 +726,438 @@
   font-size: 12px;
   color: var(--text-muted);
   margin-bottom: 4px;
+}
+
+/* ---- Input (shared primitive) ---- */
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.input-label {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+.input-required {
+  color: var(--error);
+}
+
+.input-wrap {
+  display: flex;
+  align-items: stretch;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(110, 203, 245, 0.15);
+}
+
+.input-field--error .input-wrap {
+  border-color: var(--error);
+}
+.input-field--error .input-wrap:focus-within {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.18);
+}
+
+.input-field--disabled .input-wrap {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.input-control {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 10px;
+  font-size: var(--font-size-md);
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  outline: none;
+}
+.input-control::placeholder {
+  color: var(--text-muted);
+}
+.input-control:disabled {
+  cursor: not-allowed;
+}
+
+/* Size variants — adjust control padding */
+.input-field--sm .input-control { padding: 3px 8px;  font-size: var(--font-size-sm); }
+.input-field--md .input-control { padding: 6px 10px; font-size: var(--font-size-md); }
+.input-field--lg .input-control { padding: 9px 12px; font-size: var(--font-size-lg); }
+
+.input-affix {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  background: transparent;
+}
+.input-affix--prefix { padding-right: 4px; }
+.input-affix--suffix { padding-left: 4px; }
+
+.input-message {
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+.input-message--hint  { color: var(--text-muted); }
+.input-message--error { color: var(--error); }
+
+/* Kill spinner buttons on number inputs for a cleaner look */
+.input-control[type="number"]::-webkit-outer-spin-button,
+.input-control[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.input-control[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ---- Checkbox (shared primitive) ---- */
+.checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-field--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checkbox-input {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+.checkbox-field--sm .checkbox-input { width: 14px; height: 14px; margin-top: 1px; }
+.checkbox-field--lg .checkbox-input { width: 18px; height: 18px; margin-top: 3px; }
+
+.checkbox-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.checkbox-label {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.checkbox-description {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Compact variant — label on same line, no description */
+.checkbox-field:not(.checkbox-field--with-description) .checkbox-body {
+  flex-direction: row;
+  align-items: center;
+}
+
+/* ---- Empty State ---- */
+.empty-state-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-7) var(--space-6);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.empty-state-wrap--compact {
+  padding: var(--space-5) var(--space-4);
+  gap: var(--space-2);
+}
+
+.empty-state-wrap--inline {
+  padding: var(--space-4);
+  gap: var(--space-2);
+}
+
+.empty-state-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+}
+
+.empty-state-wrap--compact .empty-state-icon,
+.empty-state-wrap--inline .empty-state-icon {
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+}
+
+.empty-state-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.empty-state-message {
+  font-size: var(--font-size-md);
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 360px;
+}
+
+.empty-state-actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+/* ---- Dropdown Custom (searchable, grouped, iconified) ---- */
+.dropdown-custom {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 220px;
+}
+
+.dropdown-custom-label {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+.dropdown-custom-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: 6px 10px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.dropdown-custom-trigger:hover:not(:disabled) {
+  border-color: var(--border-strong);
+}
+
+.dropdown-custom--open .dropdown-custom-trigger {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(110, 203, 245, 0.15);
+}
+
+.dropdown-custom-trigger:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.dropdown-custom-value {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-custom-placeholder {
+  color: var(--text-muted);
+}
+
+.dropdown-custom-arrow {
+  font-size: 9px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.dropdown-custom-trigger:hover .dropdown-custom-arrow {
+  color: var(--text-secondary);
+}
+
+.dropdown-custom-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  z-index: var(--z-dropdown);
+  display: flex;
+  flex-direction: column;
+  max-height: 320px;
+}
+
+.dropdown-custom-search-wrap {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.dropdown-custom-search {
+  width: 100%;
+  padding: 6px 10px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-md);
+  outline: none;
+}
+.dropdown-custom-search:focus {
+  border-color: var(--accent);
+}
+.dropdown-custom-search::placeholder {
+  color: var(--text-muted);
+}
+
+.dropdown-custom-list {
+  overflow-y: auto;
+  flex: 1;
+  padding: 4px 0;
+}
+
+.dropdown-custom-group-heading {
+  padding: var(--space-2) var(--space-3) var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.dropdown-custom-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  user-select: none;
+}
+
+.dropdown-custom-item--highlight {
+  background: var(--bg-hover);
+}
+
+.dropdown-custom-item--selected {
+  background: var(--accent-soft);
+}
+
+.dropdown-custom-item--selected.dropdown-custom-item--highlight {
+  background: var(--accent-soft);
+}
+
+.dropdown-custom-item--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dropdown-custom-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--text-secondary);
+}
+
+.dropdown-custom-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.dropdown-custom-item-label {
+  font-size: var(--font-size-md);
+  color: var(--text-primary);
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-custom-item--selected .dropdown-custom-item-label {
+  color: var(--accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+.dropdown-custom-item-description {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-custom-badge {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  font-size: var(--font-size-xs);
+  border-radius: 10px;
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+}
+
+.dropdown-custom-check {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: var(--font-size-md);
+}
+
+.dropdown-custom-empty {
+  padding: var(--space-5) var(--space-3);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* ---- Modal size variants (extends .modal-card) ---- */
+.modal-card--sm { min-width: 320px; max-width: 420px; }
+.modal-card--md { min-width: 360px; max-width: 560px; }
+.modal-card--lg { min-width: 480px; max-width: 760px; }
+.modal-card--xl { min-width: 640px; max-width: 960px; }
+
+/* Scroll-shadow hint on the modal body when content overflows */
+.modal-body--scrollable {
+  mask-image: linear-gradient(to bottom, transparent 0, black 12px, black calc(100% - 12px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 12px, black calc(100% - 12px), transparent 100%);
 }

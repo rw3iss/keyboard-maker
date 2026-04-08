@@ -3116,7 +3116,7 @@
   )
   (symbol
     (lib_id "Switch:SW_Push")
-    (at 50 70.32 0)
+    (at 253.2 50 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -3124,6 +3124,430 @@
     (dnp no)
     (uuid "00000000-0000-4000-8000-00000000003a")
     (property "Reference" "SW9"
+      (at 253.2 47 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R0C8"
+      (at 253.2 53 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 253.2 55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000003b"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000003c"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 253.2 57.62 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000003d")
+    (property "Reference" "D9"
+      (at 253.2 55.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 253.2 59.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 253.2 61.62 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000003e"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000003f"))
+  )
+  (wire
+    (pts (xy 258.28 50) (xy 258.28 55.08))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000040")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 278.6 50 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000041")
+    (property "Reference" "SW10"
+      (at 278.6 47 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R0C9"
+      (at 278.6 53 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 278.6 55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000042"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000043"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 278.6 57.62 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000044")
+    (property "Reference" "D10"
+      (at 278.6 55.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 278.6 59.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 278.6 61.62 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000045"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000046"))
+  )
+  (wire
+    (pts (xy 283.68 50) (xy 283.68 55.08))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000047")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 304 50 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000048")
+    (property "Reference" "SW11"
+      (at 304 47 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R0C10"
+      (at 304 53 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 304 55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000049"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000004a"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 304 57.62 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000004b")
+    (property "Reference" "D11"
+      (at 304 55.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 304 59.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 304 61.62 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000004c"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000004d"))
+  )
+  (wire
+    (pts (xy 309.08 50) (xy 309.08 55.08))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-00000000004e")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 329.4 50 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000004f")
+    (property "Reference" "SW12"
+      (at 329.4 47 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R0C11"
+      (at 329.4 53 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 329.4 55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000050"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000051"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 329.4 57.62 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000052")
+    (property "Reference" "D12"
+      (at 329.4 55.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 329.4 59.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 329.4 61.62 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000053"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000054"))
+  )
+  (wire
+    (pts (xy 334.48 50) (xy 334.48 55.08))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000055")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 354.8 50 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000056")
+    (property "Reference" "SW13"
+      (at 354.8 47 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R0C12"
+      (at 354.8 53 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 354.8 55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000057"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000058"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 354.8 57.62 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000059")
+    (property "Reference" "D13"
+      (at 354.8 55.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 354.8 59.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 354.8 61.62 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000005a"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000005b"))
+  )
+  (wire
+    (pts (xy 359.88 50) (xy 359.88 55.08))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-00000000005c")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 380.2 50 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000005d")
+    (property "Reference" "SW14"
+      (at 380.2 47 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R0C13"
+      (at 380.2 53 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 380.2 55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000005e"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000005f"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 380.2 57.62 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000060")
+    (property "Reference" "D14"
+      (at 380.2 55.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 380.2 59.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 380.2 61.62 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000061"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000062"))
+  )
+  (wire
+    (pts (xy 385.28 50) (xy 385.28 55.08))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000063")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 405.6 50 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000064")
+    (property "Reference" "SW15"
+      (at 405.6 47 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R0C14"
+      (at 405.6 53 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 405.6 55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000065"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000066"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 405.6 57.62 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000067")
+    (property "Reference" "D15"
+      (at 405.6 55.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 405.6 59.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 405.6 61.62 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000068"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000069"))
+  )
+  (wire
+    (pts (xy 410.68 50) (xy 410.68 55.08))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-00000000006a")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 431 50 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000006b")
+    (property "Reference" "SW16"
+      (at 431 47 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R0C15"
+      (at 431 53 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 431 55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000006c"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000006d"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 431 57.62 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000006e")
+    (property "Reference" "D16"
+      (at 431 55.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 431 59.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 431 61.62 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000006f"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000070"))
+  )
+  (wire
+    (pts (xy 436.08 50) (xy 436.08 55.08))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000071")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 50 70.32 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000072")
+    (property "Reference" "SW17"
       (at 50 67.32 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3135,8 +3559,8 @@
       (at 50 75.32 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000003b"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000003c"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000073"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000074"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3146,8 +3570,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000003d")
-    (property "Reference" "D9"
+    (uuid "00000000-0000-4000-8000-000000000075")
+    (property "Reference" "D17"
       (at 50 75.94 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3159,13 +3583,13 @@
       (at 50 81.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000003e"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000003f"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000076"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000077"))
   )
   (wire
     (pts (xy 55.08 70.32) (xy 55.08 75.4))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000040")
+    (uuid "00000000-0000-4000-8000-000000000078")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3175,8 +3599,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000041")
-    (property "Reference" "SW10"
+    (uuid "00000000-0000-4000-8000-000000000079")
+    (property "Reference" "SW18"
       (at 75.4 67.32 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3188,8 +3612,8 @@
       (at 75.4 75.32 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000042"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000043"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000007a"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000007b"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3199,8 +3623,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000044")
-    (property "Reference" "D10"
+    (uuid "00000000-0000-4000-8000-00000000007c")
+    (property "Reference" "D18"
       (at 75.4 75.94 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3212,13 +3636,13 @@
       (at 75.4 81.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000045"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000046"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000007d"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000007e"))
   )
   (wire
     (pts (xy 80.48 70.32) (xy 80.48 75.4))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000047")
+    (uuid "00000000-0000-4000-8000-00000000007f")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3228,8 +3652,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000048")
-    (property "Reference" "SW11"
+    (uuid "00000000-0000-4000-8000-000000000080")
+    (property "Reference" "SW19"
       (at 100.8 67.32 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3241,8 +3665,8 @@
       (at 100.8 75.32 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000049"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000004a"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000081"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000082"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3252,8 +3676,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000004b")
-    (property "Reference" "D11"
+    (uuid "00000000-0000-4000-8000-000000000083")
+    (property "Reference" "D19"
       (at 100.8 75.94 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3265,13 +3689,13 @@
       (at 100.8 81.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000004c"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000004d"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000084"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000085"))
   )
   (wire
     (pts (xy 105.88 70.32) (xy 105.88 75.4))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000004e")
+    (uuid "00000000-0000-4000-8000-000000000086")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3281,8 +3705,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000004f")
-    (property "Reference" "SW12"
+    (uuid "00000000-0000-4000-8000-000000000087")
+    (property "Reference" "SW20"
       (at 126.2 67.32 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3294,8 +3718,8 @@
       (at 126.2 75.32 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000050"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000051"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000088"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000089"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3305,8 +3729,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000052")
-    (property "Reference" "D12"
+    (uuid "00000000-0000-4000-8000-00000000008a")
+    (property "Reference" "D20"
       (at 126.2 75.94 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3318,13 +3742,13 @@
       (at 126.2 81.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000053"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000054"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000008b"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000008c"))
   )
   (wire
     (pts (xy 131.28 70.32) (xy 131.28 75.4))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000055")
+    (uuid "00000000-0000-4000-8000-00000000008d")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3334,8 +3758,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000056")
-    (property "Reference" "SW13"
+    (uuid "00000000-0000-4000-8000-00000000008e")
+    (property "Reference" "SW21"
       (at 151.6 67.32 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3347,8 +3771,8 @@
       (at 151.6 75.32 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000057"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000058"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000008f"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000090"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3358,8 +3782,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000059")
-    (property "Reference" "D13"
+    (uuid "00000000-0000-4000-8000-000000000091")
+    (property "Reference" "D21"
       (at 151.6 75.94 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3371,13 +3795,13 @@
       (at 151.6 81.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000005a"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000005b"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000092"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000093"))
   )
   (wire
     (pts (xy 156.68 70.32) (xy 156.68 75.4))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000005c")
+    (uuid "00000000-0000-4000-8000-000000000094")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3387,8 +3811,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000005d")
-    (property "Reference" "SW14"
+    (uuid "00000000-0000-4000-8000-000000000095")
+    (property "Reference" "SW22"
       (at 177 67.32 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3400,8 +3824,8 @@
       (at 177 75.32 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000005e"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000005f"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000096"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000097"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3411,8 +3835,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000060")
-    (property "Reference" "D14"
+    (uuid "00000000-0000-4000-8000-000000000098")
+    (property "Reference" "D22"
       (at 177 75.94 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3424,13 +3848,13 @@
       (at 177 81.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000061"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000062"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000099"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000009a"))
   )
   (wire
     (pts (xy 182.08 70.32) (xy 182.08 75.4))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000063")
+    (uuid "00000000-0000-4000-8000-00000000009b")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3440,8 +3864,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000064")
-    (property "Reference" "SW15"
+    (uuid "00000000-0000-4000-8000-00000000009c")
+    (property "Reference" "SW23"
       (at 202.4 67.32 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3453,8 +3877,8 @@
       (at 202.4 75.32 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000065"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000066"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000009d"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000009e"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3464,8 +3888,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000067")
-    (property "Reference" "D15"
+    (uuid "00000000-0000-4000-8000-00000000009f")
+    (property "Reference" "D23"
       (at 202.4 75.94 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3477,13 +3901,13 @@
       (at 202.4 81.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000068"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000069"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000a0"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000a1"))
   )
   (wire
     (pts (xy 207.48 70.32) (xy 207.48 75.4))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000006a")
+    (uuid "00000000-0000-4000-8000-0000000000a2")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3493,8 +3917,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000006b")
-    (property "Reference" "SW16"
+    (uuid "00000000-0000-4000-8000-0000000000a3")
+    (property "Reference" "SW24"
       (at 227.8 67.32 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3506,8 +3930,8 @@
       (at 227.8 75.32 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000006c"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000006d"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000a4"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000a5"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3517,8 +3941,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000006e")
-    (property "Reference" "D16"
+    (uuid "00000000-0000-4000-8000-0000000000a6")
+    (property "Reference" "D24"
       (at 227.8 75.94 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3530,13 +3954,437 @@
       (at 227.8 81.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000006f"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000070"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000a7"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000a8"))
   )
   (wire
     (pts (xy 232.88 70.32) (xy 232.88 75.4))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000071")
+    (uuid "00000000-0000-4000-8000-0000000000a9")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 253.2 70.32 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000aa")
+    (property "Reference" "SW25"
+      (at 253.2 67.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R1C8"
+      (at 253.2 73.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 253.2 75.32 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ab"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000ac"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 253.2 77.94 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000ad")
+    (property "Reference" "D25"
+      (at 253.2 75.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 253.2 79.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 253.2 81.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ae"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000af"))
+  )
+  (wire
+    (pts (xy 258.28 70.32) (xy 258.28 75.4))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000000b0")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 278.6 70.32 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000b1")
+    (property "Reference" "SW26"
+      (at 278.6 67.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R1C9"
+      (at 278.6 73.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 278.6 75.32 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000b2"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000b3"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 278.6 77.94 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000b4")
+    (property "Reference" "D26"
+      (at 278.6 75.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 278.6 79.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 278.6 81.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000b5"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000b6"))
+  )
+  (wire
+    (pts (xy 283.68 70.32) (xy 283.68 75.4))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000000b7")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 304 70.32 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000b8")
+    (property "Reference" "SW27"
+      (at 304 67.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R1C10"
+      (at 304 73.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 304 75.32 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000b9"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000ba"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 304 77.94 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000bb")
+    (property "Reference" "D27"
+      (at 304 75.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 304 79.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 304 81.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000bc"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000bd"))
+  )
+  (wire
+    (pts (xy 309.08 70.32) (xy 309.08 75.4))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000000be")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 329.4 70.32 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000bf")
+    (property "Reference" "SW28"
+      (at 329.4 67.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R1C11"
+      (at 329.4 73.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 329.4 75.32 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000c0"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000c1"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 329.4 77.94 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000c2")
+    (property "Reference" "D28"
+      (at 329.4 75.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 329.4 79.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 329.4 81.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000c3"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000c4"))
+  )
+  (wire
+    (pts (xy 334.48 70.32) (xy 334.48 75.4))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000000c5")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 354.8 70.32 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000c6")
+    (property "Reference" "SW29"
+      (at 354.8 67.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R1C12"
+      (at 354.8 73.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 354.8 75.32 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000c7"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000c8"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 354.8 77.94 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000c9")
+    (property "Reference" "D29"
+      (at 354.8 75.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 354.8 79.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 354.8 81.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ca"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000cb"))
+  )
+  (wire
+    (pts (xy 359.88 70.32) (xy 359.88 75.4))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000000cc")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 380.2 70.32 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000cd")
+    (property "Reference" "SW30"
+      (at 380.2 67.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R1C13"
+      (at 380.2 73.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 380.2 75.32 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ce"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000cf"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 380.2 77.94 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000d0")
+    (property "Reference" "D30"
+      (at 380.2 75.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 380.2 79.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 380.2 81.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000d1"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000d2"))
+  )
+  (wire
+    (pts (xy 385.28 70.32) (xy 385.28 75.4))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000000d3")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 405.6 70.32 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000d4")
+    (property "Reference" "SW31"
+      (at 405.6 67.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R1C14"
+      (at 405.6 73.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 405.6 75.32 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000d5"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000d6"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 405.6 77.94 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000d7")
+    (property "Reference" "D31"
+      (at 405.6 75.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 405.6 79.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 405.6 81.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000d8"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000d9"))
+  )
+  (wire
+    (pts (xy 410.68 70.32) (xy 410.68 75.4))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000000da")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 431 70.32 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000db")
+    (property "Reference" "SW32"
+      (at 431 67.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R1C15"
+      (at 431 73.32 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 431 75.32 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000dc"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000dd"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 431 77.94 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000000de")
+    (property "Reference" "D32"
+      (at 431 75.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 431 79.94 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 431 81.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000df"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000e0"))
+  )
+  (wire
+    (pts (xy 436.08 70.32) (xy 436.08 75.4))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000000e1")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3546,8 +4394,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000072")
-    (property "Reference" "SW17"
+    (uuid "00000000-0000-4000-8000-0000000000e2")
+    (property "Reference" "SW33"
       (at 50 87.64 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3559,8 +4407,8 @@
       (at 50 95.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000073"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000074"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000e3"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000e4"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3570,8 +4418,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000075")
-    (property "Reference" "D17"
+    (uuid "00000000-0000-4000-8000-0000000000e5")
+    (property "Reference" "D33"
       (at 50 96.26 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3583,13 +4431,13 @@
       (at 50 102.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000076"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000077"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000e6"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000e7"))
   )
   (wire
     (pts (xy 55.08 90.64) (xy 55.08 95.72))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000078")
+    (uuid "00000000-0000-4000-8000-0000000000e8")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3599,8 +4447,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000079")
-    (property "Reference" "SW18"
+    (uuid "00000000-0000-4000-8000-0000000000e9")
+    (property "Reference" "SW34"
       (at 75.4 87.64 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3612,8 +4460,8 @@
       (at 75.4 95.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000007a"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000007b"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ea"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000eb"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3623,8 +4471,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000007c")
-    (property "Reference" "D18"
+    (uuid "00000000-0000-4000-8000-0000000000ec")
+    (property "Reference" "D34"
       (at 75.4 96.26 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3636,13 +4484,13 @@
       (at 75.4 102.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000007d"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000007e"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ed"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000ee"))
   )
   (wire
     (pts (xy 80.48 90.64) (xy 80.48 95.72))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000007f")
+    (uuid "00000000-0000-4000-8000-0000000000ef")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3652,8 +4500,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000080")
-    (property "Reference" "SW19"
+    (uuid "00000000-0000-4000-8000-0000000000f0")
+    (property "Reference" "SW35"
       (at 100.8 87.64 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3665,8 +4513,8 @@
       (at 100.8 95.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000081"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000082"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000f1"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000f2"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3676,8 +4524,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000083")
-    (property "Reference" "D19"
+    (uuid "00000000-0000-4000-8000-0000000000f3")
+    (property "Reference" "D35"
       (at 100.8 96.26 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3689,13 +4537,13 @@
       (at 100.8 102.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000084"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000085"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000f4"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000f5"))
   )
   (wire
     (pts (xy 105.88 90.64) (xy 105.88 95.72))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000086")
+    (uuid "00000000-0000-4000-8000-0000000000f6")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3705,8 +4553,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000087")
-    (property "Reference" "SW20"
+    (uuid "00000000-0000-4000-8000-0000000000f7")
+    (property "Reference" "SW36"
       (at 126.2 87.64 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3718,8 +4566,8 @@
       (at 126.2 95.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000088"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000089"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000f8"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000f9"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3729,8 +4577,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000008a")
-    (property "Reference" "D20"
+    (uuid "00000000-0000-4000-8000-0000000000fa")
+    (property "Reference" "D36"
       (at 126.2 96.26 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3742,13 +4590,13 @@
       (at 126.2 102.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000008b"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000008c"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000fb"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000000fc"))
   )
   (wire
     (pts (xy 131.28 90.64) (xy 131.28 95.72))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000008d")
+    (uuid "00000000-0000-4000-8000-0000000000fd")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3758,8 +4606,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000008e")
-    (property "Reference" "SW21"
+    (uuid "00000000-0000-4000-8000-0000000000fe")
+    (property "Reference" "SW37"
       (at 151.6 87.64 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3771,8 +4619,8 @@
       (at 151.6 95.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000008f"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000090"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ff"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000100"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3782,8 +4630,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000091")
-    (property "Reference" "D21"
+    (uuid "00000000-0000-4000-8000-000000000101")
+    (property "Reference" "D37"
       (at 151.6 96.26 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3795,13 +4643,13 @@
       (at 151.6 102.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000092"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000093"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000102"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000103"))
   )
   (wire
     (pts (xy 156.68 90.64) (xy 156.68 95.72))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000094")
+    (uuid "00000000-0000-4000-8000-000000000104")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3811,8 +4659,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000095")
-    (property "Reference" "SW22"
+    (uuid "00000000-0000-4000-8000-000000000105")
+    (property "Reference" "SW38"
       (at 177 87.64 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3824,8 +4672,8 @@
       (at 177 95.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000096"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000097"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000106"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000107"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3835,8 +4683,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000098")
-    (property "Reference" "D22"
+    (uuid "00000000-0000-4000-8000-000000000108")
+    (property "Reference" "D38"
       (at 177 96.26 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3848,13 +4696,13 @@
       (at 177 102.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000099"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000009a"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000109"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000010a"))
   )
   (wire
     (pts (xy 182.08 90.64) (xy 182.08 95.72))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000009b")
+    (uuid "00000000-0000-4000-8000-00000000010b")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3864,8 +4712,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000009c")
-    (property "Reference" "SW23"
+    (uuid "00000000-0000-4000-8000-00000000010c")
+    (property "Reference" "SW39"
       (at 202.4 87.64 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3877,8 +4725,8 @@
       (at 202.4 95.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000009d"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000009e"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000010d"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000010e"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3888,8 +4736,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000009f")
-    (property "Reference" "D23"
+    (uuid "00000000-0000-4000-8000-00000000010f")
+    (property "Reference" "D39"
       (at 202.4 96.26 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3901,13 +4749,13 @@
       (at 202.4 102.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000a0"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000a1"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000110"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000111"))
   )
   (wire
     (pts (xy 207.48 90.64) (xy 207.48 95.72))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000a2")
+    (uuid "00000000-0000-4000-8000-000000000112")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3917,8 +4765,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000a3")
-    (property "Reference" "SW24"
+    (uuid "00000000-0000-4000-8000-000000000113")
+    (property "Reference" "SW40"
       (at 227.8 87.64 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3930,8 +4778,8 @@
       (at 227.8 95.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000a4"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000a5"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000114"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000115"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3941,8 +4789,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000a6")
-    (property "Reference" "D24"
+    (uuid "00000000-0000-4000-8000-000000000116")
+    (property "Reference" "D40"
       (at 227.8 96.26 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3954,13 +4802,437 @@
       (at 227.8 102.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000a7"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000a8"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000117"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000118"))
   )
   (wire
     (pts (xy 232.88 90.64) (xy 232.88 95.72))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000a9")
+    (uuid "00000000-0000-4000-8000-000000000119")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 253.2 90.64 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000011a")
+    (property "Reference" "SW41"
+      (at 253.2 87.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R2C8"
+      (at 253.2 93.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 253.2 95.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000011b"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000011c"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 253.2 98.26 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000011d")
+    (property "Reference" "D41"
+      (at 253.2 96.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 253.2 100.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 253.2 102.26 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000011e"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000011f"))
+  )
+  (wire
+    (pts (xy 258.28 90.64) (xy 258.28 95.72))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000120")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 278.6 90.64 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000121")
+    (property "Reference" "SW42"
+      (at 278.6 87.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R2C9"
+      (at 278.6 93.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 278.6 95.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000122"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000123"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 278.6 98.26 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000124")
+    (property "Reference" "D42"
+      (at 278.6 96.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 278.6 100.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 278.6 102.26 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000125"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000126"))
+  )
+  (wire
+    (pts (xy 283.68 90.64) (xy 283.68 95.72))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000127")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 304 90.64 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000128")
+    (property "Reference" "SW43"
+      (at 304 87.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R2C10"
+      (at 304 93.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 304 95.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000129"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000012a"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 304 98.26 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000012b")
+    (property "Reference" "D43"
+      (at 304 96.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 304 100.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 304 102.26 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000012c"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000012d"))
+  )
+  (wire
+    (pts (xy 309.08 90.64) (xy 309.08 95.72))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-00000000012e")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 329.4 90.64 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000012f")
+    (property "Reference" "SW44"
+      (at 329.4 87.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R2C11"
+      (at 329.4 93.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 329.4 95.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000130"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000131"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 329.4 98.26 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000132")
+    (property "Reference" "D44"
+      (at 329.4 96.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 329.4 100.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 329.4 102.26 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000133"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000134"))
+  )
+  (wire
+    (pts (xy 334.48 90.64) (xy 334.48 95.72))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000135")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 354.8 90.64 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000136")
+    (property "Reference" "SW45"
+      (at 354.8 87.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R2C12"
+      (at 354.8 93.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 354.8 95.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000137"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000138"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 354.8 98.26 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000139")
+    (property "Reference" "D45"
+      (at 354.8 96.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 354.8 100.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 354.8 102.26 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000013a"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000013b"))
+  )
+  (wire
+    (pts (xy 359.88 90.64) (xy 359.88 95.72))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-00000000013c")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 380.2 90.64 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000013d")
+    (property "Reference" "SW46"
+      (at 380.2 87.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R2C13"
+      (at 380.2 93.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 380.2 95.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000013e"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000013f"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 380.2 98.26 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000140")
+    (property "Reference" "D46"
+      (at 380.2 96.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 380.2 100.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 380.2 102.26 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000141"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000142"))
+  )
+  (wire
+    (pts (xy 385.28 90.64) (xy 385.28 95.72))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000143")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 405.6 90.64 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000144")
+    (property "Reference" "SW47"
+      (at 405.6 87.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R2C14"
+      (at 405.6 93.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 405.6 95.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000145"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000146"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 405.6 98.26 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000147")
+    (property "Reference" "D47"
+      (at 405.6 96.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 405.6 100.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 405.6 102.26 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000148"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000149"))
+  )
+  (wire
+    (pts (xy 410.68 90.64) (xy 410.68 95.72))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-00000000014a")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 431 90.64 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000014b")
+    (property "Reference" "SW48"
+      (at 431 87.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R2C15"
+      (at 431 93.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 431 95.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000014c"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000014d"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 431 98.26 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000014e")
+    (property "Reference" "D48"
+      (at 431 96.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 431 100.26 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 431 102.26 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000014f"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000150"))
+  )
+  (wire
+    (pts (xy 436.08 90.64) (xy 436.08 95.72))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000151")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -3970,8 +5242,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000aa")
-    (property "Reference" "SW25"
+    (uuid "00000000-0000-4000-8000-000000000152")
+    (property "Reference" "SW49"
       (at 50 107.96 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -3983,8 +5255,8 @@
       (at 50 115.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ab"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000ac"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000153"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000154"))
   )
   (symbol
     (lib_id "Device:D")
@@ -3994,8 +5266,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000ad")
-    (property "Reference" "D25"
+    (uuid "00000000-0000-4000-8000-000000000155")
+    (property "Reference" "D49"
       (at 50 116.58 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4007,13 +5279,13 @@
       (at 50 122.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ae"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000af"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000156"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000157"))
   )
   (wire
     (pts (xy 55.08 110.96) (xy 55.08 116.04))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000b0")
+    (uuid "00000000-0000-4000-8000-000000000158")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4023,8 +5295,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000b1")
-    (property "Reference" "SW26"
+    (uuid "00000000-0000-4000-8000-000000000159")
+    (property "Reference" "SW50"
       (at 75.4 107.96 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4036,8 +5308,8 @@
       (at 75.4 115.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000b2"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000b3"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000015a"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000015b"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4047,8 +5319,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000b4")
-    (property "Reference" "D26"
+    (uuid "00000000-0000-4000-8000-00000000015c")
+    (property "Reference" "D50"
       (at 75.4 116.58 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4060,13 +5332,13 @@
       (at 75.4 122.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000b5"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000b6"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000015d"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000015e"))
   )
   (wire
     (pts (xy 80.48 110.96) (xy 80.48 116.04))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000b7")
+    (uuid "00000000-0000-4000-8000-00000000015f")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4076,8 +5348,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000b8")
-    (property "Reference" "SW27"
+    (uuid "00000000-0000-4000-8000-000000000160")
+    (property "Reference" "SW51"
       (at 100.8 107.96 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4089,8 +5361,8 @@
       (at 100.8 115.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000b9"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000ba"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000161"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000162"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4100,8 +5372,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000bb")
-    (property "Reference" "D27"
+    (uuid "00000000-0000-4000-8000-000000000163")
+    (property "Reference" "D51"
       (at 100.8 116.58 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4113,13 +5385,13 @@
       (at 100.8 122.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000bc"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000bd"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000164"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000165"))
   )
   (wire
     (pts (xy 105.88 110.96) (xy 105.88 116.04))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000be")
+    (uuid "00000000-0000-4000-8000-000000000166")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4129,8 +5401,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000bf")
-    (property "Reference" "SW28"
+    (uuid "00000000-0000-4000-8000-000000000167")
+    (property "Reference" "SW52"
       (at 126.2 107.96 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4142,8 +5414,8 @@
       (at 126.2 115.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000c0"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000c1"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000168"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000169"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4153,8 +5425,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000c2")
-    (property "Reference" "D28"
+    (uuid "00000000-0000-4000-8000-00000000016a")
+    (property "Reference" "D52"
       (at 126.2 116.58 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4166,13 +5438,13 @@
       (at 126.2 122.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000c3"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000c4"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000016b"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000016c"))
   )
   (wire
     (pts (xy 131.28 110.96) (xy 131.28 116.04))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000c5")
+    (uuid "00000000-0000-4000-8000-00000000016d")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4182,8 +5454,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000c6")
-    (property "Reference" "SW29"
+    (uuid "00000000-0000-4000-8000-00000000016e")
+    (property "Reference" "SW53"
       (at 151.6 107.96 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4195,8 +5467,8 @@
       (at 151.6 115.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000c7"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000c8"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000016f"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000170"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4206,8 +5478,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000c9")
-    (property "Reference" "D29"
+    (uuid "00000000-0000-4000-8000-000000000171")
+    (property "Reference" "D53"
       (at 151.6 116.58 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4219,13 +5491,13 @@
       (at 151.6 122.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ca"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000cb"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000172"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000173"))
   )
   (wire
     (pts (xy 156.68 110.96) (xy 156.68 116.04))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000cc")
+    (uuid "00000000-0000-4000-8000-000000000174")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4235,8 +5507,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000cd")
-    (property "Reference" "SW30"
+    (uuid "00000000-0000-4000-8000-000000000175")
+    (property "Reference" "SW54"
       (at 177 107.96 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4248,8 +5520,8 @@
       (at 177 115.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ce"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000cf"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000176"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000177"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4259,8 +5531,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000d0")
-    (property "Reference" "D30"
+    (uuid "00000000-0000-4000-8000-000000000178")
+    (property "Reference" "D54"
       (at 177 116.58 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4272,13 +5544,13 @@
       (at 177 122.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000d1"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000d2"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000179"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000017a"))
   )
   (wire
     (pts (xy 182.08 110.96) (xy 182.08 116.04))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000d3")
+    (uuid "00000000-0000-4000-8000-00000000017b")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4288,8 +5560,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000d4")
-    (property "Reference" "SW31"
+    (uuid "00000000-0000-4000-8000-00000000017c")
+    (property "Reference" "SW55"
       (at 202.4 107.96 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4301,8 +5573,8 @@
       (at 202.4 115.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000d5"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000d6"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000017d"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000017e"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4312,8 +5584,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000d7")
-    (property "Reference" "D31"
+    (uuid "00000000-0000-4000-8000-00000000017f")
+    (property "Reference" "D55"
       (at 202.4 116.58 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4325,13 +5597,13 @@
       (at 202.4 122.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000d8"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000d9"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000180"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000181"))
   )
   (wire
     (pts (xy 207.48 110.96) (xy 207.48 116.04))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000da")
+    (uuid "00000000-0000-4000-8000-000000000182")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4341,8 +5613,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000db")
-    (property "Reference" "SW32"
+    (uuid "00000000-0000-4000-8000-000000000183")
+    (property "Reference" "SW56"
       (at 227.8 107.96 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4354,8 +5626,8 @@
       (at 227.8 115.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000dc"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000dd"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000184"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000185"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4365,8 +5637,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000de")
-    (property "Reference" "D32"
+    (uuid "00000000-0000-4000-8000-000000000186")
+    (property "Reference" "D56"
       (at 227.8 116.58 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4378,13 +5650,331 @@
       (at 227.8 122.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000df"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000e0"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000187"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000188"))
   )
   (wire
     (pts (xy 232.88 110.96) (xy 232.88 116.04))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000e1")
+    (uuid "00000000-0000-4000-8000-000000000189")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 253.2 110.96 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000018a")
+    (property "Reference" "SW57"
+      (at 253.2 107.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R3C8"
+      (at 253.2 113.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 253.2 115.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000018b"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000018c"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 253.2 118.58 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000018d")
+    (property "Reference" "D57"
+      (at 253.2 116.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 253.2 120.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 253.2 122.58 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000018e"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000018f"))
+  )
+  (wire
+    (pts (xy 258.28 110.96) (xy 258.28 116.04))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000190")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 278.6 110.96 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000191")
+    (property "Reference" "SW58"
+      (at 278.6 107.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R3C9"
+      (at 278.6 113.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 278.6 115.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000192"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000193"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 278.6 118.58 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000194")
+    (property "Reference" "D58"
+      (at 278.6 116.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 278.6 120.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 278.6 122.58 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000195"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000196"))
+  )
+  (wire
+    (pts (xy 283.68 110.96) (xy 283.68 116.04))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000197")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 304 110.96 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000198")
+    (property "Reference" "SW59"
+      (at 304 107.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R3C10"
+      (at 304 113.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 304 115.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000199"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000019a"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 304 118.58 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000019b")
+    (property "Reference" "D59"
+      (at 304 116.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 304 120.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 304 122.58 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000019c"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000019d"))
+  )
+  (wire
+    (pts (xy 309.08 110.96) (xy 309.08 116.04))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-00000000019e")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 329.4 110.96 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000019f")
+    (property "Reference" "SW60"
+      (at 329.4 107.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R3C11"
+      (at 329.4 113.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 329.4 115.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001a0"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001a1"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 329.4 118.58 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000001a2")
+    (property "Reference" "D60"
+      (at 329.4 116.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 329.4 120.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 329.4 122.58 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001a3"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001a4"))
+  )
+  (wire
+    (pts (xy 334.48 110.96) (xy 334.48 116.04))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000001a5")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 354.8 110.96 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000001a6")
+    (property "Reference" "SW61"
+      (at 354.8 107.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R3C12"
+      (at 354.8 113.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 354.8 115.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001a7"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001a8"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 354.8 118.58 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000001a9")
+    (property "Reference" "D61"
+      (at 354.8 116.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 354.8 120.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 354.8 122.58 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001aa"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001ab"))
+  )
+  (wire
+    (pts (xy 359.88 110.96) (xy 359.88 116.04))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000001ac")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 380.2 110.96 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000001ad")
+    (property "Reference" "SW62"
+      (at 380.2 107.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R3C13"
+      (at 380.2 113.96 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 380.2 115.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001ae"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001af"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 380.2 118.58 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000001b0")
+    (property "Reference" "D62"
+      (at 380.2 116.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 380.2 120.58 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 380.2 122.58 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001b1"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001b2"))
+  )
+  (wire
+    (pts (xy 385.28 110.96) (xy 385.28 116.04))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000001b3")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4394,8 +5984,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000e2")
-    (property "Reference" "SW33"
+    (uuid "00000000-0000-4000-8000-0000000001b4")
+    (property "Reference" "SW63"
       (at 50 128.28 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4407,8 +5997,8 @@
       (at 50 136.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000e3"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000e4"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001b5"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001b6"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4418,8 +6008,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000e5")
-    (property "Reference" "D33"
+    (uuid "00000000-0000-4000-8000-0000000001b7")
+    (property "Reference" "D63"
       (at 50 136.9 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4431,13 +6021,13 @@
       (at 50 142.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000e6"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000e7"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001b8"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001b9"))
   )
   (wire
     (pts (xy 55.08 131.28) (xy 55.08 136.36))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000e8")
+    (uuid "00000000-0000-4000-8000-0000000001ba")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4447,8 +6037,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000e9")
-    (property "Reference" "SW34"
+    (uuid "00000000-0000-4000-8000-0000000001bb")
+    (property "Reference" "SW64"
       (at 75.4 128.28 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4460,8 +6050,8 @@
       (at 75.4 136.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ea"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000eb"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001bc"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001bd"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4471,8 +6061,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000ec")
-    (property "Reference" "D34"
+    (uuid "00000000-0000-4000-8000-0000000001be")
+    (property "Reference" "D64"
       (at 75.4 136.9 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4484,13 +6074,13 @@
       (at 75.4 142.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ed"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000ee"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001bf"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001c0"))
   )
   (wire
     (pts (xy 80.48 131.28) (xy 80.48 136.36))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000ef")
+    (uuid "00000000-0000-4000-8000-0000000001c1")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4500,8 +6090,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000f0")
-    (property "Reference" "SW35"
+    (uuid "00000000-0000-4000-8000-0000000001c2")
+    (property "Reference" "SW65"
       (at 100.8 128.28 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4513,8 +6103,8 @@
       (at 100.8 136.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000f1"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000f2"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001c3"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001c4"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4524,8 +6114,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000f3")
-    (property "Reference" "D35"
+    (uuid "00000000-0000-4000-8000-0000000001c5")
+    (property "Reference" "D65"
       (at 100.8 136.9 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4537,13 +6127,13 @@
       (at 100.8 142.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000f4"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000f5"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001c6"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001c7"))
   )
   (wire
     (pts (xy 105.88 131.28) (xy 105.88 136.36))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000f6")
+    (uuid "00000000-0000-4000-8000-0000000001c8")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4553,8 +6143,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000f7")
-    (property "Reference" "SW36"
+    (uuid "00000000-0000-4000-8000-0000000001c9")
+    (property "Reference" "SW66"
       (at 126.2 128.28 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4566,8 +6156,8 @@
       (at 126.2 136.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000f8"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000f9"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001ca"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001cb"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4577,8 +6167,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000fa")
-    (property "Reference" "D36"
+    (uuid "00000000-0000-4000-8000-0000000001cc")
+    (property "Reference" "D66"
       (at 126.2 136.9 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4590,13 +6180,13 @@
       (at 126.2 142.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000fb"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000000fc"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001cd"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001ce"))
   )
   (wire
     (pts (xy 131.28 131.28) (xy 131.28 136.36))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000000fd")
+    (uuid "00000000-0000-4000-8000-0000000001cf")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4606,8 +6196,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000000fe")
-    (property "Reference" "SW37"
+    (uuid "00000000-0000-4000-8000-0000000001d0")
+    (property "Reference" "SW67"
       (at 151.6 128.28 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4619,8 +6209,8 @@
       (at 151.6 136.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000000ff"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000100"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001d1"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001d2"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4630,8 +6220,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000101")
-    (property "Reference" "D37"
+    (uuid "00000000-0000-4000-8000-0000000001d3")
+    (property "Reference" "D67"
       (at 151.6 136.9 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4643,13 +6233,13 @@
       (at 151.6 142.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000102"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000103"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001d4"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001d5"))
   )
   (wire
     (pts (xy 156.68 131.28) (xy 156.68 136.36))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000104")
+    (uuid "00000000-0000-4000-8000-0000000001d6")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4659,8 +6249,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000105")
-    (property "Reference" "SW38"
+    (uuid "00000000-0000-4000-8000-0000000001d7")
+    (property "Reference" "SW68"
       (at 177 128.28 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4672,8 +6262,8 @@
       (at 177 136.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000106"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000107"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001d8"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001d9"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4683,8 +6273,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000108")
-    (property "Reference" "D38"
+    (uuid "00000000-0000-4000-8000-0000000001da")
+    (property "Reference" "D68"
       (at 177 136.9 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4696,13 +6286,13 @@
       (at 177 142.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000109"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000010a"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001db"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001dc"))
   )
   (wire
     (pts (xy 182.08 131.28) (xy 182.08 136.36))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000010b")
+    (uuid "00000000-0000-4000-8000-0000000001dd")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4712,8 +6302,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000010c")
-    (property "Reference" "SW39"
+    (uuid "00000000-0000-4000-8000-0000000001de")
+    (property "Reference" "SW69"
       (at 202.4 128.28 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4725,8 +6315,8 @@
       (at 202.4 136.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000010d"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000010e"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001df"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001e0"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4736,8 +6326,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000010f")
-    (property "Reference" "D39"
+    (uuid "00000000-0000-4000-8000-0000000001e1")
+    (property "Reference" "D69"
       (at 202.4 136.9 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4749,13 +6339,13 @@
       (at 202.4 142.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000110"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000111"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001e2"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001e3"))
   )
   (wire
     (pts (xy 207.48 131.28) (xy 207.48 136.36))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000112")
+    (uuid "00000000-0000-4000-8000-0000000001e4")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4765,8 +6355,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000113")
-    (property "Reference" "SW40"
+    (uuid "00000000-0000-4000-8000-0000000001e5")
+    (property "Reference" "SW70"
       (at 227.8 128.28 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4778,8 +6368,8 @@
       (at 227.8 136.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000114"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000115"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001e6"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001e7"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4789,8 +6379,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000116")
-    (property "Reference" "D40"
+    (uuid "00000000-0000-4000-8000-0000000001e8")
+    (property "Reference" "D70"
       (at 227.8 136.9 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4802,13 +6392,331 @@
       (at 227.8 142.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000117"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000118"))
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001e9"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001ea"))
   )
   (wire
     (pts (xy 232.88 131.28) (xy 232.88 136.36))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000119")
+    (uuid "00000000-0000-4000-8000-0000000001eb")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 253.2 131.28 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000001ec")
+    (property "Reference" "SW71"
+      (at 253.2 128.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R4C8"
+      (at 253.2 134.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 253.2 136.28 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001ed"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001ee"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 253.2 138.9 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000001ef")
+    (property "Reference" "D71"
+      (at 253.2 136.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 253.2 140.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 253.2 142.9 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001f0"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001f1"))
+  )
+  (wire
+    (pts (xy 258.28 131.28) (xy 258.28 136.36))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000001f2")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 278.6 131.28 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000001f3")
+    (property "Reference" "SW72"
+      (at 278.6 128.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R4C9"
+      (at 278.6 134.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 278.6 136.28 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001f4"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001f5"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 278.6 138.9 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000001f6")
+    (property "Reference" "D72"
+      (at 278.6 136.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 278.6 140.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 278.6 142.9 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001f7"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001f8"))
+  )
+  (wire
+    (pts (xy 283.68 131.28) (xy 283.68 136.36))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-0000000001f9")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 304 131.28 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000001fa")
+    (property "Reference" "SW73"
+      (at 304 128.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R4C10"
+      (at 304 134.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 304 136.28 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001fb"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001fc"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 304 138.9 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-0000000001fd")
+    (property "Reference" "D73"
+      (at 304 136.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 304 140.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 304 142.9 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-0000000001fe"))
+    (pin "2" (uuid "00000000-0000-4000-8000-0000000001ff"))
+  )
+  (wire
+    (pts (xy 309.08 131.28) (xy 309.08 136.36))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000200")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 329.4 131.28 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000201")
+    (property "Reference" "SW74"
+      (at 329.4 128.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R4C11"
+      (at 329.4 134.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 329.4 136.28 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000202"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000203"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 329.4 138.9 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000204")
+    (property "Reference" "D74"
+      (at 329.4 136.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 329.4 140.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 329.4 142.9 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000205"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000206"))
+  )
+  (wire
+    (pts (xy 334.48 131.28) (xy 334.48 136.36))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000207")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 354.8 131.28 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000208")
+    (property "Reference" "SW75"
+      (at 354.8 128.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R4C12"
+      (at 354.8 134.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 354.8 136.28 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000209"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000020a"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 354.8 138.9 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000020b")
+    (property "Reference" "D75"
+      (at 354.8 136.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 354.8 140.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 354.8 142.9 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000020c"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000020d"))
+  )
+  (wire
+    (pts (xy 359.88 131.28) (xy 359.88 136.36))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-00000000020e")
+  )
+  (symbol
+    (lib_id "Switch:SW_Push")
+    (at 380.2 131.28 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-00000000020f")
+    (property "Reference" "SW76"
+      (at 380.2 128.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "R4C13"
+      (at 380.2 134.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" ""
+      (at 380.2 136.28 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000210"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000211"))
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 380.2 138.9 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "00000000-0000-4000-8000-000000000212")
+    (property "Reference" "D76"
+      (at 380.2 136.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "1N4148"
+      (at 380.2 140.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 380.2 142.9 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000213"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000214"))
+  )
+  (wire
+    (pts (xy 385.28 131.28) (xy 385.28 136.36))
+    (stroke (width 0) (type default))
+    (uuid "00000000-0000-4000-8000-000000000215")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4818,8 +6726,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000011a")
-    (property "Reference" "SW41"
+    (uuid "00000000-0000-4000-8000-000000000216")
+    (property "Reference" "SW77"
       (at 50 148.6 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4831,8 +6739,8 @@
       (at 50 156.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000011b"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000011c"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000217"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000218"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4842,8 +6750,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000011d")
-    (property "Reference" "D41"
+    (uuid "00000000-0000-4000-8000-000000000219")
+    (property "Reference" "D77"
       (at 50 157.22 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4855,13 +6763,13 @@
       (at 50 163.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000011e"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000011f"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000021a"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000021b"))
   )
   (wire
     (pts (xy 55.08 151.6) (xy 55.08 156.68))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000120")
+    (uuid "00000000-0000-4000-8000-00000000021c")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4871,8 +6779,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000121")
-    (property "Reference" "SW42"
+    (uuid "00000000-0000-4000-8000-00000000021d")
+    (property "Reference" "SW78"
       (at 75.4 148.6 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4884,8 +6792,8 @@
       (at 75.4 156.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000122"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000123"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000021e"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000021f"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4895,8 +6803,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000124")
-    (property "Reference" "D42"
+    (uuid "00000000-0000-4000-8000-000000000220")
+    (property "Reference" "D78"
       (at 75.4 157.22 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4908,13 +6816,13 @@
       (at 75.4 163.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000125"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000126"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000221"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000222"))
   )
   (wire
     (pts (xy 80.48 151.6) (xy 80.48 156.68))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000127")
+    (uuid "00000000-0000-4000-8000-000000000223")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4924,8 +6832,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000128")
-    (property "Reference" "SW43"
+    (uuid "00000000-0000-4000-8000-000000000224")
+    (property "Reference" "SW79"
       (at 100.8 148.6 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4937,8 +6845,8 @@
       (at 100.8 156.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000129"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000012a"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000225"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000226"))
   )
   (symbol
     (lib_id "Device:D")
@@ -4948,8 +6856,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000012b")
-    (property "Reference" "D43"
+    (uuid "00000000-0000-4000-8000-000000000227")
+    (property "Reference" "D79"
       (at 100.8 157.22 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4961,13 +6869,13 @@
       (at 100.8 163.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000012c"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000012d"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000228"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000229"))
   )
   (wire
     (pts (xy 105.88 151.6) (xy 105.88 156.68))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000012e")
+    (uuid "00000000-0000-4000-8000-00000000022a")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -4977,8 +6885,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000012f")
-    (property "Reference" "SW44"
+    (uuid "00000000-0000-4000-8000-00000000022b")
+    (property "Reference" "SW80"
       (at 126.2 148.6 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4990,8 +6898,8 @@
       (at 126.2 156.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000130"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000131"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000022c"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000022d"))
   )
   (symbol
     (lib_id "Device:D")
@@ -5001,8 +6909,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000132")
-    (property "Reference" "D44"
+    (uuid "00000000-0000-4000-8000-00000000022e")
+    (property "Reference" "D80"
       (at 126.2 157.22 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -5014,13 +6922,13 @@
       (at 126.2 163.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000133"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000134"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000022f"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000230"))
   )
   (wire
     (pts (xy 131.28 151.6) (xy 131.28 156.68))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000135")
+    (uuid "00000000-0000-4000-8000-000000000231")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -5030,8 +6938,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000136")
-    (property "Reference" "SW45"
+    (uuid "00000000-0000-4000-8000-000000000232")
+    (property "Reference" "SW81"
       (at 151.6 148.6 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -5043,8 +6951,8 @@
       (at 151.6 156.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000137"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000138"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000233"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000234"))
   )
   (symbol
     (lib_id "Device:D")
@@ -5054,8 +6962,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000139")
-    (property "Reference" "D45"
+    (uuid "00000000-0000-4000-8000-000000000235")
+    (property "Reference" "D81"
       (at 151.6 157.22 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -5067,13 +6975,13 @@
       (at 151.6 163.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000013a"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000013b"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000236"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000237"))
   )
   (wire
     (pts (xy 156.68 151.6) (xy 156.68 156.68))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000013c")
+    (uuid "00000000-0000-4000-8000-000000000238")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -5083,8 +6991,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000013d")
-    (property "Reference" "SW46"
+    (uuid "00000000-0000-4000-8000-000000000239")
+    (property "Reference" "SW82"
       (at 177 148.6 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -5096,8 +7004,8 @@
       (at 177 156.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000013e"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000013f"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000023a"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000023b"))
   )
   (symbol
     (lib_id "Device:D")
@@ -5107,8 +7015,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000140")
-    (property "Reference" "D46"
+    (uuid "00000000-0000-4000-8000-00000000023c")
+    (property "Reference" "D82"
       (at 177 157.22 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -5120,13 +7028,13 @@
       (at 177 163.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000141"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000142"))
+    (pin "1" (uuid "00000000-0000-4000-8000-00000000023d"))
+    (pin "2" (uuid "00000000-0000-4000-8000-00000000023e"))
   )
   (wire
     (pts (xy 182.08 151.6) (xy 182.08 156.68))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000143")
+    (uuid "00000000-0000-4000-8000-00000000023f")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -5136,8 +7044,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000144")
-    (property "Reference" "SW47"
+    (uuid "00000000-0000-4000-8000-000000000240")
+    (property "Reference" "SW83"
       (at 202.4 148.6 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -5149,8 +7057,8 @@
       (at 202.4 156.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000145"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000146"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000241"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000242"))
   )
   (symbol
     (lib_id "Device:D")
@@ -5160,8 +7068,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000147")
-    (property "Reference" "D47"
+    (uuid "00000000-0000-4000-8000-000000000243")
+    (property "Reference" "D83"
       (at 202.4 157.22 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -5173,13 +7081,13 @@
       (at 202.4 163.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000148"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000149"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000244"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000245"))
   )
   (wire
     (pts (xy 207.48 151.6) (xy 207.48 156.68))
     (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000014a")
+    (uuid "00000000-0000-4000-8000-000000000246")
   )
   (symbol
     (lib_id "Switch:SW_Push")
@@ -5189,8 +7097,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000014b")
-    (property "Reference" "SW48"
+    (uuid "00000000-0000-4000-8000-000000000247")
+    (property "Reference" "SW84"
       (at 227.8 148.6 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -5202,8 +7110,8 @@
       (at 227.8 156.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000014c"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000014d"))
+    (pin "1" (uuid "00000000-0000-4000-8000-000000000248"))
+    (pin "2" (uuid "00000000-0000-4000-8000-000000000249"))
   )
   (symbol
     (lib_id "Device:D")
@@ -5213,8 +7121,8 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000014e")
-    (property "Reference" "D48"
+    (uuid "00000000-0000-4000-8000-00000000024a")
+    (property "Reference" "D84"
       (at 227.8 157.22 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -5226,1925 +7134,17 @@
       (at 227.8 163.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000014f"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000150"))
-  )
-  (wire
-    (pts (xy 232.88 151.6) (xy 232.88 156.68))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000151")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 50 171.92 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000152")
-    (property "Reference" "SW49"
-      (at 50 168.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R6C0"
-      (at 50 174.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 50 176.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000153"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000154"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 50 179.54 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000155")
-    (property "Reference" "D49"
-      (at 50 177.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 50 181.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 50 183.54 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000156"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000157"))
-  )
-  (wire
-    (pts (xy 55.08 171.92) (xy 55.08 177))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000158")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 75.4 171.92 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000159")
-    (property "Reference" "SW50"
-      (at 75.4 168.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R6C1"
-      (at 75.4 174.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 75.4 176.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000015a"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000015b"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 75.4 179.54 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000015c")
-    (property "Reference" "D50"
-      (at 75.4 177.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 75.4 181.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 75.4 183.54 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000015d"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000015e"))
-  )
-  (wire
-    (pts (xy 80.48 171.92) (xy 80.48 177))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000015f")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 100.8 171.92 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000160")
-    (property "Reference" "SW51"
-      (at 100.8 168.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R6C2"
-      (at 100.8 174.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 100.8 176.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000161"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000162"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 100.8 179.54 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000163")
-    (property "Reference" "D51"
-      (at 100.8 177.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 100.8 181.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 100.8 183.54 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000164"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000165"))
-  )
-  (wire
-    (pts (xy 105.88 171.92) (xy 105.88 177))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000166")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 126.2 171.92 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000167")
-    (property "Reference" "SW52"
-      (at 126.2 168.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R6C3"
-      (at 126.2 174.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 126.2 176.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000168"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000169"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 126.2 179.54 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000016a")
-    (property "Reference" "D52"
-      (at 126.2 177.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 126.2 181.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 126.2 183.54 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000016b"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000016c"))
-  )
-  (wire
-    (pts (xy 131.28 171.92) (xy 131.28 177))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000016d")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 151.6 171.92 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000016e")
-    (property "Reference" "SW53"
-      (at 151.6 168.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R6C4"
-      (at 151.6 174.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 151.6 176.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000016f"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000170"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 151.6 179.54 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000171")
-    (property "Reference" "D53"
-      (at 151.6 177.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 151.6 181.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 151.6 183.54 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000172"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000173"))
-  )
-  (wire
-    (pts (xy 156.68 171.92) (xy 156.68 177))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000174")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 177 171.92 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000175")
-    (property "Reference" "SW54"
-      (at 177 168.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R6C5"
-      (at 177 174.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 177 176.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000176"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000177"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 177 179.54 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000178")
-    (property "Reference" "D54"
-      (at 177 177.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 177 181.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 177 183.54 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000179"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000017a"))
-  )
-  (wire
-    (pts (xy 182.08 171.92) (xy 182.08 177))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000017b")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 202.4 171.92 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000017c")
-    (property "Reference" "SW55"
-      (at 202.4 168.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R6C6"
-      (at 202.4 174.92 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 202.4 176.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000017d"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000017e"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 202.4 179.54 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000017f")
-    (property "Reference" "D55"
-      (at 202.4 177.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 202.4 181.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 202.4 183.54 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000180"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000181"))
-  )
-  (wire
-    (pts (xy 207.48 171.92) (xy 207.48 177))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000182")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 50 192.24 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000183")
-    (property "Reference" "SW56"
-      (at 50 189.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R7C0"
-      (at 50 195.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 50 197.24 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000184"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000185"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 50 199.86 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000186")
-    (property "Reference" "D56"
-      (at 50 197.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 50 201.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 50 203.86 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000187"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000188"))
-  )
-  (wire
-    (pts (xy 55.08 192.24) (xy 55.08 197.32))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000189")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 75.4 192.24 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000018a")
-    (property "Reference" "SW57"
-      (at 75.4 189.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R7C1"
-      (at 75.4 195.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 75.4 197.24 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000018b"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000018c"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 75.4 199.86 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000018d")
-    (property "Reference" "D57"
-      (at 75.4 197.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 75.4 201.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 75.4 203.86 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000018e"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000018f"))
-  )
-  (wire
-    (pts (xy 80.48 192.24) (xy 80.48 197.32))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000190")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 100.8 192.24 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000191")
-    (property "Reference" "SW58"
-      (at 100.8 189.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R7C2"
-      (at 100.8 195.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 100.8 197.24 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000192"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000193"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 100.8 199.86 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000194")
-    (property "Reference" "D58"
-      (at 100.8 197.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 100.8 201.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 100.8 203.86 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000195"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000196"))
-  )
-  (wire
-    (pts (xy 105.88 192.24) (xy 105.88 197.32))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000197")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 126.2 192.24 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000198")
-    (property "Reference" "SW59"
-      (at 126.2 189.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R7C3"
-      (at 126.2 195.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 126.2 197.24 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000199"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000019a"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 126.2 199.86 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000019b")
-    (property "Reference" "D59"
-      (at 126.2 197.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 126.2 201.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 126.2 203.86 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000019c"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000019d"))
-  )
-  (wire
-    (pts (xy 131.28 192.24) (xy 131.28 197.32))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000019e")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 151.6 192.24 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000019f")
-    (property "Reference" "SW60"
-      (at 151.6 189.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R7C4"
-      (at 151.6 195.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 151.6 197.24 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001a0"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001a1"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 151.6 199.86 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001a2")
-    (property "Reference" "D60"
-      (at 151.6 197.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 151.6 201.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 151.6 203.86 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001a3"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001a4"))
-  )
-  (wire
-    (pts (xy 156.68 192.24) (xy 156.68 197.32))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001a5")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 177 192.24 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001a6")
-    (property "Reference" "SW61"
-      (at 177 189.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R7C5"
-      (at 177 195.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 177 197.24 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001a7"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001a8"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 177 199.86 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001a9")
-    (property "Reference" "D61"
-      (at 177 197.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 177 201.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 177 203.86 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001aa"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001ab"))
-  )
-  (wire
-    (pts (xy 182.08 192.24) (xy 182.08 197.32))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001ac")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 202.4 192.24 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001ad")
-    (property "Reference" "SW62"
-      (at 202.4 189.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R7C6"
-      (at 202.4 195.24 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 202.4 197.24 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001ae"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001af"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 202.4 199.86 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001b0")
-    (property "Reference" "D62"
-      (at 202.4 197.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 202.4 201.86 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 202.4 203.86 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001b1"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001b2"))
-  )
-  (wire
-    (pts (xy 207.48 192.24) (xy 207.48 197.32))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001b3")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 50 212.56 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001b4")
-    (property "Reference" "SW63"
-      (at 50 209.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R8C0"
-      (at 50 215.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 50 217.56 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001b5"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001b6"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 50 220.18 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001b7")
-    (property "Reference" "D63"
-      (at 50 218.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 50 222.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 50 224.18 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001b8"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001b9"))
-  )
-  (wire
-    (pts (xy 55.08 212.56) (xy 55.08 217.64))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001ba")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 75.4 212.56 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001bb")
-    (property "Reference" "SW64"
-      (at 75.4 209.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R8C1"
-      (at 75.4 215.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 75.4 217.56 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001bc"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001bd"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 75.4 220.18 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001be")
-    (property "Reference" "D64"
-      (at 75.4 218.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 75.4 222.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 75.4 224.18 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001bf"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001c0"))
-  )
-  (wire
-    (pts (xy 80.48 212.56) (xy 80.48 217.64))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001c1")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 100.8 212.56 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001c2")
-    (property "Reference" "SW65"
-      (at 100.8 209.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R8C2"
-      (at 100.8 215.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 100.8 217.56 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001c3"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001c4"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 100.8 220.18 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001c5")
-    (property "Reference" "D65"
-      (at 100.8 218.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 100.8 222.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 100.8 224.18 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001c6"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001c7"))
-  )
-  (wire
-    (pts (xy 105.88 212.56) (xy 105.88 217.64))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001c8")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 126.2 212.56 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001c9")
-    (property "Reference" "SW66"
-      (at 126.2 209.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R8C3"
-      (at 126.2 215.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 126.2 217.56 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001ca"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001cb"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 126.2 220.18 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001cc")
-    (property "Reference" "D66"
-      (at 126.2 218.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 126.2 222.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 126.2 224.18 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001cd"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001ce"))
-  )
-  (wire
-    (pts (xy 131.28 212.56) (xy 131.28 217.64))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001cf")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 151.6 212.56 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001d0")
-    (property "Reference" "SW67"
-      (at 151.6 209.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R8C4"
-      (at 151.6 215.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 151.6 217.56 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001d1"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001d2"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 151.6 220.18 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001d3")
-    (property "Reference" "D67"
-      (at 151.6 218.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 151.6 222.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 151.6 224.18 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001d4"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001d5"))
-  )
-  (wire
-    (pts (xy 156.68 212.56) (xy 156.68 217.64))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001d6")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 177 212.56 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001d7")
-    (property "Reference" "SW68"
-      (at 177 209.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R8C5"
-      (at 177 215.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 177 217.56 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001d8"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001d9"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 177 220.18 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001da")
-    (property "Reference" "D68"
-      (at 177 218.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 177 222.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 177 224.18 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001db"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001dc"))
-  )
-  (wire
-    (pts (xy 182.08 212.56) (xy 182.08 217.64))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001dd")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 202.4 212.56 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001de")
-    (property "Reference" "SW69"
-      (at 202.4 209.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R8C6"
-      (at 202.4 215.56 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 202.4 217.56 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001df"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001e0"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 202.4 220.18 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001e1")
-    (property "Reference" "D69"
-      (at 202.4 218.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 202.4 222.18 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 202.4 224.18 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001e2"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001e3"))
-  )
-  (wire
-    (pts (xy 207.48 212.56) (xy 207.48 217.64))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001e4")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 50 232.88 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001e5")
-    (property "Reference" "SW70"
-      (at 50 229.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R9C0"
-      (at 50 235.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 50 237.88 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001e6"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001e7"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 50 240.5 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001e8")
-    (property "Reference" "D70"
-      (at 50 238.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 50 242.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 50 244.5 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001e9"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001ea"))
-  )
-  (wire
-    (pts (xy 55.08 232.88) (xy 55.08 237.96))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001eb")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 75.4 232.88 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001ec")
-    (property "Reference" "SW71"
-      (at 75.4 229.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R9C1"
-      (at 75.4 235.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 75.4 237.88 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001ed"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001ee"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 75.4 240.5 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001ef")
-    (property "Reference" "D71"
-      (at 75.4 238.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 75.4 242.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 75.4 244.5 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001f0"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001f1"))
-  )
-  (wire
-    (pts (xy 80.48 232.88) (xy 80.48 237.96))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001f2")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 100.8 232.88 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001f3")
-    (property "Reference" "SW72"
-      (at 100.8 229.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R9C2"
-      (at 100.8 235.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 100.8 237.88 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001f4"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001f5"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 100.8 240.5 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001f6")
-    (property "Reference" "D72"
-      (at 100.8 238.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 100.8 242.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 100.8 244.5 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001f7"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001f8"))
-  )
-  (wire
-    (pts (xy 105.88 232.88) (xy 105.88 237.96))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-0000000001f9")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 126.2 232.88 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001fa")
-    (property "Reference" "SW73"
-      (at 126.2 229.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R9C3"
-      (at 126.2 235.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 126.2 237.88 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001fb"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001fc"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 126.2 240.5 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-0000000001fd")
-    (property "Reference" "D73"
-      (at 126.2 238.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 126.2 242.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 126.2 244.5 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-0000000001fe"))
-    (pin "2" (uuid "00000000-0000-4000-8000-0000000001ff"))
-  )
-  (wire
-    (pts (xy 131.28 232.88) (xy 131.28 237.96))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000200")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 151.6 232.88 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000201")
-    (property "Reference" "SW74"
-      (at 151.6 229.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R9C4"
-      (at 151.6 235.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 151.6 237.88 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000202"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000203"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 151.6 240.5 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000204")
-    (property "Reference" "D74"
-      (at 151.6 238.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 151.6 242.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 151.6 244.5 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000205"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000206"))
-  )
-  (wire
-    (pts (xy 156.68 232.88) (xy 156.68 237.96))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000207")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 177 232.88 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000208")
-    (property "Reference" "SW75"
-      (at 177 229.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R9C5"
-      (at 177 235.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 177 237.88 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000209"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000020a"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 177 240.5 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000020b")
-    (property "Reference" "D75"
-      (at 177 238.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 177 242.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 177 244.5 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000020c"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000020d"))
-  )
-  (wire
-    (pts (xy 182.08 232.88) (xy 182.08 237.96))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000020e")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 202.4 232.88 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000020f")
-    (property "Reference" "SW76"
-      (at 202.4 229.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R9C6"
-      (at 202.4 235.88 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 202.4 237.88 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000210"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000211"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 202.4 240.5 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000212")
-    (property "Reference" "D76"
-      (at 202.4 238.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 202.4 242.5 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 202.4 244.5 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000213"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000214"))
-  )
-  (wire
-    (pts (xy 207.48 232.88) (xy 207.48 237.96))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000215")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 50 253.2 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000216")
-    (property "Reference" "SW77"
-      (at 50 250.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R10C0"
-      (at 50 256.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 50 258.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000217"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000218"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 50 260.82 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000219")
-    (property "Reference" "D77"
-      (at 50 258.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 50 262.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 50 264.82 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000021a"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000021b"))
-  )
-  (wire
-    (pts (xy 55.08 253.2) (xy 55.08 258.28))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000021c")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 75.4 253.2 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000021d")
-    (property "Reference" "SW78"
-      (at 75.4 250.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R10C1"
-      (at 75.4 256.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 75.4 258.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000021e"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000021f"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 75.4 260.82 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000220")
-    (property "Reference" "D78"
-      (at 75.4 258.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 75.4 262.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 75.4 264.82 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000221"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000222"))
-  )
-  (wire
-    (pts (xy 80.48 253.2) (xy 80.48 258.28))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000223")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 100.8 253.2 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000224")
-    (property "Reference" "SW79"
-      (at 100.8 250.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R10C2"
-      (at 100.8 256.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 100.8 258.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000225"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000226"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 100.8 260.82 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000227")
-    (property "Reference" "D79"
-      (at 100.8 258.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 100.8 262.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 100.8 264.82 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000228"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000229"))
-  )
-  (wire
-    (pts (xy 105.88 253.2) (xy 105.88 258.28))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000022a")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 126.2 253.2 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000022b")
-    (property "Reference" "SW80"
-      (at 126.2 250.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R10C3"
-      (at 126.2 256.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 126.2 258.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000022c"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000022d"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 126.2 260.82 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000022e")
-    (property "Reference" "D80"
-      (at 126.2 258.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 126.2 262.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 126.2 264.82 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000022f"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000230"))
-  )
-  (wire
-    (pts (xy 131.28 253.2) (xy 131.28 258.28))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000231")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 151.6 253.2 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000232")
-    (property "Reference" "SW81"
-      (at 151.6 250.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R10C4"
-      (at 151.6 256.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 151.6 258.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000233"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000234"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 151.6 260.82 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000235")
-    (property "Reference" "D81"
-      (at 151.6 258.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 151.6 262.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 151.6 264.82 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000236"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000237"))
-  )
-  (wire
-    (pts (xy 156.68 253.2) (xy 156.68 258.28))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000238")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 177 253.2 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000239")
-    (property "Reference" "SW82"
-      (at 177 250.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R10C5"
-      (at 177 256.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 177 258.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000023a"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000023b"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 177 260.82 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000023c")
-    (property "Reference" "D82"
-      (at 177 258.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 177 262.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 177 264.82 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-00000000023d"))
-    (pin "2" (uuid "00000000-0000-4000-8000-00000000023e"))
-  )
-  (wire
-    (pts (xy 182.08 253.2) (xy 182.08 258.28))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-00000000023f")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 202.4 253.2 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000240")
-    (property "Reference" "SW83"
-      (at 202.4 250.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R10C6"
-      (at 202.4 256.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 202.4 258.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000241"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000242"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 202.4 260.82 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000243")
-    (property "Reference" "D83"
-      (at 202.4 258.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 202.4 262.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 202.4 264.82 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000244"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000245"))
-  )
-  (wire
-    (pts (xy 207.48 253.2) (xy 207.48 258.28))
-    (stroke (width 0) (type default))
-    (uuid "00000000-0000-4000-8000-000000000246")
-  )
-  (symbol
-    (lib_id "Switch:SW_Push")
-    (at 227.8 253.2 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-000000000247")
-    (property "Reference" "SW84"
-      (at 227.8 250.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "R10C7"
-      (at 227.8 256.2 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" ""
-      (at 227.8 258.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid "00000000-0000-4000-8000-000000000248"))
-    (pin "2" (uuid "00000000-0000-4000-8000-000000000249"))
-  )
-  (symbol
-    (lib_id "Device:D")
-    (at 227.8 260.82 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "00000000-0000-4000-8000-00000000024a")
-    (property "Reference" "D84"
-      (at 227.8 258.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "1N4148"
-      (at 227.8 262.82 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 227.8 264.82 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
     (pin "1" (uuid "00000000-0000-4000-8000-00000000024b"))
     (pin "2" (uuid "00000000-0000-4000-8000-00000000024c"))
   )
   (wire
-    (pts (xy 232.88 253.2) (xy 232.88 258.28))
+    (pts (xy 232.88 151.6) (xy 232.88 156.68))
     (stroke (width 0) (type default))
     (uuid "00000000-0000-4000-8000-00000000024d")
   )
   (symbol
     (lib_id "Switch:SW_Push")
-    (at 253.2 253.2 0)
+    (at 253.2 151.6 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -7152,15 +7152,15 @@
     (dnp no)
     (uuid "00000000-0000-4000-8000-00000000024e")
     (property "Reference" "SW85"
-      (at 253.2 250.2 0)
+      (at 253.2 148.6 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "R10C8"
-      (at 253.2 256.2 0)
+    (property "Value" "R5C8"
+      (at 253.2 154.6 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" ""
-      (at 253.2 258.2 0)
+      (at 253.2 156.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "00000000-0000-4000-8000-00000000024f"))
@@ -7168,7 +7168,7 @@
   )
   (symbol
     (lib_id "Device:D")
-    (at 253.2 260.82 0)
+    (at 253.2 159.22 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -7176,28 +7176,28 @@
     (dnp no)
     (uuid "00000000-0000-4000-8000-000000000251")
     (property "Reference" "D85"
-      (at 253.2 258.82 0)
+      (at 253.2 157.22 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "1N4148"
-      (at 253.2 262.82 0)
+      (at 253.2 161.22 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 253.2 264.82 0)
+      (at 253.2 163.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "00000000-0000-4000-8000-000000000252"))
     (pin "2" (uuid "00000000-0000-4000-8000-000000000253"))
   )
   (wire
-    (pts (xy 258.28 253.2) (xy 258.28 258.28))
+    (pts (xy 258.28 151.6) (xy 258.28 156.68))
     (stroke (width 0) (type default))
     (uuid "00000000-0000-4000-8000-000000000254")
   )
   (symbol
     (lib_id "Switch:SW_Push")
-    (at 278.6 253.2 0)
+    (at 278.6 151.6 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -7205,15 +7205,15 @@
     (dnp no)
     (uuid "00000000-0000-4000-8000-000000000255")
     (property "Reference" "SW86"
-      (at 278.6 250.2 0)
+      (at 278.6 148.6 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "R10C9"
-      (at 278.6 256.2 0)
+    (property "Value" "R5C9"
+      (at 278.6 154.6 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" ""
-      (at 278.6 258.2 0)
+      (at 278.6 156.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "00000000-0000-4000-8000-000000000256"))
@@ -7221,7 +7221,7 @@
   )
   (symbol
     (lib_id "Device:D")
-    (at 278.6 260.82 0)
+    (at 278.6 159.22 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -7229,28 +7229,28 @@
     (dnp no)
     (uuid "00000000-0000-4000-8000-000000000258")
     (property "Reference" "D86"
-      (at 278.6 258.82 0)
+      (at 278.6 157.22 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "1N4148"
-      (at 278.6 262.82 0)
+      (at 278.6 161.22 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Diode_SMD:D_SOD-123"
-      (at 278.6 264.82 0)
+      (at 278.6 163.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "00000000-0000-4000-8000-000000000259"))
     (pin "2" (uuid "00000000-0000-4000-8000-00000000025a"))
   )
   (wire
-    (pts (xy 283.68 253.2) (xy 283.68 258.28))
+    (pts (xy 283.68 151.6) (xy 283.68 156.68))
     (stroke (width 0) (type default))
     (uuid "00000000-0000-4000-8000-00000000025b")
   )
   (symbol
     (lib_id "MCU_Nordic:nRF52840")
-    (at 329.4 70 0)
+    (at 481.8 70 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -7258,21 +7258,21 @@
     (dnp no)
     (uuid "00000000-0000-4000-8000-00000000025c")
     (property "Reference" "U1"
-      (at 329.4 65 0)
+      (at 481.8 65 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "nRF52840"
-      (at 329.4 75 0)
+      (at 481.8 75 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Package_DFN_QFN:QFN-73-1EP_7x7mm_P0.4mm"
-      (at 329.4 77 0)
+      (at 481.8 77 0)
       (effects (font (size 1.27 1.27)) hide)
     )
   )
   (symbol
     (lib_id "Connector:USB_C_Receptacle_USB2.0_16P")
-    (at 329.4 30 0)
+    (at 481.8 30 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -7280,21 +7280,21 @@
     (dnp no)
     (uuid "00000000-0000-4000-8000-00000000025d")
     (property "Reference" "J1"
-      (at 329.4 25 0)
+      (at 481.8 25 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "USB_C"
-      (at 329.4 35 0)
+      (at 481.8 35 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Connector_USB:USB_C_Receptacle_GCT_USB4085"
-      (at 329.4 37 0)
+      (at 481.8 37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
   )
   (symbol
     (lib_id "Device:Battery")
-    (at 369.4 70 0)
+    (at 521.8 70 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -7302,15 +7302,15 @@
     (dnp no)
     (uuid "00000000-0000-4000-8000-00000000025e")
     (property "Reference" "BT1"
-      (at 369.4 67 0)
+      (at 521.8 67 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Battery"
-      (at 369.4 73 0)
+      (at 521.8 73 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Connector:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"
-      (at 369.4 75 0)
+      (at 521.8 75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
   )
@@ -7344,80 +7344,85 @@
     (effects (font (size 1.27 1.27)))
     (uuid "00000000-0000-4000-8000-000000000264")
   )
-  (label "ROW6"
-    (at 35 171.92 0)
-    (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-000000000265")
-  )
-  (label "ROW7"
-    (at 35 192.24 0)
-    (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-000000000266")
-  )
-  (label "ROW8"
-    (at 35 212.56 0)
-    (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-000000000267")
-  )
-  (label "ROW9"
-    (at 35 232.88 0)
-    (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-000000000268")
-  )
-  (label "ROW10"
-    (at 35 253.2 0)
-    (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-000000000269")
-  )
   (label "COL0"
     (at 50 40 0)
     (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-00000000026a")
+    (uuid "00000000-0000-4000-8000-000000000265")
   )
   (label "COL1"
     (at 75.4 40 0)
     (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-00000000026b")
+    (uuid "00000000-0000-4000-8000-000000000266")
   )
   (label "COL2"
     (at 100.8 40 0)
     (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-00000000026c")
+    (uuid "00000000-0000-4000-8000-000000000267")
   )
   (label "COL3"
     (at 126.2 40 0)
     (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-00000000026d")
+    (uuid "00000000-0000-4000-8000-000000000268")
   )
   (label "COL4"
     (at 151.6 40 0)
     (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-00000000026e")
+    (uuid "00000000-0000-4000-8000-000000000269")
   )
   (label "COL5"
     (at 177 40 0)
     (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-00000000026f")
+    (uuid "00000000-0000-4000-8000-00000000026a")
   )
   (label "COL6"
     (at 202.4 40 0)
     (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-000000000270")
+    (uuid "00000000-0000-4000-8000-00000000026b")
   )
   (label "COL7"
     (at 227.8 40 0)
     (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-000000000271")
+    (uuid "00000000-0000-4000-8000-00000000026c")
   )
   (label "COL8"
     (at 253.2 40 0)
     (effects (font (size 1.27 1.27)))
-    (uuid "00000000-0000-4000-8000-000000000272")
+    (uuid "00000000-0000-4000-8000-00000000026d")
   )
   (label "COL9"
     (at 278.6 40 0)
     (effects (font (size 1.27 1.27)))
+    (uuid "00000000-0000-4000-8000-00000000026e")
+  )
+  (label "COL10"
+    (at 304 40 0)
+    (effects (font (size 1.27 1.27)))
+    (uuid "00000000-0000-4000-8000-00000000026f")
+  )
+  (label "COL11"
+    (at 329.4 40 0)
+    (effects (font (size 1.27 1.27)))
+    (uuid "00000000-0000-4000-8000-000000000270")
+  )
+  (label "COL12"
+    (at 354.8 40 0)
+    (effects (font (size 1.27 1.27)))
+    (uuid "00000000-0000-4000-8000-000000000271")
+  )
+  (label "COL13"
+    (at 380.2 40 0)
+    (effects (font (size 1.27 1.27)))
+    (uuid "00000000-0000-4000-8000-000000000272")
+  )
+  (label "COL14"
+    (at 405.6 40 0)
+    (effects (font (size 1.27 1.27)))
     (uuid "00000000-0000-4000-8000-000000000273")
+  )
+  (label "COL15"
+    (at 431 40 0)
+    (effects (font (size 1.27 1.27)))
+    (uuid "00000000-0000-4000-8000-000000000274")
   )
   (symbol_instances
     (path "/00000000-0000-4000-8000-000000000002"
@@ -7519,7 +7524,7 @@
     (path "/00000000-0000-4000-8000-00000000003a"
       (reference "SW9")
       (unit 1)
-      (value "R1C0")
+      (value "R0C8")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000003d"
@@ -7531,7 +7536,7 @@
     (path "/00000000-0000-4000-8000-000000000041"
       (reference "SW10")
       (unit 1)
-      (value "R1C1")
+      (value "R0C9")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000044"
@@ -7543,7 +7548,7 @@
     (path "/00000000-0000-4000-8000-000000000048"
       (reference "SW11")
       (unit 1)
-      (value "R1C2")
+      (value "R0C10")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000004b"
@@ -7555,7 +7560,7 @@
     (path "/00000000-0000-4000-8000-00000000004f"
       (reference "SW12")
       (unit 1)
-      (value "R1C3")
+      (value "R0C11")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000052"
@@ -7567,7 +7572,7 @@
     (path "/00000000-0000-4000-8000-000000000056"
       (reference "SW13")
       (unit 1)
-      (value "R1C4")
+      (value "R0C12")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000059"
@@ -7579,7 +7584,7 @@
     (path "/00000000-0000-4000-8000-00000000005d"
       (reference "SW14")
       (unit 1)
-      (value "R1C5")
+      (value "R0C13")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000060"
@@ -7591,7 +7596,7 @@
     (path "/00000000-0000-4000-8000-000000000064"
       (reference "SW15")
       (unit 1)
-      (value "R1C6")
+      (value "R0C14")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000067"
@@ -7603,7 +7608,7 @@
     (path "/00000000-0000-4000-8000-00000000006b"
       (reference "SW16")
       (unit 1)
-      (value "R1C7")
+      (value "R0C15")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000006e"
@@ -7615,7 +7620,7 @@
     (path "/00000000-0000-4000-8000-000000000072"
       (reference "SW17")
       (unit 1)
-      (value "R2C0")
+      (value "R1C0")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000075"
@@ -7627,7 +7632,7 @@
     (path "/00000000-0000-4000-8000-000000000079"
       (reference "SW18")
       (unit 1)
-      (value "R2C1")
+      (value "R1C1")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000007c"
@@ -7639,7 +7644,7 @@
     (path "/00000000-0000-4000-8000-000000000080"
       (reference "SW19")
       (unit 1)
-      (value "R2C2")
+      (value "R1C2")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000083"
@@ -7651,7 +7656,7 @@
     (path "/00000000-0000-4000-8000-000000000087"
       (reference "SW20")
       (unit 1)
-      (value "R2C3")
+      (value "R1C3")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000008a"
@@ -7663,7 +7668,7 @@
     (path "/00000000-0000-4000-8000-00000000008e"
       (reference "SW21")
       (unit 1)
-      (value "R2C4")
+      (value "R1C4")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000091"
@@ -7675,7 +7680,7 @@
     (path "/00000000-0000-4000-8000-000000000095"
       (reference "SW22")
       (unit 1)
-      (value "R2C5")
+      (value "R1C5")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000098"
@@ -7687,7 +7692,7 @@
     (path "/00000000-0000-4000-8000-00000000009c"
       (reference "SW23")
       (unit 1)
-      (value "R2C6")
+      (value "R1C6")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000009f"
@@ -7699,7 +7704,7 @@
     (path "/00000000-0000-4000-8000-0000000000a3"
       (reference "SW24")
       (unit 1)
-      (value "R2C7")
+      (value "R1C7")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000a6"
@@ -7711,7 +7716,7 @@
     (path "/00000000-0000-4000-8000-0000000000aa"
       (reference "SW25")
       (unit 1)
-      (value "R3C0")
+      (value "R1C8")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000ad"
@@ -7723,7 +7728,7 @@
     (path "/00000000-0000-4000-8000-0000000000b1"
       (reference "SW26")
       (unit 1)
-      (value "R3C1")
+      (value "R1C9")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000b4"
@@ -7735,7 +7740,7 @@
     (path "/00000000-0000-4000-8000-0000000000b8"
       (reference "SW27")
       (unit 1)
-      (value "R3C2")
+      (value "R1C10")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000bb"
@@ -7747,7 +7752,7 @@
     (path "/00000000-0000-4000-8000-0000000000bf"
       (reference "SW28")
       (unit 1)
-      (value "R3C3")
+      (value "R1C11")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000c2"
@@ -7759,7 +7764,7 @@
     (path "/00000000-0000-4000-8000-0000000000c6"
       (reference "SW29")
       (unit 1)
-      (value "R3C4")
+      (value "R1C12")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000c9"
@@ -7771,7 +7776,7 @@
     (path "/00000000-0000-4000-8000-0000000000cd"
       (reference "SW30")
       (unit 1)
-      (value "R3C5")
+      (value "R1C13")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000d0"
@@ -7783,7 +7788,7 @@
     (path "/00000000-0000-4000-8000-0000000000d4"
       (reference "SW31")
       (unit 1)
-      (value "R3C6")
+      (value "R1C14")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000d7"
@@ -7795,7 +7800,7 @@
     (path "/00000000-0000-4000-8000-0000000000db"
       (reference "SW32")
       (unit 1)
-      (value "R3C7")
+      (value "R1C15")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000de"
@@ -7807,7 +7812,7 @@
     (path "/00000000-0000-4000-8000-0000000000e2"
       (reference "SW33")
       (unit 1)
-      (value "R4C0")
+      (value "R2C0")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000e5"
@@ -7819,7 +7824,7 @@
     (path "/00000000-0000-4000-8000-0000000000e9"
       (reference "SW34")
       (unit 1)
-      (value "R4C1")
+      (value "R2C1")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000ec"
@@ -7831,7 +7836,7 @@
     (path "/00000000-0000-4000-8000-0000000000f0"
       (reference "SW35")
       (unit 1)
-      (value "R4C2")
+      (value "R2C2")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000f3"
@@ -7843,7 +7848,7 @@
     (path "/00000000-0000-4000-8000-0000000000f7"
       (reference "SW36")
       (unit 1)
-      (value "R4C3")
+      (value "R2C3")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000000fa"
@@ -7855,7 +7860,7 @@
     (path "/00000000-0000-4000-8000-0000000000fe"
       (reference "SW37")
       (unit 1)
-      (value "R4C4")
+      (value "R2C4")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000101"
@@ -7867,7 +7872,7 @@
     (path "/00000000-0000-4000-8000-000000000105"
       (reference "SW38")
       (unit 1)
-      (value "R4C5")
+      (value "R2C5")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000108"
@@ -7879,7 +7884,7 @@
     (path "/00000000-0000-4000-8000-00000000010c"
       (reference "SW39")
       (unit 1)
-      (value "R4C6")
+      (value "R2C6")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000010f"
@@ -7891,7 +7896,7 @@
     (path "/00000000-0000-4000-8000-000000000113"
       (reference "SW40")
       (unit 1)
-      (value "R4C7")
+      (value "R2C7")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000116"
@@ -7903,7 +7908,7 @@
     (path "/00000000-0000-4000-8000-00000000011a"
       (reference "SW41")
       (unit 1)
-      (value "R5C0")
+      (value "R2C8")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000011d"
@@ -7915,7 +7920,7 @@
     (path "/00000000-0000-4000-8000-000000000121"
       (reference "SW42")
       (unit 1)
-      (value "R5C1")
+      (value "R2C9")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000124"
@@ -7927,7 +7932,7 @@
     (path "/00000000-0000-4000-8000-000000000128"
       (reference "SW43")
       (unit 1)
-      (value "R5C2")
+      (value "R2C10")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000012b"
@@ -7939,7 +7944,7 @@
     (path "/00000000-0000-4000-8000-00000000012f"
       (reference "SW44")
       (unit 1)
-      (value "R5C3")
+      (value "R2C11")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000132"
@@ -7951,7 +7956,7 @@
     (path "/00000000-0000-4000-8000-000000000136"
       (reference "SW45")
       (unit 1)
-      (value "R5C4")
+      (value "R2C12")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000139"
@@ -7963,7 +7968,7 @@
     (path "/00000000-0000-4000-8000-00000000013d"
       (reference "SW46")
       (unit 1)
-      (value "R5C5")
+      (value "R2C13")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000140"
@@ -7975,7 +7980,7 @@
     (path "/00000000-0000-4000-8000-000000000144"
       (reference "SW47")
       (unit 1)
-      (value "R5C6")
+      (value "R2C14")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000147"
@@ -7987,7 +7992,7 @@
     (path "/00000000-0000-4000-8000-00000000014b"
       (reference "SW48")
       (unit 1)
-      (value "R5C7")
+      (value "R2C15")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000014e"
@@ -7999,7 +8004,7 @@
     (path "/00000000-0000-4000-8000-000000000152"
       (reference "SW49")
       (unit 1)
-      (value "R6C0")
+      (value "R3C0")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000155"
@@ -8011,7 +8016,7 @@
     (path "/00000000-0000-4000-8000-000000000159"
       (reference "SW50")
       (unit 1)
-      (value "R6C1")
+      (value "R3C1")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000015c"
@@ -8023,7 +8028,7 @@
     (path "/00000000-0000-4000-8000-000000000160"
       (reference "SW51")
       (unit 1)
-      (value "R6C2")
+      (value "R3C2")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000163"
@@ -8035,7 +8040,7 @@
     (path "/00000000-0000-4000-8000-000000000167"
       (reference "SW52")
       (unit 1)
-      (value "R6C3")
+      (value "R3C3")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000016a"
@@ -8047,7 +8052,7 @@
     (path "/00000000-0000-4000-8000-00000000016e"
       (reference "SW53")
       (unit 1)
-      (value "R6C4")
+      (value "R3C4")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000171"
@@ -8059,7 +8064,7 @@
     (path "/00000000-0000-4000-8000-000000000175"
       (reference "SW54")
       (unit 1)
-      (value "R6C5")
+      (value "R3C5")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000178"
@@ -8071,7 +8076,7 @@
     (path "/00000000-0000-4000-8000-00000000017c"
       (reference "SW55")
       (unit 1)
-      (value "R6C6")
+      (value "R3C6")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000017f"
@@ -8083,7 +8088,7 @@
     (path "/00000000-0000-4000-8000-000000000183"
       (reference "SW56")
       (unit 1)
-      (value "R7C0")
+      (value "R3C7")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000186"
@@ -8095,7 +8100,7 @@
     (path "/00000000-0000-4000-8000-00000000018a"
       (reference "SW57")
       (unit 1)
-      (value "R7C1")
+      (value "R3C8")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000018d"
@@ -8107,7 +8112,7 @@
     (path "/00000000-0000-4000-8000-000000000191"
       (reference "SW58")
       (unit 1)
-      (value "R7C2")
+      (value "R3C9")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000194"
@@ -8119,7 +8124,7 @@
     (path "/00000000-0000-4000-8000-000000000198"
       (reference "SW59")
       (unit 1)
-      (value "R7C3")
+      (value "R3C10")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000019b"
@@ -8131,7 +8136,7 @@
     (path "/00000000-0000-4000-8000-00000000019f"
       (reference "SW60")
       (unit 1)
-      (value "R7C4")
+      (value "R3C11")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001a2"
@@ -8143,7 +8148,7 @@
     (path "/00000000-0000-4000-8000-0000000001a6"
       (reference "SW61")
       (unit 1)
-      (value "R7C5")
+      (value "R3C12")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001a9"
@@ -8155,7 +8160,7 @@
     (path "/00000000-0000-4000-8000-0000000001ad"
       (reference "SW62")
       (unit 1)
-      (value "R7C6")
+      (value "R3C13")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001b0"
@@ -8167,7 +8172,7 @@
     (path "/00000000-0000-4000-8000-0000000001b4"
       (reference "SW63")
       (unit 1)
-      (value "R8C0")
+      (value "R4C0")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001b7"
@@ -8179,7 +8184,7 @@
     (path "/00000000-0000-4000-8000-0000000001bb"
       (reference "SW64")
       (unit 1)
-      (value "R8C1")
+      (value "R4C1")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001be"
@@ -8191,7 +8196,7 @@
     (path "/00000000-0000-4000-8000-0000000001c2"
       (reference "SW65")
       (unit 1)
-      (value "R8C2")
+      (value "R4C2")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001c5"
@@ -8203,7 +8208,7 @@
     (path "/00000000-0000-4000-8000-0000000001c9"
       (reference "SW66")
       (unit 1)
-      (value "R8C3")
+      (value "R4C3")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001cc"
@@ -8215,7 +8220,7 @@
     (path "/00000000-0000-4000-8000-0000000001d0"
       (reference "SW67")
       (unit 1)
-      (value "R8C4")
+      (value "R4C4")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001d3"
@@ -8227,7 +8232,7 @@
     (path "/00000000-0000-4000-8000-0000000001d7"
       (reference "SW68")
       (unit 1)
-      (value "R8C5")
+      (value "R4C5")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001da"
@@ -8239,7 +8244,7 @@
     (path "/00000000-0000-4000-8000-0000000001de"
       (reference "SW69")
       (unit 1)
-      (value "R8C6")
+      (value "R4C6")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001e1"
@@ -8251,7 +8256,7 @@
     (path "/00000000-0000-4000-8000-0000000001e5"
       (reference "SW70")
       (unit 1)
-      (value "R9C0")
+      (value "R4C7")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001e8"
@@ -8263,7 +8268,7 @@
     (path "/00000000-0000-4000-8000-0000000001ec"
       (reference "SW71")
       (unit 1)
-      (value "R9C1")
+      (value "R4C8")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001ef"
@@ -8275,7 +8280,7 @@
     (path "/00000000-0000-4000-8000-0000000001f3"
       (reference "SW72")
       (unit 1)
-      (value "R9C2")
+      (value "R4C9")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001f6"
@@ -8287,7 +8292,7 @@
     (path "/00000000-0000-4000-8000-0000000001fa"
       (reference "SW73")
       (unit 1)
-      (value "R9C3")
+      (value "R4C10")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-0000000001fd"
@@ -8299,7 +8304,7 @@
     (path "/00000000-0000-4000-8000-000000000201"
       (reference "SW74")
       (unit 1)
-      (value "R9C4")
+      (value "R4C11")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000204"
@@ -8311,7 +8316,7 @@
     (path "/00000000-0000-4000-8000-000000000208"
       (reference "SW75")
       (unit 1)
-      (value "R9C5")
+      (value "R4C12")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000020b"
@@ -8323,7 +8328,7 @@
     (path "/00000000-0000-4000-8000-00000000020f"
       (reference "SW76")
       (unit 1)
-      (value "R9C6")
+      (value "R4C13")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000212"
@@ -8335,7 +8340,7 @@
     (path "/00000000-0000-4000-8000-000000000216"
       (reference "SW77")
       (unit 1)
-      (value "R10C0")
+      (value "R5C0")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000219"
@@ -8347,7 +8352,7 @@
     (path "/00000000-0000-4000-8000-00000000021d"
       (reference "SW78")
       (unit 1)
-      (value "R10C1")
+      (value "R5C1")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000220"
@@ -8359,7 +8364,7 @@
     (path "/00000000-0000-4000-8000-000000000224"
       (reference "SW79")
       (unit 1)
-      (value "R10C2")
+      (value "R5C2")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000227"
@@ -8371,7 +8376,7 @@
     (path "/00000000-0000-4000-8000-00000000022b"
       (reference "SW80")
       (unit 1)
-      (value "R10C3")
+      (value "R5C3")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000022e"
@@ -8383,7 +8388,7 @@
     (path "/00000000-0000-4000-8000-000000000232"
       (reference "SW81")
       (unit 1)
-      (value "R10C4")
+      (value "R5C4")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000235"
@@ -8395,7 +8400,7 @@
     (path "/00000000-0000-4000-8000-000000000239"
       (reference "SW82")
       (unit 1)
-      (value "R10C5")
+      (value "R5C5")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000023c"
@@ -8407,7 +8412,7 @@
     (path "/00000000-0000-4000-8000-000000000240"
       (reference "SW83")
       (unit 1)
-      (value "R10C6")
+      (value "R5C6")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000243"
@@ -8419,7 +8424,7 @@
     (path "/00000000-0000-4000-8000-000000000247"
       (reference "SW84")
       (unit 1)
-      (value "R10C7")
+      (value "R5C7")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-00000000024a"
@@ -8431,7 +8436,7 @@
     (path "/00000000-0000-4000-8000-00000000024e"
       (reference "SW85")
       (unit 1)
-      (value "R10C8")
+      (value "R5C8")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000251"
@@ -8443,7 +8448,7 @@
     (path "/00000000-0000-4000-8000-000000000255"
       (reference "SW86")
       (unit 1)
-      (value "R10C9")
+      (value "R5C9")
       (footprint "")
     )
     (path "/00000000-0000-4000-8000-000000000258"

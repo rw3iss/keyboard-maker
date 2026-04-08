@@ -2,6 +2,7 @@ import { h } from 'preact';
 import { useState } from 'preact/hooks';
 import { Modal } from '../components/common/Modal';
 import { Button } from '../components/common/Button';
+import { Input } from '../components/common/Input';
 import { currentProject, projectConfig, activeTab } from '../state/app.state';
 import { addToast } from '../services/toast.service';
 import { apiPost } from '../services/api.service';
@@ -44,30 +45,21 @@ export function NewProject({ onClose }: Props) {
     }
   };
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Enter') handleCreate();
-  };
-
   return (
     <Modal title="New Project" onClose={onClose}>
-      <div style="min-width:400px;display:flex;flex-direction:column;gap:16px">
-        <div>
-          <label style="display:block;margin-bottom:6px;font-weight:600">Project Name</label>
-          <input
-            type="text"
-            class="input"
-            value={name}
-            onInput={(e) => setName((e.target as HTMLInputElement).value)}
-            onKeyDown={handleKeyDown}
-            placeholder="my-keyboard"
-            autofocus
-            style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text)"
-          />
-          {error && (
-            <div style="color:var(--error);font-size:13px;margin-top:6px">{error}</div>
-          )}
-        </div>
-        <div style="display:flex;justify-content:flex-end;gap:8px">
+      <div class="u-stack" style="min-width:400px">
+        <Input
+          label="Project Name"
+          required
+          value={name}
+          onInput={(v) => { setName(v); if (error) setError(''); }}
+          onEnter={handleCreate}
+          placeholder="my-keyboard"
+          autofocus
+          error={error || undefined}
+          hint={error ? undefined : 'Letters, numbers, hyphens, and underscores only.'}
+        />
+        <div style="display:flex;justify-content:flex-end;gap:var(--space-2)">
           <Button variant="secondary" onClick={onClose}>Cancel</Button>
           <Button variant="primary" loading={creating} onClick={handleCreate}>
             Create

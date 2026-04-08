@@ -14,6 +14,7 @@ import type { FilterConfig } from '../components/wizard/ComponentFilter';
 import type { ChipDef } from '../components/wizard/ComponentListItem';
 import type { BuildConfig } from '../types/project.types';
 import { route } from 'preact-router';
+import { ConnectivityStep, FeaturesStep, OutputsStep } from './config-steps';
 
 interface ComponentOption {
 	id: string;
@@ -337,12 +338,12 @@ export function Config({ step }: ConfigProps) {
 						extraFilter={currentStep === 'mcu' ? (
 							<div class="comp-filter-item" title={`Show only MCUs with ${gpioInfo.total}+ GPIOs for this layout and features`}>
 								<label class="comp-filter-label" style="white-space:nowrap">Compatible</label>
-								<label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:11px;color:var(--text-muted,#94a3b8);white-space:nowrap">
+								<label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:11px;color:var(--text-muted,var(--text-secondary));white-space:nowrap">
 									<input
 										type="checkbox"
 										checked={compatibleOnly}
 										onChange={(e: any) => setCompatibleOnly(e.target.checked)}
-										style="accent-color:var(--accent,#6ecbf5)"
+										style="accent-color:var(--accent)"
 									/>
 									{gpioInfo.total}+ GPIOs
 								</label>
@@ -378,146 +379,8 @@ export function Config({ step }: ConfigProps) {
 		);
 	};
 
-	const renderConnectivity = () => {
-		const conn = (localConfig as BuildConfig)?.connectivity;
-		return (
-			<div style="display:flex;flex-direction:column;gap:16px;max-width:500px">
-				<label style="display:flex;align-items:center;gap:12px;cursor:pointer">
-					<input
-						type="checkbox"
-						checked={conn?.usb ?? true}
-						onChange={(e) => updateLocal('connectivity', 'usb', (e.target as HTMLInputElement).checked)}
-					/>
-					<span>USB Connection</span>
-				</label>
-				<label style="display:flex;align-items:center;gap:12px;cursor:pointer">
-					<input
-						type="checkbox"
-						checked={conn?.bluetooth ?? false}
-						onChange={(e) => updateLocal('connectivity', 'bluetooth', (e.target as HTMLInputElement).checked)}
-					/>
-					<span>Bluetooth (BLE)</span>
-				</label>
-				{conn?.bluetooth && (
-					<Dropdown
-						label="Bluetooth Version"
-						options={[
-							{ label: 'BLE 5.0', value: '5.0' },
-							{ label: 'BLE 5.1', value: '5.1' },
-							{ label: 'BLE 5.2', value: '5.2' },
-						]}
-						value={conn?.bluetoothVersion || '5.0'}
-						onChange={(v) => updateLocal('connectivity', 'bluetoothVersion', v)}
-					/>
-				)}
-			</div>
-		);
-	};
-
-	const renderFeatures = () => {
-		const feat = (localConfig as BuildConfig)?.features;
-		return (
-			<div style="display:flex;flex-direction:column;gap:20px;max-width:600px">
-				{/* Per-key RGB */}
-				<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
-					<input type="checkbox" checked={feat?.rgbPerKey ?? false} onChange={(e) => updateLocal('features', 'rgbPerKey', (e.target as HTMLInputElement).checked)} style="margin-top:3px;accent-color:var(--accent)" />
-					<div>
-						<div style="font-weight:600">Per-Key RGB LEDs</div>
-						<div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-top:2px">
-							Adds one addressable RGB LED (SK6812MINI-E) per switch on the top side of the PCB (F.Cu), same side as the switches.
-							Each key can be individually controlled for color and brightness. Choose to place LEDs above (north) or below (south) of each switch.
-						</div>
-						<div style="font-size:11px;color:var(--warning);margin-top:4px">
-							Adds {86} LEDs. High power draw (~1.7A at full white) — battery life significantly reduced in wireless mode.
-						</div>
-					</div>
-				</label>
-
-				{feat?.rgbPerKey && (
-					<div style="margin-left:32px">
-						<div style="font-size:13px;font-weight:500;margin-bottom:6px">LED Placement</div>
-						<div style="display:flex;gap:12px">
-							<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px">
-								<input type="radio" name="ledPlacement" checked={feat?.ledPlacement === 'below'} onChange={() => updateLocal('features', 'ledPlacement', 'below')} />
-								Below switch (south side of each key)
-							</label>
-							<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px">
-								<input type="radio" name="ledPlacement" checked={feat?.ledPlacement === 'above'} onChange={() => updateLocal('features', 'ledPlacement', 'above')} />
-								Above switch (north side of each key)
-							</label>
-						</div>
-					</div>
-				)}
-
-				{/* RGB Underglow */}
-				<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
-					<input type="checkbox" checked={feat?.rgbUnderglow ?? false} onChange={(e) => updateLocal('features', 'rgbUnderglow', (e.target as HTMLInputElement).checked)} style="margin-top:3px;accent-color:var(--accent)" />
-					<div>
-						<div style="font-weight:600">RGB Underglow</div>
-						<div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-top:2px">
-							Places 12 addressable RGB LEDs (SK6812MINI-E) evenly around the perimeter of the PCB on the back side.
-							Creates a glow effect underneath the keyboard, visible through translucent or open cases.
-							All LEDs are independently addressable and daisy-chained on a single data line from the MCU.
-						</div>
-						<div style="font-size:11px;color:var(--text-muted);margin-top:4px">
-							Low power (~0.2A). Minimal PCB space. Does NOT light individual keys — use per-key RGB for that.
-						</div>
-					</div>
-				</label>
-
-				{/* Rotary Encoder */}
-				<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
-					<input type="checkbox" checked={feat?.rotaryEncoder ?? false} onChange={(e) => updateLocal('features', 'rotaryEncoder', (e.target as HTMLInputElement).checked)} style="margin-top:3px;accent-color:var(--accent)" />
-					<div>
-						<div style="font-weight:600">Rotary Encoder</div>
-						<div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-top:2px">
-							Adds a rotary encoder for volume control, scrolling, or custom functions. Typically placed in a corner of the keyboard.
-							Uses 3 GPIO pins (A, B, switch). Supported by ZMK with custom key bindings.
-						</div>
-					</div>
-				</label>
-
-				{/* OLED Display */}
-				<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
-					<input type="checkbox" checked={feat?.oledDisplay ?? false} onChange={(e) => updateLocal('features', 'oledDisplay', (e.target as HTMLInputElement).checked)} style="margin-top:3px;accent-color:var(--accent)" />
-					<div>
-						<div style="font-weight:600">OLED Display</div>
-						<div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-top:2px">
-							Adds a small OLED screen (128x32 SSD1306) for displaying layer info, WPM, battery level, or custom graphics.
-							Connected via I2C (2 GPIO pins). Requires a cutout or window in the case.
-						</div>
-					</div>
-				</label>
-			</div>
-		);
-	};
-
-	const renderOutputs = () => {
-		const out = (localConfig as BuildConfig)?.outputs;
-		const outputFields: Array<{ key: keyof NonNullable<BuildConfig['outputs']>; label: string }> = [
-			{ key: 'schematic', label: 'Schematic (KiCad)' },
-			{ key: 'pcb', label: 'PCB Layout (KiCad)' },
-			{ key: 'gerbers', label: 'Gerber Files' },
-			{ key: 'plate', label: 'Plate DXF' },
-			{ key: 'bom', label: 'Bill of Materials' },
-			{ key: 'firmware', label: 'Firmware Source' },
-			{ key: 'notes', label: 'Build Notes' },
-		];
-		return (
-			<div style="display:flex;flex-direction:column;gap:16px;max-width:500px">
-				{outputFields.map((f) => (
-					<label key={f.key} style="display:flex;align-items:center;gap:12px;cursor:pointer">
-						<input
-							type="checkbox"
-							checked={out?.[f.key] ?? false}
-							onChange={(e) => updateLocal('outputs', f.key, (e.target as HTMLInputElement).checked)}
-						/>
-						<span>{f.label}</span>
-					</label>
-				))}
-			</div>
-		);
-	};
+	// NOTE: Connectivity / Features / Outputs step renderers moved to
+	// `./config-steps/*.tsx`. See views/config-steps/index.ts.
 
 	const renderPcb = () => {
 		const pcb = (localConfig as BuildConfig)?.pcb;
@@ -727,7 +590,7 @@ export function Config({ step }: ConfigProps) {
 								type="number"
 								step="0.1"
 								min="3"
-								style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-input,#0f172a);color:var(--text-primary)"
+								style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-input);color:var(--text-primary)"
 								value={phys?.frontHeight ?? ''}
 								placeholder="auto"
 								onInput={(e) => {
@@ -742,7 +605,7 @@ export function Config({ step }: ConfigProps) {
 								type="number"
 								step="0.1"
 								min="3"
-								style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-input,#0f172a);color:var(--text-primary)"
+								style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-input);color:var(--text-primary)"
 								value={phys?.rearHeight ?? ''}
 								placeholder="auto"
 								onInput={(e) => {
@@ -799,7 +662,7 @@ export function Config({ step }: ConfigProps) {
 						<label style="display:block;font-weight:600;margin-bottom:6px">KLE JSON URL</label>
 						<input
 							type="text"
-							style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input,#0f172a);color:var(--text-primary)"
+							style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text-primary)"
 							placeholder="http://www.keyboard-layout-editor.com/..."
 							value={layout?.kleUrl || ''}
 							onInput={(e) => updateLocal('layout', 'kleUrl', (e.target as HTMLInputElement).value)}
@@ -809,7 +672,7 @@ export function Config({ step }: ConfigProps) {
 						<label style="display:block;font-weight:600;margin-bottom:6px">Layout File Path</label>
 						<input
 							type="text"
-							style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input,#0f172a);color:var(--text-primary)"
+							style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text-primary)"
 							placeholder="projects/my-project/kle.json"
 							value={layout?.path || ''}
 							onInput={(e) => updateLocal('layout', 'path', (e.target as HTMLInputElement).value)}
@@ -945,7 +808,7 @@ export function Config({ step }: ConfigProps) {
 											step="50"
 											min="100"
 											max={maxMa}
-											style="width:150px;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-input,#0f172a);color:var(--text-primary)"
+											style="width:150px;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-input);color:var(--text-primary)"
 											value={pwr?.chargeCurrentMa ?? safeMa}
 											onInput={(e) => updateLocal('power', 'chargeCurrentMa', parseInt((e.target as HTMLInputElement).value) || safeMa)}
 										/>
@@ -987,13 +850,13 @@ export function Config({ step }: ConfigProps) {
 			case 'layout':
 				return renderLayout();
 			case 'connectivity':
-				return renderConnectivity();
+				return <ConnectivityStep localConfig={localConfig} updateLocal={updateLocal} />;
 			case 'power':
 				return renderPower();
 			case 'features':
-				return renderFeatures();
+				return <FeaturesStep localConfig={localConfig} updateLocal={updateLocal} />;
 			case 'outputs':
-				return renderOutputs();
+				return <OutputsStep localConfig={localConfig} updateLocal={updateLocal} />;
 			case 'pcb':
 				return renderPcb();
 			case 'physical':

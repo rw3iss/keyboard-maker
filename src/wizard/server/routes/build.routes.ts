@@ -4,6 +4,7 @@ import { existsSync, statSync, createReadStream, unlinkSync, readdirSync } from 
 import { scanBuild } from '../services/file-scanner.service.js';
 import { config } from '../config.js';
 import { AppError, ErrorCodes } from '../types/errors.js';
+import { safePath } from '../utils/safe-path.js';
 import archiver from 'archiver';
 
 /** Name of the cached zip archive inside the build folder */
@@ -29,17 +30,8 @@ export async function buildRoutes(app: FastifyInstance): Promise<void> {
     async (request, reply) => {
       const { name } = request.params;
       const filePath = request.params['*'];
-
-      if (!filePath) {
-        throw new AppError(400, ErrorCodes.FILE_NOT_FOUND, 'File path is required');
-      }
-
-      const normalized = filePath.replace(/\.\./g, '');
-      const fullPath = join(config.projectsDir, name, 'build', normalized);
-
-      if (!fullPath.startsWith(join(config.projectsDir, name, 'build'))) {
-        throw new AppError(403, ErrorCodes.FILE_NOT_FOUND, 'Access denied');
-      }
+      const buildDir = join(config.projectsDir, name, 'build');
+      const fullPath = safePath(buildDir, filePath);
 
       if (!existsSync(fullPath)) {
         throw new AppError(
@@ -49,7 +41,8 @@ export async function buildRoutes(app: FastifyInstance): Promise<void> {
         );
       }
 
-      return reply.sendFile(normalized, join(config.projectsDir, name, 'build'));
+      const relative = filePath.replace(/\.\./g, '').replace(/^\/+/, '');
+      return reply.sendFile(relative, buildDir);
     },
   );
 

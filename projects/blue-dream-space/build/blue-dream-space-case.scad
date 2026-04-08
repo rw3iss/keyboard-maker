@@ -3,7 +3,7 @@
 // Switch type: choc_v2
 // Front height: 3.90 mm
 // Rear height: 3.90 mm
-// Generated: 2026-03-27T21:10:23.040Z
+// Generated: 2026-04-08T17:00:50.330Z
 
 $fn = 32;
 

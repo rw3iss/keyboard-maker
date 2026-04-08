@@ -149,7 +149,7 @@ export class LayoutCanvas {
     ctx.clearRect(0, 0, w, h);
 
     // Background
-    ctx.fillStyle = '#0f172a';
+    ctx.fillStyle = 'var(--bg-input)';
     ctx.fillRect(0, 0, this.cssWidth, this.cssHeight);
 
     // Grid
@@ -216,7 +216,7 @@ export class LayoutCanvas {
     }
 
     // Major grid
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = 'var(--bg-elevated)';
     ctx.lineWidth = 0.5;
     const startMajorX = this.offsetX % majorPx;
     const startMajorY = this.offsetY % majorPx;
@@ -279,7 +279,7 @@ export class LayoutCanvas {
       const badgeX = sx + (comp.width * this.scale / 2) - 4;
       const badgeY = sy - (comp.height * this.scale / 2) + 4;
       const label = comp.side === 'back' ? 'B' : comp.side === 'front' ? 'F' : 'T';
-      const color = comp.side === 'back' ? '#f87171' : comp.side === 'front' ? '#6ecbf5' : '#86efac';
+      const color = comp.side === 'back' ? 'var(--error-soft)' : comp.side === 'front' ? 'var(--accent)' : '#86efac';
       ctx.save();
       ctx.globalAlpha = 1;
       ctx.font = `bold ${Math.max(8, 9)}px monospace`;
@@ -304,7 +304,7 @@ export class LayoutCanvas {
 
     ctx.save();
     ctx.setLineDash([6, 4]);
-    ctx.strokeStyle = '#64748b';
+    ctx.strokeStyle = 'var(--text-muted)';
     ctx.lineWidth = 1.5;
     const cornerR = Math.min(4 * this.scale, sw / 8, sh / 8);
     this.roundRect(ctx, rx, ry, sw, sh, cornerR);
@@ -342,7 +342,7 @@ export class LayoutCanvas {
 
     // Label (only when zoomed in)
     if (this.scale > 1.2) {
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = 'var(--text-secondary)';
       const fontSize = Math.max(7, Math.min(12, sw * 0.35));
       ctx.font = `${fontSize}px monospace`;
       ctx.textAlign = 'center';
@@ -421,7 +421,7 @@ export class LayoutCanvas {
     }
 
     ctx.fillStyle = '#1e3a5f';
-    ctx.strokeStyle = '#6ecbf5';
+    ctx.strokeStyle = 'var(--accent)';
     ctx.lineWidth = 1.5;
     const cornerR = Math.min(2 * this.scale, sw / 4, sh / 4);
     this.roundRect(ctx, rx, ry, sw, sh, cornerR);
@@ -434,12 +434,12 @@ export class LayoutCanvas {
     // Inner port shape
     const insetX = sw * 0.15;
     const insetY = sh * 0.2;
-    ctx.strokeStyle = '#6ecbf5';
+    ctx.strokeStyle = 'var(--accent)';
     ctx.lineWidth = 0.8;
     ctx.strokeRect(rx + insetX, ry + insetY, sw - 2 * insetX, sh - 2 * insetY);
 
     // Label
-    ctx.fillStyle = '#6ecbf5';
+    ctx.fillStyle = 'var(--accent)';
     const fontSize = Math.max(7, Math.min(11, sw * 0.25));
     ctx.font = `bold ${fontSize}px monospace`;
     ctx.textAlign = 'center';
@@ -767,7 +767,7 @@ export class LayoutCanvas {
     ctx.save();
     ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
     ctx.fillRect(0, this.cssHeight - 22, 180, 22);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = 'var(--text-secondary)';
     ctx.font = '11px monospace';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'bottom';

@@ -1,22 +1,180 @@
-:root {
-  --bg-primary: #1a1a2e;
+/* ================================================================
+ * Design tokens
+ * ----------------------------------------------------------------
+ * All colors, spacing, typography, radii, shadows and motion
+ * values live here so the entire app can be re-themed by editing
+ * this single block. Component stylesheets and views should
+ * reference these tokens instead of hardcoded values.
+ *
+ * Theme switching:
+ *   The app defaults to the dark theme (defined on `:root` below).
+ *   An optional light theme is provided under `[data-theme="light"]`
+ *   and `@media (prefers-color-scheme: light)` — neither is active
+ *   by default. To enable, set `<html data-theme="light">` from app
+ *   settings or remove the `data-theme` override to follow the OS
+ *   preference.
+ *
+ * Naming conventions (see components.css):
+ *   .block-name               — a component block
+ *   .block-name--modifier     — state/variant of the block
+ *   .block-name-element       — a piece of the block
+ * ================================================================ */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* ---- Surfaces ---- */
+  --bg-primary:   #1a1a2e;
   --bg-secondary: #16213e;
-  --bg-card: #1f2937;
-  --bg-hover: #2d3748;
-  --bg-input: #0f172a;
-  --text-primary: #e2e8f0;
+  --bg-card:      #1f2937;
+  --bg-hover:     #2d3748;
+  --bg-input:     #0f172a;
+  --bg-elevated:  #1e293b;
+
+  /* ---- Text ---- */
+  --text-primary:   #e2e8f0;
   --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --accent: #6ecbf5;
-  --accent-hover: #93d7f7;
-  --success: #22c55e;
-  --warning: #eab308;
-  --error: #ef4444;
-  --border: #334155;
-  --radius: 8px;
+  --text-muted:     #64748b;
+
+  /* ---- Accent & semantic ---- */
+  --accent:         #6ecbf5;
+  --accent-hover:   #93d7f7;
+  --accent-soft:    #1e3a5f;     /* dark-blue soft background for accents */
+  --success:        #22c55e;
+  --success-soft:   #86efac;     /* bright/soft success text */
+  --warning:        #eab308;
+  --warning-soft:   #fcd34d;
+  --error:          #ef4444;
+  --error-soft:     #f87171;     /* lighter red, used for invalid outlines */
+
+  /* ---- Borders ---- */
+  --border:         #334155;
+  --border-strong:  #475569;
+
+  /* ---- Radii ---- */
   --radius-sm: 4px;
-  --bg-elevated: #1e293b;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --radius:    8px;
+  --radius-lg: 12px;
+
+  /* ---- Shadows ---- */
+  --shadow:     0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-lg:  0 8px 20px rgba(0, 0, 0, 0.45);
+
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+
+  /* ---- Typography scale ---- */
+  --font-size-xs:  11px;
+  --font-size-sm:  12px;
+  --font-size-md:  13px;
+  --font-size-lg:  15px;
+  --font-size-xl:  18px;
+  --font-size-2xl: 24px;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* ---- Motion ---- */
+  --transition-fast: 120ms ease;
+  --transition-base: 180ms ease;
+  --transition-slow: 260ms ease;
+
+  /* ---- Layout chrome ---- */
+  --menu-bar-height:   40px;
+  --tab-bar-height:    36px;
+  --status-bar-height: 28px;
+
+  /* ---- Z-indexes ---- */
+  --z-menu:     100;
+  --z-dropdown: 200;
+  --z-modal:    1000;
+  --z-toast:    2000;
+}
+
+/* ================================================================
+ * Light theme (opt-in).
+ * ----------------------------------------------------------------
+ * Not active by default. Activate by adding `data-theme="light"`
+ * to <html> or by removing any `data-theme` override entirely and
+ * relying on the `prefers-color-scheme: light` media query below.
+ *
+ * The light theme reuses every scalar/shape token from :root
+ * above and only overrides color + surface values.
+ * ================================================================ */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-primary:   #f8fafc;
+  --bg-secondary: #eef2f7;
+  --bg-card:      #ffffff;
+  --bg-hover:     #f1f5f9;
+  --bg-input:     #ffffff;
+  --bg-elevated:  #f8fafc;
+
+  --text-primary:   #0f172a;
+  --text-secondary: #475569;
+  --text-muted:     #64748b;
+
+  --accent:         #0284c7;
+  --accent-hover:   #0369a1;
+  --accent-soft:    #e0f2fe;
+  --success:        #16a34a;
+  --success-soft:   #bbf7d0;
+  --warning:        #d97706;
+  --warning-soft:   #fde68a;
+  --error:          #dc2626;
+  --error-soft:     #fecaca;
+
+  --border:         #e2e8f0;
+  --border-strong:  #cbd5e1;
+
+  --shadow:     0 4px 6px rgba(15, 23, 42, 0.08);
+  --shadow-sm:  0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-lg:  0 12px 24px rgba(15, 23, 42, 0.12);
+}
+
+/* Follow OS preference when no explicit `data-theme` override is set.
+   Remove or change this block if you want to force dark only. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+
+    --bg-primary:   #f8fafc;
+    --bg-secondary: #eef2f7;
+    --bg-card:      #ffffff;
+    --bg-hover:     #f1f5f9;
+    --bg-input:     #ffffff;
+    --bg-elevated:  #f8fafc;
+
+    --text-primary:   #0f172a;
+    --text-secondary: #475569;
+    --text-muted:     #64748b;
+
+    --accent:         #0284c7;
+    --accent-hover:   #0369a1;
+    --accent-soft:    #e0f2fe;
+    --success:        #16a34a;
+    --success-soft:   #bbf7d0;
+    --warning:        #d97706;
+    --warning-soft:   #fde68a;
+    --error:          #dc2626;
+    --error-soft:     #fecaca;
+
+    --border:         #e2e8f0;
+    --border-strong:  #cbd5e1;
+
+    --shadow:     0 4px 6px rgba(15, 23, 42, 0.08);
+    --shadow-sm:  0 1px 2px rgba(15, 23, 42, 0.05);
+    --shadow-lg:  0 12px 24px rgba(15, 23, 42, 0.12);
+  }
 }
 
 * {
@@ -34,6 +192,7 @@ body {
 a {
   color: var(--accent);
   text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 a:hover {
@@ -41,17 +200,92 @@ a:hover {
 }
 
 /* Professional typography */
-h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
-h2 { font-size: 20px; font-weight: 600; letter-spacing: -0.3px; }
-h3 { font-size: 16px; font-weight: 600; }
+h1 { font-size: 28px; font-weight: var(--font-weight-bold);     letter-spacing: -0.5px; }
+h2 { font-size: 20px; font-weight: var(--font-weight-semibold); letter-spacing: -0.3px; }
+h3 { font-size: 16px; font-weight: var(--font-weight-semibold); }
 
-/* Better card styling */
+/* Global focus-visible treatment — keyboard users get the accent
+   color instead of the default browser outline. Components can
+   opt out by setting outline: none on their own :focus-visible. */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Unified accent color for native checkboxes and radios. */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--accent);
+}
+
+/* ---- Utility classes ---- */
+/* These capture the most common inline style patterns found in
+   TSX files so new code can use classes instead of strings. */
+
+.u-flex           { display: flex; }
+.u-flex-1         { flex: 1; }
+.u-flex-col       { display: flex; flex-direction: column; }
+.u-flex-row       { display: flex; flex-direction: row; align-items: center; }
+.u-stack          { display: flex; flex-direction: column; gap: var(--space-3); }
+.u-stack-sm       { display: flex; flex-direction: column; gap: var(--space-2); }
+.u-stack-lg       { display: flex; flex-direction: column; gap: var(--space-5); }
+.u-row            { display: flex; align-items: center; gap: var(--space-3); }
+.u-row-sm         { display: flex; align-items: center; gap: var(--space-2); }
+
+.u-text-muted     { color: var(--text-muted); }
+.u-text-secondary { color: var(--text-secondary); }
+.u-text-primary   { color: var(--text-primary); }
+.u-text-accent    { color: var(--accent); }
+.u-text-success   { color: var(--success); }
+.u-text-warning   { color: var(--warning); }
+.u-text-error     { color: var(--error); }
+
+.u-text-xs        { font-size: var(--font-size-xs); }
+.u-text-sm        { font-size: var(--font-size-sm); }
+.u-text-md        { font-size: var(--font-size-md); }
+.u-text-lg        { font-size: var(--font-size-lg); }
+
+.u-font-medium    { font-weight: var(--font-weight-medium); }
+.u-font-semibold  { font-weight: var(--font-weight-semibold); }
+.u-font-bold      { font-weight: var(--font-weight-bold); }
+
+/* Small uppercase label used for section headers inside panels */
+.panel-heading {
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Field label used above form inputs in filter bars and sidebars */
+.field-label {
+  font-weight: var(--font-weight-medium);
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: var(--space-1);
+}
+
+/* Centered muted placeholder content used for empty/loading states */
+.empty-state {
+  padding: var(--space-8);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ---- Existing component styles below ---- */
+
+/* Professional accent card */
 .card-accent {
   border-left: 3px solid var(--accent);
   background: var(--bg-card);
   border-radius: 0 var(--radius) var(--radius) 0;
   padding: 16px 20px;
-  transition: background 0.15s, transform 0.1s;
+  transition: background var(--transition-fast), transform var(--transition-fast);
 }
 .card-accent:hover {
   background: var(--bg-hover);

@@ -15,19 +15,14 @@ import { Spinner } from '../components/common/Spinner';
 import { Badge } from '../components/common/Badge';
 import { Collapsible } from '../components/common/Collapsible';
 import { FileLink } from '../components/common/FileLink';
+import { Checkbox } from '../components/common/Checkbox';
+import { Input } from '../components/common/Input';
+import { EmptyState } from '../components/common/EmptyState';
+import { formatDuration } from '../utils/format';
 import type { BuildFile } from '../types/project.types';
 
 // Keep SSE ref outside the component so it survives re-mounts
 let activeES: EventSource | null = null;
-
-/** Format milliseconds to a human-readable short duration */
-function formatDuration(ms: number): string {
-  const totalSec = Math.round(ms / 1000);
-  if (totalSec < 60) return `${totalSec}s`;
-  const min = Math.floor(totalSec / 60);
-  const sec = totalSec % 60;
-  return sec > 0 ? `${min}m ${sec}s` : `${min}m`;
-}
 
 /** Live elapsed timer — re-renders every second while running */
 function LiveTimer({ startedAt }: { startedAt: number }) {
@@ -173,7 +168,7 @@ export function Build() {
   };
 
   if (!project) {
-    return <div style="padding:40px;text-align:center;color:var(--text-muted)">Open a project first.</div>;
+    return <EmptyState title="No project open" message="Open or create a project from the File menu to start a build." />;
   }
 
   const stages = buildStages.value;
@@ -230,40 +225,48 @@ export function Build() {
                   { key: 'firmware', label: 'ZMK Firmware' },
                   { key: 'notes', label: 'Design Notes' },
                 ] as const).map(({ key, label }) => (
-                  <label key={key} style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text-primary)">
-                    <input type="checkbox" checked={(outputs as any)[key]} onChange={() => toggleOutput(key)} style="accent-color:var(--accent)" />
-                    {label}
-                  </label>
+                  <Checkbox
+                    key={key}
+                    checked={(outputs as any)[key]}
+                    onChange={() => toggleOutput(key)}
+                    label={label}
+                    size="sm"
+                  />
                 ))}
               </div>
             </div>
             {/* Routing settings — only shown for auto routing */}
-            {config?.pcb?.routing === 'auto' && <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
-              <div style="display:flex;align-items:center;gap:10px">
-                <label style="font-size:13px;color:var(--text-secondary);min-width:130px">Max routing passes:</label>
-                <input
-                  type="number"
-                  min="5"
-                  max="200"
-                  value={maxPasses}
-                  onInput={(e) => setMaxPasses(Math.max(5, parseInt((e.target as HTMLInputElement).value) || 25))}
-                  style="width:60px;padding:6px 8px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-input,#0f172a);color:var(--text-primary);font-size:13px;text-align:center"
-                />
-                <span style="font-size:12px;color:var(--text-muted)">passes (more = better routing, longer time)</span>
+            {config?.pcb?.routing === 'auto' && (
+              <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px;max-width:480px">
+                <div style="display:flex;align-items:center;gap:12px">
+                  <label style="font-size:13px;color:var(--text-secondary);min-width:130px">Max routing passes</label>
+                  <Input
+                    type="number"
+                    size="sm"
+                    width={80}
+                    min={5}
+                    max={200}
+                    value={maxPasses}
+                    onInput={(v) => setMaxPasses(Math.max(5, parseInt(v) || 25))}
+                  />
+                  <span style="font-size:12px;color:var(--text-muted)">more = better routing, longer time</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px">
+                  <label style="font-size:13px;color:var(--text-secondary);min-width:130px">Routing timeout</label>
+                  <Input
+                    type="number"
+                    size="sm"
+                    width={80}
+                    min={1}
+                    max={60}
+                    value={routingTimeout}
+                    onInput={(v) => setRoutingTimeout(Math.max(1, parseInt(v) || 10))}
+                    suffix={<span>min</span>}
+                  />
+                  <span style="font-size:12px;color:var(--text-muted)">hard stop — ensures SES file is saved</span>
+                </div>
               </div>
-              <div style="display:flex;align-items:center;gap:10px">
-                <label style="font-size:13px;color:var(--text-secondary);min-width:130px">Routing timeout:</label>
-                <input
-                  type="number"
-                  min="1"
-                  max="60"
-                  value={routingTimeout}
-                  onInput={(e) => setRoutingTimeout(Math.max(1, parseInt((e.target as HTMLInputElement).value) || 10))}
-                  style="width:60px;padding:6px 8px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-input,#0f172a);color:var(--text-primary);font-size:13px;text-align:center"
-                />
-                <span style="font-size:12px;color:var(--text-muted)">minutes (hard stop — ensures SES file is saved)</span>
-              </div>
-            </div>}
+            )}
 
             <div style="margin-top:16px">
               <Button variant="primary" onClick={startBuild}>Start Build</Button>
@@ -326,7 +329,7 @@ export function Build() {
               ref={logRef}
               readOnly
               value={logLines.join('\n')}
-              style={`width:100%;background:var(--bg-input,#0f172a);color:var(--text-secondary);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px;font-family:'JetBrains Mono',monospace;font-size:12px;resize:vertical;white-space:pre;overflow-x:auto;${logFullscreen ? 'flex:1' : 'height:280px'}`}
+              style={`width:100%;background:var(--bg-input);color:var(--text-secondary);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px;font-family:'JetBrains Mono',monospace;font-size:12px;resize:vertical;white-space:pre;overflow-x:auto;${logFullscreen ? 'flex:1' : 'height:280px'}`}
             />
           </div>
         )}
@@ -353,7 +356,7 @@ export function Build() {
           {files.length > 0 && !running && (
             <a
               href={`${APP_CONFIG.apiUrl}/api/build/${project}/download`}
-              style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;font-size:13px;background:var(--accent,#6ecbf5);color:#000;border-radius:var(--radius);text-decoration:none;font-weight:600;white-space:nowrap"
+              style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;font-size:13px;background:var(--accent);color:#000;border-radius:var(--radius);text-decoration:none;font-weight:600;white-space:nowrap"
             >
               Download All Files
             </a>
@@ -362,7 +365,10 @@ export function Build() {
         {loadingFiles ? (
           <div style="text-align:center;padding:20px"><Spinner /></div>
         ) : files.length === 0 ? (
-          <div style="color:var(--text-muted);font-size:14px">No build files yet. Run a build to generate output files.</div>
+          <EmptyState
+            variant="inline"
+            message="No build files yet. Run a build to generate output files."
+          />
         ) : (
           <div style="display:flex;flex-direction:column;gap:8px">
             {Object.entries(fileGroups).map(([group, gFiles]) => (
