@@ -82,6 +82,10 @@ const SPACING: Record<string, { x: number; y: number }> = {
   mx: { x: 19.05, y: 19.05 },
   mx_ulp: { x: 18, y: 18 },
   gateron_lp: { x: 18, y: 17 },
+  hall_effect_mx: { x: 19.05, y: 19.05 },
+  hall_effect_lp: { x: 19.05, y: 19.05 },
+  optical_mx: { x: 19.05, y: 19.05 },
+  optical_lp: { x: 19.05, y: 19.05 },
 };
 
 // ── MCU dimensions from component data ────────────────────────────────────

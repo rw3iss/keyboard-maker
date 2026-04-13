@@ -132,20 +132,20 @@
     "Not a low-profile switch -- total height with keycap is ~20mm above PCB",
     "Consider Gateron or other MX-compatible clones for budget builds"
   ],
-  "summary": "The original mechanical keyboard switch — gold standard with the largest keycap ecosystem",
+  "summary": "The original mechanical keyboard switch \u2014 gold standard with the largest keycap ecosystem",
   "features": [
     "Largest keycap ecosystem available",
     "Hot-swap socket support (Kailh CPG151101S11)",
     "Multiple variants: linear, tactile, clicky",
     "5-pin PCB mount variant available",
-    "Proven reliability — 100M+ cycle rating",
+    "Proven reliability \u2014 100M+ cycle rating",
     "Compatible with virtually all MX-mount keyboards"
   ],
   "concerns": [
-    "Not low-profile — 18.5mm total height before keycap",
+    "Not low-profile \u2014 18.5mm total height before keycap",
     "19.05mm spacing limits compact layouts",
     "Genuine Cherry switches are more expensive than clones",
-    "Through-hole mounting — not compatible with SMD-only PCBs"
+    "Through-hole mounting \u2014 not compatible with SMD-only PCBs"
   ],
   "externalLinks": [
     {
@@ -164,5 +164,10 @@
       "label": "MX Keycap Compatibility",
       "url": "https://wiki.ai03.com/books/pcb-design/page/switch-plate-specs"
     }
-  ]
+  ],
+  "sensingMethod": "mechanical",
+  "analogCapable": false,
+  "contactless": false,
+  "transparentHousing": true,
+  "ledPassthrough": "smd-under"
 }

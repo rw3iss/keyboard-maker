@@ -65,17 +65,17 @@
     "Used in Cherry KW 9200 Mini keyboard",
     "Not recommended for hobby builds due to limited availability"
   ],
-  "summary": "Ultra-low-profile mechanical switch at 3.5mm height — OEM-only, not for hobby builds",
+  "summary": "Ultra-low-profile mechanical switch at 3.5mm height \u2014 OEM-only, not for hobby builds",
   "features": [
     "Thinnest mechanical switch available at 3.5mm",
-    "1.8mm key travel — laptop-like feel",
+    "1.8mm key travel \u2014 laptop-like feel",
     "True mechanical switch mechanism",
     "SMD mounting for thin PCB assemblies",
     "Used in Cherry KW 9200 Mini keyboard"
   ],
   "concerns": [
-    "OEM-only — not sold individually to consumers",
-    "Proprietary keycap mount — no aftermarket keycaps",
+    "OEM-only \u2014 not sold individually to consumers",
+    "Proprietary keycap mount \u2014 no aftermarket keycaps",
     "No hot-swap option",
     "Not recommended for hobby/DIY keyboard builds",
     "Very limited availability and documentation"
@@ -89,5 +89,10 @@
       "label": "Cherry KW 9200 Mini",
       "url": "https://www.cherry.de/en-gb/kw-9200-mini.html"
     }
-  ]
+  ],
+  "sensingMethod": "mechanical",
+  "analogCapable": false,
+  "contactless": false,
+  "transparentHousing": false,
+  "ledPassthrough": "none"
 }

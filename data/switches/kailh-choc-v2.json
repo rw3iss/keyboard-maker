@@ -97,18 +97,18 @@
     "5-pin variant available for PCB mount stability",
     "Hot-swap socket is different from Choc v1 -- not interchangeable"
   ],
-  "summary": "Low-profile switch with MX-compatible keycap stem — best of both worlds compromise",
+  "summary": "Low-profile switch with MX-compatible keycap stem \u2014 best of both worlds compromise",
   "features": [
-    "MX-compatible cross stem — use any MX keycap",
+    "MX-compatible cross stem \u2014 use any MX keycap",
     "Low-profile at 11mm (taller than v1 but shorter than MX)",
-    "Standard MX 19.05mm spacing — works with MX PCB layouts",
+    "Standard MX 19.05mm spacing \u2014 works with MX PCB layouts",
     "5-pin variant available for PCB mount stability",
     "Hot-swap socket available",
     "3.2mm key travel"
   ],
   "concerns": [
-    "Taller than Choc v1 (11mm vs 8mm) — reduces low-profile advantage",
-    "Hot-swap socket differs from Choc v1 — not interchangeable",
+    "Taller than Choc v1 (11mm vs 8mm) \u2014 reduces low-profile advantage",
+    "Hot-swap socket differs from Choc v1 \u2014 not interchangeable",
     "Less popular than v1 in custom keyboard community",
     "MX spacing means no benefit of tighter Choc v1 layouts",
     "Limited variant selection compared to Choc v1"
@@ -126,5 +126,10 @@
       "label": "Switch Comparison Guide",
       "url": "https://www.theremingoat.com/"
     }
-  ]
+  ],
+  "sensingMethod": "mechanical",
+  "analogCapable": false,
+  "contactless": false,
+  "transparentHousing": true,
+  "ledPassthrough": "smd-under"
 }

@@ -1,0 +1,160 @@
+{
+  "id": "gateron-optical-full",
+  "name": "Gateron KS-15 Optical Switch",
+  "manufacturer": "Gateron",
+  "type": "optical-mechanical",
+  "sensingMethod": "optical",
+  "analogCapable": false,
+  "contactless": true,
+  "summary": "Full-size optical switch with PCB-mounted IR sensing \u2014 the most widely available optical switch for individual purchase",
+  "dimensions": {
+    "width": 15.6,
+    "depth": 15.6,
+    "height": 18.6
+  },
+  "switchSpacing": {
+    "x": 19.05,
+    "y": 19.05
+  },
+  "pinSpacing": null,
+  "pinCount": 0,
+  "pinType": "none",
+  "pinDescription": "Switch has NO electrical pins \u2014 only alignment/retention posts. Optical sensing (IR emitter + phototransistor) is mounted on the PCB. The switch housing has a light channel with a shutter on the stem.",
+  "activationDistance": 2.0,
+  "travelDistance": 4.0,
+  "totalHeight": 18.6,
+  "keycapMount": "mx",
+  "profile": "MX",
+  "mounting": "optical-pcb",
+  "hotswapCompatible": true,
+  "hotswapSocket": "gateron-optical",
+  "hotswapNote": "Gateron optical hot-swap design is integral \u2014 switches snap into PCB receptacles. NOT compatible with standard MX hot-swap sockets.",
+  "operatingVoltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "scanningArchitecture": "optical-matrix",
+  "scanningNote": "PCB must have IR LED + phototransistor pairs at each switch position. IR LED forward voltage ~1.2V with current-limiting resistor. Digital output (beam interrupted = pressed). Can be arranged in a multiplexed scanning matrix.",
+  "opticalComponents": {
+    "emitter": "IR LED (940nm typical), PCB-mounted, through-hole or SMD",
+    "sensor": "Phototransistor (NPN, IR-sensitive), PCB-mounted",
+    "location": "Both on PCB \u2014 switch housing provides light channel only"
+  },
+  "footprintFile": null,
+  "footprintNote": "No official KiCad footprint. PCB design is proprietary. Must be reverse-engineered from Gateron SK61/SK64 keyboard PCBs. Requires IR LED + phototransistor footprints at each key position in addition to switch mounting holes.",
+  "symbolRef": null,
+  "datasheet": null,
+  "variants": [
+    {
+      "id": "gateron-optical-red",
+      "name": "Gateron Optical Red (Linear, 45g)",
+      "actuationForce": 45,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/w/wholesale-gateron-optical-switch.html",
+          "priceUsd": 0.3
+        },
+        {
+          "name": "KPRepublic",
+          "url": "https://kprepublic.com/",
+          "priceUsd": 0.35
+        }
+      ]
+    },
+    {
+      "id": "gateron-optical-brown",
+      "name": "Gateron Optical Brown (Tactile, 55g)",
+      "actuationForce": 55,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/w/wholesale-gateron-optical-switch.html",
+          "priceUsd": 0.3
+        }
+      ]
+    },
+    {
+      "id": "gateron-optical-blue",
+      "name": "Gateron Optical Blue (Clicky, 55g)",
+      "actuationForce": 55,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/w/wholesale-gateron-optical-switch.html",
+          "priceUsd": 0.3
+        }
+      ]
+    },
+    {
+      "id": "gateron-optical-yellow",
+      "name": "Gateron Optical Yellow (Speed Linear, 50g, 1.2mm actuation)",
+      "actuationForce": 50,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/w/wholesale-gateron-optical-switch.html",
+          "priceUsd": 0.35
+        }
+      ]
+    },
+    {
+      "id": "gateron-optical-silver",
+      "name": "Gateron Optical Silver (Speed Linear, 45g, 1.0mm actuation)",
+      "actuationForce": 45,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/w/wholesale-gateron-optical-switch.html",
+          "priceUsd": 0.35
+        }
+      ]
+    }
+  ],
+  "designNotes": [
+    "Switch has NO electrical pins \u2014 the switch is purely mechanical with a light shutter.",
+    "PCB design requires IR LED + phototransistor pairs at EVERY switch position.",
+    "This fundamentally changes the PCB design \u2014 you need optical component footprints alongside each switch mounting point.",
+    "The optical path between IR LED and phototransistor must be precisely aligned with the switch housing's light channel.",
+    "Phototransistor output is digital (beam blocked = key pressed), but can be arranged into a scanning matrix similar to a standard key matrix.",
+    "No debounce needed \u2014 optical sensing is instantaneous and bounce-free.",
+    "IR LED power draw is significant for a full keyboard (~5mA per LED \u00d7 86 keys = ~430mA continuous).",
+    "Can use multiplexed LED driving to reduce power (pulse LEDs during scanning, not continuously)."
+  ],
+  "features": [
+    "Contactless operation \u2014 no metal contacts, extremely long lifespan",
+    "Zero debounce time \u2014 optical sensing is instantaneous",
+    "Widely available individually on AliExpress and keyboard part vendors",
+    "Standard MX cross (+) stem \u2014 compatible with all MX keycaps",
+    "Multiple actuation distances available via variant selection (1.0mm\u20132.3mm)",
+    "Budget-friendly (~$0.30/switch)"
+  ],
+  "concerns": [
+    "PCB must include IR LED + phototransistor at each key \u2014 significant design complexity",
+    "No official KiCad footprint \u2014 must reverse-engineer from existing Gateron optical PCBs",
+    "NOT compatible with standard MX hot-swap sockets (uses Gateron's optical design)",
+    "PCB-mounted optical components make hand-soldering more complex",
+    "Digital only \u2014 no analog/adjustable actuation capability",
+    "IR LED power consumption is higher than diode-matrix mechanical switches",
+    "Full MX height only"
+  ],
+  "externalLinks": [
+    {
+      "label": "Gateron Official",
+      "url": "https://en.gateron.com/"
+    }
+  ],
+  "transparentHousing": true,
+  "ledPassthrough": "smd-under"
+}

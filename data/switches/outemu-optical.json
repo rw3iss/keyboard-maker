@@ -1,0 +1,121 @@
+{
+  "id": "outemu-optical",
+  "name": "Outemu Optical Switch",
+  "manufacturer": "Outemu",
+  "type": "optical-mechanical",
+  "sensingMethod": "optical",
+  "analogCapable": false,
+  "contactless": true,
+  "summary": "Budget-friendly full-size optical switch \u2014 cheapest optical option, used in many affordable optical keyboards",
+  "dimensions": {
+    "width": 15.6,
+    "depth": 15.6,
+    "height": 18.5
+  },
+  "switchSpacing": {
+    "x": 19.05,
+    "y": 19.05
+  },
+  "pinSpacing": null,
+  "pinCount": 0,
+  "pinType": "none",
+  "pinDescription": "No electrical pins \u2014 PCB-mounted IR emitter/phototransistor. Switch has alignment posts and light channel only.",
+  "activationDistance": 2.0,
+  "travelDistance": 4.0,
+  "totalHeight": 18.5,
+  "keycapMount": "mx",
+  "profile": "MX",
+  "mounting": "optical-pcb",
+  "hotswapCompatible": true,
+  "hotswapSocket": "outemu-optical",
+  "hotswapNote": "Proprietary Outemu optical hot-swap design. NOT compatible with Gateron optical PCBs despite similar principles.",
+  "operatingVoltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "scanningArchitecture": "optical-matrix",
+  "scanningNote": "Same PCB-mounted IR design concept as Gateron optical, but proprietary PCB layout. NOT cross-compatible.",
+  "opticalComponents": {
+    "emitter": "IR LED, PCB-mounted",
+    "sensor": "Phototransistor, PCB-mounted",
+    "location": "Both on PCB"
+  },
+  "footprintFile": null,
+  "footprintNote": "No official KiCad footprint. Would need reverse-engineering from Tecware/Redragon optical PCBs (which use Outemu optical).",
+  "symbolRef": null,
+  "datasheet": null,
+  "variants": [
+    {
+      "id": "outemu-optical-red",
+      "name": "Outemu Optical Red (Linear, 45g)",
+      "actuationForce": 45,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/w/wholesale-outemu-optical-switch.html",
+          "priceUsd": 0.18
+        }
+      ]
+    },
+    {
+      "id": "outemu-optical-blue",
+      "name": "Outemu Optical Blue (Clicky, 55g)",
+      "actuationForce": 55,
+      "tactile": true,
+      "clicky": true,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/w/wholesale-outemu-optical-switch.html",
+          "priceUsd": 0.18
+        }
+      ]
+    },
+    {
+      "id": "outemu-optical-brown",
+      "name": "Outemu Optical Brown (Tactile, 55g)",
+      "actuationForce": 55,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/w/wholesale-outemu-optical-switch.html",
+          "priceUsd": 0.18
+        }
+      ]
+    }
+  ],
+  "designNotes": [
+    "Among the cheapest optical switches available (~$0.18/switch).",
+    "Used in many budget optical keyboards: Tecware Phantom, Redragon K556 Optical, etc.",
+    "Same PCB-level design complexity as Gateron optical \u2014 requires IR pairs per key position.",
+    "Outemu optical PCB layouts are NOT cross-compatible with Gateron optical layouts.",
+    "No low-profile variant available from Outemu."
+  ],
+  "features": [
+    "Extremely budget-friendly (~$0.15\u2013$0.30/switch)",
+    "Contactless operation \u2014 long lifespan",
+    "Standard MX stem \u2014 compatible with all MX keycaps",
+    "Available individually on AliExpress"
+  ],
+  "concerns": [
+    "Same PCB-mounted optical component complexity as Gateron optical",
+    "No official footprint or datasheet",
+    "Hot-swap sockets NOT interchangeable with Gateron or any other optical system",
+    "Full MX height only \u2014 no low-profile option",
+    "Digital only \u2014 no analog capability",
+    "Lower build quality perception vs Gateron optical"
+  ],
+  "externalLinks": [
+    {
+      "label": "Outemu Official",
+      "url": "http://www.outemu.com/"
+    }
+  ],
+  "transparentHousing": true,
+  "ledPassthrough": "smd-under"
+}

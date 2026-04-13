@@ -34,7 +34,11 @@
       "tactile": false,
       "clicky": false,
       "suppliers": [
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html", "priceUsd": 0.20 }
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html",
+          "priceUsd": 0.2
+        }
       ]
     },
     {
@@ -44,7 +48,11 @@
       "tactile": true,
       "clicky": false,
       "suppliers": [
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html", "priceUsd": 0.20 }
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html",
+          "priceUsd": 0.2
+        }
       ]
     },
     {
@@ -54,13 +62,17 @@
       "tactile": true,
       "clicky": true,
       "suppliers": [
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html", "priceUsd": 0.20 }
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html",
+          "priceUsd": 0.2
+        }
       ]
     }
   ],
-  "summary": "Budget low-profile switch with proprietary mount — cheapest LP switch at ~$0.20 each",
+  "summary": "Budget low-profile switch with proprietary mount \u2014 cheapest LP switch at ~$0.20 each",
   "features": [
-    "Very affordable — $0.15-0.25 per switch",
+    "Very affordable \u2014 $0.15-0.25 per switch",
     "Low-profile at 8.5mm height",
     "2.5mm key travel",
     "Hot-swap socket available",
@@ -69,10 +81,10 @@
     "Short 1.2mm actuation distance"
   ],
   "concerns": [
-    "Proprietary keycap mount — NOT compatible with Choc or MX keycaps",
+    "Proprietary keycap mount \u2014 NOT compatible with Choc or MX keycaps",
     "Very limited keycap ecosystem",
     "Quality control can be inconsistent",
-    "Less popular in custom keyboard community — fewer PCB designs support it",
+    "Less popular in custom keyboard community \u2014 fewer PCB designs support it",
     "Hot-swap socket is proprietary and hard to source",
     "Limited documentation and footprint availability"
   ],
@@ -84,11 +96,30 @@
     "Useful only if keycap compatibility is not a priority"
   ],
   "externalLinks": [
-    { "label": "Outemu Official Product Page", "url": "https://www.outemu.com/en/products_detail/36.html" },
-    { "label": "Switch Comparison Tool", "url": "https://www.theremingoat.com/" }
+    {
+      "label": "Outemu Official Product Page",
+      "url": "https://www.outemu.com/en/products_detail/36.html"
+    },
+    {
+      "label": "Switch Comparison Tool",
+      "url": "https://www.theremingoat.com/"
+    }
   ],
   "suppliers": [
-    { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html", "priceUsd": 0.20 },
-    { "name": "AliExpress (pack)", "url": "https://www.aliexpress.com/item/outemu-low-profile-pack.html", "priceUsd": 0.15 }
-  ]
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/outemu-low-profile-switches.html",
+      "priceUsd": 0.2
+    },
+    {
+      "name": "AliExpress (pack)",
+      "url": "https://www.aliexpress.com/item/outemu-low-profile-pack.html",
+      "priceUsd": 0.15
+    }
+  ],
+  "sensingMethod": "mechanical",
+  "analogCapable": false,
+  "contactless": false,
+  "transparentHousing": false,
+  "ledPassthrough": "none"
 }

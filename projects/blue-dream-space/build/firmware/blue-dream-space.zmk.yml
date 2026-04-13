@@ -1,8 +1,0 @@
-file_format: "2"
-id: blue_dream_space
-name: blue-dream-space
-type: board
-arch: arm
-outputs:
-  - usb
-  - ble

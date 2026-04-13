@@ -28,6 +28,8 @@ export interface ConfigStepProps {
   chargerOptions?: ConfigComponentOption[];
   /** Battery options (loaded once in parent) */
   batteryOptions?: ConfigComponentOption[];
+  /** Switch options (loaded once in parent, for RGB compatibility checks) */
+  switchOptions?: ConfigComponentOption[];
 }
 
 export type { McuComponentOption };

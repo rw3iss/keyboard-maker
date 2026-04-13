@@ -34,8 +34,16 @@
       "tactile": true,
       "clicky": false,
       "suppliers": [
-        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches", "priceUsd": 0.35 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-box-switches.html", "priceUsd": 0.25 }
+        {
+          "name": "NovelKeys",
+          "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches",
+          "priceUsd": 0.35
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/kailh-box-switches.html",
+          "priceUsd": 0.25
+        }
       ]
     },
     {
@@ -45,8 +53,16 @@
       "tactile": false,
       "clicky": false,
       "suppliers": [
-        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches", "priceUsd": 0.35 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-box-switches.html", "priceUsd": 0.25 }
+        {
+          "name": "NovelKeys",
+          "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches",
+          "priceUsd": 0.35
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/kailh-box-switches.html",
+          "priceUsd": 0.25
+        }
       ]
     },
     {
@@ -56,8 +72,16 @@
       "tactile": true,
       "clicky": true,
       "suppliers": [
-        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches", "priceUsd": 0.35 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-box-switches.html", "priceUsd": 0.25 }
+        {
+          "name": "NovelKeys",
+          "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches",
+          "priceUsd": 0.35
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/kailh-box-switches.html",
+          "priceUsd": 0.25
+        }
       ]
     },
     {
@@ -67,8 +91,16 @@
       "tactile": true,
       "clicky": true,
       "suppliers": [
-        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches", "priceUsd": 0.40 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-box-switches.html", "priceUsd": 0.30 }
+        {
+          "name": "NovelKeys",
+          "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches",
+          "priceUsd": 0.4
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/kailh-box-switches.html",
+          "priceUsd": 0.3
+        }
       ]
     },
     {
@@ -78,8 +110,16 @@
       "tactile": true,
       "clicky": true,
       "suppliers": [
-        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches", "priceUsd": 0.40 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-box-switches.html", "priceUsd": 0.30 }
+        {
+          "name": "NovelKeys",
+          "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches",
+          "priceUsd": 0.4
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/kailh-box-switches.html",
+          "priceUsd": 0.3
+        }
       ]
     },
     {
@@ -89,43 +129,77 @@
       "tactile": false,
       "clicky": false,
       "suppliers": [
-        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches", "priceUsd": 0.35 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-box-switches.html", "priceUsd": 0.25 }
+        {
+          "name": "NovelKeys",
+          "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches",
+          "priceUsd": 0.35
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/kailh-box-switches.html",
+          "priceUsd": 0.25
+        }
       ]
     }
   ],
-  "summary": "IP56 dust and water-resistant MX switch with box housing — best durability in the MX category",
+  "summary": "IP56 dust and water-resistant MX switch with box housing \u2014 best durability in the MX category",
   "features": [
-    "IP56 dust and water resistance — sealed box housing",
-    "MX-compatible cross stem — works with all MX keycaps",
+    "IP56 dust and water resistance \u2014 sealed box housing",
+    "MX-compatible cross stem \u2014 works with all MX keycaps",
     "Reduced stem wobble due to box design",
-    "Click bar mechanism in clicky variants (Jade/Navy) — superior click feel",
+    "Click bar mechanism in clicky variants (Jade/Navy) \u2014 superior click feel",
     "Standard MX 19.05mm spacing",
     "Works with standard Kailh MX hot-swap sockets",
     "Shorter travel (3.6mm) than standard MX (4.0mm)",
     "Wide variant selection: linear, tactile, clicky, thick clicky"
   ],
   "concerns": [
-    "Early revisions could crack ABS keycaps — fixed in V2 but check revision",
+    "Early revisions could crack ABS keycaps \u2014 fixed in V2 but check revision",
     "Click bar switches (Jade/Navy) are very loud",
-    "Not a low-profile switch — standard MX height",
-    "Box stem is slightly wider than standard MX — some tight-fitting keycaps may be affected"
+    "Not a low-profile switch \u2014 standard MX height",
+    "Box stem is slightly wider than standard MX \u2014 some tight-fitting keycaps may be affected"
   ],
   "designNotes": [
     "Use same PCB footprint as Cherry MX with minor adjustments for box housing",
-    "Box housing provides additional stability — less stem wobble",
-    "Click bar mechanism is superior to click jacket — sharper, louder click",
-    "V2 revision fixed keycap cracking issue — safe for all keycaps now",
+    "Box housing provides additional stability \u2014 less stem wobble",
+    "Click bar mechanism is superior to click jacket \u2014 sharper, louder click",
+    "V2 revision fixed keycap cracking issue \u2014 safe for all keycaps now",
     "Popular choice for custom keyboard builds due to dust resistance"
   ],
   "externalLinks": [
-    { "label": "Kailh BOX Switch Product Page", "url": "https://www.kailhswitch.com/mechanical-keyboard-switches/kaih-box-switch.html" },
-    { "label": "NovelKeys BOX Switches", "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches" },
-    { "label": "Theremingoat Reviews", "url": "https://www.theremingoat.com/" }
+    {
+      "label": "Kailh BOX Switch Product Page",
+      "url": "https://www.kailhswitch.com/mechanical-keyboard-switches/kaih-box-switch.html"
+    },
+    {
+      "label": "NovelKeys BOX Switches",
+      "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches"
+    },
+    {
+      "label": "Theremingoat Reviews",
+      "url": "https://www.theremingoat.com/"
+    }
   ],
   "suppliers": [
-    { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches", "priceUsd": 0.35 },
-    { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-box-switches.html", "priceUsd": 0.25 },
-    { "name": "KBDfans", "url": "https://kbdfans.com/collections/kailh-switches", "priceUsd": 0.40 }
-  ]
+    {
+      "name": "NovelKeys",
+      "url": "https://novelkeys.com/collections/switches/products/kailh-box-switches",
+      "priceUsd": 0.35
+    },
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/kailh-box-switches.html",
+      "priceUsd": 0.25
+    },
+    {
+      "name": "KBDfans",
+      "url": "https://kbdfans.com/collections/kailh-switches",
+      "priceUsd": 0.4
+    }
+  ],
+  "sensingMethod": "mechanical",
+  "analogCapable": false,
+  "contactless": false,
+  "transparentHousing": true,
+  "ledPassthrough": "smd-under"
 }

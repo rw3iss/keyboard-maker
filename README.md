@@ -2,6 +2,15 @@
 
 A config-driven toolchain for designing and building custom mechanical keyboards from scratch. Takes a keyboard layout and component choices as input, generates KiCad schematics, PCB layouts, switch plates, 3D-printable cases, ZMK firmware, and a bill of materials — all from a single CLI tool. Includes a 3D web viewer for visualizing the assembled keyboard.
 
+<p>
+  <a href=".github/screenshots/screenshot_main.png"><img src=".github/screenshots/screenshot_main.png" width="59%" /></a>
+  <a href=".github/screenshots/screenshot_config_options.png"><img src=".github/screenshots/screenshot_config_options.png" width="40%" /></a>
+  <a href=".github/screenshots/screenshot_config_switches.png"><img src=".github/screenshots/screenshot_config_switches.png" width="49.5%" /></a>
+  <a href=".github/screenshots/screenshot_layout_editor.png"><img src=".github/screenshots/screenshot_layout_editor.png" width="49.5%" /></a>
+  <a href=".github/screenshots/screenshot_build.png"><img src=".github/screenshots/screenshot_build.png" width="59%" /></a>
+  <a href=".github/screenshots/screenshot_file_output.png"><img src=".github/screenshots/screenshot_file_output.png" width="40%" /></a>
+</p>
+
 ## Quick Start
 
 ```bash

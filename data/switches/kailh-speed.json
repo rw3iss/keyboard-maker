@@ -34,8 +34,16 @@
       "tactile": false,
       "clicky": false,
       "suppliers": [
-        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches", "priceUsd": 0.35 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-speed-switches.html", "priceUsd": 0.25 }
+        {
+          "name": "NovelKeys",
+          "url": "https://novelkeys.com/collections/switches",
+          "priceUsd": 0.35
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/kailh-speed-switches.html",
+          "priceUsd": 0.25
+        }
       ]
     },
     {
@@ -45,8 +53,16 @@
       "tactile": true,
       "clicky": false,
       "suppliers": [
-        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches", "priceUsd": 0.35 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-speed-switches.html", "priceUsd": 0.25 }
+        {
+          "name": "NovelKeys",
+          "url": "https://novelkeys.com/collections/switches",
+          "priceUsd": 0.35
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/kailh-speed-switches.html",
+          "priceUsd": 0.25
+        }
       ]
     },
     {
@@ -56,8 +72,16 @@
       "tactile": true,
       "clicky": true,
       "suppliers": [
-        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches", "priceUsd": 0.35 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-speed-switches.html", "priceUsd": 0.25 }
+        {
+          "name": "NovelKeys",
+          "url": "https://novelkeys.com/collections/switches",
+          "priceUsd": 0.35
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/kailh-speed-switches.html",
+          "priceUsd": 0.25
+        }
       ]
     },
     {
@@ -67,18 +91,26 @@
       "tactile": true,
       "clicky": true,
       "suppliers": [
-        { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches", "priceUsd": 0.35 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-speed-switches.html", "priceUsd": 0.25 }
+        {
+          "name": "NovelKeys",
+          "url": "https://novelkeys.com/collections/switches",
+          "priceUsd": 0.35
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/kailh-speed-switches.html",
+          "priceUsd": 0.25
+        }
       ]
     }
   ],
-  "summary": "Ultra-fast actuation MX switches with 1.1mm actuation point — designed for gaming and speed typing",
+  "summary": "Ultra-fast actuation MX switches with 1.1mm actuation point \u2014 designed for gaming and speed typing",
   "features": [
-    "1.1mm actuation distance — fastest MX-compatible switch",
-    "MX-compatible cross stem — works with all MX keycaps",
+    "1.1mm actuation distance \u2014 fastest MX-compatible switch",
+    "MX-compatible cross stem \u2014 works with all MX keycaps",
     "Standard MX 19.05mm spacing",
     "Works with standard Kailh MX hot-swap sockets",
-    "3.5mm total travel — slightly shorter than standard MX",
+    "3.5mm total travel \u2014 slightly shorter than standard MX",
     "Multiple variants: linear (Silver), tactile (Copper), clicky (Gold/Bronze)",
     "Popular for gaming due to fast actuation"
   ],
@@ -86,7 +118,7 @@
     "Very short actuation distance may cause accidental keypresses",
     "Not ideal for touch typists who rest fingers on keys",
     "Lighter actuation force can feel mushy to some users",
-    "Standard MX height — not a low-profile switch"
+    "Standard MX height \u2014 not a low-profile switch"
   ],
   "designNotes": [
     "Same PCB footprint as Cherry MX",
@@ -96,12 +128,35 @@
     "Can be used interchangeably with any MX-compatible PCB"
   ],
   "externalLinks": [
-    { "label": "Kailh Speed Switch Product Page", "url": "https://www.kailhswitch.com/mechanical-keyboard-switches/key-switches/kailh-speed-switch-red.html" },
-    { "label": "Theremingoat Reviews", "url": "https://www.theremingoat.com/" }
+    {
+      "label": "Kailh Speed Switch Product Page",
+      "url": "https://www.kailhswitch.com/mechanical-keyboard-switches/key-switches/kailh-speed-switch-red.html"
+    },
+    {
+      "label": "Theremingoat Reviews",
+      "url": "https://www.theremingoat.com/"
+    }
   ],
   "suppliers": [
-    { "name": "NovelKeys", "url": "https://novelkeys.com/collections/switches", "priceUsd": 0.35 },
-    { "name": "AliExpress", "url": "https://www.aliexpress.com/item/kailh-speed-switches.html", "priceUsd": 0.25 },
-    { "name": "KBDfans", "url": "https://kbdfans.com/collections/kailh-switches", "priceUsd": 0.40 }
-  ]
+    {
+      "name": "NovelKeys",
+      "url": "https://novelkeys.com/collections/switches",
+      "priceUsd": 0.35
+    },
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/kailh-speed-switches.html",
+      "priceUsd": 0.25
+    },
+    {
+      "name": "KBDfans",
+      "url": "https://kbdfans.com/collections/kailh-switches",
+      "priceUsd": 0.4
+    }
+  ],
+  "sensingMethod": "mechanical",
+  "analogCapable": false,
+  "contactless": false,
+  "transparentHousing": true,
+  "ledPassthrough": "smd-under"
 }

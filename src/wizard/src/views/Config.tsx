@@ -37,13 +37,16 @@ const COMPONENT_STEPS: Record<string, string> = {
 // Filter configurations per category
 const SWITCH_FILTERS: FilterConfig[] = [
 	{ key: 'type', label: 'Type', type: 'select' },
+	{ key: 'sensingMethod', label: 'Sensing', type: 'select' },
 	{ key: 'manufacturer', label: 'Brand', type: 'select' },
 	{ key: 'profile', label: 'Profile', type: 'select' },
+	{ key: 'analogCapable', label: 'Analog', type: 'boolean' },
+	{ key: 'transparentHousing', label: 'RGB-Ready', type: 'boolean' },
 	{ key: 'hotswapCompatible', label: 'Hotswap', type: 'boolean' },
 	{ key: 'mounting', label: 'Mounting', type: 'select' },
-	{ key: 'activationDistance', label: 'Actuation (mm)', type: 'range' },
-	{ key: 'travelDistance', label: 'Travel (mm)', type: 'range' },
-	{ key: 'totalHeight', label: 'Height (mm)', type: 'range' },
+	{ key: 'activationDistance', label: 'Actuation (mm)', type: 'range', rangeBrackets: ['0-0.5', '0.5-1.0', '1.0-1.5', '1.5-2.0', '2.0+'] },
+	{ key: 'travelDistance', label: 'Travel (mm)', type: 'range', rangeBrackets: ['0-2.0', '2.0-3.0', '3.0-4.0', '4.0+'] },
+	{ key: 'totalHeight', label: 'Height (mm)', type: 'range', rangeBrackets: ['0-8', '8-12', '12-16', '16+'] },
 	{ key: 'keycapMount', label: 'Keycap Mount', type: 'select' },
 	{ key: 'pinSpacing', label: 'Pin Spacing', type: 'range' },
 	{ key: 'maxPrice', label: 'Max Price', type: 'maxPrice' },
@@ -74,13 +77,21 @@ const FILTER_CONFIGS: Record<string, FilterConfig[]> = {
 /** Extract display chips for a switch component */
 function getSwitchChips(c: any): ChipDef[] {
 	const chips: ChipDef[] = [];
+	if (c.sensingMethod && c.sensingMethod !== 'mechanical') chips.push({ label: 'Sensing', value: c.sensingMethod });
 	if (c.type) chips.push({ label: 'Type', value: c.type });
 	if (c.keycapMount) chips.push({ label: 'Profile', value: c.keycapMount });
+	if (c.activationDistance != null) {
+		const act = c.activationDistanceAdjustable
+			? `${c.activationDistance}–${c.activationDistanceMax ?? c.travelDistance}mm adj.`
+			: `${c.activationDistance}mm`;
+		chips.push({ label: 'Actuation', value: act });
+	}
 	if (c.travelDistance != null) chips.push({ label: 'Travel', value: `${c.travelDistance}mm` });
-	// Actuation force from first variant
 	const force = c.actuationForce || c.variants?.[0]?.actuationForce;
 	if (force) chips.push({ label: 'Force', value: `${force}g` });
 	if (c.mounting) chips.push({ label: 'Mount', value: c.mounting });
+	if (c.analogCapable) chips.push({ label: 'Analog', value: 'Yes' });
+	if (c.transparentHousing) chips.push({ label: 'RGB-Ready', value: 'Yes' });
 	if (c.hotswapCompatible != null) chips.push({ label: 'Hotswap', value: c.hotswapCompatible ? 'Yes' : 'No' });
 	return chips;
 }
@@ -195,6 +206,11 @@ export function Config({ step }: ConfigProps) {
 					'cherry-mx-ulp': 'mx_ulp',
 					'cherry-mx': 'mx',
 					'gateron-low-profile': 'gateron_lp',
+					'gateron-ks33-hall-effect': 'hall_effect_mx',
+					'gateron-ks20-hall-effect-lp': 'hall_effect_lp',
+					'gateron-optical-full': 'optical_mx',
+					'gateron-ks27-optical-lp': 'optical_lp',
+					'outemu-optical': 'optical_mx',
 				};
 				const switchType = switchTypeMap[opt?.id || ''] || updatedConfig.switches?.type || 'choc_v1';
 				updatedConfig.switches = {
@@ -719,10 +735,12 @@ export function Config({ step }: ConfigProps) {
 	const [chargerOptions, setChargerOptions] = useState<ComponentOption[]>([]);
 	const [batteryOptions, setBatteryOptions] = useState<ComponentOption[]>([]);
 	const [mcuOptions, setMcuOptions] = useState<ComponentOption[]>([]);
+	const [switchOptionsAll, setSwitchOptionsAll] = useState<ComponentOption[]>([]);
 	useEffect(() => {
 		apiGet<ComponentOption[]>('/api/components/chargers').then(setChargerOptions).catch(() => {});
 		apiGet<ComponentOption[]>('/api/components/batteries').then(setBatteryOptions).catch(() => {});
 		apiGet<ComponentOption[]>('/api/components/mcus').then(setMcuOptions).catch(() => {});
+		apiGet<ComponentOption[]>('/api/components/switches').then(setSwitchOptionsAll).catch(() => {});
 	}, []);
 
 	const renderPower = () => {
@@ -854,7 +872,7 @@ export function Config({ step }: ConfigProps) {
 			case 'power':
 				return renderPower();
 			case 'features':
-				return <FeaturesStep localConfig={localConfig} updateLocal={updateLocal} />;
+				return <FeaturesStep localConfig={localConfig} updateLocal={updateLocal} switchOptions={switchOptionsAll} />;
 			case 'outputs':
 				return <OutputsStep localConfig={localConfig} updateLocal={updateLocal} />;
 			case 'pcb':

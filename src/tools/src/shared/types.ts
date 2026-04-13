@@ -72,7 +72,11 @@ export interface SwitchMatrix {
 }
 
 /** Supported mechanical switch types. */
-export type SwitchType = 'choc_v1' | 'choc_v2' | 'mx_ulp' | 'mx' | 'gateron_lp';
+export type SwitchType = 'choc_v1' | 'choc_v2' | 'mx_ulp' | 'mx' | 'gateron_lp'
+  | 'hall_effect_mx' | 'hall_effect_lp' | 'optical_mx' | 'optical_lp';
+
+/** How the switch senses key presses — determines scanning architecture */
+export type SwitchSensingMethod = 'mechanical' | 'hall-effect' | 'optical';
 
 /** Full build configuration produced by the wizard or loaded from disk. */
 export interface BuildConfig {

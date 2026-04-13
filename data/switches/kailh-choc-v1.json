@@ -117,7 +117,7 @@
     "3-pin design (no PCB-mount stabilizer pins)",
     "LED slot faces south by convention"
   ],
-  "summary": "The most popular low-profile mechanical switch — best keycap ecosystem in the LP category",
+  "summary": "The most popular low-profile mechanical switch \u2014 best keycap ecosystem in the LP category",
   "features": [
     "Most popular low-profile switch for custom keyboards",
     "Best keycap selection in the low-profile category",
@@ -128,7 +128,7 @@
   ],
   "concerns": [
     "Choc keycaps NOT interchangeable with MX keycaps",
-    "3-pin design only — no PCB mount stabilizer pins",
+    "3-pin design only \u2014 no PCB mount stabilizer pins",
     "Tighter spacing (18x17mm) requires Choc-specific PCB designs",
     "Some variants (Pink/linear light) have inconsistent spring weights"
   ],
@@ -149,5 +149,10 @@
       "label": "Choc Keycap Options Guide",
       "url": "https://lowprokb.ca/collections/keycaps"
     }
-  ]
+  ],
+  "sensingMethod": "mechanical",
+  "analogCapable": false,
+  "contactless": false,
+  "transparentHousing": false,
+  "ledPassthrough": "none"
 }

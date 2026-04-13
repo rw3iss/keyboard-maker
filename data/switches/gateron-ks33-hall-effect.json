@@ -1,0 +1,108 @@
+{
+  "id": "gateron-ks33-hall-effect",
+  "name": "Gateron KS-33 Magnetic Hall-Effect",
+  "manufacturer": "Gateron",
+  "type": "hall-effect",
+  "sensingMethod": "hall-effect",
+  "analogCapable": true,
+  "contactless": true,
+  "summary": "Full-size analog hall-effect switch with adjustable actuation \u2014 the most widely available magnetic switch for DIY builds",
+  "dimensions": {
+    "width": 15.6,
+    "depth": 15.6,
+    "height": 18.5
+  },
+  "switchSpacing": {
+    "x": 19.05,
+    "y": 19.05
+  },
+  "pinSpacing": null,
+  "pinCount": 3,
+  "pinType": "through-hole",
+  "pinDescription": "VCC, GND, Analog Signal (variable voltage proportional to stem position)",
+  "activationDistance": 0.1,
+  "activationDistanceMax": 3.8,
+  "activationDistanceAdjustable": true,
+  "travelDistance": 4.0,
+  "totalHeight": 18.5,
+  "keycapMount": "mx",
+  "profile": "MX",
+  "mounting": "through-hole",
+  "hotswapCompatible": true,
+  "hotswapSocket": "gateron-magnetic-3pin",
+  "hotswapNote": "Requires Gateron magnetic 3-pin hot-swap sockets \u2014 NOT compatible with standard MX Kailh/Gateron mechanical sockets",
+  "operatingVoltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "scanningArchitecture": "adc-multiplexed",
+  "scanningNote": "Requires per-key ADC reading via analog multiplexers (e.g., CD74HC4067). NOT compatible with standard diode matrix scanning. Typical setup: 16:1 analog mux \u2192 MCU ADC channel.",
+  "footprintFile": null,
+  "footprintNote": "No official KiCad footprint published. Pin positions must be measured from physical samples. 3-pin through-hole layout differs from standard 2-pin MX switches.",
+  "symbolRef": "Sensor:Hall_Effect_Analog",
+  "datasheet": null,
+  "variants": [
+    {
+      "id": "gateron-ks33-he-linear",
+      "name": "KS-33 HE Linear (35g)",
+      "actuationForce": 35,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/gateron-ks33-magnetic-hall-effect-switch.html",
+          "priceUsd": 0.5
+        }
+      ]
+    },
+    {
+      "id": "gateron-ks33-he-linear-45",
+      "name": "KS-33 HE Linear (45g)",
+      "actuationForce": 45,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/gateron-ks33-magnetic-hall-effect-switch.html",
+          "priceUsd": 0.55
+        }
+      ]
+    }
+  ],
+  "designNotes": [
+    "Hall-effect switches output analog voltage \u2014 NO diode matrix scanning. Requires ADC + multiplexer architecture.",
+    "Each switch needs 3 connections: VCC (3.3V), GND, and analog signal trace routed to a multiplexer input.",
+    "Typical architecture: 16:1 analog multiplexers (CD74HC4067) \u2192 MCU ADC pins. An 86-key board needs ~6 mux ICs.",
+    "The nRF52840 has 8 analog inputs (SAADC) \u2014 sufficient to read 6 multiplexers with 2 spare channels.",
+    "Adjustable actuation point is a firmware feature \u2014 the MCU reads analog values and applies software thresholds.",
+    "ZMK does not natively support analog scanning \u2014 requires custom driver development.",
+    "Pin dimensions not publicly documented \u2014 physical measurement required for accurate PCB footprint."
+  ],
+  "features": [
+    "Adjustable actuation point: 0.1mm to 3.8mm (software-controlled)",
+    "True analog output \u2014 enables rapid trigger, adjustable sensitivity per key",
+    "Contactless operation \u2014 no metal contacts, theoretically infinite lifespan",
+    "No key bounce/debounce needed \u2014 instant digital readout from analog threshold",
+    "Standard MX cross (+) stem \u2014 compatible with all MX keycaps",
+    "Most widely available hall-effect switch for individual purchase"
+  ],
+  "concerns": [
+    "Requires completely different PCB scanning architecture (ADC + multiplexers, not standard matrix)",
+    "ZMK firmware does not natively support analog scanning \u2014 custom drivers needed",
+    "No official KiCad footprint \u2014 pin positions must be reverse-engineered from samples",
+    "Hot-swap sockets are Gateron magnetic 3-pin (NOT standard MX hot-swap)",
+    "Slightly more expensive than mechanical switches ($0.40\u20130.70/switch vs $0.15\u20130.30)",
+    "Full MX height only \u2014 no low-profile version of the KS-33"
+  ],
+  "externalLinks": [
+    {
+      "label": "Gateron Official",
+      "url": "https://en.gateron.com/"
+    }
+  ],
+  "transparentHousing": true,
+  "ledPassthrough": "smd-under"
+}

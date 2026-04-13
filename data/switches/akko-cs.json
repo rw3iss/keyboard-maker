@@ -34,9 +34,21 @@
       "tactile": true,
       "clicky": false,
       "suppliers": [
-        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-lavender-purple-switch-45pcs/", "priceUsd": 0.22 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 },
-        { "name": "Amazon", "url": "https://www.amazon.com/s?k=akko+cs+switch", "priceUsd": 0.25 }
+        {
+          "name": "Akko Official",
+          "url": "https://en.akkogear.com/product/akko-cs-lavender-purple-switch-45pcs/",
+          "priceUsd": 0.22
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/akko-cs-switches.html",
+          "priceUsd": 0.18
+        },
+        {
+          "name": "Amazon",
+          "url": "https://www.amazon.com/s?k=akko+cs+switch",
+          "priceUsd": 0.25
+        }
       ]
     },
     {
@@ -46,8 +58,16 @@
       "tactile": false,
       "clicky": false,
       "suppliers": [
-        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-rose-red-switch-45pcs/", "priceUsd": 0.22 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 }
+        {
+          "name": "Akko Official",
+          "url": "https://en.akkogear.com/product/akko-cs-rose-red-switch-45pcs/",
+          "priceUsd": 0.22
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/akko-cs-switches.html",
+          "priceUsd": 0.18
+        }
       ]
     },
     {
@@ -57,8 +77,16 @@
       "tactile": true,
       "clicky": false,
       "suppliers": [
-        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-ocean-blue-switch-45pcs/", "priceUsd": 0.22 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 }
+        {
+          "name": "Akko Official",
+          "url": "https://en.akkogear.com/product/akko-cs-ocean-blue-switch-45pcs/",
+          "priceUsd": 0.22
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/akko-cs-switches.html",
+          "priceUsd": 0.18
+        }
       ]
     },
     {
@@ -68,8 +96,16 @@
       "tactile": false,
       "clicky": false,
       "suppliers": [
-        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-matcha-green-switch-45pcs/", "priceUsd": 0.22 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 }
+        {
+          "name": "Akko Official",
+          "url": "https://en.akkogear.com/product/akko-cs-matcha-green-switch-45pcs/",
+          "priceUsd": 0.22
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/akko-cs-switches.html",
+          "priceUsd": 0.18
+        }
       ]
     },
     {
@@ -79,8 +115,16 @@
       "tactile": false,
       "clicky": false,
       "suppliers": [
-        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-jelly-black-switch-45pcs/", "priceUsd": 0.22 },
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 }
+        {
+          "name": "Akko Official",
+          "url": "https://en.akkogear.com/product/akko-cs-jelly-black-switch-45pcs/",
+          "priceUsd": 0.22
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/akko-cs-switches.html",
+          "priceUsd": 0.18
+        }
       ]
     },
     {
@@ -90,14 +134,18 @@
       "tactile": false,
       "clicky": false,
       "suppliers": [
-        { "name": "Akko Official", "url": "https://en.akkogear.com/product/akko-cs-silver-switch-45pcs/", "priceUsd": 0.22 }
+        {
+          "name": "Akko Official",
+          "url": "https://en.akkogear.com/product/akko-cs-silver-switch-45pcs/",
+          "priceUsd": 0.22
+        }
       ]
     }
   ],
-  "summary": "Best-value MX-compatible switches — factory-lubed with smooth housings at budget prices",
+  "summary": "Best-value MX-compatible switches \u2014 factory-lubed with smooth housings at budget prices",
   "features": [
-    "MX-compatible cross stem — works with all MX keycaps",
-    "Factory pre-lubed — smooth out of the box",
+    "MX-compatible cross stem \u2014 works with all MX keycaps",
+    "Factory pre-lubed \u2014 smooth out of the box",
     "Dustproof stem design on most variants",
     "Standard MX 19.05mm spacing",
     "Works with standard Kailh MX hot-swap sockets",
@@ -107,14 +155,14 @@
     "100M cycle rating"
   ],
   "concerns": [
-    "Not a low-profile switch — standard MX height",
+    "Not a low-profile switch \u2014 standard MX height",
     "Factory lube quality can be inconsistent",
     "Some variants have noticeable spring ping",
     "Brand is less established than Cherry, Gateron, or Kailh",
-    "Available primarily online — limited physical retail"
+    "Available primarily online \u2014 limited physical retail"
   ],
   "designNotes": [
-    "Uses standard Cherry MX footprint — no special PCB design needed",
+    "Uses standard Cherry MX footprint \u2014 no special PCB design needed",
     "Best budget option for MX-compatible custom keyboards",
     "Factory lube makes them usable without additional modification",
     "Lavender Purple and Rose Red are the most popular variants",
@@ -122,13 +170,39 @@
     "Good recommendation for first-time keyboard builders on a budget"
   ],
   "externalLinks": [
-    { "label": "Akko Official Switch Store", "url": "https://en.akkogear.com/store/switch/" },
-    { "label": "Theremingoat Reviews", "url": "https://www.theremingoat.com/" },
-    { "label": "Switch Comparison", "url": "https://www.theremingoat.com/" }
+    {
+      "label": "Akko Official Switch Store",
+      "url": "https://en.akkogear.com/store/switch/"
+    },
+    {
+      "label": "Theremingoat Reviews",
+      "url": "https://www.theremingoat.com/"
+    },
+    {
+      "label": "Switch Comparison",
+      "url": "https://www.theremingoat.com/"
+    }
   ],
   "suppliers": [
-    { "name": "Akko Official", "url": "https://en.akkogear.com/store/switch/", "priceUsd": 0.22 },
-    { "name": "AliExpress", "url": "https://www.aliexpress.com/item/akko-cs-switches.html", "priceUsd": 0.18 },
-    { "name": "Amazon", "url": "https://www.amazon.com/s?k=akko+cs+switch", "priceUsd": 0.25 }
-  ]
+    {
+      "name": "Akko Official",
+      "url": "https://en.akkogear.com/store/switch/",
+      "priceUsd": 0.22
+    },
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/akko-cs-switches.html",
+      "priceUsd": 0.18
+    },
+    {
+      "name": "Amazon",
+      "url": "https://www.amazon.com/s?k=akko+cs+switch",
+      "priceUsd": 0.25
+    }
+  ],
+  "sensingMethod": "mechanical",
+  "analogCapable": false,
+  "contactless": false,
+  "transparentHousing": true,
+  "ledPassthrough": "smd-under"
 }

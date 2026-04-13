@@ -7,6 +7,10 @@ export const SWITCH_SPACING: Record<SwitchType, { x: number; y: number }> = {
   mx_ulp: { x: 18, y: 18 },
   mx: { x: 19.05, y: 19.05 },
   gateron_lp: { x: 18, y: 17 },
+  hall_effect_mx: { x: 19.05, y: 19.05 },
+  hall_effect_lp: { x: 19.05, y: 19.05 },
+  optical_mx: { x: 19.05, y: 19.05 },
+  optical_lp: { x: 19.05, y: 19.05 },
 };
 
 /** One KLE unit in millimeters. */
@@ -29,4 +33,8 @@ export const SWITCH_CUTOUT_MM: Record<SwitchType, { width: number; height: numbe
   mx_ulp: { width: 12, height: 12 },
   mx: { width: 14, height: 14 },
   gateron_lp: { width: 13.8, height: 13.8 },
+  hall_effect_mx: { width: 14, height: 14 },
+  hall_effect_lp: { width: 14, height: 14 },
+  optical_mx: { width: 14, height: 14 },
+  optical_lp: { width: 14, height: 14 },
 };

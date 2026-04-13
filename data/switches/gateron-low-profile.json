@@ -88,17 +88,17 @@
     "Keycap availability is more limited than Choc ecosystem",
     "Used in Nuphy Air series keyboards"
   ],
-  "summary": "Low-profile mechanical switch with proprietary mount — used in Nuphy keyboards",
+  "summary": "Low-profile mechanical switch with proprietary mount \u2014 used in Nuphy keyboards",
   "features": [
     "Low-profile design (9mm height)",
     "Hot-swap socket available",
-    "3.0mm key travel — more than Choc v1",
+    "3.0mm key travel \u2014 more than Choc v1",
     "Multiple variants: linear, tactile, clicky",
     "Through-hole mounting with hot-swap option",
     "Used in popular Nuphy Air series"
   ],
   "concerns": [
-    "Proprietary Gateron LP keycap mount — limited keycap selection",
+    "Proprietary Gateron LP keycap mount \u2014 limited keycap selection",
     "NOT compatible with Kailh Choc keycaps",
     "Hot-swap sockets are Gateron-specific, not interchangeable",
     "Smaller keycap ecosystem than Choc or MX",
@@ -117,5 +117,10 @@
       "label": "Nuphy Air Keyboard (uses these switches)",
       "url": "https://nuphy.com/collections/keyboards"
     }
-  ]
+  ],
+  "sensingMethod": "mechanical",
+  "analogCapable": false,
+  "contactless": false,
+  "transparentHousing": false,
+  "ledPassthrough": "none"
 }

@@ -34,7 +34,11 @@
       "tactile": true,
       "clicky": false,
       "suppliers": [
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-switches.html", "priceUsd": 0.12 }
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/outemu-switches.html",
+          "priceUsd": 0.12
+        }
       ]
     },
     {
@@ -44,7 +48,11 @@
       "tactile": false,
       "clicky": false,
       "suppliers": [
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-switches.html", "priceUsd": 0.12 }
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/outemu-switches.html",
+          "priceUsd": 0.12
+        }
       ]
     },
     {
@@ -54,7 +62,11 @@
       "tactile": true,
       "clicky": true,
       "suppliers": [
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-switches.html", "priceUsd": 0.12 }
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/outemu-switches.html",
+          "priceUsd": 0.12
+        }
       ]
     },
     {
@@ -64,13 +76,17 @@
       "tactile": false,
       "clicky": false,
       "suppliers": [
-        { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-switches.html", "priceUsd": 0.12 }
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/outemu-switches.html",
+          "priceUsd": 0.12
+        }
       ]
     }
   ],
-  "summary": "Cheapest MX-compatible switches available — absolute budget pick at $0.10-0.15 per switch",
+  "summary": "Cheapest MX-compatible switches available \u2014 absolute budget pick at $0.10-0.15 per switch",
   "features": [
-    "MX-compatible cross stem — works with all MX keycaps",
+    "MX-compatible cross stem \u2014 works with all MX keycaps",
     "Cheapest MX switches available ($0.10-0.15 per switch)",
     "Standard MX 19.05mm spacing",
     "5-pin (PCB mount) variant available",
@@ -79,8 +95,8 @@
     "Widely used in budget pre-built keyboards"
   ],
   "concerns": [
-    "Scratchier than Gateron or Cherry — benefit from lubing",
-    "Outemu hot-swap sockets use slightly smaller pin holes — NOT compatible with Cherry/Gateron pins",
+    "Scratchier than Gateron or Cherry \u2014 benefit from lubing",
+    "Outemu hot-swap sockets use slightly smaller pin holes \u2014 NOT compatible with Cherry/Gateron pins",
     "Inconsistent quality control across batches",
     "Spring ping is common",
     "Housing can feel rattly compared to premium switches",
@@ -95,11 +111,30 @@
     "Consider spending slightly more for Akko CS or Gateron for much better feel"
   ],
   "externalLinks": [
-    { "label": "Outemu Official Product Page", "url": "https://www.outemu.com/en/products_detail/30.html" },
-    { "label": "Theremingoat Reviews", "url": "https://www.theremingoat.com/" }
+    {
+      "label": "Outemu Official Product Page",
+      "url": "https://www.outemu.com/en/products_detail/30.html"
+    },
+    {
+      "label": "Theremingoat Reviews",
+      "url": "https://www.theremingoat.com/"
+    }
   ],
   "suppliers": [
-    { "name": "AliExpress", "url": "https://www.aliexpress.com/item/outemu-switches.html", "priceUsd": 0.12 },
-    { "name": "AliExpress (bulk)", "url": "https://www.aliexpress.com/item/outemu-switches-bulk.html", "priceUsd": 0.10 }
-  ]
+    {
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/item/outemu-switches.html",
+      "priceUsd": 0.12
+    },
+    {
+      "name": "AliExpress (bulk)",
+      "url": "https://www.aliexpress.com/item/outemu-switches-bulk.html",
+      "priceUsd": 0.1
+    }
+  ],
+  "sensingMethod": "mechanical",
+  "analogCapable": false,
+  "contactless": false,
+  "transparentHousing": true,
+  "ledPassthrough": "smd-under"
 }

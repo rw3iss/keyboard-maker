@@ -3,8 +3,12 @@ import { Checkbox } from '../../components/common/Checkbox';
 import type { BuildConfig } from '../../types/project.types';
 import type { ConfigStepProps } from './types';
 
-export function FeaturesStep({ localConfig, updateLocal }: ConfigStepProps) {
+export function FeaturesStep({ localConfig, updateLocal, switchOptions }: ConfigStepProps) {
   const feat = (localConfig as BuildConfig)?.features;
+  const switchModel = (localConfig as BuildConfig)?.switches?.model;
+  const selectedSwitch = switchOptions?.find((s) => s.id === switchModel) as any;
+  const hasTransparentHousing = selectedSwitch?.transparentHousing ?? true;
+
   return (
     <div style="display:flex;flex-direction:column;gap:20px;max-width:600px">
       {/* Per-key RGB */}
@@ -20,6 +24,13 @@ export function FeaturesStep({ localConfig, updateLocal }: ConfigStepProps) {
             <div style="color:var(--warning);margin-top:4px">
               Adds one LED per key. High power draw (~1.7A at full white) — battery life significantly reduced in wireless mode.
             </div>
+            {feat?.rgbPerKey && !hasTransparentHousing && (
+              <div style="color:var(--accent);margin-top:6px;padding:6px 8px;background:var(--accent-soft);border-radius:var(--radius-sm)">
+                Note: The selected switch ({selectedSwitch?.name || switchModel}) has an opaque housing.
+                Per-key RGB LEDs will still work electrically, but the light won't shine through the switch body.
+                For best RGB visibility, consider a switch with a transparent housing (filter by "RGB-Ready" on the Switches page).
+              </div>
+            )}
           </div>
         }
       />

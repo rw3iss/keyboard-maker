@@ -14,6 +14,11 @@ const SWITCH_FOOTPRINT_LIB: Record<SwitchType, string> = {
   mx_ulp: 'Cherry:SW_Cherry_MX_ULP',
   mx: 'MX:SW_Cherry_MX_PCB',
   gateron_lp: 'Gateron:SW_Gateron_LP',
+  // Hall-effect and optical use generic placeholder footprints (no official KiCad libraries)
+  hall_effect_mx: 'Switch:SW_HallEffect_MX',
+  hall_effect_lp: 'Switch:SW_HallEffect_LP',
+  optical_mx: 'Switch:SW_Optical_MX',
+  optical_lp: 'Switch:SW_Optical_LP',
 };
 
 /** Pad sizes per switch type (mm) */
@@ -23,6 +28,12 @@ const SWITCH_PAD_SIZE: Record<SwitchType, { drill: number; pad: number }> = {
   mx_ulp: { drill: 1.0, pad: 1.8 },
   mx: { drill: 1.7, pad: 2.5 },
   gateron_lp: { drill: 1.5, pad: 2.2 },
+  // Hall-effect: 3 pins (VCC, GND, signal) — approximate dimensions pending physical measurement
+  hall_effect_mx: { drill: 1.5, pad: 2.2 },
+  hall_effect_lp: { drill: 1.5, pad: 2.2 },
+  // Optical: switch has no electrical pins (IR components are PCB-mounted)
+  optical_mx: { drill: 1.5, pad: 2.2 },
+  optical_lp: { drill: 1.5, pad: 2.2 },
 };
 
 /**

@@ -1,0 +1,108 @@
+{
+  "id": "gateron-ks27-optical-lp",
+  "name": "Gateron KS-27 Low-Profile Optical Switch",
+  "manufacturer": "Gateron",
+  "type": "low-profile-optical",
+  "sensingMethod": "optical",
+  "analogCapable": false,
+  "contactless": true,
+  "summary": "Low-profile optical switch used in Keychron K1 SE \u2014 very limited individual availability",
+  "dimensions": {
+    "width": 15.0,
+    "depth": 15.0,
+    "height": 12.0
+  },
+  "switchSpacing": {
+    "x": 19.05,
+    "y": 19.05
+  },
+  "pinSpacing": null,
+  "pinCount": 0,
+  "pinType": "none",
+  "pinDescription": "No electrical pins \u2014 same PCB-mounted IR design as full-size Gateron optical. Alignment posts only.",
+  "activationDistance": 1.5,
+  "travelDistance": 2.5,
+  "totalHeight": 12.0,
+  "keycapMount": "gateron-lp",
+  "keycapMountNote": "Gateron low-profile proprietary stem \u2014 NOT compatible with Choc or MX keycaps",
+  "profile": "Low-Profile",
+  "mounting": "optical-pcb",
+  "hotswapCompatible": true,
+  "hotswapSocket": "gateron-optical-lp",
+  "hotswapNote": "Proprietary Gateron low-profile optical hot-swap. Not cross-compatible with anything else.",
+  "operatingVoltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "scanningArchitecture": "optical-matrix",
+  "scanningNote": "Same PCB-mounted IR design as full-size Gateron optical. See gateron-optical-full design notes.",
+  "opticalComponents": {
+    "emitter": "IR LED, PCB-mounted",
+    "sensor": "Phototransistor, PCB-mounted",
+    "location": "Both on PCB"
+  },
+  "footprintFile": null,
+  "footprintNote": "No official KiCad footprint. Dimensions are estimated. Would need reverse-engineering from Keychron K1 SE optical PCB.",
+  "symbolRef": null,
+  "datasheet": null,
+  "variants": [
+    {
+      "id": "gateron-ks27-optical-lp-red",
+      "name": "KS-27 LP Optical Red (Linear, 45g)",
+      "actuationForce": 45,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/w/wholesale-gateron-ks27-optical.html",
+          "priceUsd": 0.4
+        }
+      ]
+    },
+    {
+      "id": "gateron-ks27-optical-lp-brown",
+      "name": "KS-27 LP Optical Brown (Tactile, 55g)",
+      "actuationForce": 55,
+      "tactile": true,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/w/wholesale-gateron-ks27-optical.html",
+          "priceUsd": 0.4
+        }
+      ]
+    }
+  ],
+  "designNotes": [
+    "Very limited individual availability \u2014 mostly available as Keychron spare parts.",
+    "Proprietary keycap mount \u2014 NOT Choc-compatible, NOT MX-compatible.",
+    "Finding compatible keycaps is extremely difficult outside of Keychron's ecosystem.",
+    "Same PCB-mounted IR architecture as full-size Gateron optical \u2014 adds complexity to PCB design.",
+    "No official footprint or datasheet \u2014 all dimensions are approximate.",
+    "Consider Kailh Choc v1 (mechanical, widely available, good ecosystem) for a more practical low-profile option."
+  ],
+  "features": [
+    "Low-profile form factor (~12mm height)",
+    "Contactless optical sensing \u2014 long lifespan, no debounce",
+    "Reduced travel distance (2.5mm) for faster key presses"
+  ],
+  "concerns": [
+    "VERY limited availability \u2014 mostly Keychron spare parts",
+    "Proprietary keycap stem \u2014 almost no compatible aftermarket keycaps",
+    "No official datasheet, footprint, or pin dimensions",
+    "Same optical PCB complexity as full-size variant",
+    "Digital only \u2014 no analog capability",
+    "For practical low-profile builds, Kailh Choc v1 (mechanical) is a far better choice"
+  ],
+  "externalLinks": [
+    {
+      "label": "Keychron K1 SE (uses KS-27)",
+      "url": "https://www.keychron.com/products/keychron-k1-se"
+    }
+  ],
+  "transparentHousing": true,
+  "ledPassthrough": "smd-under"
+}

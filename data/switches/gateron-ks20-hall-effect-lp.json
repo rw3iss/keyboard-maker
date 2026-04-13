@@ -1,0 +1,94 @@
+{
+  "id": "gateron-ks20-hall-effect-lp",
+  "name": "Gateron KS-20 Magnetic Hall-Effect (Low-Profile)",
+  "manufacturer": "Gateron",
+  "type": "low-profile-hall-effect",
+  "sensingMethod": "hall-effect",
+  "analogCapable": true,
+  "contactless": true,
+  "summary": "The ONLY low-profile hall-effect switch available \u2014 analog sensing in a compact form factor, but limited availability",
+  "dimensions": {
+    "width": 15.0,
+    "depth": 15.0,
+    "height": 12.0
+  },
+  "switchSpacing": {
+    "x": 19.05,
+    "y": 19.05
+  },
+  "pinSpacing": null,
+  "pinCount": 3,
+  "pinType": "through-hole",
+  "pinDescription": "VCC, GND, Analog Signal. Proprietary pin layout \u2014 exact dimensions not publicly documented.",
+  "activationDistance": 0.1,
+  "activationDistanceMax": 2.8,
+  "activationDistanceAdjustable": true,
+  "travelDistance": 3.0,
+  "totalHeight": 12.0,
+  "keycapMount": "mx",
+  "profile": "MX",
+  "mounting": "through-hole",
+  "hotswapCompatible": true,
+  "hotswapSocket": "gateron-magnetic-lp-3pin",
+  "hotswapNote": "Uses Gateron's low-profile magnetic hot-swap sockets \u2014 NOT compatible with Kailh Choc sockets",
+  "operatingVoltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "scanningArchitecture": "adc-multiplexed",
+  "scanningNote": "Same ADC + multiplexer architecture as KS-33. See KS-33 design notes for scanning details.",
+  "footprintFile": null,
+  "footprintNote": "No official KiCad footprint. Pin positions must be measured from physical samples. Very limited community documentation.",
+  "symbolRef": "Sensor:Hall_Effect_Analog",
+  "datasheet": null,
+  "variants": [
+    {
+      "id": "gateron-ks20-he-lp-linear",
+      "name": "KS-20 HE Low-Profile Linear",
+      "actuationForce": 40,
+      "tactile": false,
+      "clicky": false,
+      "suppliers": [
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/w/wholesale-gateron-ks20-magnetic.html",
+          "priceUsd": 0.65
+        }
+      ]
+    }
+  ],
+  "designNotes": [
+    "The ONLY low-profile hall-effect switch that exists in any purchasable form.",
+    "Very limited individual availability \u2014 primarily supplied to OEM keyboard manufacturers.",
+    "Sometimes appears on AliExpress or Taobao but supply is inconsistent.",
+    "Same ADC + multiplexer scanning architecture as the full-size KS-33.",
+    "No official datasheet with pin dimensions \u2014 requires physical measurement.",
+    "Production status uncertain \u2014 Gateron's product page has been inconsistent about this model.",
+    "If you need guaranteed low-profile + analog, consider using Kailh Choc v1 (mechanical) and adding separate hall-effect sensors to the PCB."
+  ],
+  "features": [
+    "Low-profile form factor (~12mm total height vs 18.5mm for MX)",
+    "Adjustable actuation point: 0.1mm to 2.8mm (software-controlled)",
+    "True analog output \u2014 same rapid trigger capability as full-size hall-effect",
+    "Contactless operation \u2014 no mechanical contacts to wear out",
+    "Reduced travel distance (3.0mm) for faster key presses"
+  ],
+  "concerns": [
+    "VERY limited availability \u2014 may be difficult or impossible to source",
+    "No public datasheet or KiCad footprint \u2014 significant reverse-engineering needed",
+    "OEM-focused product \u2014 not designed for individual/DIY purchase",
+    "Exact dimensions may vary between production batches",
+    "Requires same complex ADC scanning as KS-33 (no standard matrix)",
+    "ZMK does not natively support analog scanning",
+    "Custom low-profile hot-swap sockets may be even harder to source than the switches"
+  ],
+  "externalLinks": [
+    {
+      "label": "Gateron Official",
+      "url": "https://en.gateron.com/"
+    }
+  ],
+  "transparentHousing": false,
+  "ledPassthrough": "none"
+}
