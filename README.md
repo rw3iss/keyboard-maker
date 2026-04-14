@@ -5,8 +5,8 @@ A config-driven toolchain for designing and building custom mechanical keyboards
 <p>
   <a href=".github/screenshots/screenshot_main.png"><img src=".github/screenshots/screenshot_main.png" width="61%" /></a>
   <a href=".github/screenshots/screenshot_config_options.png"><img src=".github/screenshots/screenshot_config_options.png" width="38%" /></a>
-  <a href=".github/screenshots/screenshot_config_switches.png"><img src=".github/screenshots/screenshot_config_switches.png" width="49.5%" /></a>
-  <a href=".github/screenshots/screenshot_layout_editor.png"><img src=".github/screenshots/screenshot_layout_editor.png" width="49.5%" /></a>
+  <a href=".github/screenshots/screenshot_config_switches.png"><img src=".github/screenshots/screenshot_config_switches.png" width="50.1%" /></a>
+  <a href=".github/screenshots/screenshot_layout_editor.png"><img src=".github/screenshots/screenshot_layout_editor.png" width="48.9%" /></a>
   <a href=".github/screenshots/screenshot_build.png"><img src=".github/screenshots/screenshot_build.png" width="59%" /></a>
   <a href=".github/screenshots/screenshot_file_output.png"><img src=".github/screenshots/screenshot_file_output.png" width="40%" /></a>
   <a href=".github/screenshots/screenshot_3d_viewer.png"><img src=".github/screenshots/screenshot_3d_viewer.png" width="99.5%" /></a>
