@@ -1,4 +1,4 @@
-# Keybuild
+# Keyboard Builder (keybuild)
 
 A config-driven toolchain for designing and building custom mechanical keyboards from scratch. Takes a keyboard layout and component choices as input, generates KiCad schematics, PCB layouts, switch plates, 3D-printable cases, ZMK firmware, and a bill of materials — all from a single CLI tool. Includes a 3D web viewer for visualizing the assembled keyboard.
 
